@@ -35,9 +35,15 @@ public class TransferAmountHandling : MonoBehaviour
         switch (currentTransferAmount)
         {
             case 1:
+                currentTransferAmount = 5;
+                break;
+            case 5:
                 currentTransferAmount = 10;
                 break;
             case 10:
+                currentTransferAmount = 50;
+                break;
+            case 50:
                 currentTransferAmount = 100;
                 break;
             case 100:
@@ -56,16 +62,27 @@ public class TransferAmountHandling : MonoBehaviour
             case 1:
                 currentTransferAmount = 1;
                 break;
-            case 10:
+            case 5:
                 currentTransferAmount = 1;
                 break;
-            case 100:
+            case 10:
+                currentTransferAmount = 5;
+                break;
+            case 50:
                 currentTransferAmount = 10;
+                break;
+            case 100:
+                currentTransferAmount = 50;
                 break;
         }
         AdjustLabelTransferAmount();
         source = GetComponent<AudioSource>();
         source.PlayOneShot(clickSound, 1f);
+    }
+
+    public void setTransferAmount (int pTransferAmount)
+    {
+        currentTransferAmount = pTransferAmount;
     }
 
     private void AdjustLabelTransferAmount()
