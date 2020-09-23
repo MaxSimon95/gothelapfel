@@ -20,6 +20,7 @@ public class ButtonSecondaryTransfer : MonoBehaviour
 
     public void buttonPress()
     {
+        Debug.Log("Button press secondary transferamount for " + buttonTransferAmount);
         GameObject.Find("PanelTransferAmount").GetComponent<TransferAmountHandling>().setTransferAmount(buttonTransferAmount);
     }
 }
