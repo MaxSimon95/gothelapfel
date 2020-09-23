@@ -52,12 +52,12 @@ public class InventoryUIBehaviour : MonoBehaviour
     public void ChangeInventoryScroll()
     {
         source = GetComponent<AudioSource>();
-            source.PlayOneShot(clickSound, 1f);
+        source.PlayOneShot(clickSound, 1f);
 
         // Inventory is fully visible
         if (isScrolledUp)
         {
-            Debug.Log("IS SCROLLED UP --> SCROLLING DOWN");
+            //Debug.Log("IS SCROLLED UP --> SCROLLING DOWN");
             isScrolledUp = false;
             LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -307.8795f, 0.1f);
 
@@ -66,7 +66,7 @@ public class InventoryUIBehaviour : MonoBehaviour
 
         // Only first Inventory line is visible
         else {
-            Debug.Log("IS NOT SCROLLED UP --> SCROLLING UP");
+            //Debug.Log("IS NOT SCROLLED UP --> SCROLLING UP");
             isScrolledUp = true;
             LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 231f, 0.1f);
             LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f);

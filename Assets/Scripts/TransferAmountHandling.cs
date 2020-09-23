@@ -83,6 +83,9 @@ public class TransferAmountHandling : MonoBehaviour
     public void setTransferAmount (int pTransferAmount)
     {
         currentTransferAmount = pTransferAmount;
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(clickSound, 1f);
+        AdjustLabelTransferAmount();
     }
 
     private void AdjustLabelTransferAmount()
