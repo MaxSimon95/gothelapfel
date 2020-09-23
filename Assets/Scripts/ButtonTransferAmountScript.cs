@@ -6,7 +6,7 @@ public class ButtonTransferAmountScript : MonoBehaviour
 {
     public AudioClip clickSound;
     private AudioSource source;
-    bool isActivePanelSecondaryTransferAmountSelection = false;
+    //bool isActivePanelSecondaryTransferAmountSelection = false;
     private GameObject panelSecondaryTransferAmountSelection;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,20 @@ public class ButtonTransferAmountScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButton(0))
+        {
+
+            if (
+                !RectTransformUtility.RectangleContainsScreenPoint
+                (
+                panelSecondaryTransferAmountSelection.GetComponent<RectTransform>(),
+                Input.mousePosition
+                )
+               )
+            {
+                panelSecondaryTransferAmountSelection.transform.localScale = new Vector3(0, 0, 0);
+            }
+        }
     }
 
     public void ButtonPress()
@@ -26,15 +39,17 @@ public class ButtonTransferAmountScript : MonoBehaviour
 
         
         //if (panelSecondaryTransferAmountSelection.activeInHierarchy)
-        if(isActivePanelSecondaryTransferAmountSelection)
+        if(panelSecondaryTransferAmountSelection.transform.localScale.y > 0)
         {
             panelSecondaryTransferAmountSelection.transform.localScale = new Vector3(0, 0, 0);
-            isActivePanelSecondaryTransferAmountSelection = false;
+            //isActivePanelSecondaryTransferAmountSelection = false;
+
+            
         }
         else
         {
             panelSecondaryTransferAmountSelection.transform.localScale = new Vector3(1, 1, 1);
-            isActivePanelSecondaryTransferAmountSelection = true;
+            //isActivePanelSecondaryTransferAmountSelection = true;
         }
 
         source = GetComponent<AudioSource>();

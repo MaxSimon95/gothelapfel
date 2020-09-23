@@ -28,10 +28,20 @@ public class InventoryUIBehaviour : MonoBehaviour
         { 
 
             if (
+                (
                 !RectTransformUtility.RectangleContainsScreenPoint
                 (
                 GameObject.Find("PanelInventory").GetComponent<RectTransform>(),
                 Input.mousePosition
+                )
+                )
+                &&
+                (
+                !RectTransformUtility.RectangleContainsScreenPoint
+                (
+                GameObject.Find("PanelSecondaryTransferAmountSelection").GetComponent<RectTransform>(),
+                Input.mousePosition
+                )
                 )
                )
                 {
