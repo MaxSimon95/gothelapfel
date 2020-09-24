@@ -16649,7 +16649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: 'Beispielium '
   color: {r: 0.5471698, g: 0.20906018, b: 0.20906018, a: 0}
-  inventorySprite: {fileID: 21300000, guid: 7288a312d8639d4498118d2f21e77b35, type: 3}
+  inventorySprite: {fileID: 21300000, guid: c8ea99639301bbd4e92c0b5c50e6cf29, type: 3}
 --- !u!1 &1252531562
 GameObject:
   m_ObjectHideFlags: 0
