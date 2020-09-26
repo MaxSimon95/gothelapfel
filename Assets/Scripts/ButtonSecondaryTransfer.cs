@@ -22,6 +22,8 @@ public class ButtonSecondaryTransfer : MonoBehaviour
     {
         Debug.Log("Button press secondary transferamount for " + buttonTransferAmount);
         GameObject.Find("PanelTransferAmount").GetComponent<TransferAmountHandling>().setTransferAmount(buttonTransferAmount);
+
+
         GameObject.Find("PanelSecondaryTransferAmountSelection").transform.localScale = new Vector3(0, 0, 0);
     }
 }
