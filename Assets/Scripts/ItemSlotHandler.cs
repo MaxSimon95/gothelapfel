@@ -4,16 +4,15 @@ using System.Collections.Generic;
 //using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ItemSlotHandler : MonoBehaviour
+public class ItemSlotHandler : MonoBehaviour, IDropHandler 
 {
-    public IngredientType ingredientType;
-    public int amount;
-
+    private Transform originalSlotItem;
     // Start is called before the first frame update
     void Start()
     {
-        UpdateDisplayedSlotContent();
+
     }
 
     // Update is called once per frame
@@ -22,21 +21,37 @@ public class ItemSlotHandler : MonoBehaviour
         
     }
 
-    public void UpdateDisplayedSlotContent()
+    public void OnDrop(PointerEventData eventData)
     {
-       // Debug.Log("IUüdate displayed slot content");
+        Debug.Log("OnDrop");
+        if(eventData.pointerDrag != null)
+        {
+            // Put item in slot if slot is empty
+            if (transform.childCount == 0)
+            {
 
-        // adjust text
-        if (amount > 0)
-            transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = amount.ToString();
-        else
-            transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = " ";
+            eventData.pointerDrag.transform.SetParent(transform);
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+            }
 
-        if(ingredientType != null)
-        transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredientType.GetComponent<IngredientType>().inventorySprite;
-        else
-        transform.GetChild(0).gameObject.GetComponent<Image>().sprite = null;
+            //switch items around if slot already is full
+            else
+            {
+                originalSlotItem = transform.GetChild(0);
+                // move this slot's original item into incoming item's origin slot
+                //transform.GetChild(0).transform.SetParent(eventData.pointerDrag.transform.parent); 
+                originalSlotItem.transform.SetParent(eventData.pointerDrag.GetComponent<DragAndDrop>().startParent);
+                originalSlotItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
 
+                // move incoming item into this slot
+                eventData.pointerDrag.transform.SetParent(transform);
+                eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+            }
+        }
+    }
 
+    public void ButtonPress()
+    {
+        Debug.Log("Item Slot Handler Click");
     }
 }
