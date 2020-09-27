@@ -24,7 +24,7 @@ public class ItemSlotHandler : MonoBehaviour
 
     public void UpdateDisplayedSlotContent()
     {
-        Debug.Log("IUüdate displayed slot content");
+       // Debug.Log("IUüdate displayed slot content");
 
         // adjust text
         if (amount > 0)
