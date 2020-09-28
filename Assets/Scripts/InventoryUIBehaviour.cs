@@ -19,12 +19,14 @@ public class InventoryUIBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("i"))
+        // open/close inventory when i is pressed (and nothing is currently being dragged anywhere, i.e. mousebutton0
+        if (Input.GetKeyDown("i")&&!DragAndDrop.dragInProgress)
         {
             ChangeInventoryScroll();
         }
 
-        if (Input.GetMouseButton(0) && isScrolledUp)
+        // close inventory when its open and mouse leaves the inventory
+        if (isScrolledUp && Input.GetMouseButton(0) && !DragAndDrop.dragInProgress)
         { 
 
             if (

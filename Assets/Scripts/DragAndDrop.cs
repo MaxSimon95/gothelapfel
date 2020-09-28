@@ -13,6 +13,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public GameObject canvas;
     Vector3 startPosition;
     public Transform startParent;
+    public static bool dragInProgress = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnBeginDrag(PointerEventData eventData)
     {
         //UnityEngine.Debug.Log("Drag go");
+        dragInProgress = true;
         itemBeingDragged = gameObject;
         startPosition = transform.position;
         startParent = transform.parent;
@@ -52,6 +54,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        dragInProgress = false;
         //UnityEngine.Debug.Log("Drag stop");
         //Debug.Log(transform.parent + " == " + canvas);
         itemBeingDragged = null;

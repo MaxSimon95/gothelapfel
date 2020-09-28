@@ -22,19 +22,16 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void UpdateItemContent()
     {
-        // Debug.Log("IUüdate displayed slot content");
 
         // adjust text
         if (amount > 0)
             transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = amount.ToString();
         else
-            //transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = " ";
             Destroy(gameObject);
 
         if (ingredientType != null)
             transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredientType.GetComponent<IngredientType>().inventorySprite;
         else
-            //transform.GetChild(0).gameObject.GetComponent<Image>().sprite = null;
             Destroy(gameObject);
 
 
@@ -48,5 +45,17 @@ public class InventoryItemHandler : MonoBehaviour
     public void ButtonPress()
     {
         Debug.Log("InventoryItem Click");
+    }
+
+    void OnMouseOver()
+    {
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        Debug.Log("Mouse is over GameObject.");
+    }
+
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        Debug.Log("Mouse is no longer on GameObject.");
     }
 }
