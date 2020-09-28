@@ -9,13 +9,16 @@ public class MainCameraHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
+        
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
 
-                Debug.Log(hit.collider.name);
+           
+
+            if (Input.GetMouseButton(0))
+            {
+                //Debug.Log(hit.collider.name);
 
             }
         }

@@ -9,6 +9,7 @@ public class InventoryUIBehaviour : MonoBehaviour
     public bool isScrolledUp = false;
     public AudioClip clickSound;
     private AudioSource source;
+    public static GameObject panelInventory;
 
     // Start is called before the first frame update
     void Start()

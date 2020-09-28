@@ -38,5 +38,4 @@ public class TooltipUITargetHandler : MonoBehaviour, IPointerEnterHandler, IPoin
         
     }
 
-
 }
