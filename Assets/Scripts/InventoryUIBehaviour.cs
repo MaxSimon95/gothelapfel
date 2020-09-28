@@ -84,4 +84,5 @@ public class InventoryUIBehaviour : MonoBehaviour
             LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f);
         }
     }
+
 }

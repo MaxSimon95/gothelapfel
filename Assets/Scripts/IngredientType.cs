@@ -8,6 +8,7 @@ public class IngredientType : MonoBehaviour
     public string ingredientName;
     public Color color;
     public Sprite inventorySprite;
+    public AudioClip ingredientSound;
     /*
     public class IngredientType
     {
@@ -41,10 +42,10 @@ public class IngredientType : MonoBehaviour
         }
     } */
 
-   /* private void InitializeIngredientTypes
-    {
+    /* private void InitializeIngredientTypes
+     {
 
-    } */
+     } */
 
     // Start is called before the first frame update
     void Start()

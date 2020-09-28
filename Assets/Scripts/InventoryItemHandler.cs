@@ -8,10 +8,12 @@ public class InventoryItemHandler : MonoBehaviour
 
     public IngredientType ingredientType;
     public int amount;
+
     // Start is called before the first frame update
     void Start()
     {
         UpdateItemContent();
+        GetComponent<TooltipUITargetHandler>().tooltipText = ingredientType.GetComponent<IngredientType>().ingredientName;
     }
 
     // Update is called once per frame
@@ -33,8 +35,6 @@ public class InventoryItemHandler : MonoBehaviour
             transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredientType.GetComponent<IngredientType>().inventorySprite;
         else
             Destroy(gameObject);
-
-
     }
 
     public void DeleteInstanceOfInventoryItem()
@@ -47,15 +47,4 @@ public class InventoryItemHandler : MonoBehaviour
         Debug.Log("InventoryItem Click");
     }
 
-    void OnMouseOver()
-    {
-        //If your mouse hovers over the GameObject with the script attached, output this message
-        Debug.Log("Mouse is over GameObject.");
-    }
-
-    void OnMouseExit()
-    {
-        //The mouse is no longer hovering over the GameObject so output this message each frame
-        Debug.Log("Mouse is no longer on GameObject.");
-    }
 }
