@@ -10,7 +10,7 @@ public class MainCameraHandler : MonoBehaviour
     void Update()
     {
         
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+           /* ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
 
@@ -21,7 +21,7 @@ public class MainCameraHandler : MonoBehaviour
                 //Debug.Log(hit.collider.name);
 
             }
-        }
+        }*/
 
     }
 }

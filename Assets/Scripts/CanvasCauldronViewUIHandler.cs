@@ -7,6 +7,7 @@ public class CanvasCauldronViewUIHandler : MonoBehaviour
     // Start is called before the first frame update
     //public static GameObject viewGameObject;
     private float inventoryStartPosition;
+    
 
     void Awake()
     {
@@ -30,6 +31,8 @@ public class CanvasCauldronViewUIHandler : MonoBehaviour
     {
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
         LeanTween.moveX(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -inventoryStartPosition/2, 1f).setEaseInOutCubic();
+        GameObject.Find("ButtonArrowInventory").GetComponent<InventoryUIBehaviour>().ChangeInventoryScroll();
+        GameObject.Find("ButtonArrowInventory").GetComponent<InventoryUIBehaviour>().isLocked = true;
 
     }
 
@@ -38,5 +41,9 @@ public class CanvasCauldronViewUIHandler : MonoBehaviour
         Debug.Log("close cauld");
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
         LeanTween.moveX(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 0, 1f).setEaseInOutCubic();
+        GameObject.Find("ButtonArrowInventory").GetComponent<InventoryUIBehaviour>().isLocked = false;
+        GameObject.Find("ButtonArrowInventory").GetComponent<InventoryUIBehaviour>().ChangeInventoryScroll();
+        
+        
     }
 }

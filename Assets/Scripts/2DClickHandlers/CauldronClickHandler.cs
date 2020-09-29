@@ -28,16 +28,16 @@ public class CauldronClickHandler : MonoBehaviour, IPointerClickHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse Enter!");
+        LeanTween.color(gameObject, new Color(1f, 0.94f, 0.43f, 1f), 0.1f);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("Mouse Up!");
+        //Debug.Log("Mouse Up!");
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse Exit!");
+        LeanTween.color(gameObject, Color.white, 0.1f);
     }
 
     //Add Event System to the Camera

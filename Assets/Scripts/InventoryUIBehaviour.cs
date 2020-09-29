@@ -10,6 +10,7 @@ public class InventoryUIBehaviour : MonoBehaviour
     public AudioClip clickSound;
     private AudioSource source;
     public static GameObject panelInventory;
+    public bool isLocked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,26 +65,34 @@ public class InventoryUIBehaviour : MonoBehaviour
 
     public void ChangeInventoryScroll()
     {
-        source = GetComponent<AudioSource>();
-        source.PlayOneShot(clickSound, 1f);
+        
 
-        // Inventory is fully visible
-        if (isScrolledUp)
+        if(!isLocked)
         {
-            //Debug.Log("IS SCROLLED UP --> SCROLLING DOWN");
-            isScrolledUp = false;
-            LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -307.8795f, 0.1f);
 
-            LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f);
-        }
+            source = GetComponent<AudioSource>();
+            source.PlayOneShot(clickSound, 1f);
 
-        // Only first Inventory line is visible
-        else {
-            //Debug.Log("IS NOT SCROLLED UP --> SCROLLING UP");
-            isScrolledUp = true;
-            LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 231f, 0.1f);
-            LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f);
+            // Inventory is fully visible
+            if (isScrolledUp)
+            {
+                //Debug.Log("IS SCROLLED UP --> SCROLLING DOWN");
+                isScrolledUp = false;
+                LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -307.8795f, 0.8f).setEaseInOutCubic();
+
+                LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic(); ;
+            }
+
+            // Only first Inventory line is visible
+            else
+            {
+                //Debug.Log("IS NOT SCROLLED UP --> SCROLLING UP");
+                isScrolledUp = true;
+                LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 231f, 0.8f).setEaseInOutCubic();
+                LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic();
+            }
         }
+        
     }
 
 }
