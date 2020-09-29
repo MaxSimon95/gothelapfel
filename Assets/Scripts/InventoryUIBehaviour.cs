@@ -28,7 +28,7 @@ public class InventoryUIBehaviour : MonoBehaviour
         }
 
         // close inventory when its open and mouse leaves the inventory
-        if (isScrolledUp && Input.GetMouseButton(0) && !DragAndDrop.dragInProgress)
+        if (isScrolledUp && Input.GetMouseButton(0) && !DragAndDrop.dragInProgress && !isLocked)
         { 
 
             if (
@@ -67,32 +67,71 @@ public class InventoryUIBehaviour : MonoBehaviour
     {
         
 
-        if(!isLocked)
-        {
+      
 
-            source = GetComponent<AudioSource>();
-            source.PlayOneShot(clickSound, 1f);
+            
 
             // Inventory is fully visible
             if (isScrolledUp)
             {
-                //Debug.Log("IS SCROLLED UP --> SCROLLING DOWN");
-                isScrolledUp = false;
-                LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -307.8795f, 0.8f).setEaseInOutCubic();
-
-                LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic(); ;
+                CloseInventory();
             }
 
             // Only first Inventory line is visible
             else
             {
-                //Debug.Log("IS NOT SCROLLED UP --> SCROLLING UP");
-                isScrolledUp = true;
-                LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 231f, 0.8f).setEaseInOutCubic();
-                LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic();
+                OpenInventory();
             }
-        }
+        
         
     }
 
+    public void OpenInventory(float customMoveY)
+    {
+        if (!isLocked)
+        {
+            source = GetComponent<AudioSource>();
+            source.PlayOneShot(clickSound, 1f);
+
+            //Debug.Log("IS NOT SCROLLED UP --> SCROLLING UP");
+            isScrolledUp = true;
+            LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), customMoveY, 0.8f).setEaseInOutCubic();
+            LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic();
+        }
+    }
+
+    public void OpenInventory()
+    {
+        OpenInventory(231f);
+    
+
+    }
+
+   
+
+    public void CloseInventory()
+    {
+        if (!isLocked)
+        {
+            source = GetComponent<AudioSource>();
+            source.PlayOneShot(clickSound, 1f);
+
+            //Debug.Log("IS SCROLLED UP --> SCROLLING DOWN");
+            isScrolledUp = false;
+            LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -307.8795f, 0.8f).setEaseInOutCubic();
+        }
+        
+
+    LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic(); ;
+    }
+
+    public void HideButton()
+    {
+        transform.localScale = new Vector3(0, 0, 0);
+    }
+
+    public void ShowButton()
+    {
+        transform.localScale = new Vector3(1, 1, 1);
+    }
 }
