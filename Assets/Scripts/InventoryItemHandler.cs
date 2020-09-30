@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Alchemy.Namespace;
 
 public class InventoryItemHandler : MonoBehaviour
 {
 
-    public IngredientTypeHandler ingredientType;
+    public IngredientType ingredientType;
     public int amount;
 
     // Start is called before the first frame update
     void Start()
     {
         UpdateItemContent();
-        GetComponent<TooltipUITargetHandler>().tooltipText = ingredientType.GetComponent<IngredientTypeHandler>().ingredientName;
+        GetComponent<TooltipUITargetHandler>().tooltipText = ingredientType.GetComponent<IngredientType>().ingredientName;
     }
 
     // Update is called once per frame

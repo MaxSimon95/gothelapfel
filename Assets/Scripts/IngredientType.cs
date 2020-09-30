@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Alchemy.Namespace;
 
-public class IngredientTypeHandler : MonoBehaviour
+public class IngredientType : MonoBehaviour
 {
     //public string id;
     public string ingredientName;
     public Color color;
     public Sprite inventorySprite;
     public AudioClip ingredientSound;
-    public IngredientType ingredientType;
     /*
     public class IngredientType
     {
