@@ -29,7 +29,7 @@ public class InventoryItemHandler : MonoBehaviour
         // more than one: Say "Unknown Mixture" --> Can be fancied up later on, with all sorts of fun special cases we cover here (any mix of salt + water gets called salt water for example)
         else
         {
-            Debug.Log("NOT YET IMPLEMENTED - MORE THAN 1 INGREDIENT IN INVENTORYITEM - TOOLTIP");
+            GetComponent<TooltipUITargetHandler>().tooltipText = "Mysterious Mixture";
             Debug.Log(ingredientTypes.Count);
         }
 
