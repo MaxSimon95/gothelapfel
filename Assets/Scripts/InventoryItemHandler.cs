@@ -66,7 +66,7 @@ public class InventoryItemHandler : MonoBehaviour
             // if more than one ingredienttype, take a designated mixture sprite, or do something fancy later on. here we can add FUN little mechanics to make it more fancy as we see fit.
             else
             {
-                Debug.Log("NOT YET IMPLEMENTED - MORE THAN 1 INGREDIENT IN INVENTORYITEM - SPRITE");
+                transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("ph_ingredient_mix");
             }
         }
             
