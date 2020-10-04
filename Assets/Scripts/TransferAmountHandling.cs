@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TransferAmountHandling : MonoBehaviour
 {
-    public int currentTransferAmount = 10;
+    public static int currentTransferAmount = 10;
     public AudioClip clickSound;
     private AudioSource source;
 

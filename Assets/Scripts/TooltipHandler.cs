@@ -28,7 +28,7 @@ public class TooltipHandler : MonoBehaviour
 
     public static void RenderAgain()
     {
-        Debug.Log("RenderAgain Called");
+        //Debug.Log("RenderAgain Called");
         /*  horizLayoutGroup.CalculateLayoutInputHorizontal();
           horizLayoutGroup.CalculateLayoutInputVertical();
           horizLayoutGroup.SetLayoutHorizontal();

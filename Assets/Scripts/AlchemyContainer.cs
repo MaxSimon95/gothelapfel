@@ -5,9 +5,11 @@ using UnityEngine;
 public class AlchemyContainer : MonoBehaviour
 {
 
-    public List<GameObject> ingredients = new List<GameObject>();
+    public List<IngredientType> ingredientTypes = new List<IngredientType>();
+    public List<int> ingredientTypeAmounts = new List<int>();
+    public float temperature;
 
-    
+
 
     // Start is called before the first frame update
     void Start()

@@ -23,7 +23,7 @@ public class TooltipUITargetHandler : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(TooltipHandler.tooltip);
+        //Debug.Log(TooltipHandler.tooltip);
 
         TooltipHandler.tooltip.transform.position = transform.position + new Vector3(105, -20, 0); ;
         TooltipHandler.tooltip.transform.GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = tooltipText;
@@ -34,7 +34,7 @@ public class TooltipUITargetHandler : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse is no longer on GameObject.");
+        //Debug.Log("Mouse is no longer on GameObject.");
         TooltipHandler.tooltip.transform.localScale = new Vector3(0, 0, 0);
         
     }

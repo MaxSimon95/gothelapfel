@@ -52,6 +52,6 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
     public void ButtonPress()
     {
-        Debug.Log("Item Slot Handler Click");
+        //Debug.Log("Item Slot Handler Click");
     }
 }

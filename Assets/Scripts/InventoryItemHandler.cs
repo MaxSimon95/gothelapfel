@@ -9,13 +9,13 @@ public class InventoryItemHandler : MonoBehaviour
 
     public List<IngredientType> ingredientTypes = new List<IngredientType>();
     public List<int> ingredientTypeAmounts = new List<int>();
-    private int amountTotal;
+    public int amountTotal;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(ingredientTypes.Count);
-        amountTotal = ingredientTypeAmounts.Sum();
+        //Debug.Log(ingredientTypes.Count);
+         amountTotal = ingredientTypeAmounts.Sum();
         UpdateItemContent();
 
         // set tooltip text for inventoryItem
@@ -30,7 +30,7 @@ public class InventoryItemHandler : MonoBehaviour
         else
         {
             GetComponent<TooltipUITargetHandler>().tooltipText = "Mysterious Mixture";
-            Debug.Log(ingredientTypes.Count);
+            //Debug.Log(ingredientTypes.Count);
         }
 
         
@@ -85,7 +85,7 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void ButtonPress()
     {
-        Debug.Log("InventoryItem Click");
+        //Debug.Log("InventoryItem Click");
     }
 
 }
