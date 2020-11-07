@@ -18,20 +18,6 @@ public class InventoryItemHandler : MonoBehaviour
          
         UpdateItemContent();
 
-        // set tooltip text for inventoryItem
-
-        // just one ingredienttype: use its ingredienttype name for tooltip text
-        if(ingredientTypes.Count == 1)
-        {
-            GetComponent<TooltipUITargetHandler>().tooltipText = ingredientTypes[0].GetComponent<IngredientType>().ingredientName;
-        }
-
-        // more than one: Say "Unknown Mixture" --> Can be fancied up later on, with all sorts of fun special cases we cover here (any mix of salt + water gets called salt water for example)
-        else
-        {
-            GetComponent<TooltipUITargetHandler>().tooltipText = "Mysterious Mixture";
-            //Debug.Log(ingredientTypes.Count);
-        }
 
         
     }
@@ -42,8 +28,29 @@ public class InventoryItemHandler : MonoBehaviour
         
     }
 
+    private void SetToolTipText()
+    {
+
+        // set tooltip text for inventoryItem
+
+        // just one ingredienttype: use its ingredienttype name for tooltip text
+        if (ingredientTypes.Count == 1)
+        {
+            GetComponent<TooltipUITargetHandler>().tooltipText = ingredientTypes[0].GetComponent<IngredientType>().ingredientName;
+        }
+
+        // more than one: Say "Unknown Mixture" --> Can be fancied up later on, with all sorts of fun special cases we cover here (any mix of salt + water gets called salt water for example)
+        else
+        {
+            GetComponent<TooltipUITargetHandler>().tooltipText = "Mysterious Mixture";
+            //Debug.Log(ingredientTypes.Count);
+        }
+    }
+
     public void UpdateItemContent()
     {
+        DeleteIngredientIfEmpty();
+
         Debug.Log("Update Item Content");
         amountTotal = ingredientTypeAmounts.Sum();
 
@@ -76,7 +83,22 @@ public class InventoryItemHandler : MonoBehaviour
             Debug.Log("Destroyed because ingredientTypes count 0");
                 Destroy(gameObject);
         }
-            
+
+        SetToolTipText();
+
+
+    }
+
+    private void DeleteIngredientIfEmpty()
+    {
+        for (int index = 0; index < ingredientTypeAmounts.Count; index++)
+        {
+            if(ingredientTypeAmounts[index] <= 0 )
+            {
+                ingredientTypeAmounts.RemoveAt(index);
+                ingredientTypes.RemoveAt(index);
+            }
+        }
     }
 
     public void DeleteInstanceOfInventoryItem()

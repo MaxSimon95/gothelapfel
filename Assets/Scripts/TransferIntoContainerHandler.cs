@@ -95,10 +95,10 @@ public class TransferIntoContainerHandler : MonoBehaviour
 
             // TODO reduce amount of ingredients in amountlist
 
-            //ingredientTypeAmountsInSlot[index] -= transfer
-            ingredientTypeAmountsInSlot[index] = 500;
+            ingredientTypeAmountsInSlot[index] -= transfer;
+            //ingredientTypeAmountsInSlot[index] = 500;
 
-            //ingredientTypeAmountsInSlot[index] -= transfer;
+            // TODO remove one ingredient if it falls to zero 
 
             // TODO put ingredients into container
 
@@ -108,7 +108,18 @@ public class TransferIntoContainerHandler : MonoBehaviour
 
         }
 
-        inventoryItemInSlot.GetComponent<InventoryItemHandler>().UpdateItemContent();
+            // clean up the 1 unit that might still need to be moved because the division didnt produce integer results
+        for (int index = 0; (index < ingredientTypeAmountsInSlot.Count)&&(remainingTransferAmount>0); index++)
+        {
+            if(ingredientTypeAmountsInSlot[index]>0) // this if statement could be removed once we properly and cleanly removed empty ingredients from the inventoryitem 
+            {
+                ingredientTypeAmountsInSlot[index] -= 1;
+                remainingTransferAmount = 0;
+            }
+        }
+
+            inventoryItemInSlot.GetComponent<InventoryItemHandler>().UpdateItemContent();
+
 
 
         //Debug.Log(ingredientTypeAmountsInSlot.Count);
