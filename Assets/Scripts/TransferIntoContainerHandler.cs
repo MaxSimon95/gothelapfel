@@ -73,7 +73,6 @@ public class TransferIntoContainerHandler : MonoBehaviour
         // introduce variable that will be lowered each time a bit of an ingredient type gets moved out of the inventoryitem
         int remainingTransferAmount = transferAmount;
 
-        // introduce variable that says how much will be taken out of each ingredient type (in the first round, where every ingredient type gets reduced by the same amount
         //int ingredientAmoundToBeTransfered = remainingTransferAmount / ;
 
         // first round of moving ingredients over into the cauldron
@@ -90,10 +89,16 @@ public class TransferIntoContainerHandler : MonoBehaviour
             transfer = (int)(Decimal.Divide(amountInSlot, inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal) * transferAmount);
             Debug.Log("Übertragung: " + transfer);
             remainingTransferAmount -= transfer;
+            
             Debug.Log("Remaining TransferAmount danach: " + remainingTransferAmount);
             Debug.Log("___________");
 
             // TODO reduce amount of ingredients in amountlist
+
+            //ingredientTypeAmountsInSlot[index] -= transfer
+            ingredientTypeAmountsInSlot[index] = 500;
+
+            //ingredientTypeAmountsInSlot[index] -= transfer;
 
             // TODO put ingredients into container
 
@@ -102,6 +107,8 @@ public class TransferIntoContainerHandler : MonoBehaviour
             // TODO adjust ui feedback on container
 
         }
+
+        inventoryItemInSlot.GetComponent<InventoryItemHandler>().UpdateItemContent();
 
 
         //Debug.Log(ingredientTypeAmountsInSlot.Count);

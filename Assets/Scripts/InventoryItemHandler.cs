@@ -15,7 +15,7 @@ public class InventoryItemHandler : MonoBehaviour
     void Start()
     {
         //Debug.Log(ingredientTypes.Count);
-         amountTotal = ingredientTypeAmounts.Sum();
+         
         UpdateItemContent();
 
         // set tooltip text for inventoryItem
@@ -44,7 +44,8 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void UpdateItemContent()
     {
-
+        Debug.Log("Update Item Content");
+        amountTotal = ingredientTypeAmounts.Sum();
 
         // adjust amount text
         if (amountTotal > 0)
