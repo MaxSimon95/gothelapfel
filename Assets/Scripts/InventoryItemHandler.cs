@@ -14,12 +14,8 @@ public class InventoryItemHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(ingredientTypes.Count);
-         
+        //Debug.Log(ingredientTypes.Count);       
         UpdateItemContent();
-
-
-        
     }
 
     // Update is called once per frame
@@ -86,7 +82,6 @@ public class InventoryItemHandler : MonoBehaviour
 
         SetToolTipText();
 
-
     }
 
     private void DeleteIngredientIfEmpty()
@@ -108,7 +103,7 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void ButtonPress()
     {
-        //Debug.Log("InventoryItem Click");
+
     }
 
 }
