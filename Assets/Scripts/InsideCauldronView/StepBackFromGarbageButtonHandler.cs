@@ -18,6 +18,6 @@ public class StepBackFromGarbageButtonHandler : MonoBehaviour
 
     public void StepBackFromGarbage()
     {
-        GameObject.Find("CanvasGarbageView").GetComponent<CanvasCauldronViewUIHandler>().CloseCauldronView();
+        GameObject.Find("CanvasGarbageView").GetComponent<CanvasContainerHandler>().CloseContainerView();
     }
 }

@@ -15,7 +15,7 @@ public class GargabeClickHandler : MonoBehaviour, IPointerClickHandler,
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Mouse Clicked!");
-        GameObject.Find("CanvasGarbageView").GetComponent<CanvasCauldronViewUIHandler>().OpenCauldronView();
+        GameObject.Find("CanvasGarbageView").GetComponent<CanvasContainerHandler>().OpenContainerView();
     }
 
     public void OnPointerDown(PointerEventData eventData)
