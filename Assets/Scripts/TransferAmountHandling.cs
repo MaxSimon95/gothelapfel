@@ -13,6 +13,7 @@ public class TransferAmountHandling : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(0, 0, 0);
         AdjustLabelTransferAmount();
     }
 

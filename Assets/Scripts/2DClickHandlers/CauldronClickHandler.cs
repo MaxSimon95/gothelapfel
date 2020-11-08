@@ -18,7 +18,7 @@ public class CauldronClickHandler : MonoBehaviour, IPointerClickHandler,
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Mouse Clicked!");
-        GameObject.Find("CanvasCauldronView").GetComponent<CanvasCauldronViewUIHandler>().OpenCauldronView();
+        GameObject.Find("CanvasCauldronView").GetComponent<CanvasContainerHandler>().OpenContainerView();
     }
 
     public void OnPointerDown(PointerEventData eventData)

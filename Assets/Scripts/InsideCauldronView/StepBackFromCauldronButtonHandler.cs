@@ -18,6 +18,7 @@ public class StepBackFromCauldronButtonHandler : MonoBehaviour
 
     public void StepBackFromCauldron()
     {
-        GameObject.Find("CanvasCauldronView").GetComponent<CanvasCauldronViewUIHandler>().CloseCauldronView();
+
+        GameObject.Find("CanvasCauldronView").GetComponent<CanvasContainerHandler>().CloseContainerView();
     }
 }

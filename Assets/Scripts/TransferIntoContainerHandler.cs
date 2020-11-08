@@ -82,23 +82,21 @@ public class TransferIntoContainerHandler : MonoBehaviour
             for(int index=0; index < ingredientTypeAmountsInSlot.Count; index++)
         {
             int amountInSlot = ingredientTypeAmountsInSlot[index];
-            IngredientType ingredientInSlot = ingredientTypesInSlot[index];
+            //IngredientType ingredientInSlot = ingredientTypesInSlot[index];
             int transfer;
-            Debug.Log("Anteil: " + Decimal.Divide(amountInSlot, inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal));
-            Debug.Log("i: " + amountInSlot);
+            //Debug.Log("Anteil: " + Decimal.Divide(amountInSlot, inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal));
+            //Debug.Log("i: " + amountInSlot);
             transfer = (int)(Decimal.Divide(amountInSlot, inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal) * transferAmount);
-            Debug.Log("Übertragung: " + transfer);
+            //Debug.Log("Übertragung: " + transfer);
             remainingTransferAmount -= transfer;
             
-            Debug.Log("Remaining TransferAmount danach: " + remainingTransferAmount);
-            Debug.Log("___________");
+            //Debug.Log("Remaining TransferAmount danach: " + remainingTransferAmount);
+            //Debug.Log("___________");
 
             // TODO reduce amount of ingredients in amountlist
 
             ingredientTypeAmountsInSlot[index] -= transfer;
             //ingredientTypeAmountsInSlot[index] = 500;
-
-            // TODO remove one ingredient if it falls to zero 
 
             // TODO put ingredients into container
 
