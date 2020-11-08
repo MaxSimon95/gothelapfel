@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Linq;
+
+
 public class TransferIntoContainerHandler : MonoBehaviour
 {
 
@@ -57,8 +60,14 @@ public class TransferIntoContainerHandler : MonoBehaviour
         List<int> ingredientTypeAmountsInSlot = inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts;
         int transferAmount = TransferAmountHandling.currentTransferAmount;
 
-        // transferamount anpassen, wenn weniger stuff da ist als die schöpfkelle rausholen will
-        Debug.Log("_____");
+        // transferamount anpassen, wenn weniger platz im container da ist als übertragen werden soll
+        if (transferAmount > (container.GetComponent<AlchemyContainer>().capacity - container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum()))
+        {
+            transferAmount = (container.GetComponent<AlchemyContainer>().capacity - container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum());
+        }
+
+            // transferamount anpassen, wenn weniger stuff da ist als die schöpfkelle rausholen will
+            Debug.Log("_____");
         Debug.Log(" transferAmount = " + transferAmount + "; AmountTotal = " + inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal);
         if (transferAmount > inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal)
         {
@@ -73,32 +82,21 @@ public class TransferIntoContainerHandler : MonoBehaviour
         // introduce variable that will be lowered each time a bit of an ingredient type gets moved out of the inventoryitem
         int remainingTransferAmount = transferAmount;
 
-        //int ingredientAmoundToBeTransfered = remainingTransferAmount / ;
-
-        // first round of moving ingredients over into the cauldron
-        //
-        //foreach (int i in ingredientTypeAmountsInSlot)
-
             for(int index=0; index < ingredientTypeAmountsInSlot.Count; index++)
         {
             int amountInSlot = ingredientTypeAmountsInSlot[index];
-            //IngredientType ingredientInSlot = ingredientTypesInSlot[index];
             int transfer;
-            //Debug.Log("Anteil: " + Decimal.Divide(amountInSlot, inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal));
-            //Debug.Log("i: " + amountInSlot);
             transfer = (int)(Decimal.Divide(amountInSlot, inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal) * transferAmount);
-            //Debug.Log("Übertragung: " + transfer);
             remainingTransferAmount -= transfer;
-            
-            //Debug.Log("Remaining TransferAmount danach: " + remainingTransferAmount);
-            //Debug.Log("___________");
 
-            // TODO reduce amount of ingredients in amountlist
+            // reduce amount of ingredients in amountlist
 
             ingredientTypeAmountsInSlot[index] -= transfer;
             //ingredientTypeAmountsInSlot[index] = 500;
 
             // TODO put ingredients into container
+
+            container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypesInSlot[index], transfer);
 
             // TODO see if there's cleaning up todo
 
@@ -111,6 +109,7 @@ public class TransferIntoContainerHandler : MonoBehaviour
         {
             if(ingredientTypeAmountsInSlot[index]>0) // this if statement could be removed once we properly and cleanly removed empty ingredients from the inventoryitem 
             {
+                container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypesInSlot[index], 1);
                 ingredientTypeAmountsInSlot[index] -= 1;
                 remainingTransferAmount = 0;
             }
