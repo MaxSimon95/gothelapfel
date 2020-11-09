@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class AlchemyContainer : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AlchemyContainer : MonoBehaviour
     public List<int> ingredientTypeAmounts = new List<int>();
     public float temperature;
     public int capacity;
+    public int amountTotal;
 
 
 
@@ -35,7 +37,61 @@ public class AlchemyContainer : MonoBehaviour
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
 
+        UpdateContent();
+
+    }
+
+    private void DeleteIngredientIfEmpty()
+    {
+        for (int index = ingredientTypeAmounts.Count - 1; index >= 0; index--)
+        {
+            if (ingredientTypeAmounts[index] <= 0)
+            {
+                ingredientTypeAmounts.RemoveAt(index);
+                ingredientTypes.RemoveAt(index);
+            }
+        }
+    }
+
+    public void UpdateContent()
+    {
         MergeIdenticalIngredients();
+
+        // only relevant if container is really empty, everything else gets solved by merging
+        DeleteIngredientIfEmpty();
+
+        Debug.Log("Update Container Content");
+        amountTotal = ingredientTypeAmounts.Sum();
+
+        // adjust amount text
+        /*if (amountTotal > 0)
+            transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = amountTotal.ToString();
+        else
+        {
+            Debug.Log("Destroyed because amounttotal 0");
+            Destroy(gameObject);
+        } */
+
+
+        // adjust inventoryitem sprite
+        /*if (ingredientTypes.Count > 0)
+        {
+            // if just one ingredienttype , take it's ingredienttype sprite
+            if (ingredientTypes.Count == 1)
+                transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredientTypes[0].GetComponent<IngredientType>().inventorySprite;
+
+            // if more than one ingredienttype, take a designated mixture sprite, or do something fancy later on. here we can add FUN little mechanics to make it more fancy as we see fit.
+            else
+            {
+                transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("ph_ingredient_mix");
+            }
+        }
+
+        else
+        {
+            Debug.Log("Destroyed because ingredientTypes count 0");
+            Destroy(gameObject);
+        }*/
 
     }
 

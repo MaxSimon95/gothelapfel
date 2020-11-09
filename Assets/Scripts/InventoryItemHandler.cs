@@ -86,7 +86,7 @@ public class InventoryItemHandler : MonoBehaviour
 
     private void DeleteIngredientIfEmpty()
     {
-        for (int index = 0; index < ingredientTypeAmounts.Count; index++)
+        for (int index = ingredientTypeAmounts.Count-1; index >= 0; index--)
         {
             if(ingredientTypeAmounts[index] <= 0 )
             {

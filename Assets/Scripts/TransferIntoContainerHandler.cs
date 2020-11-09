@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using System.Linq;
 
@@ -10,8 +11,9 @@ public class TransferIntoContainerHandler : MonoBehaviour
 {
 
     public GameObject container;
-    public GameObject itemSlot;
-    public GameObject inventoryItemInSlot;
+    //private GameObject itemSlot;
+    private GameObject inventoryItemInSlot;
+    private bool buttonActive;
     //private int transferAmount = TransferAmountHandling.currentTransferAmount;
 
     // Start is called before the first frame update
@@ -20,40 +22,52 @@ public class TransferIntoContainerHandler : MonoBehaviour
         
     }
 
+    private void Awake()
+    {
+        
+        //itemSlot = GetComponent<TransferContainerHandler>().itemSlot;
+        //updateButtonActive();
+    }
+
     // Update is called once per frame
     void Update()
     {
         
     }
 
-    private GameObject LoadSlotItemIntoScript()
+    public void updateButtonActive()
     {
-        //Debug.Log("UpdateInventoryItemInSlot");
-        GameObject returnItem = null;
 
-        foreach (Transform child in transform.parent)
+        buttonActive = true;
+ 
+        if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null)
         {
-            //Debug.Log(child.gameObject.name);
-            if (child.gameObject.name == "InventorySlot")
-            {
-                if(child.childCount > 0)
-                {
-                    Debug.Log("There is an item in the slot");
-                    returnItem = child.GetChild(0).gameObject;
-                    
-                }
-                else
-                {
-                    Debug.Log("No item in slot");
-                } 
-            }
+            buttonActive = false;
         }
-        return returnItem;
+
+        if (container.GetComponent<AlchemyContainer>().capacity <= container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum())
+        {
+            buttonActive = false;
+        }
+
+        if (buttonActive)
+            {
+            
+                GetComponent<Button>().interactable = true;
+        }
+            else
+            {
+            
+            GetComponent<Button>().interactable = false;
+        }
+
     }
+
+    
 
     public void TransferIntoContainer()
     {
-        inventoryItemInSlot = LoadSlotItemIntoScript();
+        inventoryItemInSlot = GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript();
         if (inventoryItemInSlot == null) return;
 
         List<IngredientType> ingredientTypesInSlot = inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypes;
@@ -67,8 +81,8 @@ public class TransferIntoContainerHandler : MonoBehaviour
         }
 
             // transferamount anpassen, wenn weniger stuff da ist als die schöpfkelle rausholen will
-            Debug.Log("_____");
-        Debug.Log(" transferAmount = " + transferAmount + "; AmountTotal = " + inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal);
+        //    Debug.Log("_____");
+        //Debug.Log(" transferAmount = " + transferAmount + "; AmountTotal = " + inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal);
         if (transferAmount > inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal)
         {
 
@@ -76,7 +90,7 @@ public class TransferIntoContainerHandler : MonoBehaviour
 
             Debug.Log("transferAmount reduziert auf: " + transferAmount);
         }
-        Debug.Log("_____");
+       // Debug.Log("_____");
 
 
         // introduce variable that will be lowered each time a bit of an ingredient type gets moved out of the inventoryitem
@@ -92,9 +106,8 @@ public class TransferIntoContainerHandler : MonoBehaviour
             // reduce amount of ingredients in amountlist
 
             ingredientTypeAmountsInSlot[index] -= transfer;
-            //ingredientTypeAmountsInSlot[index] = 500;
 
-            // TODO put ingredients into container
+            //put ingredients into container
 
             container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypesInSlot[index], transfer);
 
@@ -117,7 +130,17 @@ public class TransferIntoContainerHandler : MonoBehaviour
 
             inventoryItemInSlot.GetComponent<InventoryItemHandler>().UpdateItemContent();
 
+        updateButtonActive();
 
+        foreach (Transform child in transform.parent)
+        {
+
+            if (child.gameObject.name == "ButtonTransferOutOfContainer")
+            {
+            //    Debug.Log("Calling updateButtonActive from outside");
+                child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+            }
+        }
 
         //Debug.Log(ingredientTypeAmountsInSlot.Count);
 
