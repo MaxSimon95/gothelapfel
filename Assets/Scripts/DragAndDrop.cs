@@ -10,7 +10,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private RectTransform rectTransform;
 
     public static GameObject itemBeingDragged;
-    public GameObject canvas;
+    private GameObject canvas;
     Vector3 startPosition;
     public Transform startParent;
     public static bool dragInProgress = false;
@@ -20,6 +20,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
 
         rectTransform = GetComponent<RectTransform>();
+        canvas = GameObject.Find("CanvasDragItem");
 
 
     }
@@ -49,20 +50,20 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         // activate according function in previous itemslot if that was a slot in the transfer panel, so ui adjustments can be made there
         if (originalParent.name == "PanelTransfer")
         {
-            Debug.Log("Panel Transfer alright");
+            //Debug.Log("Panel Transfer alright");
 
 
             foreach (Transform child in originalParent.transform)
             {
                 if (child.gameObject.name == "ButtonTransferIntoContainer")
                 {
-                    Debug.Log("Calling updateButtonActive from outside");
+                    //Debug.Log("Calling updateButtonActive from outside");
                     child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
                 }
 
                 if (child.gameObject.name == "ButtonTransferOutOfContainer")
                 {
-                    Debug.Log("Calling updateButtonActive from outside");
+                    //Debug.Log("Calling updateButtonActive from outside");
                     child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
                 }
             }

@@ -37,14 +37,17 @@ public class TransferIntoContainerHandler : MonoBehaviour
 
     public void updateButtonActive()
     {
-
+        Debug.Log("update In button:");
         buttonActive = true;
- 
+
+        Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null);
+        Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript());
         if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null)
         {
             buttonActive = false;
         }
 
+        Debug.Log(container.GetComponent<AlchemyContainer>().capacity <= container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum());
         if (container.GetComponent<AlchemyContainer>().capacity <= container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum())
         {
             buttonActive = false;
@@ -88,7 +91,7 @@ public class TransferIntoContainerHandler : MonoBehaviour
 
             transferAmount = inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal;
 
-            Debug.Log("transferAmount reduziert auf: " + transferAmount);
+            //Debug.Log("transferAmount reduziert auf: " + transferAmount);
         }
        // Debug.Log("_____");
 
@@ -131,13 +134,14 @@ public class TransferIntoContainerHandler : MonoBehaviour
             inventoryItemInSlot.GetComponent<InventoryItemHandler>().UpdateItemContent();
 
         updateButtonActive();
+        
 
         foreach (Transform child in transform.parent)
         {
 
             if (child.gameObject.name == "ButtonTransferOutOfContainer")
             {
-            //    Debug.Log("Calling updateButtonActive from outside");
+                Debug.Log("Calling updateButtonActive from TRANSFERINTOCONTAINER");
                 child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
             }
         }

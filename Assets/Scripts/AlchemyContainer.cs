@@ -30,9 +30,9 @@ public class AlchemyContainer : MonoBehaviour
 
     public void AddIngredient(IngredientType ingredientType, int amount)
     {
-        Debug.Log("Adding");
-        Debug.Log(ingredientType);
-        Debug.Log(amount);
+        //Debug.Log("Adding");
+        //Debug.Log(ingredientType);
+        //Debug.Log(amount);
 
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
@@ -60,7 +60,7 @@ public class AlchemyContainer : MonoBehaviour
         // only relevant if container is really empty, everything else gets solved by merging
         DeleteIngredientIfEmpty();
 
-        Debug.Log("Update Container Content");
+        //Debug.Log("Update Container Content");
         amountTotal = ingredientTypeAmounts.Sum();
 
         // adjust amount text
