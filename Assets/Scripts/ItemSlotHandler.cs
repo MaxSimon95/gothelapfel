@@ -9,6 +9,11 @@ using UnityEngine.EventSystems;
 public class ItemSlotHandler : MonoBehaviour, IDropHandler 
 {
     private Transform originalSlotItem;
+
+
+    // if uiScaling = 0, do nothing, else use it as a multiplier for dropped items
+    public float uiScale;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +52,19 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                 eventData.pointerDrag.transform.SetParent(transform);
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
             }
+
+            // scale item
+
+            if (uiScale!=0)
+            {
+                eventData.pointerDrag.GetComponent<RectTransform>().localScale = new Vector3(uiScale, uiScale, uiScale);
+            }
+            else
+            {
+                eventData.pointerDrag.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            }
+            
+
         }
     }
 

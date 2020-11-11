@@ -10,7 +10,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     private RectTransform rectTransform;
 
     public static GameObject itemBeingDragged;
-    public GameObject canvas;
+    private GameObject canvas;
     Vector3 startPosition;
     public Transform startParent;
     public static bool dragInProgress = false;
@@ -20,6 +20,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
 
         rectTransform = GetComponent<RectTransform>();
+        canvas = GameObject.Find("CanvasDragItem");
 
 
     }
@@ -33,6 +34,8 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        GameObject originalParent = transform.parent.parent.gameObject;
+
         //UnityEngine.Debug.Log("Drag go");
         dragInProgress = true;
         itemBeingDragged = gameObject;
@@ -43,6 +46,28 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         //Debug.Log("transform.parent = " + transform.parent + "; canvas.transform = " + canvas.transform);
         transform.SetParent(canvas.transform);
         //Debug.Log("transform.parent = " + transform.parent + "; canvas.transform = " + canvas.transform);
+
+        // activate according function in previous itemslot if that was a slot in the transfer panel, so ui adjustments can be made there
+        if (originalParent.name == "PanelTransfer")
+        {
+            //Debug.Log("Panel Transfer alright");
+
+
+            foreach (Transform child in originalParent.transform)
+            {
+                if (child.gameObject.name == "ButtonTransferIntoContainer")
+                {
+                    //Debug.Log("Calling updateButtonActive from outside");
+                    child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
+                }
+
+                if (child.gameObject.name == "ButtonTransferOutOfContainer")
+                {
+                    //Debug.Log("Calling updateButtonActive from outside");
+                    child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+                }
+            }
+        }
     }
 
     public void OnDrag(PointerEventData eventData)

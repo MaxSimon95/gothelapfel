@@ -47,7 +47,7 @@ public class InventoryItemHandler : MonoBehaviour
     {
         DeleteIngredientIfEmpty();
 
-        Debug.Log("Update Item Content");
+        //Debug.Log("Update Item Content");
         amountTotal = ingredientTypeAmounts.Sum();
 
         // adjust amount text
@@ -77,16 +77,17 @@ public class InventoryItemHandler : MonoBehaviour
         else
         {
             Debug.Log("Destroyed because ingredientTypes count 0");
-                Destroy(gameObject);
+            DeleteInstanceOfInventoryItem();
         }
 
+        MergeIdenticalIngredients();
         SetToolTipText();
 
     }
 
     private void DeleteIngredientIfEmpty()
     {
-        for (int index = 0; index < ingredientTypeAmounts.Count; index++)
+        for (int index = ingredientTypeAmounts.Count-1; index >= 0; index--)
         {
             if(ingredientTypeAmounts[index] <= 0 )
             {
@@ -96,8 +97,86 @@ public class InventoryItemHandler : MonoBehaviour
         }
     }
 
+    public void AddIngredient(IngredientType ingredientType, int amount)
+    {
+        Debug.Log("Adding");
+        Debug.Log(ingredientType);
+        Debug.Log(amount);
+
+        ingredientTypes.Add(ingredientType);
+        ingredientTypeAmounts.Add(amount);
+
+        UpdateItemContent();
+
+    }
+
+    private void MergeIdenticalIngredients()
+    {
+        List<IngredientType> newIngredientTypeList = new List<IngredientType>();
+        List<int> newIngredientTypeAmountsList = new List<int>();
+
+        for (int index = 0; index < ingredientTypes.Count; index++)
+        {
+            IngredientType tempIngredientType = ingredientTypes[index];
+
+            // wenn nicht in neuerliste, dann alle vorkommen dieses typs jetzt in diese liste überführen
+            if (!newIngredientTypeList.Contains(tempIngredientType))
+            {
+                int amountTemp = 0;
+
+                // hochzählen für jedes vorkommen
+                for (int index2 = 0; index2 < ingredientTypes.Count; index2++)
+                {
+
+                    if (ingredientTypes[index2] == tempIngredientType)
+                    {
+                        amountTemp += ingredientTypeAmounts[index2];
+                    }
+                }
+
+                newIngredientTypeList.Add(tempIngredientType);
+                newIngredientTypeAmountsList.Add(amountTemp);
+                // am ende in neue liste hinzufügen mit zusammengezähltem vorkommen
+            }
+
+        }
+
+        // alte liste durch neue ersetzen
+        ingredientTypes = newIngredientTypeList;
+        ingredientTypeAmounts = newIngredientTypeAmountsList;
+        
+
+    }
+
     public void DeleteInstanceOfInventoryItem()
     {
+        // this ensures that the transfer buttons dont get into trouble with their buttonactive checks when they check whether their connected item slot content is == 0
+        transform.SetParent(GameObject.Find("CanvasDragItem").transform);
+
+        /* GameObject originalParent = transform.parent.parent.gameObject;
+
+         //Debug.Log(transform.parent.parent.gameObject.name);
+         if (originalParent.name == "PanelTransfer")
+         {
+             foreach (Transform child in originalParent.transform)
+             {
+                 //Debug.Log(child.gameObject.name);
+
+                 if (child.gameObject.name == "ButtonTransferOutOfContainer")
+                 {
+                     //Debug.Log("Calling updateButtonActive OUT from delelteinstance");
+                     child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+                 }
+
+                 if (child.gameObject.name == "ButtonTransferIntoContainer")
+                 {
+                     //Debug.Log("Calling updateButtonActive IN from delelteinstance");
+                     child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
+                 }
+             }
+
+
+         } */
         Destroy(gameObject);
     }
 
