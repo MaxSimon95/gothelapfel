@@ -46,6 +46,7 @@ public class InventoryItemHandler : MonoBehaviour
     public void UpdateItemContent()
     {
         DeleteIngredientIfEmpty();
+        MergeIdenticalIngredients();
 
         //Debug.Log("Update Item Content");
         amountTotal = ingredientTypeAmounts.Sum();
@@ -80,7 +81,7 @@ public class InventoryItemHandler : MonoBehaviour
             DeleteInstanceOfInventoryItem();
         }
 
-        MergeIdenticalIngredients();
+        
         SetToolTipText();
 
     }
@@ -93,21 +94,27 @@ public class InventoryItemHandler : MonoBehaviour
             {
                 ingredientTypeAmounts.RemoveAt(index);
                 ingredientTypes.RemoveAt(index);
+                Debug.Log("REMOVED EMPTY INGREDIENT");
             }
         }
     }
 
+    public void AddIngredientAndUpdate(IngredientType ingredientType, int amount)
+    {
+
+        AddIngredient(ingredientType, amount);
+        UpdateItemContent();
+
+    }
+
     public void AddIngredient(IngredientType ingredientType, int amount)
     {
-        Debug.Log("Adding");
+        Debug.Log("Adding ingredient");
         Debug.Log(ingredientType);
         Debug.Log(amount);
 
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
-
-        UpdateItemContent();
-
     }
 
     private void MergeIdenticalIngredients()

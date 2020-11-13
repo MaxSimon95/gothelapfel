@@ -37,17 +37,17 @@ public class TransferIntoContainerHandler : MonoBehaviour
 
     public void updateButtonActive()
     {
-        Debug.Log("update In button:");
+        //Debug.Log("update In button:");
         buttonActive = true;
 
-        Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null);
-        Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript());
+        //Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null);
+        //Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript());
         if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null)
         {
             buttonActive = false;
         }
 
-        Debug.Log(container.GetComponent<AlchemyContainer>().capacity <= container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum());
+        //Debug.Log(container.GetComponent<AlchemyContainer>().capacity <= container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum());
         if (container.GetComponent<AlchemyContainer>().capacity <= container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum())
         {
             buttonActive = false;

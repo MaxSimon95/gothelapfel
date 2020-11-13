@@ -13,7 +13,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
     public GameObject container;
 
     // used to put the output of the container into:
-    private GameObject newInventoryItem;
+    private GameObject slotInventoryItem;
 
     private bool buttonActive;
 
@@ -42,14 +42,20 @@ public class TransferOutOfContainerHandler : MonoBehaviour
     {
 
         buttonActive = true;
+        /*
         Debug.Log("update Out button:");
         Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() != null);
+        
         if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() != null)
         {
             buttonActive = false;
         }
+        */
 
-        Debug.Log(container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum() == 0);
+
+
+
+        //Debug.Log(container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum() == 0);
         if (container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum() == 0)
         {
             buttonActive = false;
@@ -78,16 +84,36 @@ public class TransferOutOfContainerHandler : MonoBehaviour
             if (child.gameObject.name == "InventorySlot")
             {
                 //newInventoryItem = Instantiate(child.gameObject.GetComponent<TransferAmountSlotHandler>().inventoryItemPrefab);
-                newInventoryItem = (GameObject)Instantiate(Resources.Load("InventoryItemPrefab"), new Vector3(0,0,0), Quaternion.identity);
+                slotInventoryItem = (GameObject)Instantiate(Resources.Load("InventoryItemPrefab"), new Vector3(0,0,0), Quaternion.identity);
                 //Debug.Log(newInventoryItem.GetComponent<RectTransform>().position);
-                newInventoryItem.transform.SetParent(child);
-                newInventoryItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+                slotInventoryItem.transform.SetParent(child);
+                slotInventoryItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
                 //Debug.Log(newInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
-                newInventoryItem.GetComponent<RectTransform>().localScale = new Vector3(newInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, newInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, newInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
+                slotInventoryItem.GetComponent<RectTransform>().localScale = new Vector3(slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
                 
             }
         }
 
+        slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.RemoveAt(0);
+        slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypes.RemoveAt(0);
+
+    }
+
+    private void AddIntoExistingItem()
+    {
+
+        Debug.Log(slotInventoryItem);
+        
+        foreach (Transform child in transform.parent)
+        {
+
+            if (child.gameObject.name == "InventorySlot")
+            {
+                Debug.Log(child.GetChild(0).gameObject);
+                slotInventoryItem = child.GetChild(0).gameObject;
+            }
+        }
+        Debug.Log(slotInventoryItem);
     }
     
     public void TransferOutOfContainer()
@@ -100,21 +126,21 @@ public class TransferOutOfContainerHandler : MonoBehaviour
         List<int> ingredientTypeAmountsinContainer = container.GetComponent<AlchemyContainer>().ingredientTypeAmounts;
         int transferAmount = TransferAmountHandling.currentTransferAmount;
 
-        // stop if slot is full already, just to make sure (buttons should be disabled, but still)
         foreach (Transform child in transform.parent)
         {
 
             if (child.gameObject.name == "InventorySlot")
             {
                 if (child.childCount != 0)
-                    return;
+                    AddIntoExistingItem();
+                else 
+                    CreateInventoryItemFromPrefab();
             }
         }
 
         // create new inventory item in slot
-        CreateInventoryItemFromPrefab();
-        newInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.RemoveAt(0);
-        newInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypes.RemoveAt(0);
+        //CreateInventoryItemFromPrefab();
+        
 
         // remove provisional content of that item, which it got because otherwise it wouldve been cleaned up (deleted) right after creation due to emptyness
 
@@ -141,7 +167,9 @@ public class TransferOutOfContainerHandler : MonoBehaviour
         {
             int amountInContainer = ingredientTypeAmountsinContainer[index];
             int transfer;
+            
             transfer = (int)(Decimal.Divide(amountInContainer, container.GetComponent<AlchemyContainer>().amountTotal) * transferAmount);
+            
             remainingTransferAmount -= transfer;
 
             // reduce amount of ingredients in amountlist
@@ -150,7 +178,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
             //TODO put ingredients into previously newly created inventoryitem
 
-            newInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], transfer);
+            slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], transfer);
 
             //container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypesInContainer[index], transfer);
 
@@ -166,13 +194,13 @@ public class TransferOutOfContainerHandler : MonoBehaviour
             if (ingredientTypeAmountsinContainer[index] > 0) // this if statement could be removed once we properly and cleanly removed empty ingredients from the inventoryitem 
             {
                 //container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypeAmountsinContainer[index], 1);
-                newInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], 1);
+                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], 1);
                 ingredientTypeAmountsinContainer[index] -= 1;
                 remainingTransferAmount = 0;
             }
         }
 
-        newInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
+        slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
         container.GetComponent<AlchemyContainer>().UpdateContent();
 
 
