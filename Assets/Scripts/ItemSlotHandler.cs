@@ -48,6 +48,20 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                 originalSlotItem.transform.SetParent(eventData.pointerDrag.GetComponent<DragAndDrop>().startParent);
                 originalSlotItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
 
+                // scale item
+                float uiScaleOriginalSlot = originalSlotItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale;
+
+                
+                if (uiScaleOriginalSlot != 0)
+                {
+                    originalSlotItem.gameObject.GetComponent<RectTransform>().localScale = new Vector3(uiScaleOriginalSlot, uiScaleOriginalSlot, uiScaleOriginalSlot);
+                }
+                else
+                {
+                    originalSlotItem.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                }
+                
+
                 // move incoming item into this slot
                 eventData.pointerDrag.transform.SetParent(transform);
                 eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
