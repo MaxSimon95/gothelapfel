@@ -11,14 +11,12 @@ public class InventoryItemHandler : MonoBehaviour
     public List<int> ingredientTypeAmounts = new List<int>();
     public int amountTotal;
 
-    // Start is called before the first frame update
+
     void Start()
-    {
-        //Debug.Log(ingredientTypes.Count);       
+    {    
         UpdateItemContent();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -27,7 +25,6 @@ public class InventoryItemHandler : MonoBehaviour
     private void SetToolTipText()
     {
 
-        // set tooltip text for inventoryItem
 
         // just one ingredienttype: use its ingredienttype name for tooltip text
         if (ingredientTypes.Count == 1)
@@ -48,15 +45,12 @@ public class InventoryItemHandler : MonoBehaviour
         DeleteIngredientIfEmpty();
         MergeIdenticalIngredients();
 
-        //Debug.Log("Update Item Content");
         amountTotal = ingredientTypeAmounts.Sum();
 
-        // adjust amount text
         if (amountTotal > 0)
             transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = amountTotal.ToString();
         else
         {
-            Debug.Log("Destroyed because amounttotal 0");
             Destroy(gameObject);
         }
             
@@ -160,30 +154,6 @@ public class InventoryItemHandler : MonoBehaviour
         // this ensures that the transfer buttons dont get into trouble with their buttonactive checks when they check whether their connected item slot content is == 0
         transform.SetParent(GameObject.Find("CanvasDragItem").transform);
 
-        /* GameObject originalParent = transform.parent.parent.gameObject;
-
-         //Debug.Log(transform.parent.parent.gameObject.name);
-         if (originalParent.name == "PanelTransfer")
-         {
-             foreach (Transform child in originalParent.transform)
-             {
-                 //Debug.Log(child.gameObject.name);
-
-                 if (child.gameObject.name == "ButtonTransferOutOfContainer")
-                 {
-                     //Debug.Log("Calling updateButtonActive OUT from delelteinstance");
-                     child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
-                 }
-
-                 if (child.gameObject.name == "ButtonTransferIntoContainer")
-                 {
-                     //Debug.Log("Calling updateButtonActive IN from delelteinstance");
-                     child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
-                 }
-             }
-
-
-         } */
         Destroy(gameObject);
     }
 

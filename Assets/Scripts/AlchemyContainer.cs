@@ -28,9 +28,6 @@ public class AlchemyContainer : MonoBehaviour
 
     public void AddIngredient(IngredientType ingredientType, int amount)
     {
-        //Debug.Log("Adding");
-        //Debug.Log(ingredientType);
-        //Debug.Log(amount);
 
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);

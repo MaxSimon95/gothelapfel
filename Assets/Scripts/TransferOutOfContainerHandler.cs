@@ -86,7 +86,6 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
             if (child.gameObject.name == "InventorySlot")
             {
-                Debug.Log(child.GetChild(0).gameObject);
                 slotInventoryItem = child.GetChild(0).gameObject;
             }
         }
@@ -116,7 +115,6 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
             transferAmount = container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum();
 
-            Debug.Log("transferAmount reduziert auf: " + transferAmount);
         }
         
 
@@ -124,8 +122,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
         // introduce variable that will be lowered each time a bit of an ingredient type gets moved out of the container
         int remainingTransferAmount = transferAmount;
 
-        Debug.Log("Amount Total:");
-        Debug.Log(container.GetComponent<AlchemyContainer>().amountTotal);
+     
         for (int index = 0; index < ingredientTypeAmountsinContainer.Count; index++)
         {
             int amountInContainer = ingredientTypeAmountsinContainer[index];

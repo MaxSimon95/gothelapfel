@@ -14,7 +14,6 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
     // if uiScaling = 0, do nothing, else use it as a multiplier for dropped items
     public float uiScale;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -43,8 +42,6 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             else
             {
                 originalSlotItem = transform.GetChild(0);
-                // move this slot's original item into incoming item's origin slot
-                //transform.GetChild(0).transform.SetParent(eventData.pointerDrag.transform.parent); 
                 originalSlotItem.transform.SetParent(eventData.pointerDrag.GetComponent<DragAndDrop>().startParent);
                 originalSlotItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
 
@@ -84,6 +81,5 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
     public void ButtonPress()
     {
-        //Debug.Log("Item Slot Handler Click");
     }
 }

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class CanvasContainerHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //public static GameObject viewGameObject;
+
     private float inventoryStartPosition;
     private InventoryUIBehaviour inventoryUIBehaviour;
 
@@ -23,7 +22,6 @@ public class CanvasContainerHandler : MonoBehaviour
         inventoryUIBehaviour = GameObject.Find("ButtonArrowInventory").GetComponent<InventoryUIBehaviour>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -41,7 +39,6 @@ public class CanvasContainerHandler : MonoBehaviour
         inventoryUIBehaviour.HideButton();
         GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(1, 1, 1);
 
-        // TODO move transferamount panel along  
 
     }
 
@@ -57,8 +54,6 @@ public class CanvasContainerHandler : MonoBehaviour
         inventoryUIBehaviour.CloseInventory();
         inventoryUIBehaviour.ShowButton();
         GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(0, 0, 0);
-
-        // TODO move transferamount panel along  
 
     }
 }

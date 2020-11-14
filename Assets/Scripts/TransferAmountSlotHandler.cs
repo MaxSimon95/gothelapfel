@@ -9,13 +9,11 @@ public class TransferAmountSlotHandler : MonoBehaviour, IDropHandler
 
     public GameObject inventoryItemPrefab;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -27,7 +25,6 @@ public class TransferAmountSlotHandler : MonoBehaviour, IDropHandler
         {
             foreach (Transform child in transform.parent)
             {
-                //Debug.Log(child.gameObject.name);
                 if (child.gameObject.name == "ButtonTransferIntoContainer")
                 {
                     

@@ -12,13 +12,11 @@ public class InventoryUIBehaviour : MonoBehaviour
     public static GameObject panelInventory;
     public bool isLocked = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         // open/close inventory when i is pressed (and nothing is currently being dragged anywhere, i.e. mousebutton0
@@ -54,15 +52,6 @@ public class InventoryUIBehaviour : MonoBehaviour
         }
     }
 
-   /* public void OnDeselect(BaseEventData eventData)
-    {
-        if (isScrolledUp)
-        {
-            ChangeInventoryScroll();
-        }
-        
-    } */
-
     public void ChangeInventoryScroll()
     {
         
@@ -93,7 +82,6 @@ public class InventoryUIBehaviour : MonoBehaviour
             source = GetComponent<AudioSource>();
             source.PlayOneShot(clickSound, 1f);
 
-            //Debug.Log("IS NOT SCROLLED UP --> SCROLLING UP");
             isScrolledUp = true;
             LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), customMoveY, 0.8f).setEaseInOutCubic();
             LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic();
@@ -116,7 +104,6 @@ public class InventoryUIBehaviour : MonoBehaviour
             source = GetComponent<AudioSource>();
             source.PlayOneShot(clickSound, 1f);
 
-            //Debug.Log("IS SCROLLED UP --> SCROLLING DOWN");
             isScrolledUp = false;
             LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -307.8795f, 0.8f).setEaseInOutCubic();
         }

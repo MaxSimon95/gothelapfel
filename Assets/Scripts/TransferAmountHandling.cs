@@ -10,14 +10,12 @@ public class TransferAmountHandling : MonoBehaviour
     private AudioSource source;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(0, 0, 0);
         AdjustLabelTransferAmount();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Equals))
@@ -92,7 +90,6 @@ public class TransferAmountHandling : MonoBehaviour
     private void AdjustLabelTransferAmount()
     {
         GameObject.Find("LabelTransferAmount").GetComponent<UnityEngine.UI.Text>().text = currentTransferAmount.ToString();
-        Debug.Log("TransferAmount set to " + currentTransferAmount);
     }
     
 }
