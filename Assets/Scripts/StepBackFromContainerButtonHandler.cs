@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StepBackFromGarbageButtonHandler : MonoBehaviour
+public class StepBackFromContainerButtonHandler : MonoBehaviour
 {
+    public Canvas containerCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +15,12 @@ public class StepBackFromGarbageButtonHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void StepBackFromGarbage()
+    public void StepBackFromContainer()
     {
-        GameObject.Find("CanvasGarbageView").GetComponent<CanvasContainerHandler>().CloseContainerView();
+
+        containerCanvas.GetComponent<CanvasContainerHandler>().CloseContainerView();
     }
 }

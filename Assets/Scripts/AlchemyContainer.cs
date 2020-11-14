@@ -17,9 +17,7 @@ public class AlchemyContainer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Add parts to the list.
-        //ingredients.Add(new Part() { PartName = "crank arm", PartId = 1234 });
-        //ingredients.Add(new Part() { PartName = "chain ring", PartId = 1334 });
+
     }
 
     // Update is called once per frame
@@ -56,42 +54,8 @@ public class AlchemyContainer : MonoBehaviour
     public void UpdateContent()
     {
         MergeIdenticalIngredients();
-
-        // only relevant if container is really empty, everything else gets solved by merging
         DeleteIngredientIfEmpty();
-
-        //Debug.Log("Update Container Content");
         amountTotal = ingredientTypeAmounts.Sum();
-
-        // adjust amount text
-        /*if (amountTotal > 0)
-            transform.GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = amountTotal.ToString();
-        else
-        {
-            Debug.Log("Destroyed because amounttotal 0");
-            Destroy(gameObject);
-        } */
-
-
-        // adjust inventoryitem sprite
-        /*if (ingredientTypes.Count > 0)
-        {
-            // if just one ingredienttype , take it's ingredienttype sprite
-            if (ingredientTypes.Count == 1)
-                transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredientTypes[0].GetComponent<IngredientType>().inventorySprite;
-
-            // if more than one ingredienttype, take a designated mixture sprite, or do something fancy later on. here we can add FUN little mechanics to make it more fancy as we see fit.
-            else
-            {
-                transform.GetChild(0).gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("ph_ingredient_mix");
-            }
-        }
-
-        else
-        {
-            Debug.Log("Destroyed because ingredientTypes count 0");
-            Destroy(gameObject);
-        }*/
 
     }
 
@@ -104,12 +68,12 @@ public class AlchemyContainer : MonoBehaviour
         {
             IngredientType tempIngredientType = ingredientTypes[index];
 
-            // wenn nicht in neuerliste, dann alle vorkommen dieses typs jetzt in diese liste überführen
+            // if it isnt in new list yet, then start putting all ingredients of this type into the list (otherwise this has already been done, no need for further action)
             if (!newIngredientTypeList.Contains(tempIngredientType))
             {
                 int amountTemp = 0;
 
-                // hochzählen für jedes vorkommen
+                // increment for each time it occurs
                 for (int index2 = 0; index2 < ingredientTypes.Count; index2++)
                 {
                     
@@ -119,16 +83,18 @@ public class AlchemyContainer : MonoBehaviour
                     }
                 }
 
+                // add into new list at end end
                 newIngredientTypeList.Add(tempIngredientType);
                 newIngredientTypeAmountsList.Add(amountTemp);
-                    // am ende in neue liste hinzufügen mit zusammengezähltem vorkommen
+                
             }
 
         }
 
+    // replace old list with new one
     ingredientTypes = newIngredientTypeList;
     ingredientTypeAmounts = newIngredientTypeAmountsList;
 
-    // alte liste durch neue ersetzen
+    
     }
 }

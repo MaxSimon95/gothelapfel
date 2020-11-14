@@ -981,6 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6d157c49cd08045b2216424a4cf9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerCanvas: {fileID: 820514882}
 --- !u!61 &82705934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3298,9 +3299,9 @@ RectTransform:
   m_Father: {fileID: 1036056017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -4676,9 +4677,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 520178195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6b66f0f90cad542b7a64f61d0160d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 43827b1e3479bac4da1beb756b6718d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerCanvas: {fileID: 2005955041}
 --- !u!114 &520178198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4723,8 +4725,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 520178197}
-        m_TargetAssemblyTypeName: StepBackFromGarbageButtonHandler, Assembly-CSharp
-        m_MethodName: StepBackFromGarbage
+        m_TargetAssemblyTypeName: StepBackFromContainerButtonHandler, Assembly-CSharp
+        m_MethodName: StepBackFromContainer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7541,8 +7543,8 @@ GameObject:
   m_Component:
   - component: {fileID: 779844581}
   - component: {fileID: 779844580}
-  - component: {fileID: 779844578}
   - component: {fileID: 779844579}
+  - component: {fileID: 779844578}
   m_Layer: 0
   m_Name: muell
   m_TagString: Untagged
@@ -7559,9 +7561,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 779844577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c64a32b23672a44eb51b5493739618c, type: 3}
+  m_Script: {fileID: 11500000, guid: ea6d157c49cd08045b2216424a4cf9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerCanvas: {fileID: 2005955041}
 --- !u!61 &779844579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13375,7 +13378,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0.306
+  m_FillAmount: 0.296
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -14775,6 +14778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43827b1e3479bac4da1beb756b6718d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerCanvas: {fileID: 820514882}
 --- !u!114 &1380806600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14819,8 +14823,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1380806599}
-        m_TargetAssemblyTypeName: StepBackFromCauldronButtonHandler, Assembly-CSharp
-        m_MethodName: StepBackFromCauldron
+        m_TargetAssemblyTypeName: StepBackFromContainerButtonHandler, Assembly-CSharp
+        m_MethodName: StepBackFromContainer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

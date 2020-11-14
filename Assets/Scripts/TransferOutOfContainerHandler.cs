@@ -25,11 +25,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
     private void Awake()
     {
-
-        //itemSlot = GetComponent<TransferContainerHandler>().itemSlot;
         updateButtonActive();
-        //CreateInventoryItemFromPrefab();
-
     }
 
     // Update is called once per frame
@@ -42,20 +38,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
     {
 
         buttonActive = true;
-        /*
-        Debug.Log("update Out button:");
-        Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() != null);
-        
-        if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() != null)
-        {
-            buttonActive = false;
-        }
-        */
 
-
-
-
-        //Debug.Log(container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum() == 0);
         if (container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum() == 0)
         {
             buttonActive = false;
@@ -77,18 +60,14 @@ public class TransferOutOfContainerHandler : MonoBehaviour
     private void CreateInventoryItemFromPrefab()
     {
 
-        // TODO
         foreach (Transform child in transform.parent)
         {
 
             if (child.gameObject.name == "InventorySlot")
             {
-                //newInventoryItem = Instantiate(child.gameObject.GetComponent<TransferAmountSlotHandler>().inventoryItemPrefab);
                 slotInventoryItem = (GameObject)Instantiate(Resources.Load("InventoryItemPrefab"), new Vector3(0,0,0), Quaternion.identity);
-                //Debug.Log(newInventoryItem.GetComponent<RectTransform>().position);
                 slotInventoryItem.transform.SetParent(child);
                 slotInventoryItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-                //Debug.Log(newInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
                 slotInventoryItem.GetComponent<RectTransform>().localScale = new Vector3(slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
                 
             }
@@ -101,8 +80,6 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
     private void AddIntoExistingItem()
     {
-
-        Debug.Log(slotInventoryItem);
         
         foreach (Transform child in transform.parent)
         {
@@ -113,15 +90,10 @@ public class TransferOutOfContainerHandler : MonoBehaviour
                 slotInventoryItem = child.GetChild(0).gameObject;
             }
         }
-        Debug.Log(slotInventoryItem);
     }
     
     public void TransferOutOfContainer()
     {
-        Debug.Log("TransferOutofcontainer BEGIN");
-        //inventoryItemInSlot = GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript();
-        //if (inventoryItemInSlot == null) return;
-
         List<IngredientType> ingredientTypesInContainer = container.GetComponent<AlchemyContainer>().ingredientTypes;
         List<int> ingredientTypeAmountsinContainer = container.GetComponent<AlchemyContainer>().ingredientTypeAmounts;
         int transferAmount = TransferAmountHandling.currentTransferAmount;
@@ -138,16 +110,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
             }
         }
 
-        // create new inventory item in slot
-        //CreateInventoryItemFromPrefab();
-        
-
-        // remove provisional content of that item, which it got because otherwise it wouldve been cleaned up (deleted) right after creation due to emptyness
-
-
         // transferamount anpassen, wenn weniger stuff da ist als die schöpfkelle rausholen will
-
-        //Debug.Log(" transferAmount = " + transferAmount + "; AmountTotal = " + inventoryItemInSlot.GetComponent<InventoryItemHandler>().amountTotal);
         if (transferAmount > container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum())
         {
 
@@ -176,28 +139,20 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
             ingredientTypeAmountsinContainer[index] -= transfer;
 
-            //TODO put ingredients into previously newly created inventoryitem
 
             slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], transfer);
-
-            //container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypesInContainer[index], transfer);
-
-            // TODO see if there's cleaning up todo
-
-            // TODO adjust ui feedback on container
 
         }
         
         // clean up the 1 unit that might still need to be moved because the division didnt produce integer results
         for (int index = 0; (index < ingredientTypeAmountsinContainer.Count) && (remainingTransferAmount > 0); index++)
         {
-            if (ingredientTypeAmountsinContainer[index] > 0) // this if statement could be removed once we properly and cleanly removed empty ingredients from the inventoryitem 
+            if (ingredientTypeAmountsinContainer[index] > 0) 
             {
-                //container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypeAmountsinContainer[index], 1);
                 slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], 1);
                 ingredientTypeAmountsinContainer[index] -= 1;
                 remainingTransferAmount = 0;
-            }
+            } 
         }
 
         slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
@@ -211,12 +166,10 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
             if (child.gameObject.name == "ButtonTransferIntoContainer")
             {
-                //Debug.Log("Calling updateButtonActive from TRANSFERINTOCONTAINER");
                 child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
             }
         }
 
-        //Debug.Log(ingredientTypeAmountsInSlot.Count);
 
     }
 }
