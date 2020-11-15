@@ -29,7 +29,31 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void OpenContainerView()
     {
+        
+
+        foreach (Transform child in transform.GetChild(0))
+        {
+
+            if (child.gameObject.name == "PanelTransfer")
+            {
+                foreach (Transform child2 in child)
+                {
+
+                    if (child2.gameObject.name == "ButtonTransferIntoContainer")
+                    {
+                        child2.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
+                    }
+
+                    if (child2.gameObject.name == "ButtonTransferOutOfContainer")
+                    {
+                        child2.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+                    }
+                }
+            }
+        }
+
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
+
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().pivot = new Vector2(0, 0.5f);
