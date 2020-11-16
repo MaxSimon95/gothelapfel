@@ -157,6 +157,8 @@ public class TransferOutOfContainerHandler : MonoBehaviour
 
 
         updateButtonActive();
+        container.GetComponent<AlchemyContainer>().PlaySound();
+
 
         foreach (Transform child in transform.parent)
         {
@@ -167,6 +169,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
             }
         }
 
+        
 
     }
 }

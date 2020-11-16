@@ -11,6 +11,8 @@ public class AlchemyContainer : MonoBehaviour
     public float temperature;
     public int capacity;
     public int amountTotal;
+    public AudioClip sound;
+    private AudioSource source;
 
 
 
@@ -54,6 +56,11 @@ public class AlchemyContainer : MonoBehaviour
         DeleteIngredientIfEmpty();
         amountTotal = ingredientTypeAmounts.Sum();
 
+        if(GetComponent<CauldronHandler>()!=null)
+        {
+            GetComponent<CauldronHandler>().UpdateUI();
+        }
+
     }
 
     private void MergeIdenticalIngredients()
@@ -93,5 +100,11 @@ public class AlchemyContainer : MonoBehaviour
     ingredientTypeAmounts = newIngredientTypeAmountsList;
 
     
+    }
+
+    public void PlaySound()
+    {
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(sound, 1f);
     }
 }

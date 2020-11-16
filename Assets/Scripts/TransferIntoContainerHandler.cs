@@ -114,18 +114,19 @@ public class TransferIntoContainerHandler : MonoBehaviour
             inventoryItemInSlot.GetComponent<InventoryItemHandler>().UpdateItemContent();
 
         updateButtonActive();
-        
+        container.GetComponent<AlchemyContainer>().PlaySound();
+
+
 
         foreach (Transform child in transform.parent)
         {
 
             if (child.gameObject.name == "ButtonTransferOutOfContainer")
             {
-                Debug.Log("Calling updateButtonActive from TRANSFERINTOCONTAINER");
                 child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
             }
         }
 
-
+        
     }
 }
