@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 82705933}
   - component: {fileID: 82705934}
   m_Layer: 0
-  m_Name: Ph_kessel
+  m_Name: SceneCauldron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -962,12 +962,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82705930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.322, y: -0.952, z: -1}
-  m_LocalScale: {x: 0.89792484, y: 0.826496, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.9143113, y: -1.1867727, z: 0}
+  m_LocalScale: {x: 1.0367362, y: 1.0346655, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 786270579}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &82705933
 MonoBehaviour:
@@ -1244,7 +1244,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2474,7 +2474,7 @@ RectTransform:
   m_Children:
   - {fileID: 899597177}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3301,7 +3301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -4046,7 +4046,7 @@ RectTransform:
   - {fileID: 241094012}
   - {fileID: 1018392367}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4240,7 +4240,7 @@ Transform:
   m_Children:
   - {fileID: 50350079}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502166607
 GameObject:
@@ -7533,7 +7533,7 @@ GameObject:
   - component: {fileID: 779844579}
   - component: {fileID: 779844578}
   m_Layer: 0
-  m_Name: muell
+  m_Name: SceneGarbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7636,11 +7636,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779844577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.905, y: -1.214, z: 0}
-  m_LocalScale: {x: 0.85081345, y: 0.7942706, z: 0.41501904}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.377181, y: -1.5147626, z: 0}
+  m_LocalScale: {x: 0.9823418, y: 0.99432343, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 786270579}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &782893278
@@ -7944,8 +7944,9 @@ GameObject:
   m_Component:
   - component: {fileID: 786270579}
   - component: {fileID: 786270578}
+  - component: {fileID: 786270580}
   m_Layer: 0
-  m_Name: ph_bg_kitchen
+  m_Name: RoomKitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8012,10 +8013,25 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.98, y: -0.004, z: 1}
   m_LocalScale: {x: 0.8661073, y: 0.79880506, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 82705932}
+  - {fileID: 779844581}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786270580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786270577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44d5d5e07f072242b832c98de187410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temperature: 20
 --- !u!1 &786927223
 GameObject:
   m_ObjectHideFlags: 0
@@ -8295,7 +8311,7 @@ RectTransform:
   m_Children:
   - {fileID: 1969569626}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15651,7 +15667,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1423432663
 GameObject:
@@ -16503,7 +16519,7 @@ RectTransform:
   m_Children:
   - {fileID: 1036056017}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17016,7 +17032,7 @@ RectTransform:
   m_Children:
   - {fileID: 1296212620}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18698,6 +18714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53627274ade61b44c939d491015ca89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fire: {fileID: 1572214440}
 --- !u!82 &1730282113
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21370,7 +21387,7 @@ RectTransform:
   m_Children:
   - {fileID: 1361548943}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -22274,7 +22291,7 @@ RectTransform:
   m_Children:
   - {fileID: 1722761255}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -22847,7 +22864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2281666088860395958, guid: d00834f5bde20de4998ebb27a707095d, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2281666088860395958, guid: d00834f5bde20de4998ebb27a707095d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

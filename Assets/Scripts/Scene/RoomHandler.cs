@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomHandler : MonoBehaviour
 {
+    public float temperature;
     // Start is called before the first frame update
     void Start()
     {

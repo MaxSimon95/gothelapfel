@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CauldronHandler : MonoBehaviour
 {
+    public GameObject fire;
+
     // Start is called before the first frame update
     void Start()
     {
