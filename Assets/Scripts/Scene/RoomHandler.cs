@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StepBackFromGarbageButtonHandler : MonoBehaviour
+public class RoomHandler : MonoBehaviour
 {
+    public float temperature;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +14,6 @@ public class StepBackFromGarbageButtonHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public void StepBackFromGarbage()
-    {
-        GameObject.Find("CanvasGarbageView").GetComponent<CanvasContainerHandler>().CloseContainerView();
+        
     }
 }
