@@ -10,6 +10,7 @@ public class InventoryItemHandler : MonoBehaviour
     public List<IngredientType> ingredientTypes = new List<IngredientType>();
     public List<int> ingredientTypeAmounts = new List<int>();
     public int amountTotal;
+    public float temperature;
 
 
     void Start()

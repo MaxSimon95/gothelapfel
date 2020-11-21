@@ -221,6 +221,7 @@ MonoBehaviour:
   - {fileID: 1235550198}
   ingredientTypeAmounts: 96000000
   amountTotal: 0
+  temperature: 0
 --- !u!114 &589615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +375,7 @@ MonoBehaviour:
   - {fileID: 62800758}
   ingredientTypeAmounts: 64000000
   amountTotal: 0
+  temperature: 0
 --- !u!114 &1280621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3299,9 +3301,9 @@ RectTransform:
   m_Father: {fileID: 1036056017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -2}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 170, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -4220,6 +4222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 479300087}
+  - component: {fileID: 479300088}
   m_Layer: 0
   m_Name: AlchemyEngine
   m_TagString: Untagged
@@ -4242,6 +4245,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479300088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479300086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07187560b567a3a409f59c54f8932c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  UpdateFrequencyInSeconds: 0.5
 --- !u!1 &502166607
 GameObject:
   m_ObjectHideFlags: 0
@@ -9316,6 +9333,7 @@ MonoBehaviour:
   - {fileID: 1235550198}
   ingredientTypeAmounts: 150000003d000000
   amountTotal: 0
+  temperature: 0
 --- !u!114 &893039981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16538,6 +16556,7 @@ GameObject:
   - component: {fileID: 1572214444}
   - component: {fileID: 1572214443}
   - component: {fileID: 1572214442}
+  - component: {fileID: 1572214445}
   m_Layer: 5
   m_Name: PanelFire
   m_TagString: Untagged
@@ -16576,15 +16595,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1572214440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7473692db53888f4780fdf9dcd0ebfb3, type: 3}
+  m_Script: {fileID: 11500000, guid: c04044c1394526b469a1120b58276c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientTypes: []
-  ingredientTypeAmounts: 
-  temperature: 0
-  capacity: 0
-  amountTotal: 0
-  sound: {fileID: 0}
+  burnDownAmount: 0.05
+  burnDownFrequency: 0.5
+  addFireAmount: 0.3
+  currentFireLevel: 0
 --- !u!114 &1572214443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16623,6 +16640,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572214440}
   m_CullTransparentMesh: 0
+--- !u!114 &1572214445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572214440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1572214443}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1572214442}
+        m_TargetAssemblyTypeName: CauldronFire, Assembly-CSharp
+        m_MethodName: IncreaseFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &1596936866
 GameObject:
   m_ObjectHideFlags: 0
@@ -18873,7 +18945,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0.306
+  m_FillAmount: 0.582
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
