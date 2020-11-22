@@ -8,9 +8,15 @@ public class CauldronHandler : MonoBehaviour
     public GameObject fire;
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
-        
+
+        while (true)
+        {
+            UpdateTemperature();
+
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     // Update is called once per frame
@@ -91,5 +97,53 @@ public class CauldronHandler : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void UpdateTemperature()
+    {
+        float temperatureChange;
+        float targetTemperature;
+
+        targetTemperature = fire.GetComponent<CauldronFire>().currentFireLevel * fire.GetComponent<CauldronFire>().maxTemperature + fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature;
+
+        // feuer ist an
+        if (fire.GetComponent<CauldronFire>().currentFireLevel > 0)
+        {
+            targetTemperature = fire.GetComponent<CauldronFire>().currentFireLevel * fire.GetComponent<CauldronFire>().maxTemperature;
+            
+            
+
+            //if (temperatureChange < 0) temperatureChange = 0;
+
+            
+
+            
+
+        }
+
+        // feuer ist aus
+        else
+        {
+            //temperatureChange = fire.GetComponent<CauldronFire>().maxTemperature * 0.03f;
+            //GetComponent<AlchemyContainer>().temperature -= temperatureChange;
+        }
+
+        temperatureChange = (targetTemperature - GetComponent<AlchemyContainer>().temperature) * 0.01f;
+        GetComponent<AlchemyContainer>().temperature += temperatureChange;
+
+        // zu niedrige temperatur auf raumtemperatur setzen
+        if (GetComponent<AlchemyContainer>().temperature <= fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature)
+        {
+            GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature;
+        }
+
+        // zu hohe temperatur auf max temperatur setzen
+
+        if (GetComponent<AlchemyContainer>().temperature > fire.GetComponent<CauldronFire>().maxTemperature)
+            GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().maxTemperature;
+
+
+
+
     }
 }

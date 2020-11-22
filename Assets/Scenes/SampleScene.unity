@@ -16598,10 +16598,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04044c1394526b469a1120b58276c43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burnDownAmount: 0.05
+  burnDownAmount: 0.01
   burnDownFrequency: 0.5
-  addFireAmount: 0.3
+  addFireAmount: 0.2
   currentFireLevel: 0
+  currentTemperature: 0
+  maxTemperature: 200
+  room: {fileID: 786270577}
 --- !u!114 &1572214443
 MonoBehaviour:
   m_ObjectHideFlags: 0

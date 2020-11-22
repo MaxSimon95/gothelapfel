@@ -10,6 +10,9 @@ public class CauldronFire : MonoBehaviour
     public float addFireAmount;
     public float currentFireLevel;
     private Image contentImage;
+    public float currentTemperature;
+    public float maxTemperature;
+    public GameObject room;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -28,9 +31,20 @@ public class CauldronFire : MonoBehaviour
             UpdateFireVisuals();
 
             if (currentFireLevel > 0)
+            {
                 currentFireLevel -= burnDownAmount;
+                currentTemperature = maxTemperature * currentFireLevel;
+
+                
+            }
             else
+            {
                 currentFireLevel = 0;
+               
+
+            }
+            if (currentTemperature < room.GetComponent<RoomHandler>().temperature)
+                currentTemperature = room.GetComponent<RoomHandler>().temperature;
 
             yield return new WaitForSeconds(burnDownFrequency);
         }
@@ -38,9 +52,10 @@ public class CauldronFire : MonoBehaviour
 
     public void IncreaseFire()
     {
-        if (currentFireLevel < 1)
+        
             currentFireLevel += addFireAmount;
-        else
+
+        if (currentFireLevel > 1)
             currentFireLevel = 1;
 
         UpdateFireVisuals();
