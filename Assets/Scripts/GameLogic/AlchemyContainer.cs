@@ -36,6 +36,8 @@ public class AlchemyContainer : MonoBehaviour
 
         UpdateContent();
 
+        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts);
+
     }
 
     private void DeleteIngredientIfEmpty()

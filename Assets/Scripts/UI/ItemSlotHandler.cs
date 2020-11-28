@@ -27,7 +27,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
+        //Debug.Log("OnDrop");
         if(eventData.pointerDrag != null)
         {
             // Put item in slot if slot is empty
