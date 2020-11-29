@@ -34,10 +34,10 @@ public class AlchemyContainer : MonoBehaviour
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
 
+        
+
+        
         UpdateContent();
-
-        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts);
-
     }
 
     private void DeleteIngredientIfEmpty()
@@ -54,6 +54,8 @@ public class AlchemyContainer : MonoBehaviour
 
     public void UpdateContent()
     {
+        MergeIdenticalIngredients();
+        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts);
         MergeIdenticalIngredients();
         DeleteIngredientIfEmpty();
         amountTotal = ingredientTypeAmounts.Sum();

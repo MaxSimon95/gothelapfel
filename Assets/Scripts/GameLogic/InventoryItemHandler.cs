@@ -43,6 +43,9 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void UpdateItemContent()
     {
+        //DeleteIngredientIfEmpty();
+        MergeIdenticalIngredients();
+        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts);
         DeleteIngredientIfEmpty();
         MergeIdenticalIngredients();
 

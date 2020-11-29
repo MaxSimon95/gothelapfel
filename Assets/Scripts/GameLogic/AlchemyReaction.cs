@@ -9,7 +9,7 @@ public class AlchemyReaction : MonoBehaviour
     public List<IngredientType> inputIngredientTypes = new List<IngredientType>();
     public List<int> inputIngredientTypeAmounts = new List<int>();
     public List<IngredientType> outputIngredientTypes = new List<IngredientType>();
-    public List<int> outputIngredientTypeOutAmounts = new List<int>();
+    public List<int> outputIngredientTypeAmounts = new List<int>();
     void Start()
     {
         

@@ -73,7 +73,7 @@ public class AlchemyEngineLogic : MonoBehaviour
             Debug.Log(x.ToString());
         }*/
 
-        // step 1: remove all alchemyreactions which have to few different input ingredienttypes to even be possible 
+        // step 1: remove all alchemyreactions which have to few different input ingredienttypes to even be possible (precheck)
         Debug.Log("Step 1: Check counts and remove ill suited candidates");
 
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
@@ -91,10 +91,7 @@ public class AlchemyEngineLogic : MonoBehaviour
         }
 
         Debug.Log(alchemyReactionCandidates.Count);
-        /*foreach (var x in alchemyReactionCandidates)
-        {
-            Debug.Log(x.ToString());
-        }*/
+
 
         // step 2: Iterate through each ingredienttype present and remove all alchemyreactioncandidates that have to little of that 
 
@@ -103,10 +100,84 @@ public class AlchemyEngineLogic : MonoBehaviour
         //for (int index = 0; index < ingredientTypes.Count; index++)
         {
             Debug.Log(CheckForEnoughIngredients(alchemyReactionCandidates[index],ingredientTypes, ingredientTypeAmounts));
+            if(!CheckForEnoughIngredients(alchemyReactionCandidates[index], ingredientTypes, ingredientTypeAmounts))
+            {
+                alchemyReactionCandidates.RemoveAt(index);
+            }
+        }
 
+        // step 3: find remaining alchemyreaction-candidate with highest priority and make that alchemy reaction happen!
+
+        Debug.Log("FINAL APPLICABLE SET OF CANDIDATES");
+        
+        if(alchemyReactionCandidates.Count > 0)
+        {
+            foreach (var x in alchemyReactionCandidates)
+            {
+                Debug.Log(x.ToString());
+            }
+
+            int tempMaxPrio = 0;
+            GameObject tempCandidate = null;
+            foreach(GameObject reaction in alchemyReactionCandidates)
+            {
+                if (reaction.GetComponent<AlchemyReaction>().priority > tempMaxPrio)
+                {
+                    tempMaxPrio = reaction.GetComponent<AlchemyReaction>().priority;
+                    tempCandidate = reaction;
+                }
+                    
+            }
+
+            Debug.Log(tempCandidate);
+            ExecuteAlchemyReaction(tempCandidate, ingredientTypes, ingredientTypeAmounts);
+
+            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts);
+
+        }
+        else
+        {
+            Debug.Log("No alchemy reaction candidates applicable");
         }
 
 
+
+        }
+    private void ExecuteAlchemyReaction(GameObject reaction, List<IngredientType> ingredientTypesAvailable, List<int> ingredientTypeAmountsAvailable)
+    {
+        //ingredientTypeAmounts[0] = 90;
+
+        // remove required input ingredients from origin
+
+        for(int i=0; i< reaction.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; i++)
+        {
+            //ingredientTypes.Add(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i]);
+            for (int j = ingredientTypesAvailable.Count-1; j >= 0; j--)
+            {
+                //ingredientTypes.Add(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i]);
+                if(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i] == ingredientTypesAvailable[j])
+                {
+                    Debug.Log("HIT");
+                    ingredientTypeAmountsAvailable[j] -= reaction.GetComponent<AlchemyReaction>().inputIngredientTypeAmounts[i];
+                }
+                else
+                {
+                    Debug.Log("MISS");
+                }
+
+            }
+
+
+        }
+        //reaction.GetComponent<AlchemyReaction>().inputIngredientTypes
+
+        // add aquired output ingredients to origin
+
+        for (int i = 0; i < reaction.GetComponent<AlchemyReaction>().outputIngredientTypes.Count; i++)
+        {
+            ingredientTypesAvailable.Add(reaction.GetComponent<AlchemyReaction>().outputIngredientTypes[i]);
+            ingredientTypeAmountsAvailable.Add(reaction.GetComponent<AlchemyReaction>().outputIngredientTypeAmounts[i]);
+        }
 
         }
 
