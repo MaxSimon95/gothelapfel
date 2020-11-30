@@ -8,6 +8,8 @@ public class AlchemyEngineLogic : MonoBehaviour
     public float UpdateFrequencyInSeconds;
     public List<GameObject> alchemyReactions;
     //private GameObject alchemyReactionsParent;
+    public AudioClip reactionSound;
+    private AudioSource source;
 
     IEnumerator Start()
     {
@@ -61,6 +63,12 @@ public class AlchemyEngineLogic : MonoBehaviour
 
     public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts)
     {
+        CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, 0);
+    }
+
+    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, int reactionsHaveHappened)
+    {
+        //int reactionsHaveHappened = 0;
         Debug.Log("Starting CheckForFittingAlchemyReaction");
         // Vorgehen: Eine temp liste von alchemyreactions anlegen, die erstmal alle enthält. und in jedem durchlauf werden dann auf möglichst performante weise 
         // reactions eliminiert, die es nicht sein können und rausgeschmissen, bis nur noch die gültigen bleiben. dann wird nach prio sortiert.
@@ -112,6 +120,7 @@ public class AlchemyEngineLogic : MonoBehaviour
         
         if(alchemyReactionCandidates.Count > 0)
         {
+            reactionsHaveHappened++;
             foreach (var x in alchemyReactionCandidates)
             {
                 Debug.Log(x.ToString());
@@ -131,8 +140,8 @@ public class AlchemyEngineLogic : MonoBehaviour
 
             Debug.Log(tempCandidate);
             ExecuteAlchemyReaction(tempCandidate, ingredientTypes, ingredientTypeAmounts);
-
-            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts);
+            
+            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened);
 
         }
         else
@@ -140,9 +149,15 @@ public class AlchemyEngineLogic : MonoBehaviour
             Debug.Log("No alchemy reaction candidates applicable");
         }
 
-
-
+        if (reactionsHaveHappened == 1)
+        {
+            // here we can execute fancy stuff like SOUNDZ and sparkle effects and all that that we want to happen ONCE if a batch of n>=1 reactions occured
+            source = GetComponent<AudioSource>();
+            source.PlayOneShot(reactionSound, 1f);
+            Debug.Log("SOUND HAS PLAYED");
         }
+
+    }
     private void ExecuteAlchemyReaction(GameObject reaction, List<IngredientType> ingredientTypesAvailable, List<int> ingredientTypeAmountsAvailable)
     {
         //ingredientTypeAmounts[0] = 90;
@@ -184,9 +199,9 @@ public class AlchemyEngineLogic : MonoBehaviour
     private bool CheckForEnoughIngredients (GameObject alchemyReactionCandidate, List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts)
         {
 
-       
-            // traverse all input ingredient types in reaction candidate
-            for (int j = 0; j < alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; j++)
+        
+        // traverse all input ingredient types in reaction candidate
+        for (int j = 0; j < alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; j++)
             {
                 IngredientType requiredIngredientInput = alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypes[j];
                 int requiredAmountInput = alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypeAmounts[j];
@@ -211,13 +226,16 @@ public class AlchemyEngineLogic : MonoBehaviour
                 // if the input ingredient that has just been checked is not available in sufficent quantity, return false and stop this madness
                 if(!enoughOfIngredient)
                 {
+
+
                     return false;
                 }
+            
+        }
 
-            }
-
-            //if all input ingredients could be traversed without it throwing false once and cancelling the method, everything we need is available
-            return true;
+        //if all input ingredients could be traversed without it throwing false once and cancelling the method, everything we need is available
+        
+        return true;
 
         
 
