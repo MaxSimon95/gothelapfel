@@ -11,6 +11,7 @@ public class AlchemyEngineLogic : MonoBehaviour
     public AudioClip reactionSound;
     private AudioSource source;
 
+     
     IEnumerator Start()
     {
         LoadAlchemyReactionsIntoList();
@@ -61,20 +62,20 @@ public class AlchemyEngineLogic : MonoBehaviour
 
     }
 
-    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts)
+    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, float surroundingTemperature)
     {
-        CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, 0);
+        CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, 0, surroundingTemperature);
     }
 
-    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, int reactionsHaveHappened)
+    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, int reactionsHaveHappened, float surroundingTemperature)
     {
-        //int reactionsHaveHappened = 0;
-        Debug.Log("Starting CheckForFittingAlchemyReaction");
+        
+        //Debug.Log("Starting CheckForFittingAlchemyReaction");
         // Vorgehen: Eine temp liste von alchemyreactions anlegen, die erstmal alle enthält. und in jedem durchlauf werden dann auf möglichst performante weise 
         // reactions eliminiert, die es nicht sein können und rausgeschmissen, bis nur noch die gültigen bleiben. dann wird nach prio sortiert.
 
         List<GameObject> alchemyReactionCandidates = new List<GameObject>(alchemyReactions);
-        Debug.Log(alchemyReactionCandidates.Count);
+        //Debug.Log(alchemyReactionCandidates.Count);
 
         /*foreach (var x in alchemyReactionCandidates)
         {
@@ -82,23 +83,39 @@ public class AlchemyEngineLogic : MonoBehaviour
         }*/
 
         // step 1: remove all alchemyreactions which have to few different input ingredienttypes to even be possible (precheck)
-        Debug.Log("Step 1: Check counts and remove ill suited candidates");
+        //Debug.Log("Step 1: Check counts and remove ill suited candidates");
 
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         {
             //Debug.Log(index);
             if (alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().inputIngredientTypes.Count > ingredientTypes.Count)
             {
-                Debug.Log("removed");
+                //Debug.Log("removed");
                 alchemyReactionCandidates.RemoveAt(index);
             }
             else
             {
-                Debug.Log("not removed");
+                //Debug.Log("not removed");
             }
         }
 
-        Debug.Log(alchemyReactionCandidates.Count);
+        //Debug.Log(alchemyReactionCandidates.Count);
+
+        // step 1.5: remove all alchemyreactions which dont fit the temperature
+
+        for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
+        {
+            //Debug.Log(index);
+            if ((surroundingTemperature < alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature) || (surroundingTemperature > alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature))
+            {
+                Debug.Log("removed temperature");
+                alchemyReactionCandidates.RemoveAt(index);
+            }
+            else
+            {
+                //Debug.Log("not removed");
+            }
+        }
 
 
         // step 2: Iterate through each ingredienttype present and remove all alchemyreactioncandidates that have to little of that 
@@ -107,7 +124,7 @@ public class AlchemyEngineLogic : MonoBehaviour
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         //for (int index = 0; index < ingredientTypes.Count; index++)
         {
-            Debug.Log(CheckForEnoughIngredients(alchemyReactionCandidates[index],ingredientTypes, ingredientTypeAmounts));
+            //Debug.Log(CheckForEnoughIngredients(alchemyReactionCandidates[index],ingredientTypes, ingredientTypeAmounts));
             if(!CheckForEnoughIngredients(alchemyReactionCandidates[index], ingredientTypes, ingredientTypeAmounts))
             {
                 alchemyReactionCandidates.RemoveAt(index);
@@ -116,14 +133,14 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         // step 3: find remaining alchemyreaction-candidate with highest priority and make that alchemy reaction happen!
 
-        Debug.Log("FINAL APPLICABLE SET OF CANDIDATES");
+        //Debug.Log("FINAL APPLICABLE SET OF CANDIDATES");
         
         if(alchemyReactionCandidates.Count > 0)
         {
             reactionsHaveHappened++;
             foreach (var x in alchemyReactionCandidates)
             {
-                Debug.Log(x.ToString());
+                //Debug.Log(x.ToString());
             }
 
             int tempMaxPrio = 0;
@@ -138,7 +155,7 @@ public class AlchemyEngineLogic : MonoBehaviour
                     
             }
 
-            Debug.Log(tempCandidate);
+            //Debug.Log(tempCandidate);
             ExecuteAlchemyReaction(tempCandidate, ingredientTypes, ingredientTypeAmounts);
             
             CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened);
@@ -146,7 +163,7 @@ public class AlchemyEngineLogic : MonoBehaviour
         }
         else
         {
-            Debug.Log("No alchemy reaction candidates applicable");
+            //Debug.Log("No alchemy reaction candidates applicable");
         }
 
         if (reactionsHaveHappened == 1)
@@ -154,7 +171,7 @@ public class AlchemyEngineLogic : MonoBehaviour
             // here we can execute fancy stuff like SOUNDZ and sparkle effects and all that that we want to happen ONCE if a batch of n>=1 reactions occured
             source = GetComponent<AudioSource>();
             source.PlayOneShot(reactionSound, 1f);
-            Debug.Log("SOUND HAS PLAYED");
+            //Debug.Log("SOUND HAS PLAYED");
         }
 
     }

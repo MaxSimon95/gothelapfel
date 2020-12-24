@@ -13,13 +13,25 @@ public class AlchemyContainer : MonoBehaviour
     public int amountTotal;
     public AudioClip sound;
     private AudioSource source;
+    private float updateWaitTime;
 
 
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        updateWaitTime = Random.Range(1.0f, 2.0f);
+        Debug.Log(updateWaitTime);
 
+        while (true)
+        {
+
+
+            UpdateContent();
+
+            yield return new WaitForSeconds(updateWaitTime);
+            //Debug.Log("NAaNI");
+        }
     }
 
     // Update is called once per frame
@@ -55,7 +67,7 @@ public class AlchemyContainer : MonoBehaviour
     public void UpdateContent()
     {
         MergeIdenticalIngredients();
-        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts);
+        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature);
         MergeIdenticalIngredients();
         DeleteIngredientIfEmpty();
         amountTotal = ingredientTypeAmounts.Sum();

@@ -11,11 +11,22 @@ public class InventoryItemHandler : MonoBehaviour
     public List<int> ingredientTypeAmounts = new List<int>();
     public int amountTotal;
     public float temperature;
+    private float updateWaitTime;
 
 
-    void Start()
-    {    
-        UpdateItemContent();
+    IEnumerator Start()
+    {
+        updateWaitTime = Random.Range(8.0f, 12.0f);
+        //Debug.Log(updateWaitTime);
+
+        while (true)
+        {
+
+        
+            UpdateItemContent();
+
+        yield return new WaitForSeconds(updateWaitTime);
+        }
     }
 
     void Update()
@@ -45,7 +56,7 @@ public class InventoryItemHandler : MonoBehaviour
     {
         //DeleteIngredientIfEmpty();
         MergeIdenticalIngredients();
-        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts);
+        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature);
         DeleteIngredientIfEmpty();
         MergeIdenticalIngredients();
 
