@@ -57,7 +57,7 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         foreach (var x in alchemyReactions)
         {
-            Debug.Log(x.ToString());
+            //Debug.Log(x.ToString());
         }
 
     }
@@ -108,7 +108,7 @@ public class AlchemyEngineLogic : MonoBehaviour
             //Debug.Log(index);
             if ((surroundingTemperature < alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature) || (surroundingTemperature > alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature))
             {
-                Debug.Log("removed temperature");
+             //   Debug.Log("removed temperature");
                 alchemyReactionCandidates.RemoveAt(index);
             }
             else
@@ -158,7 +158,7 @@ public class AlchemyEngineLogic : MonoBehaviour
             //Debug.Log(tempCandidate);
             ExecuteAlchemyReaction(tempCandidate, ingredientTypes, ingredientTypeAmounts);
             
-            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened);
+            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened, surroundingTemperature);
 
         }
         else

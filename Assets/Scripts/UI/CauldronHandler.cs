@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CauldronHandler : MonoBehaviour
 {
     public GameObject fire;
+    private float updateTemperatureWaitTime = 0.5f;
+    public GameObject UITemperatureIndicator;
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -15,7 +17,7 @@ public class CauldronHandler : MonoBehaviour
         {
             UpdateTemperature();
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(updateTemperatureWaitTime);
         }
     }
 
@@ -142,7 +144,9 @@ public class CauldronHandler : MonoBehaviour
         if (GetComponent<AlchemyContainer>().temperature > fire.GetComponent<CauldronFire>().maxTemperature)
             GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().maxTemperature;
 
+        UITemperatureIndicator.GetComponent<UnityEngine.UI.Text>().text = "Temperature: " + (int)GetComponent<AlchemyContainer>().temperature + "°";
 
+       
 
 
     }

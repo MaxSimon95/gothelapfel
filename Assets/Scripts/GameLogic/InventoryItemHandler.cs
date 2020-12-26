@@ -11,24 +11,67 @@ public class InventoryItemHandler : MonoBehaviour
     public List<int> ingredientTypeAmounts = new List<int>();
     public int amountTotal;
     public float temperature;
-    private float updateWaitTime;
+    private float updateItemContentWaitTime;
+    private float updateTemperatureWaitTime = 0.5f;
+
+    private IEnumerator updateItemContentCoroutine;
+    private IEnumerator updateTemperatureCoroutine;
 
 
-    IEnumerator Start()
+    /*  IEnumerator Start()
+      {
+          updateItemContentWaitTime = Random.Range(8.0f, 12.0f);
+          //Debug.Log(updateItemContentWaitTime);
+
+          while (true)
+          {
+
+              UpdateTemperature();
+              UpdateItemContent();
+
+          yield return new WaitForSeconds(updateItemContentWaitTime);
+          }
+      } */
+
+
+    void Start()
     {
-        updateWaitTime = Random.Range(8.0f, 12.0f);
-        //Debug.Log(updateWaitTime);
+        updateItemContentWaitTime = Random.Range(8.0f, 12.0f);
+        //Debug.Log("Start");
 
+        updateItemContentCoroutine = UpdateItemContentCoroutine(updateItemContentWaitTime);
+        updateTemperatureCoroutine = UpdateTemperatureCoroutine(updateTemperatureWaitTime);
+
+        StartCoroutine(updateItemContentCoroutine);
+        StartCoroutine(updateTemperatureCoroutine);
+
+        //Debug.Log("Start End");
+    }
+
+    private IEnumerator UpdateTemperatureCoroutine(float waitTime)
+    {
+       // Debug.Log("UpdateTemperatureCourtine START");
         while (true)
         {
-
-        
-            UpdateItemContent();
-
-        yield return new WaitForSeconds(updateWaitTime);
+            //Debug.Log("temperature Loop Start");
+            UpdateTemperature();
+            yield return new WaitForSeconds(waitTime);
+            //print("WaitAndPrint " + Time.time);
         }
     }
 
+    private IEnumerator UpdateItemContentCoroutine(float waitTime)
+    {
+        //Debug.Log("UpdateItemCourotine START");
+        while (true)
+        {
+            //Debug.Log("Item Loop start");
+            UpdateItemContent();
+            yield return new WaitForSeconds(waitTime);
+            //print("WaitAndPrint " + Time.time);
+        }
+    }
+    
     void Update()
     {
         
@@ -52,9 +95,45 @@ public class InventoryItemHandler : MonoBehaviour
         }
     }
 
+    public void UpdateTemperature()
+    {
+        float temperatureChange;
+        float targetTemperature;
+
+        targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.GetComponent<RoomHandler>().temperature;
+        //targetTemperature = 30; 
+
+
+        temperatureChange = (targetTemperature - temperature) * 0.1f;
+        temperature += temperatureChange;
+
+        // minimal unterschiedliche temperaturen gleichsetzen
+        if (((targetTemperature - temperature) < 1) && ((targetTemperature - temperature) > -1))
+        {
+            temperature = targetTemperature;
+        }
+
+
+
+       /* // zu niedrige temperatur auf raumtemperatur setzen
+        if (GetComponent<AlchemyContainer>().temperature <= fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature)
+        {
+            GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature;
+        }
+
+        // zu hohe temperatur auf max temperatur setzen
+
+        if (GetComponent<AlchemyContainer>().temperature > fire.GetComponent<CauldronFire>().maxTemperature)
+            GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().maxTemperature;
+        */ 
+
+
+
+    }
+
     public void UpdateItemContent()
     {
-        //DeleteIngredientIfEmpty();
+        
         MergeIdenticalIngredients();
         GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature);
         DeleteIngredientIfEmpty();
@@ -118,12 +197,25 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void AddIngredient(IngredientType ingredientType, int amount)
     {
+        AddIngredient(ingredientType, amount, temperature);
+    }
+
+    public void AddIngredient(IngredientType ingredientType, int amount, float addedIngredientTemperature)
+    {
         Debug.Log("Adding ingredient");
         Debug.Log(ingredientType);
         Debug.Log(amount);
 
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
+
+        Debug.Log("Temperature Before " + temperature);
+        Debug.Log("amountTotal " + amountTotal);
+        Debug.Log("amount " + amount);
+        Debug.Log("addedIngredientTemperature  " + addedIngredientTemperature);
+        temperature = ((float)amountTotal / ((float)amountTotal + (float)amount)) * temperature + ((float)amount / ((float)amountTotal + (float)amount)) * addedIngredientTemperature;
+        Debug.Log("Temperature After " + temperature);
+        Debug.Log(((float)10 / ((float)10 + (float)10)) * 50 + ((float)10 / ((float)10 + (float)10)) * 100);
     }
 
     private void MergeIdenticalIngredients()

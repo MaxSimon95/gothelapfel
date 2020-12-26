@@ -137,7 +137,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
             ingredientTypeAmountsinContainer[index] -= transfer;
 
 
-            slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], transfer);
+            slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], transfer, container.GetComponent<AlchemyContainer>().temperature);
 
         }
         
@@ -146,7 +146,7 @@ public class TransferOutOfContainerHandler : MonoBehaviour
         {
             if (ingredientTypeAmountsinContainer[index] > 0) 
             {
-                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], 1);
+                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], 1, container.GetComponent<AlchemyContainer>().temperature);
                 ingredientTypeAmountsinContainer[index] -= 1;
                 remainingTransferAmount = 0;
             } 
