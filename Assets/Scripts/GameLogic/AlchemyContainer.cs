@@ -21,7 +21,6 @@ public class AlchemyContainer : MonoBehaviour
     IEnumerator Start()
     {
         updateWaitTime = Random.Range(1.0f, 2.0f);
-        //Debug.Log(updateWaitTime);
 
         while (true)
         {
@@ -30,7 +29,6 @@ public class AlchemyContainer : MonoBehaviour
             UpdateContent();
 
             yield return new WaitForSeconds(updateWaitTime);
-            //Debug.Log("NAaNI");
         }
     }
 
