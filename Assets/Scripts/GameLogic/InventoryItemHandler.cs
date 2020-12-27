@@ -135,7 +135,7 @@ public class InventoryItemHandler : MonoBehaviour
     {
         
         MergeIdenticalIngredients();
-        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature);
+        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature, "inventory");
         DeleteIngredientIfEmpty();
         MergeIdenticalIngredients();
 

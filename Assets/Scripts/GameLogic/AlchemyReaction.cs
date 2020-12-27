@@ -9,6 +9,8 @@ public class AlchemyReaction : MonoBehaviour
     public int priority;
     public float minTemperature = -999999f;
     public float maxTemperature = -999999f;
+    public List<string> validAlchemyContainers;
+
     public List<IngredientType> inputIngredientTypes = new List<IngredientType>();
     public List<int> inputIngredientTypeAmounts = new List<int>();
     public List<IngredientType> outputIngredientTypes = new List<IngredientType>();

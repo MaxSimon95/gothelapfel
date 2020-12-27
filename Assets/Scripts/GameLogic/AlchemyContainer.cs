@@ -21,7 +21,7 @@ public class AlchemyContainer : MonoBehaviour
     IEnumerator Start()
     {
         updateWaitTime = Random.Range(1.0f, 2.0f);
-        Debug.Log(updateWaitTime);
+        //Debug.Log(updateWaitTime);
 
         while (true)
         {
@@ -67,7 +67,7 @@ public class AlchemyContainer : MonoBehaviour
     public void UpdateContent()
     {
         MergeIdenticalIngredients();
-        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature);
+        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature, gameObject.name);
         MergeIdenticalIngredients();
         DeleteIngredientIfEmpty();
         amountTotal = ingredientTypeAmounts.Sum();

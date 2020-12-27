@@ -62,12 +62,12 @@ public class AlchemyEngineLogic : MonoBehaviour
 
     }
 
-    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, float surroundingTemperature)
+    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, float surroundingTemperature, string surroundingContainerName)
     {
-        CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, 0, surroundingTemperature);
+        CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, 0, surroundingTemperature, surroundingContainerName);
     }
 
-    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, int reactionsHaveHappened, float surroundingTemperature)
+    public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, int reactionsHaveHappened, float surroundingTemperature, string surroundingContainerName)
     {
         
         //Debug.Log("Starting CheckForFittingAlchemyReaction");
@@ -83,19 +83,13 @@ public class AlchemyEngineLogic : MonoBehaviour
         }*/
 
         // step 1: remove all alchemyreactions which have to few different input ingredienttypes to even be possible (precheck)
-        //Debug.Log("Step 1: Check counts and remove ill suited candidates");
 
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         {
             //Debug.Log(index);
             if (alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().inputIngredientTypes.Count > ingredientTypes.Count)
             {
-                //Debug.Log("removed");
                 alchemyReactionCandidates.RemoveAt(index);
-            }
-            else
-            {
-                //Debug.Log("not removed");
             }
         }
 
@@ -105,18 +99,32 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         {
-            //Debug.Log(index);
-            if ((surroundingTemperature < alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature) || (surroundingTemperature > alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature))
+            // if min and max temperature are completely identical we assume that nothing has been specified at all --> the reaction has no temperature constraint
+            if(alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature != alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature)
             {
-             //   Debug.Log("removed temperature");
-                alchemyReactionCandidates.RemoveAt(index);
-            }
-            else
-            {
-                //Debug.Log("not removed");
+                // check if min and max temperature fit
+                if ((surroundingTemperature < alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature) || (surroundingTemperature > alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature))
+                {
+                    alchemyReactionCandidates.RemoveAt(index);
+                }
             }
         }
 
+        // Step 1.7 remove all alchemyreactions with a container constraint that doesnt fit
+
+        for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
+        {
+            // check if there are any constraints on the container at all
+            if (alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().validAlchemyContainers.Count > 0)
+            {
+                Debug.Log(surroundingContainerName);
+                // check if this container is one of the valid ones
+                if (!alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().validAlchemyContainers.Contains(surroundingContainerName))
+                {
+                    alchemyReactionCandidates.RemoveAt(index);
+                }
+            }
+        }
 
         // step 2: Iterate through each ingredienttype present and remove all alchemyreactioncandidates that have to little of that 
 
@@ -158,7 +166,7 @@ public class AlchemyEngineLogic : MonoBehaviour
             //Debug.Log(tempCandidate);
             ExecuteAlchemyReaction(tempCandidate, ingredientTypes, ingredientTypeAmounts);
             
-            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened, surroundingTemperature);
+            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened, surroundingTemperature, surroundingContainerName);
 
         }
         else
@@ -171,22 +179,22 @@ public class AlchemyEngineLogic : MonoBehaviour
             // here we can execute fancy stuff like SOUNDZ and sparkle effects and all that that we want to happen ONCE if a batch of n>=1 reactions occured
             source = GetComponent<AudioSource>();
             source.PlayOneShot(reactionSound, 1f);
-            //Debug.Log("SOUND HAS PLAYED");
+            
+
         }
 
     }
     private void ExecuteAlchemyReaction(GameObject reaction, List<IngredientType> ingredientTypesAvailable, List<int> ingredientTypeAmountsAvailable)
     {
-        //ingredientTypeAmounts[0] = 90;
 
         // remove required input ingredients from origin
 
         for(int i=0; i< reaction.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; i++)
         {
-            //ingredientTypes.Add(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i]);
+
             for (int j = ingredientTypesAvailable.Count-1; j >= 0; j--)
             {
-                //ingredientTypes.Add(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i]);
+
                 if(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i] == ingredientTypesAvailable[j])
                 {
                     Debug.Log("HIT");
@@ -201,7 +209,7 @@ public class AlchemyEngineLogic : MonoBehaviour
 
 
         }
-        //reaction.GetComponent<AlchemyReaction>().inputIngredientTypes
+
 
         // add aquired output ingredients to origin
 
