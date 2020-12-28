@@ -8,6 +8,8 @@ public class CanvasContainerHandler : MonoBehaviour
 
     private float inventoryStartPosition;
     private InventoryUIBehaviour inventoryUIBehaviour;
+    public GameObject associatedSceneObject;
+    public bool hasTransferAmountSelection;
 
 
     void Awake()
@@ -61,6 +63,9 @@ public class CanvasContainerHandler : MonoBehaviour
         inventoryUIBehaviour.OpenInventory(280);
         inventoryUIBehaviour.isLocked = true;
         inventoryUIBehaviour.HideButton();
+        
+        
+        if(hasTransferAmountSelection)
         GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(1, 1, 1);
 
 
