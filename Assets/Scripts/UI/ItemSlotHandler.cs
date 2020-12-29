@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class ItemSlotHandler : MonoBehaviour, IDropHandler 
 {
     private Transform originalSlotItem;
+    public GameObject associatedContainer;
 
 
     // if uiScaling = 0, do nothing, else use it as a multiplier for dropped items
@@ -16,7 +17,6 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
     void Start()
     {
-
     }
 
     // Update is called once per frame

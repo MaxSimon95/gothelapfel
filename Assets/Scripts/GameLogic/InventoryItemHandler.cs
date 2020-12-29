@@ -36,6 +36,8 @@ public class InventoryItemHandler : MonoBehaviour
 
     void Start()
     {
+        
+
         updateItemContentWaitTime = Random.Range(8.0f, 12.0f);
         //Debug.Log("Start");
 
@@ -46,6 +48,7 @@ public class InventoryItemHandler : MonoBehaviour
         StartCoroutine(updateTemperatureCoroutine);
 
         //Debug.Log("Start End");
+
     }
 
     private IEnumerator UpdateTemperatureCoroutine(float waitTime)
@@ -54,7 +57,10 @@ public class InventoryItemHandler : MonoBehaviour
         while (true)
         {
             //Debug.Log("temperature Loop Start");
-            UpdateTemperature();
+            if (name != "InventoryItemPrefab")
+            {
+                UpdateTemperature();
+            }
             yield return new WaitForSeconds(waitTime);
             //print("WaitAndPrint " + Time.time);
         }
@@ -65,8 +71,11 @@ public class InventoryItemHandler : MonoBehaviour
         //Debug.Log("UpdateItemCourotine START");
         while (true)
         {
-            //Debug.Log("Item Loop start");
-            UpdateItemContent();
+            if (name != "InventoryItemPrefab")
+            {
+                //Debug.Log("Item Loop start");
+                UpdateItemContent();
+            }
             yield return new WaitForSeconds(waitTime);
             //print("WaitAndPrint " + Time.time);
         }
@@ -100,7 +109,25 @@ public class InventoryItemHandler : MonoBehaviour
         float temperatureChange;
         float targetTemperature;
 
-        targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.GetComponent<RoomHandler>().temperature;
+        //Debug.Log(transform.parent.gameObject.name);
+
+        // adjust target temperature
+
+        if (
+            (transform.parent.GetComponent<ItemSlotHandler>() == null)
+            ||(transform.parent.GetComponent<ItemSlotHandler>().associatedContainer == null)
+            || (transform.parent.GetComponent<ItemSlotHandler>().associatedContainer.name == "PanelInventory")
+            )
+        {
+            targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.GetComponent<RoomHandler>().temperature;
+            Debug.Log(targetTemperature);
+        }
+        else
+        {
+            targetTemperature = transform.parent.GetComponent<ItemSlotHandler>().associatedContainer.GetComponent<AlchemyStorageContainer>().temperature;
+            Debug.Log(targetTemperature);
+        }
+        
         //targetTemperature = 30; 
 
 
@@ -135,7 +162,22 @@ public class InventoryItemHandler : MonoBehaviour
     {
         
         MergeIdenticalIngredients();
-        GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature, "inventory");
+
+        
+
+
+        if ((transform.parent.GetComponent<ItemSlotHandler>() != null)&&(transform.parent.GetComponent<ItemSlotHandler>().associatedContainer != null))
+        {
+            GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature, transform.parent.GetComponent<ItemSlotHandler>().associatedContainer.name);
+            //Debug.Log("PARENTAL: " + transform.parent.GetComponent<ItemSlotHandler>().associatedContainer.name);
+        }
+        else
+        {
+            GameObject.Find("AlchemyEngine").GetComponent<AlchemyEngineLogic>().CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, temperature, "surrounding-in-which-reaction-happened-not-set");
+            //Debug.Log("PARENTAL: " + "surrounding-in-which-reaction-happened-not-set");
+        }
+        
+
         DeleteIngredientIfEmpty();
         MergeIdenticalIngredients();
 

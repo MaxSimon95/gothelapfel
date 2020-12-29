@@ -106,7 +106,7 @@ public class CauldronHandler : MonoBehaviour
         float temperatureChange;
         float targetTemperature;
 
-        targetTemperature = fire.GetComponent<CauldronFire>().currentFireLevel * fire.GetComponent<CauldronFire>().maxTemperature + fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature;
+        targetTemperature = fire.GetComponent<CauldronFire>().currentFireLevel * fire.GetComponent<CauldronFire>().maxTemperature + GetComponent<AlchemyContainer>().room.GetComponent<RoomHandler>().temperature;
 
         // feuer ist an
         if (fire.GetComponent<CauldronFire>().currentFireLevel > 0)
@@ -133,11 +133,11 @@ public class CauldronHandler : MonoBehaviour
         temperatureChange = (targetTemperature - GetComponent<AlchemyContainer>().temperature) * 0.01f;
         GetComponent<AlchemyContainer>().temperature += temperatureChange;
 
-        // zu niedrige temperatur auf raumtemperatur setzen
-        if (GetComponent<AlchemyContainer>().temperature <= fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature)
+        // zu niedrige temperatur auf raumtemperatur setzen  (obsolet, da schon das feuer nicht unter raumtemperatur fallen kann?)
+      /*  if (GetComponent<AlchemyContainer>().temperature <= fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature)
         {
             GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature;
-        }
+        } */ 
 
         // zu hohe temperatur auf max temperatur setzen
 

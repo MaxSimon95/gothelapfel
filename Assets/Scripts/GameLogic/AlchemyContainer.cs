@@ -14,6 +14,7 @@ public class AlchemyContainer : MonoBehaviour
     public AudioClip sound;
     private AudioSource source;
     private float updateWaitTime;
+    public RoomHandler room;
 
 
 
