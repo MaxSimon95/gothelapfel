@@ -31,7 +31,7 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void OpenContainerView()
     {
-        
+        Debug.Log("OpenContainerView");
 
         foreach (Transform child in transform.GetChild(0))
         {
@@ -49,6 +49,11 @@ public class CanvasContainerHandler : MonoBehaviour
                     if (child2.gameObject.name == "ButtonTransferOutOfContainer")
                     {
                         child2.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+                    }
+
+                    if (child2.gameObject.name == "ButtonStartCentrifuge")
+                    {
+                        child2.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                     }
                 }
             }

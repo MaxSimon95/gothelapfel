@@ -120,12 +120,12 @@ public class InventoryItemHandler : MonoBehaviour
             )
         {
             targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.GetComponent<RoomHandler>().temperature;
-            Debug.Log(targetTemperature);
+            //Debug.Log(targetTemperature);
         }
         else
         {
             targetTemperature = transform.parent.GetComponent<ItemSlotHandler>().associatedContainer.GetComponent<AlchemyStorageContainer>().temperature;
-            Debug.Log(targetTemperature);
+            //Debug.Log(targetTemperature);
         }
         
         //targetTemperature = 30; 

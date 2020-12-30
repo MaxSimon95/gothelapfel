@@ -60,6 +60,11 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                 {
                     child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
                 }
+
+                if (child.gameObject.name == "ButtonStartCentrifuge")
+                {
+                    child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                }
             }
         }
     }

@@ -27,36 +27,43 @@ public class TransferAmountSlotHandler : MonoBehaviour, IDropHandler
             {
                 if (child.gameObject.name == "ButtonTransferIntoContainer")
                 {
-                    
                     child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
                 }
 
                 if (child.gameObject.name == "ButtonTransferOutOfContainer")
                 {
-
                     child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+                }
+
+                if (child.gameObject.name == "ButtonStartCentrifuge")
+                {
+                    child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                 }
             }
         }
 
     }
 
-    public void onPullOut() // pulling out isn't safe! :3
+    /*public void onPullOut() // pulling out isn't safe! :3
     {
+        Debug.Log("!!!");
         foreach (Transform child in transform.parent)
         {
             if (child.gameObject.name == "ButtonTransferIntoContainer")
             {
-                Debug.Log("Calling updateButtonActive from outside");
                 child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
             }
 
             if (child.gameObject.name == "ButtonTransferOutOfContainer")
             {
-                Debug.Log("Calling updateButtonActive from outside");
                 child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
             }
+
+            if (child.gameObject.name == "ButtonStartCentrifuge")
+            {
+                child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+            }
         }
-    }
+    }*/
 
     }
