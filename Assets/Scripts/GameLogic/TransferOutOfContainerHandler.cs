@@ -76,6 +76,8 @@ public class TransferOutOfContainerHandler : MonoBehaviour
         slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.RemoveAt(0);
         slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypes.RemoveAt(0);
 
+        Debug.Log("INSTANTIATE TEMPERATURE: " + slotInventoryItem.GetComponent<InventoryItemHandler>().temperature);
+
     }
 
     private void AddIntoExistingItem()
@@ -133,19 +135,22 @@ public class TransferOutOfContainerHandler : MonoBehaviour
             
             transfer = (int)(Decimal.Divide(amountInContainer, container.GetComponent<AlchemyContainer>().amountTotal) * transferAmount);
 
-            
+            if (transfer > 0)
+            {
+                remainingTransferAmount -= transfer;
+                // reduce amount of ingredients in amountlist
 
-            remainingTransferAmount -= transfer;
-            Debug.Log("ingriedient number: " + index + ";  amount in container: " + amountInContainer + ";  transfer: " + transfer + ";  remaining transfer amount: " + remainingTransferAmount);
-            // reduce amount of ingredients in amountlist
+                ingredientTypeAmountsinContainer[index] -= transfer;
 
-            ingredientTypeAmountsinContainer[index] -= transfer;
+                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], transfer, container.GetComponent<AlchemyContainer>().temperature);
+
+            }
 
 
-            slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(ingredientTypesInContainer[index], transfer, container.GetComponent<AlchemyContainer>().temperature);
+            Debug.Log("ingriedient number: " + index + ";  amount in container before transfer: " + amountInContainer + ";  transfer: " + transfer + ";  remaining transfer amount: " + remainingTransferAmount + ";  total amount transferred: " + slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.Sum());
 
         }
-        
+
         // clean up the 1 unit that might still need to be moved because the division didnt produce integer results
         for (int index = 0; (index < ingredientTypeAmountsinContainer.Count) && (remainingTransferAmount > 0); index++)
         {
@@ -157,7 +162,8 @@ public class TransferOutOfContainerHandler : MonoBehaviour
                 ingredientTypeAmountsinContainer[index] -= 1;
                 remainingTransferAmount -= 1;
             }
-            Debug.Log(" clean up round concludes! remaining transfer amount: " + remainingTransferAmount);
+
+            Debug.Log(" clean up round concludes! remaining transfer amount: " + remainingTransferAmount + ";  totalAmount transferred: " + slotInventoryItem.GetComponent<InventoryItemHandler>().amountTotal);
         }
 
         slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
