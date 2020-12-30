@@ -197,12 +197,12 @@ public class AlchemyEngineLogic : MonoBehaviour
 
                 if(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i] == ingredientTypesAvailable[j])
                 {
-                    Debug.Log("HIT");
+                    //Debug.Log("HIT");
                     ingredientTypeAmountsAvailable[j] -= reaction.GetComponent<AlchemyReaction>().inputIngredientTypeAmounts[i];
                 }
                 else
                 {
-                    Debug.Log("MISS");
+                    //Debug.Log("MISS");
                 }
 
             }

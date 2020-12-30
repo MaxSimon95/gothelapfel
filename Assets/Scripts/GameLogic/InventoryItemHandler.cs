@@ -231,7 +231,7 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void AddIngredientAndUpdate(IngredientType ingredientType, int amount)
     {
-
+        //Debug.Log("AddIngredientAndUpdate");
         AddIngredient(ingredientType, amount);
         UpdateItemContent();
 
@@ -239,25 +239,27 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void AddIngredient(IngredientType ingredientType, int amount)
     {
+        //Debug.Log("Add ingredient without temperature");
         AddIngredient(ingredientType, amount, temperature);
     }
 
     public void AddIngredient(IngredientType ingredientType, int amount, float addedIngredientTemperature)
     {
-        Debug.Log("Adding ingredient");
-        Debug.Log(ingredientType);
-        Debug.Log(amount);
+        //Debug.Log("Add ingredient with temperature: " + addedIngredientTemperature);
+        //Debug.Log("Adding ingredient");
+        //Debug.Log(ingredientType);
+        //Debug.Log(amount);
 
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
 
-        Debug.Log("Temperature Before " + temperature);
-        Debug.Log("amountTotal " + amountTotal);
-        Debug.Log("amount " + amount);
-        Debug.Log("addedIngredientTemperature  " + addedIngredientTemperature);
+        //Debug.Log("Temperature Before " + temperature);
+        //Debug.Log("amountTotal " + amountTotal);
+        //Debug.Log("amount " + amount);
+        //Debug.Log("addedIngredientTemperature  " + addedIngredientTemperature);
         temperature = ((float)amountTotal / ((float)amountTotal + (float)amount)) * temperature + ((float)amount / ((float)amountTotal + (float)amount)) * addedIngredientTemperature;
-        Debug.Log("Temperature After " + temperature);
-        Debug.Log(((float)10 / ((float)10 + (float)10)) * 50 + ((float)10 / ((float)10 + (float)10)) * 100);
+        //Debug.Log("Temperature After " + temperature);
+        //Debug.Log(((float)10 / ((float)10 + (float)10)) * 50 + ((float)10 / ((float)10 + (float)10)) * 100);
     }
 
     private void MergeIdenticalIngredients()

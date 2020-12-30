@@ -31,7 +31,7 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void OpenContainerView()
     {
-        Debug.Log("OpenContainerView");
+        //Debug.Log("OpenContainerView");
 
         foreach (Transform child in transform.GetChild(0))
         {

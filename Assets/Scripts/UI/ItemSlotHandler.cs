@@ -50,7 +50,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                         (eventData.pointerDrag.GetComponent<InventoryItemHandler>().ingredientTypes[0] == transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0])
                     )
                 {   // its the same ingredient type: merge items
-                    Debug.Log("FIT FOR MERGE");
+                    //Debug.Log("FIT FOR MERGE");
                     int amountIncoming = eventData.pointerDrag.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0];
                     int amountInSlot = transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0];
                     int amountTotal = amountInSlot + amountIncoming;
@@ -71,7 +71,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                 }
                 else
                 {   // its not the same ingredient type or there are mixtures involved: switch items around if slot already is full (and its two different items)
-                    Debug.Log("NOT FIT FOR MERGE");
+                    //Debug.Log("NOT FIT FOR MERGE");
 
                     originalSlotItem = transform.GetChild(0);
                     originalSlotItem.transform.SetParent(eventData.pointerDrag.GetComponent<DragAndDrop>().startParent);

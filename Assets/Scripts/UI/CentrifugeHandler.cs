@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CentrifugeHandler : MonoBehaviour
 {
-
+    public int outputSlotsUnlocked = 4;
     private bool buttonActive;
     private GameObject inventoryItemInSlot;
     private List<ItemSlotHandler> outputItemSlots = new List<ItemSlotHandler>();
@@ -14,7 +14,7 @@ public class CentrifugeHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(transform.parent.parent.gameObject.name);
+        //Debug.Log(transform.parent.parent.gameObject.name);
 
         updateButtonActive();
 
@@ -23,14 +23,14 @@ public class CentrifugeHandler : MonoBehaviour
         {
             if (child.gameObject.name == "PanelCentrifuge")
             {
-                Debug.Log(child.gameObject.name);
+                //Debug.Log(child.gameObject.name);
                 foreach (Transform child2 in child)
                 {
                   
                    
-                    if (child2.gameObject.name == "PanelItemSlots")
+                    if (child2.gameObject.name == "PanelInventorySlots")
                     {
-                        Debug.Log(child2.gameObject.name);
+                        //Debug.Log(child2.gameObject.name);
                         foreach (Transform slot in child2)
                         {
                             outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
@@ -55,7 +55,7 @@ public class CentrifugeHandler : MonoBehaviour
        {
        }*/
 
-        Debug.Log(outputItemSlots.Count);
+        //Debug.Log(outputItemSlots.Count);
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class CentrifugeHandler : MonoBehaviour
     public void updateButtonActive()
 
     {
-        Debug.Log("button active test");
+       // Debug.Log("button active test");
         buttonActive = true;
 
         if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null)
@@ -93,14 +93,55 @@ public class CentrifugeHandler : MonoBehaviour
 
     }
 
-    public void StartCentrifuge()
+    public void SeparateIngredients()
     {
+        GameObject slotInventoryItem = null;
+
         Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript());
         inventoryItemInSlot = GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript();
         if (inventoryItemInSlot != null)
         {
-            inventoryItemInSlot.GetComponent<InventoryItemHandler>().DeleteInstanceOfInventoryItem();
+
+            //inventoryItemInSlot.GetComponent<InventoryItemHandler>().DeleteInstanceOfInventoryItem();
+            //int targeted_slot;
+            for (int i = 0; i < inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.Count; i++)
+            {
+                
+                if (i < outputSlotsUnlocked)
+                {
+                    //targeted_slot = i;
+
+                    slotInventoryItem = (GameObject)Instantiate(Resources.Load("InventoryItemPrefab"), new Vector3(0, 0, 0), Quaternion.identity);
+                    slotInventoryItem.transform.SetParent(outputItemSlots[i].transform);
+                    slotInventoryItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+                    slotInventoryItem.GetComponent<RectTransform>().localScale = new Vector3(slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
+
+                    slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.RemoveAt(0);
+                    slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypes.RemoveAt(0);
+                }
+                // handle the case that there are more ingredienttypes than output slots present: stuff all the remaining types into one mixture
+                else
+                {
+
+                }
+
+                    Debug.Log("i = " + i);
+                // (i < inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.Count)
+               
+
+                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypes[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().temperature);
+
+                slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
+                //slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateTemperature();
+                
+
+                
+
+            }
+
+
         }
+
 
         updateButtonActive();
 

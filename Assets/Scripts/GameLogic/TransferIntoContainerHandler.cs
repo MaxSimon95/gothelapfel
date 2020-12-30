@@ -107,7 +107,7 @@ public class TransferIntoContainerHandler : MonoBehaviour
             {
                 container.GetComponent<AlchemyContainer>().AddIngredient(ingredientTypesInSlot[index], 1);
                 ingredientTypeAmountsInSlot[index] -= 1;
-                remainingTransferAmount = 0;
+                remainingTransferAmount -= 1;
             }
         }
 
