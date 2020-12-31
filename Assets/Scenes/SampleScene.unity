@@ -18276,7 +18276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 10
-  minTemperature: 150
+  minTemperature: 50
   maxTemperature: 11250
   validAlchemyContainers: []
   inputIngredientTypes:
@@ -19556,7 +19556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 10
-  minTemperature: 100
+  minTemperature: 50
   maxTemperature: 200
   validAlchemyContainers: []
   inputIngredientTypes:
@@ -29266,7 +29266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 10
-  minTemperature: 150
+  minTemperature: 50
   maxTemperature: 200
   validAlchemyContainers: []
   inputIngredientTypes:
