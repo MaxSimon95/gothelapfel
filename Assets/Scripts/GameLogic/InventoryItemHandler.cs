@@ -253,7 +253,7 @@ public class InventoryItemHandler : MonoBehaviour
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
 
-        Debug.Log("Temperature Before " + temperature);
+        //Debug.Log("Temperature Before " + temperature);
         //Debug.Log("amountTotal " + amountTotal);
         //Debug.Log("amount " + amount);
         //Debug.Log("addedIngredientTemperature  " + addedIngredientTemperature);

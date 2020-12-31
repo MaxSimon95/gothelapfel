@@ -47,8 +47,6 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         if (originalParent.name == "PanelTransfer")
         {
 
-
-
             foreach (Transform child in originalParent.transform)
             {
                 if (child.gameObject.name == "ButtonTransferIntoContainer")
@@ -64,6 +62,27 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                 if (child.gameObject.name == "ButtonStartCentrifuge")
                 {
                     child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                }
+            }
+        }
+
+        Debug.Log(originalParent.transform.parent.parent.gameObject.name);
+        if (originalParent.transform.parent.parent.gameObject.name == "PanelCentrifugeView")
+        {
+            foreach (Transform child in originalParent.transform.parent.parent)
+            {
+                //Debug.Log(child.gameObject.name);
+                if (child.gameObject.name == "PanelTransfer")
+                {
+                    Debug.Log(child.gameObject.name);
+                    foreach (Transform child2 in child)
+                    {
+                        if (child2.gameObject.name == "ButtonStartCentrifuge")
+                        {
+                            child2.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                        }
+                    }
+                    
                 }
             }
         }
