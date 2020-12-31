@@ -10,6 +10,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 {
     private Transform originalSlotItem;
     public GameObject associatedContainer;
+    public bool prohibitDrop;
 
 
     // if uiScaling = 0, do nothing, else use it as a multiplier for dropped items
@@ -17,6 +18,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
     void Start()
     {
+        UpdateSlotVisibility();
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         //Debug.Log("OnDrop");
-        if(eventData.pointerDrag != null)
+        if((eventData.pointerDrag != null)&&!prohibitDrop)
         {
             // Put item in slot if slot is empty
             if (transform.childCount == 0)
@@ -112,6 +114,25 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             
 
         }
+        UpdateSlotVisibility();
+    }
+
+    public void UpdateSlotVisibility()
+    {
+        Debug.Log("Update slot visibility");
+
+        Image image = GetComponent<Image>();
+        var tempColor = image.color;
+
+        if (prohibitDrop && (transform.childCount==0))
+        {
+            tempColor.a = 0.2f;
+        }
+        else
+        {
+            tempColor.a = 1f;
+        }
+        GetComponent<Image>().color = tempColor;
     }
 
     public void ButtonPress()

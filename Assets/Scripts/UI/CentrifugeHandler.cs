@@ -62,7 +62,7 @@ public class CentrifugeHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // UpdateDisplayedSlotsNumber();
+       
     }
 
     public void UpdateDisplayedSlotsNumber()
@@ -153,13 +153,16 @@ public class CentrifugeHandler : MonoBehaviour
         {
 
             
-            //int targeted_slot;
+           
             for (int i = 0; i < inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.Count; i++)
             {
                 
+                
+                // make a new item in a free slot if i is less than unlockedslots,
+                //otherwise the remaining ingredients just get added into the last item that was created on the last free slot in every loop
                 if (i < outputSlotsUnlocked)
                 {
-                    //targeted_slot = i;
+                    
 
                     slotInventoryItem = (GameObject)Instantiate(Resources.Load("InventoryItemPrefab"), new Vector3(0, 0, 0), Quaternion.identity);
                     slotInventoryItem.transform.SetParent(outputItemSlots[i].transform);
@@ -169,11 +172,7 @@ public class CentrifugeHandler : MonoBehaviour
                     slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.RemoveAt(0);
                     slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypes.RemoveAt(0);
                 }
-                // handle the case that there are more ingredienttypes than output slots present: stuff all the remaining types into one mixture
-                else
-                {
-
-                }
+                
 
                     //Debug.Log("i = " + i);
                 // (i < inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.Count)
@@ -183,12 +182,14 @@ public class CentrifugeHandler : MonoBehaviour
 
                 slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
                 //slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateTemperature();
-                
 
-                
+
+                // update slot visuals
+                outputItemSlots[i].UpdateSlotVisibility();
 
             }
 
+            // delete the original item
             inventoryItemInSlot.GetComponent<InventoryItemHandler>().DeleteInstanceOfInventoryItem();
 
 

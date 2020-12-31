@@ -54,6 +54,7 @@ public class CanvasContainerHandler : MonoBehaviour
                     if (child2.gameObject.name == "ButtonStartCentrifuge")
                     {
                         child2.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                        child2.gameObject.GetComponent<CentrifugeHandler>().UpdateDisplayedSlotsNumber();
                     }
                 }
             }

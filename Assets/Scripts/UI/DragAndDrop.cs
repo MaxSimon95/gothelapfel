@@ -86,6 +86,9 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                 }
             }
         }
+
+        Debug.Log(startParent.gameObject.name);
+        startParent.gameObject.GetComponent<ItemSlotHandler>().UpdateSlotVisibility();
     }
 
     public void OnDrag(PointerEventData eventData)
