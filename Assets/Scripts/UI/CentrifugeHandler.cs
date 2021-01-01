@@ -108,7 +108,7 @@ public class CentrifugeHandler : MonoBehaviour
     public void updateButtonActive()
 
     {
-       Debug.Log("button active test");
+       //Debug.Log("button active test");
         buttonActive = true;
 
         // inactive when theres no item to centrifugize

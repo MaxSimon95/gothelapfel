@@ -79,7 +79,7 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void CloseContainerView()
     {
-        Debug.Log("close cauld");
+        //Debug.Log("close cauld");
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 1);
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);

@@ -10,6 +10,7 @@ public class InventoryUIBehaviour : MonoBehaviour
     public AudioClip clickSound;
     private AudioSource source;
     public static GameObject panelInventory;
+    public static GameObject additionalPanelWithSlots;
     public bool isLocked = false;
 
     void Start()

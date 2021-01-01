@@ -27,91 +27,97 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
         
     }
 
+    public void PutItemIntoSlot(InventoryItemHandler incomingItem)
+    {
+        // Put item in slot if slot is empty
+        if (transform.childCount == 0)
+        {
+
+            incomingItem.transform.SetParent(transform);
+            incomingItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+        }
+
+        // if itemslot is not empty, check if a merge is appicable (1 ingredient incoming, 1 ingredient existing, same ingredients incoming and existing)
+        else
+        {
+            if
+                (
+                    (incomingItem.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
+                    &&
+                    (transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
+                    &&
+                    (incomingItem.GetComponent<InventoryItemHandler>().ingredientTypes[0] == transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0])
+                )
+            {   // its the same ingredient type: merge items
+                //Debug.Log("FIT FOR MERGE");
+                int amountIncoming = incomingItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0];
+                int amountInSlot = transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0];
+                int amountTotal = amountInSlot + amountIncoming;
+                float temperatureIncoming = incomingItem.GetComponent<InventoryItemHandler>().temperature;
+                float temperatureInSlot = transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().temperature;
+
+                // set temperature
+                transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().temperature = temperatureIncoming * ((float)amountIncoming / (float)amountTotal) + temperatureInSlot * ((float)amountInSlot / (float)amountTotal);
+
+                // set amount
+                transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0] = amountTotal;
+
+                // delete the incoming object if incoming item != the existing item in slot
+                //if(incomingItem.gameObject != transform.GetChild(0).gameObject)
+                incomingItem.gameObject.GetComponent<InventoryItemHandler>().DeleteInstanceOfInventoryItem();
+
+                // update item in slot 
+
+                transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().UpdateItemContent();
+            }
+            else
+            {   // its not the same ingredient type or there are mixtures involved: switch items around if slot already is full (and its two different items)
+                //Debug.Log("NOT FIT FOR MERGE");
+
+                originalSlotItem = transform.GetChild(0);
+                originalSlotItem.transform.SetParent(incomingItem.GetComponent<DragAndDrop>().startParent);
+                originalSlotItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+
+                // scale item
+                Debug.Log(originalSlotItem);
+                float uiScaleOriginalSlot = originalSlotItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale;
+
+
+                if (uiScaleOriginalSlot != 0)
+                {
+                    originalSlotItem.gameObject.GetComponent<RectTransform>().localScale = new Vector3(uiScaleOriginalSlot, uiScaleOriginalSlot, uiScaleOriginalSlot);
+                }
+                else
+                {
+                    originalSlotItem.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                }
+
+
+                // move incoming item into this slot
+                incomingItem.transform.SetParent(transform);
+                incomingItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+            }
+
+
+        }
+
+        // scale item
+
+        if (uiScale != 0)
+        {
+            incomingItem.GetComponent<RectTransform>().localScale = new Vector3(uiScale, uiScale, uiScale);
+        }
+        else
+        {
+            incomingItem.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+        }
+    }
     public void OnDrop(PointerEventData eventData)
     {
         //Debug.Log("OnDrop");
         if((eventData.pointerDrag != null)&&!prohibitDrop)
         {
-            // Put item in slot if slot is empty
-            if (transform.childCount == 0)
-            {
-
-            eventData.pointerDrag.transform.SetParent(transform);
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-            }
-
-            
-            else
-            {
-                if
-                    (
-                        (eventData.pointerDrag.GetComponent<InventoryItemHandler>().ingredientTypes.Count==1)
-                        &&
-                        (transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
-                        &&
-                        (eventData.pointerDrag.GetComponent<InventoryItemHandler>().ingredientTypes[0] == transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0])
-                    )
-                {   // its the same ingredient type: merge items
-                    //Debug.Log("FIT FOR MERGE");
-                    int amountIncoming = eventData.pointerDrag.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0];
-                    int amountInSlot = transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0];
-                    int amountTotal = amountInSlot + amountIncoming;
-                    float temperatureIncoming = eventData.pointerDrag.GetComponent<InventoryItemHandler>().temperature;
-                    float temperatureInSlot = transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().temperature;
-
-                    // set temperature
-                    transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().temperature = temperatureIncoming * ((float)amountIncoming / (float)amountTotal) + temperatureInSlot * ((float)amountInSlot / (float)amountTotal);
-
-                    // set amount
-                    transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[0] = amountTotal;
-
-                    // delete the dragged object
-                    eventData.pointerDrag.gameObject.GetComponent<InventoryItemHandler>().DeleteInstanceOfInventoryItem();
-
-                    // update item in slot 
-                    transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().UpdateItemContent();
-                }
-                else
-                {   // its not the same ingredient type or there are mixtures involved: switch items around if slot already is full (and its two different items)
-                    //Debug.Log("NOT FIT FOR MERGE");
-
-                    originalSlotItem = transform.GetChild(0);
-                    originalSlotItem.transform.SetParent(eventData.pointerDrag.GetComponent<DragAndDrop>().startParent);
-                    originalSlotItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-
-                    // scale item
-                    float uiScaleOriginalSlot = originalSlotItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale;
-
-
-                    if (uiScaleOriginalSlot != 0)
-                    {
-                        originalSlotItem.gameObject.GetComponent<RectTransform>().localScale = new Vector3(uiScaleOriginalSlot, uiScaleOriginalSlot, uiScaleOriginalSlot);
-                    }
-                    else
-                    {
-                        originalSlotItem.gameObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-                    }
-
-
-                    // move incoming item into this slot
-                    eventData.pointerDrag.transform.SetParent(transform);
-                    eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-                }
-
-                
-            }
-
-            // scale item
-
-            if (uiScale!=0)
-            {
-                eventData.pointerDrag.GetComponent<RectTransform>().localScale = new Vector3(uiScale, uiScale, uiScale);
-            }
-            else
-            {
-                eventData.pointerDrag.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-            }
-            
+            PutItemIntoSlot(eventData.pointerDrag.GetComponent<InventoryItemHandler>());
 
         }
         UpdateSlotVisibility();
@@ -119,7 +125,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
     public void UpdateSlotVisibility()
     {
-        Debug.Log("Update slot visibility");
+        //Debug.Log("Update slot visibility");
 
         Image image = GetComponent<Image>();
         var tempColor = image.color;
