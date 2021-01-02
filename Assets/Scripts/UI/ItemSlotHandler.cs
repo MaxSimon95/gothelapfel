@@ -29,6 +29,8 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
     public void PutItemIntoSlot(InventoryItemHandler incomingItem)
     {
+        GameObject incomingItemOriginalSlot = incomingItem.transform.parent.gameObject;
+
         // Put item in slot if slot is empty
         if (transform.childCount == 0)
         {
@@ -111,6 +113,51 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
         {
             incomingItem.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }
+
+
+        // update transfer buttons of origin (if applicable)
+        foreach (Transform child in incomingItemOriginalSlot.transform.parent)
+        {
+            //Debug.Log(child.gameObject);
+            if (child.gameObject.name == "ButtonTransferIntoContainer")
+            {
+                child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
+            }
+
+            if (child.gameObject.name == "ButtonTransferOutOfContainer")
+            {
+                child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+            }
+
+            if (child.gameObject.name == "ButtonStartCentrifuge")
+            {
+                child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+            }
+        }
+
+
+        // update transfer buttons of target (if applicable)
+        foreach (Transform child in transform.parent)
+        {
+            if (child.gameObject.name == "ButtonTransferIntoContainer")
+            {
+                child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
+            }
+
+            if (child.gameObject.name == "ButtonTransferOutOfContainer")
+            {
+                child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+            }
+
+            if (child.gameObject.name == "ButtonStartCentrifuge")
+            {
+                child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+            }
+        }
+
+       
+
+
     }
     public void OnDrop(PointerEventData eventData)
     {

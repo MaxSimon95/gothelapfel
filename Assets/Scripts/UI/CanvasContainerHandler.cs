@@ -10,6 +10,7 @@ public class CanvasContainerHandler : MonoBehaviour
     private InventoryUIBehaviour inventoryUIBehaviour;
     public GameObject associatedSceneObject;
     public bool hasTransferAmountSelection;
+    public GameObject itemAutoTransferTargetParent;
 
 
     void Awake()
@@ -32,6 +33,13 @@ public class CanvasContainerHandler : MonoBehaviour
     public void OpenContainerView()
     {
         //Debug.Log("OpenContainerView");
+
+        // set auto transfer target parent, so the auto transfer from the inventory knows where to put items when this canvas has been opened
+        if(itemAutoTransferTargetParent != null)
+        {
+            InventoryItemHandler.SetAutoTransferTargetParent(itemAutoTransferTargetParent);
+        }
+
 
         foreach (Transform child in transform.GetChild(0))
         {
@@ -89,6 +97,8 @@ public class CanvasContainerHandler : MonoBehaviour
         inventoryUIBehaviour.CloseInventory();
         inventoryUIBehaviour.ShowButton();
         GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(0, 0, 0);
+
+        InventoryItemHandler.ResetAutoTransferTargetParent();
 
     }
 }

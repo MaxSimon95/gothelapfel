@@ -15,7 +15,7 @@ public class InventoryUIBehaviour : MonoBehaviour
 
     void Start()
     {
-        
+        InventoryItemHandler.ResetAutoTransferTargetParent();
     }
 
     void Update()
