@@ -85,6 +85,229 @@ public class InventoryItemHandler : MonoBehaviour
     {
         
     }
+    /*
+     * 
+    public void TransferItemAutomatically(InventoryItemHandler transferItem, ItemSlotHandler originalSlot)
+    {
+        GameObject targetPanelInventorySlots = null;
+        // check if its in the inventory or anywhere else, and depending on that were to put it now
+        //Debug.Log(originalSlot.transform.parent.parent.gameObject.name);
+        if (originalSlot.transform.parent.parent.gameObject.name == "PanelInventory")
+        {
+            // the clicked item is in the inventory, therefore transfer item in the inventory's current secondary inventoryslots-panel 
+            // which should be set according to the opened canvas
+
+            // TODO replace provisional solution with actual solution
+            foreach (Transform child in GameObject.Find("PanelInventory").transform)
+            {
+                //Debug.Log(child.gameObject.name);
+                if (child.gameObject.name == "PanelInventorySlots")
+                {
+
+                    targetPanelInventorySlots = child.gameObject;
+                    //Debug.Log(targetPanelInventorySlots.name);
+                }
+            }
+            // END TODO
+        }
+        else
+        {
+            // the clicked item is not in the inventory but in a secondary inventoryslots-panel. it shall be transferred to the inventory.
+
+
+            foreach (Transform child in GameObject.Find("PanelInventory").transform)
+            {
+                //Debug.Log(child.gameObject.name);
+                if (child.gameObject.name == "PanelInventorySlots")
+                {
+
+                    targetPanelInventorySlots = child.gameObject;
+                    //Debug.Log(targetPanelInventorySlots.name);
+                }
+            }
+        }
+
+        ItemSlotHandler targetItemSlot = null;
+
+        // step 1: iterate through all fitting slots and see if there is a free slot
+        foreach (Transform child in targetPanelInventorySlots.transform)
+        {
+            //Debug.Log(child.gameObject.name);
+            if (child.transform.childCount == 0)
+            {
+
+                targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
+                //Debug.Log(targetPanelInventorySlots.name);
+                break;
+            }
+        }
+
+        //  step 2: iterate through all fitting slots and see if there's any one which already has the correct ingredient inside so they can be merged, 
+        // in that case overwrite previous targetSlot
+
+        //check if the item to be moved has exactly 1 ingredient
+        Debug.Log("check if the item to be moved has exactly 1 ingredient: " + (originalSlot.transform.GetChild(0).GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1));
+        Debug.Log(originalSlot.transform.GetChild(0));
+        Debug.Log(originalSlot.transform.GetChild(0).GetComponent<InventoryItemHandler>().ingredientTypes.Count);
+        if (originalSlot.transform.GetChild(0).GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
+        {
+            foreach (Transform child in targetPanelInventorySlots.transform)
+            {
+
+                //check if the slot has an item
+                if (child.transform.childCount == 1)
+                {
+                    // check if the item in the slot has exactly 1 ingredient
+                    if (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
+                    {
+                        Debug.Log("check if the item in the target slot has exactly 1 ingredient: " + (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1));
+                        //check if the ingredients match
+                        if (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0] == originalSlot.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0])
+                        {
+                            //check that the item in slot is not the exact same item we want to reposition
+                            if (child.transform.GetChild(0) != originalSlot.transform.GetChild(0))
+                            {
+
+                                targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
+
+                                Debug.Log("item slot applicable for merge found" + targetItemSlot);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // step 3: move item into target slot
+        if (targetItemSlot != null)
+        {
+            Debug.Log("target Itemslot for instant transfer set");
+            Debug.Log(targetItemSlot);
+
+    targetItemSlot.PutItemIntoSlot(transferItem);
+        }
+        else
+        {
+            Debug.Log("no applicable itemslot for instant transfer found");
+        }
+
+    }
+
+     **/
+
+    public void TransferItemAutomatically()
+    {
+        
+        GameObject targetPanelInventorySlots = null;
+        // check if its in the inventory or anywhere else, and depending on that were to put it now
+        //Debug.Log(originalSlot.transform.parent.parent.gameObject.name);
+        if (gameObject.transform.parent.parent.parent.gameObject.name == "PanelInventory")
+        {
+            // the clicked item is in the inventory, therefore transfer item in the inventory's current secondary inventoryslots-panel 
+            // which should be set according to the opened canvas
+
+            // TODO replace provisional solution with actual solution
+            foreach (Transform child in GameObject.Find("PanelInventory").transform)
+            {
+                //Debug.Log(child.gameObject.name);
+                if (child.gameObject.name == "PanelInventorySlots")
+                {
+
+                    targetPanelInventorySlots = child.gameObject;
+                    //Debug.Log(targetPanelInventorySlots.name);
+                }
+            }
+            // END TODO
+        }
+        else
+        {
+            // the clicked item is not in the inventory but in a secondary inventoryslots-panel. it shall be transferred to the inventory.
+
+
+            foreach (Transform child in GameObject.Find("PanelInventory").transform)
+            {
+                //Debug.Log(child.gameObject.name);
+                if (child.gameObject.name == "PanelInventorySlots")
+                {
+
+                    targetPanelInventorySlots = child.gameObject;
+                    //Debug.Log(targetPanelInventorySlots.name);
+                }
+            }
+        }
+
+        ItemSlotHandler targetItemSlot = null;
+
+        // step 1: iterate through all fitting slots and see if there is a free slot
+        foreach (Transform child in targetPanelInventorySlots.transform)
+        {
+            //Debug.Log(child.gameObject.name);
+            if (child.transform.childCount == 0)
+            {
+
+                targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
+                //Debug.Log(targetPanelInventorySlots.name);
+                break;
+            }
+        }
+
+        //  step 2: iterate through all fitting slots and see if there's any one which already has the correct ingredient inside so they can be merged, 
+        // in that case overwrite previous targetSlot
+
+        //check if the item to be moved has exactly 1 ingredient
+        Debug.Log("check if the item to be moved has exactly 1 ingredient: " + (gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1));
+        Debug.Log(gameObject);
+        Debug.Log(gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count);
+        if (gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
+        {
+            foreach (Transform child in targetPanelInventorySlots.transform)
+            {
+
+                //check if the slot has an item
+                if (child.transform.childCount == 1)
+                {
+                    // check if the item in the slot has exactly 1 ingredient
+                    if (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
+                    {
+                        Debug.Log("check if the item in the target slot has exactly 1 ingredient: " + (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1));
+                        //check if the ingredients match
+                        if (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0] == gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0])
+                        {
+                            //check that the item in slot is not the exact same item we want to reposition
+                            if (child.transform.GetChild(0) != gameObject.transform)
+                            {
+
+                                targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
+
+                                Debug.Log("item slot applicable for merge found" + targetItemSlot);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // step 3: move item into target slot
+        if (targetItemSlot != null)
+        {
+            Debug.Log("target Itemslot for instant transfer set");
+            Debug.Log(targetItemSlot);
+            /*var colors = GetComponent<Button>().colors;
+            colors.normalColor = Color.red;
+            GetComponent<Button>().colors = colors; */
+
+            targetItemSlot.PutItemIntoSlot(gameObject.GetComponent<InventoryItemHandler>());
+        }
+        else
+        {
+            Debug.Log("no applicable itemslot for instant transfer found");
+        }
+
+    }
 
     private void SetToolTipText()
     {
