@@ -239,6 +239,7 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         {
             transform.position = startPosition;
             transform.SetParent(startParent);
+            startParent.gameObject.GetComponent<ItemSlotHandler>().UpdateSlotVisibility();
         }
     }
 

@@ -116,25 +116,32 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
 
         // update transfer buttons of origin (if applicable)
-        foreach (Transform child in incomingItemOriginalSlot.transform.parent)
+        //Debug.Log(incomingItemOriginalSlot);
+        //Debug.Log(incomingItemOriginalSlot.transform.parent);
+
+        if(incomingItemOriginalSlot.name != "CanvasDragItem")
         {
-            //Debug.Log(child.gameObject);
-            if (child.gameObject.name == "ButtonTransferIntoContainer")
+            foreach (Transform child in incomingItemOriginalSlot.transform.parent)
             {
-                child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
-            }
+                //Debug.Log(child.gameObject);
+                if (child.gameObject.name == "ButtonTransferIntoContainer")
+                {
+                    child.gameObject.GetComponent<TransferIntoContainerHandler>().updateButtonActive();
+                }
 
-            if (child.gameObject.name == "ButtonTransferOutOfContainer")
-            {
-                child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
-            }
+                if (child.gameObject.name == "ButtonTransferOutOfContainer")
+                {
+                    child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
+                }
 
-            if (child.gameObject.name == "ButtonStartCentrifuge")
-            {
-                child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                if (child.gameObject.name == "ButtonStartCentrifuge")
+                {
+                    child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                }
             }
         }
 
+        incomingItemOriginalSlot.GetComponent<ItemSlotHandler>().UpdateSlotVisibility();
 
         // update transfer buttons of target (if applicable)
         foreach (Transform child in transform.parent)
@@ -155,7 +162,8 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             }
         }
 
-       
+        UpdateSlotVisibility();
+
 
 
     }
@@ -167,7 +175,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             PutItemIntoSlot(eventData.pointerDrag.GetComponent<InventoryItemHandler>());
 
         }
-        UpdateSlotVisibility();
+        
     }
 
     public void UpdateSlotVisibility()
