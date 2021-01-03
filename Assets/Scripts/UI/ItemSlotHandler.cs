@@ -139,9 +139,12 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                     child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                 }
             }
+
+            incomingItemOriginalSlot.GetComponent<ItemSlotHandler>().UpdateSlotVisibility();
         }
 
-        incomingItemOriginalSlot.GetComponent<ItemSlotHandler>().UpdateSlotVisibility();
+
+        
 
         // update transfer buttons of target (if applicable)
         foreach (Transform child in transform.parent)

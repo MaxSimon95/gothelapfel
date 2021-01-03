@@ -138,29 +138,10 @@ public class InventoryItemHandler : MonoBehaviour
         //Debug.Log("targetPanelInventorySlots: " + targetPanelInventorySlots);
 
         ItemSlotHandler targetItemSlot = null;
+        bool itemMergeSlotFound = false;
 
-        // step 1: iterate through all fitting slots and see if there is a free slot
-
-
-        foreach (Transform child in targetPanelInventorySlots.transform)
-        {
-            //Debug.Log("iteration step 1");
-            //check if slot is free
-            if (child.transform.childCount == 0)
-            {
-                //check if slot really is a slot 
-                if(child.GetComponent<ItemSlotHandler>()!=null)
-                {
-                    targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
-                    //Debug.Log("free slot: " + targetPanelInventorySlots.name);
-                    break;
-                }
-                
-            }
-        }
-
-        //  step 2: iterate through all fitting slots and see if there's any one which already has the correct ingredient inside so they can be merged, 
-        // in that case overwrite previous targetSlot
+        //  step 1: iterate through all fitting slots and see if there's any one which already has the correct ingredient inside so they can be merged, 
+       
 
         //check if the item to be moved has exactly 1 ingredient
         //Debug.Log("check if the item to be moved has exactly 1 ingredient: " + (gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1));
@@ -188,7 +169,7 @@ public class InventoryItemHandler : MonoBehaviour
                                 {
 
                                     targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
-
+                                    itemMergeSlotFound = true;
                                     //Debug.Log("item slot applicable for merge found" + targetItemSlot);
 
                                     break;
@@ -197,9 +178,43 @@ public class InventoryItemHandler : MonoBehaviour
                         }
                     }
                 }
-                   
+
             }
         }
+
+        // step 2: iterate through all fitting slots and see if there is a free slot (if there is no slot for merging)
+        if(!itemMergeSlotFound)
+        {
+            foreach (Transform child in targetPanelInventorySlots.transform)
+            {
+                //Debug.Log("iteration step 1");
+                
+                //check if thr loop comes across the origin slot before it reaches any free slot --> in that case stop right there and don't switch anything.
+                // this only works before we do not even reach this loop if we found something appicable for a merge. That would have a higher priority.
+
+                if(child.transform == gameObject.transform.parent)
+                {
+                    return;
+                }
+                
+                //check if slot is free
+                if (child.transform.childCount == 0)
+                {
+                    //check if slot really is a slot 
+                    if (child.GetComponent<ItemSlotHandler>() != null)
+                    {
+                        targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
+                        //Debug.Log("free slot: " + targetPanelInventorySlots.name);
+                        break;
+                    }
+
+                }
+            }
+        }
+
+        
+
+        
 
         // step 3: move item into target slot
         if (targetItemSlot != null)
