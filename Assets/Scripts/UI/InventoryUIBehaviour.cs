@@ -12,13 +12,16 @@ public class InventoryUIBehaviour : MonoBehaviour
     public static GameObject panelInventory;
     public static GameObject additionalPanelWithSlots;
     public bool isLocked = false;
+    
 
     void Start()
     {
         InventoryItemHandler.ResetAutoTransferTargetParent();
+
     }
 
     void Update()
+
     {
         // open/close inventory when i is pressed (and nothing is currently being dragged anywhere, i.e. mousebutton0
         if (Input.GetKeyDown("i")&&!DragAndDrop.dragInProgress)
@@ -26,6 +29,11 @@ public class InventoryUIBehaviour : MonoBehaviour
             ChangeInventoryScroll();
         }
 
+        if (Input.GetKeyDown("t") && !DragAndDrop.dragInProgress)
+        {
+            Debug.Log(EventSystem.current.IsPointerOverGameObject());
+        }
+        
         // close inventory when its open and mouse leaves the inventory
         if (isScrolledUp && Input.GetMouseButton(0) && !DragAndDrop.dragInProgress && !isLocked)
         { 

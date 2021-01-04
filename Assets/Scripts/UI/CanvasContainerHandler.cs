@@ -12,12 +12,14 @@ public class CanvasContainerHandler : MonoBehaviour
     public bool hasTransferAmountSelection;
     public GameObject itemAutoTransferTargetParent;
 
-
+    
     void Awake()
     {
+
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
 
     }
+ 
 
     void Start()
     {
