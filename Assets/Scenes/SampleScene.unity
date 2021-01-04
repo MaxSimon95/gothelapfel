@@ -22111,7 +22111,7 @@ MonoBehaviour:
   addFireAmount: 0.2
   currentFireLevel: 0
   currentTemperature: 0
-  maxTemperature: 200
+  maxTemperature: 2000
   container: {fileID: 1299248365}
 --- !u!114 &877133481
 MonoBehaviour:
@@ -22170,8 +22170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 411, y: -326}
-  m_SizeDelta: {x: 309.90918, y: 209.21411}
+  m_AnchoredPosition: {x: 404, y: -367}
+  m_SizeDelta: {x: 435.0868, y: 293.71927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &877476488
 GameObject:
