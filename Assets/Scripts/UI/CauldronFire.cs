@@ -13,7 +13,7 @@ public class CauldronFire : MonoBehaviour
     public float currentTemperature;
     public float maxTemperature;
     //private public GameObject room;
-    public AlchemyContainer alchemyContainer;
+    public GameObject container;
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -45,8 +45,22 @@ public class CauldronFire : MonoBehaviour
                
 
             }
-            if (currentTemperature < alchemyContainer.room.GetComponent<RoomHandler>().temperature)
-                currentTemperature = alchemyContainer.room.GetComponent<RoomHandler>().temperature;
+
+            if(container.GetComponent<AlchemyContainer>() != null)
+            {
+                if (currentTemperature < container.GetComponent<AlchemyContainer>().room.GetComponent<RoomHandler>().temperature)
+                    currentTemperature = container.GetComponent<AlchemyContainer>().room.GetComponent<RoomHandler>().temperature;
+            }
+
+            if (container.GetComponent<AlchemyStorageContainer>() != null)
+            {
+                if (currentTemperature < container.GetComponent<AlchemyStorageContainer>().room.GetComponent<RoomHandler>().temperature)
+                    currentTemperature = container.GetComponent<AlchemyStorageContainer>().room.GetComponent<RoomHandler>().temperature;
+            }
+
+
+
+
 
             yield return new WaitForSeconds(burnDownFrequency);
         }

@@ -15,12 +15,12 @@ public class SceneChangePreserver : MonoBehaviour
     {
         if (gameObjectsToBePreserved == null)
         {
-            Debug.Log("gameObjectsToBePreserved created" );
+            //Debug.Log("gameObjectsToBePreserved created" );
             gameObjectsToBePreserved = new List<string>();
         }
         DontDestroyOnLoad(this);
 
-        Debug.Log(gameObjectsToBePreserved.Contains(gameObject.name));
+        //Debug.Log(gameObjectsToBePreserved.Contains(gameObject.name));
         if (gameObjectsToBePreserved.Contains(gameObject.name))
         {
             Destroy(gameObject);

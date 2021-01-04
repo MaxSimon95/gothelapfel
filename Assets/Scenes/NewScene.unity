@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6d157c49cd08045b2216424a4cf9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containerCanvasName: CanvasChestView
   containerCanvas: {fileID: 0}
 --- !u!61 &682620325
 BoxCollider2D:

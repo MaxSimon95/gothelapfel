@@ -112,14 +112,6 @@ public class CauldronHandler : MonoBehaviour
         if (fire.GetComponent<CauldronFire>().currentFireLevel > 0)
         {
             targetTemperature = fire.GetComponent<CauldronFire>().currentFireLevel * fire.GetComponent<CauldronFire>().maxTemperature;
-            
-            
-
-            //if (temperatureChange < 0) temperatureChange = 0;
-
-            
-
-            
 
         }
 

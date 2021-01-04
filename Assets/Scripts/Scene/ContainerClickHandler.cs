@@ -6,11 +6,12 @@ public class ContainerClickHandler : MonoBehaviour, IPointerClickHandler,
                                   IPointerDownHandler, IPointerEnterHandler,
                                   IPointerUpHandler, IPointerExitHandler
 {
+    public string containerCanvasName;
     public Canvas containerCanvas;
 
     void Start()
     {
-
+        containerCanvas = GameObject.Find(containerCanvasName).GetComponent<Canvas>(); ;
         Camera.main.gameObject.AddComponent<Physics2DRaycaster>();
 
     }
