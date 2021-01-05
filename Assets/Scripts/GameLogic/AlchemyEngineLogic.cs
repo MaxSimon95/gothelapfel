@@ -14,8 +14,9 @@ public class AlchemyEngineLogic : MonoBehaviour
      
     IEnumerator Start()
     {
+        CreateGeneratedAlchemyReactions();
         LoadAlchemyReactionsIntoList();
-
+        
 
 
         while (isActive)
@@ -32,6 +33,25 @@ public class AlchemyEngineLogic : MonoBehaviour
                     child.gameObject.GetComponent<TransferOutOfContainerHandler>().updateButtonActive();
                 }
             }
+
+        }
+    }
+
+    private void CreateGeneratedAlchemyReactions()
+    {
+        //all organic ingredients shall turn into ash when the burning temperature for organic matter is reached and oxygen is available
+
+        Transform ingredients = GameObject.Find("IngredientTypes").transform;
+
+        foreach (Transform ingredientTransform in ingredients)
+        {
+            IngredientType ingredient = ingredientTransform.gameObject.GetComponent<IngredientType>();
+
+            if(ingredient.organic)
+            {
+                Debug.Log(ingredient);
+            }
+            
 
         }
     }
