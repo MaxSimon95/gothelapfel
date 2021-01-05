@@ -9,7 +9,7 @@ public class IngredientType : MonoBehaviour
     public Color color;
     public Sprite inventorySprite;
     public AudioClip ingredientSound;
-    public bool organic;
+    public bool burnsToAsh;
   
     void Start()
     {

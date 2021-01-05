@@ -11,6 +11,8 @@ public class AlchemyEngineLogic : MonoBehaviour
     public AudioClip reactionSound;
     private AudioSource source;
 
+    public IngredientType specialIngredientType_ash;
+
      
     IEnumerator Start()
     {
@@ -42,14 +44,20 @@ public class AlchemyEngineLogic : MonoBehaviour
         //all organic ingredients shall turn into ash when the burning temperature for organic matter is reached and oxygen is available
 
         Transform ingredients = GameObject.Find("IngredientTypes").transform;
+        Transform alchemyReactionsTransform = GameObject.Find("AlchemyReactions").transform;
 
         foreach (Transform ingredientTransform in ingredients)
         {
             IngredientType ingredient = ingredientTransform.gameObject.GetComponent<IngredientType>();
-
-            if(ingredient.organic)
+            //Debug.Log(ingredient + " " + ingredient.burnsToAsh);
+            if (ingredient.burnsToAsh)
             {
-                Debug.Log(ingredient);
+                GameObject slotInventoryItem = (GameObject)Instantiate(Resources.Load("AlchemyReaction_BurnsToAsh_Prefab"), new Vector3(0, 0, 0), Quaternion.identity);
+                slotInventoryItem.GetComponent<AlchemyReaction>().inputIngredientTypes.Add(ingredient); 
+                slotInventoryItem.GetComponent<AlchemyReaction>().outputIngredientTypes.Add(specialIngredientType_ash);
+                slotInventoryItem.transform.SetParent(alchemyReactionsTransform);
+
+                //Debug.Log(ingredient);
             }
             
 
