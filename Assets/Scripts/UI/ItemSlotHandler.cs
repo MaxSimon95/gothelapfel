@@ -141,6 +141,23 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             }
 
             incomingItemOriginalSlot.GetComponent<ItemSlotHandler>().UpdateSlotVisibility();
+
+            // update button if quick takeout from the output itemslot happens
+            //Debug.Log(incomingItemOriginalSlot.transform.parent.parent.parent.gameObject);
+            foreach (Transform child in incomingItemOriginalSlot.transform.parent.parent.parent)
+            {
+                if (child.gameObject.name == "PanelTransfer")
+                {
+                    foreach (Transform child2 in child)
+                    {
+                        if (child2.gameObject.name == "ButtonStartCentrifuge")
+                        {
+                            child2.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                        }
+                    }
+                }
+            }
+
         }
 
 
