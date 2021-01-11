@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class ClockSeasonDisplay : MonoBehaviour
 {
-    void Start()
+    IEnumerator Start()
     {
 
-        UpdateSeasonText();
+        while (true)
+        {
+            UpdateSeasonText();
+            yield return new WaitForSeconds(1);
+        }
 
     }
 
     void UpdateSeasonText()
     {
         string seasonText = "Season: ";
-        Debug.Log(GameTime.currentSeason);
+        //Debug.Log(GameTime.currentSeason);
         switch(GameTime.currentSeason)
         {
             case GameTime.season.spring:
                 seasonText += "Spring";
-                Debug.Log(1);
+  
                 break;
             case GameTime.season.summer:
                 seasonText += "Summer";
@@ -31,13 +35,14 @@ public class ClockSeasonDisplay : MonoBehaviour
                 seasonText += "Winter";
                 break;
             default:
-                seasonText += "no pls no";
-                Debug.Log(2);
+                seasonText += "ERROR SEASON TEXT SWITCH CASE FAILED";
+                Debug.LogError("ERROR SEASON TEXT SWITCH CASE FAILED");
+  
                 break;
         }    
 
         gameObject.GetComponent<UnityEngine.UI.Text>().text = seasonText;
-        Debug.Log(seasonText);
+        //Debug.Log(seasonText);
     }
 
     // Update is called once per frame

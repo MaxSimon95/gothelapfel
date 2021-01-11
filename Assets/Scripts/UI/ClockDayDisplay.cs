@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class ClockDayDisplay : MonoBehaviour
 {
-    void Start()
+
+
+    IEnumerator Start()
     {
 
-        UpdateDayText();
+        while (true)
+        {
+            UpdateDayText();
+            yield return new WaitForSeconds(1);
+        }
 
     }
 

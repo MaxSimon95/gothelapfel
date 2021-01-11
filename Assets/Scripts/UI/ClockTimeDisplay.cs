@@ -10,7 +10,7 @@ public class ClockTimeDisplay : MonoBehaviour
         while (true)
         {
 
-            gameObject.GetComponent<UnityEngine.UI.Text>().text = "Time: " + GameTime.hourOfTheDay;
+            gameObject.GetComponent<UnityEngine.UI.Text>().text = "Time: " + (int)GameTime.hourOfTheDay;
             yield return new WaitForSeconds(1);
         }
 
