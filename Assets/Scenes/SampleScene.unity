@@ -2225,6 +2225,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: eddb7d422c518164997ffb50d73cfb96, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &64465322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4222,6 +4244,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: cf352012d6967734faaaa8b57afebeab, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &106782608
 Transform:
   m_ObjectHideFlags: 0
@@ -5923,6 +5967,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: cd3bcd937deeac94086cb8ef3efb4a0b, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &154073658
 GameObject:
   m_ObjectHideFlags: 0
@@ -11006,6 +11072,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 17759d899d20d5e4fabe692f17a65c94, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &340349417
 Transform:
   m_ObjectHideFlags: 0
@@ -12025,7 +12113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -12798,6 +12886,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 05369bb79bd4de34c8982b4e0b58c055, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &434519395
 GameObject:
   m_ObjectHideFlags: 0
@@ -15293,6 +15403,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 8034e618f1f2f8445a5da3b77dd2be4d, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &570032631
 GameObject:
   m_ObjectHideFlags: 0
@@ -16505,6 +16637,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: e0613eb3603a8d540b7144f2cc792795, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &626887245
 Transform:
   m_ObjectHideFlags: 0
@@ -16789,6 +16943,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: bef8fb8e56a69c14c960842ba004f36d, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 1
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &634870767
 Transform:
   m_ObjectHideFlags: 0
@@ -17338,6 +17514,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   ingredientSound: {fileID: 0}
   burnsToAsh: 1
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &655901677
 Transform:
   m_ObjectHideFlags: 0
@@ -18777,6 +18975,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: c8ea99639301bbd4e92c0b5c50e6cf29, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &723455693
 Transform:
   m_ObjectHideFlags: 0
@@ -21659,6 +21879,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 88a06fb445b5b074691def291ba7c17f, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 1
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &825555048
 Transform:
   m_ObjectHideFlags: 0
@@ -26730,6 +26972,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 76236e836f3521d4488eb04dfbbd19de, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &986272315
 Transform:
   m_ObjectHideFlags: 0
@@ -33954,6 +34218,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 5cd414e02ec67104cba79a9a292e2514, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &1238646107
 GameObject:
   m_ObjectHideFlags: 0
@@ -36786,6 +37072,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 9790bf47c5283404ea857cb146be87f1, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &1337042944
 Transform:
   m_ObjectHideFlags: 0
@@ -39985,6 +40293,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 5cd414e02ec67104cba79a9a292e2514, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &1443380714
 GameObject:
   m_ObjectHideFlags: 0
@@ -40406,6 +40736,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 21f1e42e8ee4400409a53c55671bd27f, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &1449233990
 GameObject:
   m_ObjectHideFlags: 0
@@ -41134,6 +41486,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 1d97ca33d1febca4c825d83b2cdba952, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &1482465439
 GameObject:
   m_ObjectHideFlags: 0
@@ -41634,6 +42008,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: eddb7d422c518164997ffb50d73cfb96, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &1487986720
 Transform:
   m_ObjectHideFlags: 0
@@ -42439,6 +42835,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 7c66defc6dad53343a92bdfb73415db9, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &1552187888
 GameObject:
   m_ObjectHideFlags: 0
@@ -47039,6 +47457,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: a7996984f3c7746448361a96856914e2, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &1722761254
 GameObject:
   m_ObjectHideFlags: 0
@@ -52542,6 +52982,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 30dcef64afd847e49874af90e4260565, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 0
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!1 &1953041279
 GameObject:
   m_ObjectHideFlags: 0
@@ -55283,6 +55745,28 @@ MonoBehaviour:
   inventorySprite: {fileID: 21300000, guid: 006840a3143209e49978b3ace77c06ce, type: 3}
   ingredientSound: {fileID: 0}
   burnsToAsh: 1
+  meltingTemperature: 0
+  boilingTemperature: 0
+  acidity: 0
+  healthBrain: 0
+  healthSkin: 0
+  healthHeart: 0
+  healthRespiration: 0
+  healthEyes: 0
+  healthStomach: 0
+  healthInfection: 0
+  durationTempEffects: 0
+  tempHallucinations: 0
+  tempDizzyness: 0
+  tempRelaxation: 0
+  tempSensitivity: 0
+  tempChattiness: 0
+  tempIntelligence: 0
+  tempStrength: 0
+  tempNervosity: 0
+  tempAgreeableness: 0
+  taste: 0
+  luminosity: 0
 --- !u!4 &2051104334
 Transform:
   m_ObjectHideFlags: 0

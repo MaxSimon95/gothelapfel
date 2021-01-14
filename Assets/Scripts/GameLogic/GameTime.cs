@@ -29,17 +29,22 @@ public class GameTime : MonoBehaviour
     public static int yearLengthInDays = 60;
     public static int dayLengthInHours = 24;
     public static float hourLengthInSecondinhos = 60;
-    public static float secondinhoLengthInSeconds = 0.625f/1000;
+    public static float secondinhoLengthInSeconds = 1;//0.625f/1000;
 
     System.Random randomizer = new System.Random();
 
     IEnumerator Start()
     {
         CalculateSeasonsLength();
+        float timeSinceLastSecondinhoCalculation = 0;
+        float currentTime;
         while (true)
         {
-            secondinhosSinceStart = Time.time / secondinhoLengthInSeconds;
+            currentTime = Time.time;
+            secondinhosSinceStart += (currentTime - timeSinceLastSecondinhoCalculation) / secondinhoLengthInSeconds;
             UpdateHourOfTheDay();
+            timeSinceLastSecondinhoCalculation = currentTime;
+            Debug.Log(secondinhosSinceStart);
             yield return new WaitForSeconds(secondinhoLengthInSeconds);
         }
 
