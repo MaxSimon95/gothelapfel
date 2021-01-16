@@ -20,9 +20,10 @@ public class IngredientType : MonoBehaviour
     public int healthSkin;
     public int healthHeart;
     public int healthRespiration;
-    public int healthEyes;
     public int healthStomach;
     public int healthInfection;
+    public int healthEyes;
+    public int healthSanity;
 
     public float durationTempEffects; // duration in hours
 
@@ -38,6 +39,7 @@ public class IngredientType : MonoBehaviour
     public int tempStrength;
     public int tempNervosity;
     public int tempAgreeableness;
+    public int tempLust;
 
 
 
