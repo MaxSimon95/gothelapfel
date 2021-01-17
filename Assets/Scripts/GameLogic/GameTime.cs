@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 
 public class GameTime : MonoBehaviour
@@ -29,9 +30,11 @@ public class GameTime : MonoBehaviour
     public static int yearLengthInDays = 60;
     public static int dayLengthInHours = 24;
     public static float hourLengthInSecondinhos = 60;
-    public static float secondinhoLengthInSeconds = 1;//0.625f/1000;
+    public static float secondinhoLengthInSeconds = 0.01f;//0.625f/1000;
 
     System.Random randomizer = new System.Random();
+
+    public static UnityEvent eventDayChange = new UnityEvent();
 
     IEnumerator Start()
     {
@@ -62,6 +65,9 @@ public class GameTime : MonoBehaviour
         }
         hourOfTheDay = tempHour;
         //Debug.Log(hourOfTheDay);
+
+        
+        
     }
 
     void UpdateDay(int dayAddition)
@@ -84,7 +90,8 @@ public class GameTime : MonoBehaviour
             UpdateYear(1);
         }
 
-        
+        eventDayChange.Invoke();
+
     }
 
     void UpdateYear(int yearAddition)
