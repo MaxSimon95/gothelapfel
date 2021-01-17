@@ -10,12 +10,12 @@ public class GameTime : MonoBehaviour
     
     public enum season
     {
-        spring,
-        summer,
-        autumn,
-        winter
+        SPRING,
+        SUMMER,
+        AUTUMN,
+        WINTER
     }
-    public static season currentSeason = season.spring;
+    public static season currentSeason = season.SPRING;
     public static int seasonLengthSpring = 0;
     public static int seasonLengthSummer = 0;
     public static int seasonLengthAutumn = 0;
@@ -30,7 +30,7 @@ public class GameTime : MonoBehaviour
     public static int yearLengthInDays = 60;
     public static int dayLengthInHours = 24;
     public static float hourLengthInSecondinhos = 60;
-    public static float secondinhoLengthInSeconds = 0.01f;//0.625f/1000;
+    public float secondinhoLengthInSeconds = 0.01f;//0.625f/1000;
 
     System.Random randomizer = new System.Random();
 
@@ -122,22 +122,22 @@ public class GameTime : MonoBehaviour
         Debug.Log("update season");
         if(daysSinceYearStart < seasonLengthSpring)
         {
-            currentSeason = season.spring;
+            currentSeason = season.SPRING;
            
         }
         if ((daysSinceYearStart >= seasonLengthSpring) && (daysSinceYearStart < seasonLengthSpring + seasonLengthSummer ))
         {
-            currentSeason = season.summer;
+            currentSeason = season.SUMMER;
             
         }
         if ((daysSinceYearStart >= seasonLengthSpring + seasonLengthSummer) && (daysSinceYearStart < seasonLengthSpring + seasonLengthSummer + seasonLengthAutumn ))
         {
-            currentSeason = season.autumn;
+            currentSeason = season.AUTUMN;
             
         }
         if (daysSinceYearStart >= seasonLengthSpring + seasonLengthSummer + seasonLengthAutumn)
         {
-            currentSeason = season.winter;
+            currentSeason = season.WINTER;
             Debug.Log(currentSeason);
         }
     }

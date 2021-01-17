@@ -21,17 +21,17 @@ public class ClockSeasonDisplay : MonoBehaviour
         //Debug.Log(GameTime.currentSeason);
         switch(GameTime.currentSeason)
         {
-            case GameTime.season.spring:
+            case GameTime.season.SPRING:
                 seasonText += "Spring";
   
                 break;
-            case GameTime.season.summer:
+            case GameTime.season.SUMMER:
                 seasonText += "Summer";
                 break;
-            case GameTime.season.autumn:
+            case GameTime.season.AUTUMN:
                 seasonText += "Autumn";
                 break;
-            case GameTime.season.winter:
+            case GameTime.season.WINTER:
                 seasonText += "Winter";
                 break;
             default:
