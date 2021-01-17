@@ -16,7 +16,7 @@ public class JobHandler : MonoBehaviour
     public int orderNumber;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         remainingDays = startDays;
         orderNumber = calculateOrderNumber();

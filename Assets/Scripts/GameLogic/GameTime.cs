@@ -44,7 +44,7 @@ public class GameTime : MonoBehaviour
             secondinhosSinceStart += (currentTime - timeSinceLastSecondinhoCalculation) / secondinhoLengthInSeconds;
             UpdateHourOfTheDay();
             timeSinceLastSecondinhoCalculation = currentTime;
-            Debug.Log(secondinhosSinceStart);
+            //Debug.Log(secondinhosSinceStart);
             yield return new WaitForSeconds(secondinhoLengthInSeconds);
         }
 
