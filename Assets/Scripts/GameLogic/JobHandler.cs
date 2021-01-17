@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JobHandler : MonoBehaviour
 {
+    public string title;
     public int payment;
 
     public IngredientType requestedIngredientType;
