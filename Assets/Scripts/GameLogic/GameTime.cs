@@ -44,8 +44,12 @@ public class GameTime : MonoBehaviour
         while (true)
         {
             currentTime = Time.time;
-            secondinhosSinceStart += (currentTime - timeSinceLastSecondinhoCalculation) / secondinhoLengthInSeconds;
-            UpdateHourOfTheDay();
+            if(!NotebookBaseUI.notebookIsOpen)
+            {
+                secondinhosSinceStart += (currentTime - timeSinceLastSecondinhoCalculation) / secondinhoLengthInSeconds;
+                UpdateHourOfTheDay();
+            }
+
             timeSinceLastSecondinhoCalculation = currentTime;
             //Debug.Log(secondinhosSinceStart);
             yield return new WaitForSeconds(secondinhoLengthInSeconds);

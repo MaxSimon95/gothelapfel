@@ -15,7 +15,8 @@ public class JobsManagement : MonoBehaviour
         MARKED,
         TITLE,
         TIMELEFT,
-        REWARD
+        REWARD,
+        AGE // the seconinho-time when the job has turned active
     }
 
     public Transform transformJobList;
@@ -40,7 +41,7 @@ public class JobsManagement : MonoBehaviour
 
 
 
-        UpdateJobs(false);
+        UpdateActiveJobs(false);
        
     }
 
@@ -52,11 +53,11 @@ public class JobsManagement : MonoBehaviour
 
     private void ReceivedDayChangeEvent()
     {
-        UpdateJobs(true);
+        UpdateActiveJobs(true);
        
     }
 
-    public void UpdateJobs(bool dayHasChanged)
+    public void UpdateActiveJobs(bool dayHasChanged)
     {
 
         activeJobList = new List<JobHandler>();
@@ -76,17 +77,22 @@ public class JobsManagement : MonoBehaviour
             {
                 job.remainingDays--;
 
-                if (job.remainingDays <= 1)
+                if (job.remainingDays < 1)
                 {
                     job.Expire();
+                    UpdateActiveJobs(false);
                 }
                 //Debug.Log(job.title + " " + job.remainingDays + " State: " + job.currentState);
 
             }
         }
 
-        OrderActiveJobs(sortingType.MARKED);
-        
+        if (!NotebookBaseUI.notebookIsOpen)
+        {
+            OrderActiveJobs(sortingType.MARKED);
+            panelFeaturedJobsInner.GetComponent<FeaturedJobs>().UpdateFeaturedJobs();
+        }
+            
     }
 
     public void OrderActiveJobs(sortingType sorting)
@@ -109,8 +115,12 @@ public class JobsManagement : MonoBehaviour
                 activeJobList = activeJobList.OrderBy(e => e.title).ToList();
                 break;
 
+            case sortingType.AGE:
+                activeJobList = activeJobList.OrderBy(e => e.startPointInTime).ToList();
+                break;
+
         }
-        panelFeaturedJobsInner.GetComponent<FeaturedJobs>().UpdateFeaturedJobs();
+        
 
 
         /*

@@ -23,10 +23,10 @@ public class JobHandler : MonoBehaviour
     void Awake()
     {
         remainingDays = startDays;
-        orderNumber = CalculateOrderNumber();
+        orderNumber = CalculateMarkedOrderNumber();
     }
 
-    int CalculateOrderNumber()
+    int CalculateMarkedOrderNumber()
     {
         int tempNumber = 0;
         if (!jobIsSaved)
@@ -41,9 +41,16 @@ public class JobHandler : MonoBehaviour
 
     public void Expire()
     {
+        Debug.Log(" EXPIRE: " + title);
         currentState = JobHandler.state.EXPIRED;
         jobIsSaved = false;
 
+    }
+
+    public void Activate()
+    {
+        // set state to active
+        // set startpointinTime
     }
 
     public void Complete()
