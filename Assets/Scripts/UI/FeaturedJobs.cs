@@ -10,7 +10,7 @@ public class FeaturedJobs : MonoBehaviour
     public GameObject featuredJobsToggleButton;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         foreach (Transform child in transform)
         {

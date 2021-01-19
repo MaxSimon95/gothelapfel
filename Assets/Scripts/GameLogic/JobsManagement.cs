@@ -10,7 +10,13 @@ public class JobsManagement : MonoBehaviour
     public Transform panelFeaturedJobsInner;
     //public Transform panelFeaturedJobsOuter;
     
-
+    public enum sortingType
+    {
+        MARKED,
+        TITLE,
+        TIMELEFT,
+        REWARD
+    }
 
     public Transform transformJobList;
     public static List<JobHandler> activeJobList = new List<JobHandler>();
@@ -35,6 +41,7 @@ public class JobsManagement : MonoBehaviour
 
 
         UpdateJobs(false);
+       
     }
 
     // Update is called once per frame
@@ -46,7 +53,7 @@ public class JobsManagement : MonoBehaviour
     private void ReceivedDayChangeEvent()
     {
         UpdateJobs(true);
-        //Debug.Log("JOBSMANAGEMENT GOT THE EVENT");
+       
     }
 
     public void UpdateJobs(bool dayHasChanged)
@@ -56,9 +63,12 @@ public class JobsManagement : MonoBehaviour
 
         foreach (Transform jobTransform in transformJobList)
         {
+            //Debug.Log(jobTransform.GetComponent<JobHandler>().currentState);
             if (jobTransform.GetComponent<JobHandler>().currentState == JobHandler.state.ACTIVE)
                 activeJobList.Add(jobTransform.gameObject.GetComponent<JobHandler>());
         }
+
+        //Debug.Log(activeJobList.Count);
 
         if (dayHasChanged)
         {
@@ -75,15 +85,34 @@ public class JobsManagement : MonoBehaviour
             }
         }
 
-        OrderActiveJobs();
+        OrderActiveJobs(sortingType.MARKED);
+        
     }
 
-    public void OrderActiveJobs()
+    public void OrderActiveJobs(sortingType sorting)
     {
+        switch(sorting)
+        {
+            case sortingType.MARKED:
+                activeJobList = activeJobList.OrderBy(e => e.orderNumber).ToList();
+                break;
+
+            case sortingType.TIMELEFT:
+                activeJobList = activeJobList.OrderBy(e => e.remainingDays).ToList();
+                break;
+
+            case sortingType.REWARD:
+                activeJobList = activeJobList.OrderByDescending(e => e.payment).ToList();
+                break;
+
+            case sortingType.TITLE:
+                activeJobList = activeJobList.OrderBy(e => e.title).ToList();
+                break;
+
+        }
+        panelFeaturedJobsInner.GetComponent<FeaturedJobs>().UpdateFeaturedJobs();
 
 
-
-        activeJobList = activeJobList.OrderBy(e => e.orderNumber).ToList();
         /*
        for (int i=0; i< activeJobList.Count; i++)
         {
@@ -93,7 +122,7 @@ public class JobsManagement : MonoBehaviour
 
         } */
 
-        panelFeaturedJobsInner.GetComponent<FeaturedJobs>().UpdateFeaturedJobs();
+
 
 
     }

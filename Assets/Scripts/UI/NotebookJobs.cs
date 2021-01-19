@@ -5,7 +5,7 @@ using UnityEngine;
 public class NotebookJobs : MonoBehaviour
 {
     // Start is called before the first frame update
-    
+    //public static enum
     
     void Start()
     {
