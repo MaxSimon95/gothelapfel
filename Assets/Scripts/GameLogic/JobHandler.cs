@@ -19,6 +19,8 @@ public class JobHandler : MonoBehaviour
 
     public enum state { UPCOMING, ACTIVE, COMPLETED, EXPIRED}
     public state currentState;
+
+
     // Start is called before the first frame update
     void Awake()
     {
