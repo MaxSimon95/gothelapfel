@@ -48,7 +48,19 @@ public class NotebookJobs : MonoBehaviour
                 jobPanels[i].GetChild(3).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].requestedAmount.ToString();
                 jobPanels[i].GetChild(5).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].remainingDays.ToString();
                 jobPanels[i].GetChild(7).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].payment.ToString();
-                jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = "TODO load requested effects!!! "; // JobsManagement.activeJobList[i].payment.ToString();
+
+                if(JobsManagement.activeJobList[i].requestedIngredientType != null)
+                {
+                    jobPanels[i].GetChild(8).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Requested Alchemicum:"; 
+                    jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].requestedIngredientType.ingredientName; // JobsManagement.activeJobList[i].payment.ToString();
+
+                }
+                else
+                {
+                    jobPanels[i].GetChild(8).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Requested Effects:";
+                    jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Kein spezifisches Alchemicum";
+                    // todo effekte
+                }
             }
         }
     }
