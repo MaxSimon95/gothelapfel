@@ -51,12 +51,14 @@ public class NotebookJobs : MonoBehaviour
 
                 if(JobsManagement.activeJobList[i].requestedIngredientType != null)
                 {
+                    jobPanels[i].GetChild(8).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Requested Alchemicum:"; 
                     jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].requestedIngredientType.ingredientName; // JobsManagement.activeJobList[i].payment.ToString();
 
                 }
                 else
                 {
-                    jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = " Kein spezifisches Alchemicum"; // JobsManagement.activeJobList[i].payment.ToString();
+                    jobPanels[i].GetChild(8).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Requested Effects:";
+                    jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Kein spezifisches Alchemicum";
                     // todo effekte
                 }
             }

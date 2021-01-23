@@ -1697,6 +1697,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27333346}
   m_CullTransparentMesh: 0
+--- !u!1 &40439329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40439330}
+  - component: {fileID: 40439331}
+  m_Layer: 0
+  m_Name: IE_tempStrength
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &40439330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40439329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &40439331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40439329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &44958775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,6 +1957,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45298899}
   m_CullTransparentMesh: 0
+--- !u!1 &45401413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45401414}
+  - component: {fileID: 45401415}
+  m_Layer: 0
+  m_Name: IE_tempAgreeableness
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &45401414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45401413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &45401415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45401413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &46648795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,17 +2852,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &64465322
 GameObject:
@@ -5574,17 +5680,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &106782608
 Transform:
@@ -7537,17 +7645,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &154073658
 GameObject:
@@ -8856,6 +8966,112 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201151182}
   m_CullTransparentMesh: 0
+--- !u!1 &207206502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207206503}
+  m_Layer: 0
+  m_Name: IngredientEffects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207206503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207206502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1881418531}
+  - {fileID: 2132143654}
+  - {fileID: 1177362382}
+  - {fileID: 596681135}
+  - {fileID: 2056931011}
+  - {fileID: 1949762743}
+  - {fileID: 843827421}
+  - {fileID: 1621562338}
+  - {fileID: 1572311916}
+  - {fileID: 235741182}
+  - {fileID: 1709556130}
+  - {fileID: 1946316746}
+  - {fileID: 2071985201}
+  - {fileID: 555409900}
+  - {fileID: 1457406854}
+  - {fileID: 805348954}
+  - {fileID: 40439330}
+  - {fileID: 45401414}
+  - {fileID: 592727347}
+  - {fileID: 1862200898}
+  - {fileID: 819554737}
+  - {fileID: 1576759616}
+  - {fileID: 211336233}
+  - {fileID: 901572605}
+  m_Father: {fileID: 479300087}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &211336232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211336233}
+  - component: {fileID: 211336234}
+  m_Layer: 0
+  m_Name: IE_odor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &211336233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211336232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211336234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211336232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &211674656
 GameObject:
   m_ObjectHideFlags: 0
@@ -9794,6 +10010,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226243416}
   m_CullTransparentMesh: 0
+--- !u!1 &235741181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235741182}
+  - component: {fileID: 235741183}
+  m_Layer: 0
+  m_Name: IE_tempHallucinations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &235741182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235741181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &235741183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235741181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: tempHallucinations
+  sprite: {fileID: 0}
+  stringLowerM100: Completely Stop Hallucinations
+  stringM100ToM50: 'Moderately '
+  stringM50To0: Slightly Decrease Hallucinations
+  string0: 
+  string0To50: Weak Hallucinations
+  string50To100: Strong Hallucinations
+  stringHigher100: Extreme Hallucinations
 --- !u!1 &239018916
 GameObject:
   m_ObjectHideFlags: 0
@@ -13284,17 +13552,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &340349417
 Transform:
@@ -14666,9 +14936,9 @@ RectTransform:
   m_Father: {fileID: 1036056017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -2}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 170, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -16114,17 +16384,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &431946365
 GameObject:
@@ -17127,6 +17399,7 @@ Transform:
   m_Children:
   - {fileID: 50350079}
   - {fileID: 2002644151}
+  - {fileID: 207206503}
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19355,6 +19628,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552026736}
   m_CullTransparentMesh: 0
+--- !u!1 &555409899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555409900}
+  - component: {fileID: 555409901}
+  m_Layer: 0
+  m_Name: IE_tempTiredness
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &555409900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555409899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &555409901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555409899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &556529774
 GameObject:
   m_ObjectHideFlags: 0
@@ -19788,17 +20113,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &570032631
 GameObject:
@@ -20520,6 +20847,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591475809}
   m_CullTransparentMesh: 0
+--- !u!1 &592727346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 592727347}
+  - component: {fileID: 592727348}
+  m_Layer: 0
+  m_Name: IE_tempLust
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &592727347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592727346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &592727348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592727346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &596206004
 GameObject:
   m_ObjectHideFlags: 0
@@ -20667,6 +21046,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596206004}
   m_CullTransparentMesh: 0
+--- !u!1 &596681134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596681135}
+  - component: {fileID: 596681136}
+  m_Layer: 0
+  m_Name: IE_healthHeart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &596681135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596681134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &596681136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596681134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &598549285
 GameObject:
   m_ObjectHideFlags: 0
@@ -21506,17 +21937,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &626887245
 Transform:
@@ -21815,17 +22248,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &634870767
 Transform:
@@ -22468,17 +22903,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &655901677
 Transform:
@@ -24621,17 +25058,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &723455693
 Transform:
@@ -28123,6 +28562,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802092068}
   m_CullTransparentMesh: 0
+--- !u!1 &805348953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 805348954}
+  - component: {fileID: 805348955}
+  m_Layer: 0
+  m_Name: IE_tempIntelligence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &805348954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805348953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &805348955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805348953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &815883977
 GameObject:
   m_ObjectHideFlags: 0
@@ -28351,6 +28842,58 @@ MonoBehaviour:
   outputIngredientTypes:
   - {fileID: 340349416}
   outputIngredientTypeAmounts: 01000000
+--- !u!1 &819554736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819554737}
+  - component: {fileID: 819554738}
+  m_Layer: 0
+  m_Name: IE_tempHappiness
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &819554737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819554736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819554738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819554736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &820514878
 GameObject:
   m_ObjectHideFlags: 0
@@ -28526,17 +29069,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &825555048
 Transform:
@@ -28887,6 +29432,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841981644}
   m_CullTransparentMesh: 0
+--- !u!1 &843827420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843827421}
+  - component: {fileID: 843827422}
+  m_Layer: 0
+  m_Name: IE_healthInfection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &843827421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843827420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843827422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843827420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &847646644
 GameObject:
   m_ObjectHideFlags: 0
@@ -30650,6 +31247,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901188621}
   m_CullTransparentMesh: 0
+--- !u!1 &901572604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 901572605}
+  - component: {fileID: 901572606}
+  m_Layer: 0
+  m_Name: IE_luminosity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &901572605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901572604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &901572606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901572604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &905907879
 GameObject:
   m_ObjectHideFlags: 0
@@ -34532,17 +35181,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &986272315
 Transform:
@@ -42312,6 +42963,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171922216}
   m_CullTransparentMesh: 0
+--- !u!1 &1177362381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177362382}
+  - component: {fileID: 1177362383}
+  m_Layer: 0
+  m_Name: IE_healthSkin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1177362382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177362381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1177362383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177362381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1177571178
 GameObject:
   m_ObjectHideFlags: 0
@@ -43630,17 +44333,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &1238646107
 GameObject:
@@ -47236,17 +47941,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &1337042944
 Transform:
@@ -51243,17 +51950,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &1443380714
 GameObject:
@@ -51689,17 +52398,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &1449233990
 GameObject:
@@ -52115,6 +52826,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452237338}
   m_CullTransparentMesh: 0
+--- !u!1 &1457406853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457406854}
+  - component: {fileID: 1457406855}
+  m_Layer: 0
+  m_Name: IE_tempChattiness
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1457406854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457406853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1457406855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457406853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1458079435
 GameObject:
   m_ObjectHideFlags: 0
@@ -52795,17 +53558,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &1482465439
 GameObject:
@@ -53320,17 +54085,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &1487986720
 Transform:
@@ -54311,17 +55078,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &1552187888
 GameObject:
@@ -55288,6 +56057,58 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!1 &1572311915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572311916}
+  - component: {fileID: 1572311917}
+  m_Layer: 0
+  m_Name: IE_healthSanity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1572311916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572311915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1572311917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572311915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1574777282
 GameObject:
   m_ObjectHideFlags: 0
@@ -55363,6 +56184,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574777282}
   m_CullTransparentMesh: 0
+--- !u!1 &1576759615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1576759616}
+  - component: {fileID: 1576759617}
+  m_Layer: 0
+  m_Name: IE_taste
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1576759616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576759615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576759617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576759615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1578480258
 GameObject:
   m_ObjectHideFlags: 0
@@ -57545,6 +58418,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618918799}
   m_CullTransparentMesh: 0
+--- !u!1 &1621562337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621562338}
+  - component: {fileID: 1621562339}
+  m_Layer: 0
+  m_Name: IE_healthEyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1621562338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621562337}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1621562339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621562337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1634490358
 GameObject:
   m_ObjectHideFlags: 0
@@ -59889,6 +60814,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704241841}
   m_CullTransparentMesh: 0
+--- !u!1 &1709556129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709556130}
+  - component: {fileID: 1709556131}
+  m_Layer: 0
+  m_Name: IE_tempDizziness
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709556130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709556129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709556131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709556129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1711348638
 GameObject:
   m_ObjectHideFlags: 0
@@ -60515,17 +61492,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &1722761254
 GameObject:
@@ -65451,6 +66430,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853463807}
   m_CullTransparentMesh: 0
+--- !u!1 &1862200897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1862200898}
+  - component: {fileID: 1862200899}
+  m_Layer: 0
+  m_Name: IE_tempFear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1862200898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862200897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1862200899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862200897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1869533944
 GameObject:
   m_ObjectHideFlags: 0
@@ -66040,6 +67071,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880310064}
   m_CullTransparentMesh: 0
+--- !u!1 &1881418530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881418531}
+  - component: {fileID: 1881418532}
+  m_Layer: 0
+  m_Name: IE_acidity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881418531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881418530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881418532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881418530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: acidity
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1894943167
 GameObject:
   m_ObjectHideFlags: 0
@@ -67870,6 +68953,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945935611}
   m_CullTransparentMesh: 0
+--- !u!1 &1946316745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946316746}
+  - component: {fileID: 1946316747}
+  m_Layer: 0
+  m_Name: IE_tempRelaxation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1946316746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946316745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1946316747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946316745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1949570163
 GameObject:
   m_ObjectHideFlags: 0
@@ -67949,6 +69084,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949570163}
   m_CullTransparentMesh: 0
+--- !u!1 &1949762742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1949762743}
+  - component: {fileID: 1949762744}
+  m_Layer: 0
+  m_Name: IE_healthStomach
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1949762743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949762742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949762744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949762742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &1949917431
 GameObject:
   m_ObjectHideFlags: 0
@@ -68010,17 +69197,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!1 &1950193778
 GameObject:
@@ -71874,17 +73063,19 @@ MonoBehaviour:
   healthSanity: 0
   durationTempEffects: 0
   tempHallucinations: 0
-  tempDizzyness: 0
+  tempDizziness: 0
   tempRelaxation: 0
   tempSensitivity: 0
-  tempTieredness: 0
+  tempTiredness: 0
   tempChattiness: 0
   tempIntelligence: 0
   tempStrength: 0
   tempAgreeableness: 0
   tempLust: 0
   tempFear: 0
+  tempHappiness: 0
   taste: 0
+  odor: 0
   luminosity: 0
 --- !u!4 &2051104334
 Transform:
@@ -71975,6 +73166,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052706148}
   m_CullTransparentMesh: 0
+--- !u!1 &2056931010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056931011}
+  - component: {fileID: 2056931012}
+  m_Layer: 0
+  m_Name: IE_healthRespiration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056931011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056931010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2056931012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056931010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &2065350404
 GameObject:
   m_ObjectHideFlags: 0
@@ -72734,6 +73977,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071847939}
   m_CullTransparentMesh: 0
+--- !u!1 &2071985200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071985201}
+  - component: {fileID: 2071985202}
+  m_Layer: 0
+  m_Name: IE_tempSensitivity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2071985201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071985200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2071985202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071985200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: 
+  sprite: {fileID: 0}
+  stringLowerM100: 
+  stringM100ToM50: 
+  stringM50To0: 
+  string0: 
+  string0To50: Weak Acid
+  string50To100: Strong Acid
+  stringHigher100: Lethal Acid
 --- !u!1 &2074108584
 GameObject:
   m_ObjectHideFlags: 0
@@ -74820,6 +76115,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131478141}
   m_CullTransparentMesh: 0
+--- !u!1 &2132143653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2132143654}
+  - component: {fileID: 2132143655}
+  m_Layer: 0
+  m_Name: IE_healthBrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2132143654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132143653}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 207206503}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132143655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132143653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: healthBrain
+  sprite: {fileID: 0}
+  stringLowerM100: Lethal Poison (Brain)
+  stringM100ToM50: Strong Poison (Brain)
+  stringM50To0: Weak Poison (Brain)
+  string0: 
+  string0To50: Light Medicine (Brain)
+  string50To100: Moderate Medicine (Brain)
+  stringHigher100: Powerful Medicine (Brain)
 --- !u!1 &2135084118
 GameObject:
   m_ObjectHideFlags: 0
