@@ -184,6 +184,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1280621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1274,8 +1276,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 296.27, y: -44.66}
+  m_SizeDelta: {x: 79.16321, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22805738
 MonoBehaviour:
@@ -1457,6 +1459,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &24440530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2841,31 +2845,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &64465322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,7 +4172,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 500
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!224 &83691868
 RectTransform:
@@ -4645,8 +4626,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 295.64, y: -44.66}
+  m_SizeDelta: {x: 80.42798, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89705383
 MonoBehaviour:
@@ -4912,8 +4893,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 295.38, y: -44.66}
+  m_SizeDelta: {x: 80.93359, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90747486
 MonoBehaviour:
@@ -5349,8 +5330,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 294.28, y: -44.66}
+  m_SizeDelta: {x: 82.55469, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103076263
 MonoBehaviour:
@@ -5672,31 +5653,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &106782608
 Transform:
   m_ObjectHideFlags: 0
@@ -7637,31 +7595,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &154073658
 GameObject:
   m_ObjectHideFlags: 0
@@ -7920,8 +7855,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 294.63, y: -44.66}
+  m_SizeDelta: {x: 82.43176, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &156919220
 MonoBehaviour:
@@ -9174,6 +9109,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 0f000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &211674662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11135,6 +11072,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &255122402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11327,6 +11266,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &259861982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13544,31 +13485,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &340349417
 Transform:
   m_ObjectHideFlags: 0
@@ -16376,31 +16294,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &431946365
 GameObject:
   m_ObjectHideFlags: 0
@@ -20105,31 +20000,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &570032631
 GameObject:
   m_ObjectHideFlags: 0
@@ -20313,8 +20185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 295.04, y: -44.66}
+  m_SizeDelta: {x: 81.62164, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573288042
 MonoBehaviour:
@@ -21590,6 +21462,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &614218513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21932,31 +21806,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &626887245
 Transform:
   m_ObjectHideFlags: 0
@@ -22243,31 +22094,8 @@ MonoBehaviour:
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &634870767
 Transform:
   m_ObjectHideFlags: 0
@@ -22468,6 +22296,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &636777750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22898,31 +22728,8 @@ MonoBehaviour:
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &655901677
 Transform:
   m_ObjectHideFlags: 0
@@ -25053,31 +24860,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &723455693
 Transform:
   m_ObjectHideFlags: 0
@@ -29067,31 +28851,12 @@ MonoBehaviour:
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects:
+  - {fileID: 1576759617}
+  - {fileID: 2132143655}
+  - {fileID: 1949762744}
+  - {fileID: 555409901}
+  effectIntensities: 19000000190000004b00000019000000
 --- !u!4 &825555048
 Transform:
   m_ObjectHideFlags: 0
@@ -30696,6 +30461,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &888243749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31566,8 +31333,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 294.25, y: -44.66}
+  m_SizeDelta: {x: 83.20593, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909484773
 MonoBehaviour:
@@ -35179,31 +34946,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &986272315
 Transform:
   m_ObjectHideFlags: 0
@@ -37189,6 +36933,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1034747984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39822,6 +39568,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1084525013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40014,6 +39762,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 0f000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1085061972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40661,6 +40411,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1105478481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41091,8 +40843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 295.16, y: -44.66}
+  m_SizeDelta: {x: 81.37744, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112275478
 MonoBehaviour:
@@ -44331,31 +44083,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &1238646107
 GameObject:
   m_ObjectHideFlags: 0
@@ -47939,31 +47668,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &1337042944
 Transform:
   m_ObjectHideFlags: 0
@@ -51948,31 +51654,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &1443380714
 GameObject:
   m_ObjectHideFlags: 0
@@ -52396,31 +52079,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &1449233990
 GameObject:
   m_ObjectHideFlags: 0
@@ -53556,31 +53216,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &1482465439
 GameObject:
   m_ObjectHideFlags: 0
@@ -54083,31 +53720,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &1487986720
 Transform:
   m_ObjectHideFlags: 0
@@ -55076,31 +54690,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &1552187888
 GameObject:
   m_ObjectHideFlags: 0
@@ -56596,8 +56187,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 294.32, y: -44.66}
+  m_SizeDelta: {x: 83.06702, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586699554
 MonoBehaviour:
@@ -59261,6 +58852,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1654569232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60736,6 +60329,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1704241847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61496,31 +61091,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &1722761254
 GameObject:
   m_ObjectHideFlags: 0
@@ -62325,6 +61897,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 0f000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &1739721698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69298,31 +68872,8 @@ MonoBehaviour:
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!1 &1950193778
 GameObject:
   m_ObjectHideFlags: 0
@@ -72603,8 +72154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255.85, y: -44.66}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 294.96, y: -44.66}
+  m_SizeDelta: {x: 81.774414, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030482401
 MonoBehaviour:
@@ -73164,31 +72715,8 @@ MonoBehaviour:
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
-  acidity: 0
-  healthBrain: 0
-  healthSkin: 0
-  healthHeart: 0
-  healthRespiration: 0
-  healthStomach: 0
-  healthInfection: 0
-  healthEyes: 0
-  healthSanity: 0
-  durationTempEffects: 0
-  tempHallucinations: 0
-  tempDizziness: 0
-  tempRelaxation: 0
-  tempSensitivity: 0
-  tempTiredness: 0
-  tempChattiness: 0
-  tempIntelligence: 0
-  tempStrength: 0
-  tempAgreeableness: 0
-  tempLust: 0
-  tempFear: 0
-  tempHappiness: 0
-  taste: 0
-  odor: 0
-  luminosity: 0
+  effects: []
+  effectIntensities: 
 --- !u!4 &2051104334
 Transform:
   m_ObjectHideFlags: 0
@@ -74736,6 +74264,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 64000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &2093255173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75897,6 +75427,8 @@ MonoBehaviour:
   ingredientTypeAmounts: 0f000000
   amountTotal: 0
   temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!114 &2125585485
 MonoBehaviour:
   m_ObjectHideFlags: 0

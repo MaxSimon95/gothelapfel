@@ -14,7 +14,7 @@ public class IngredientType : MonoBehaviour
     public float meltingTemperature;
     public float boilingTemperature;
 
-    // labels: <=-100 = lethal poison (____) , -99 to -50 strong poison, -49 to 0 weak poison (___), 0 to 49 light medicine (___), 50 to 99 potent medicine (___) , 100+ extremely potent medicine (___)
+    /*// labels: <=-100 = lethal poison (____) , -99 to -50 strong poison, -49 to 0 weak poison (___), 0 to 49 light medicine (___), 50 to 99 potent medicine (___) , 100+ extremely potent medicine (___)
 
     // 0 = no change, +100 = lethal dosis; -100 = enough to reverse lethal dosis
     public int acidity;  
@@ -56,9 +56,10 @@ public class IngredientType : MonoBehaviour
     public int odor;
 
     // 0 = nothing, 100 = daylight
-    public int luminosity;
+    public int luminosity; */
 
-   
+    public List<IngredientEffect> effects = new List<IngredientEffect>();
+    public List<int> effectIntensities = new List<int>();
 
 
 

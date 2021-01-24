@@ -44,7 +44,7 @@ public class JobHandler : MonoBehaviour
             requestedEffectsString = requestedEffectsString.Remove(requestedEffectsString.Length - 1);
         }
 
-        Debug.Log(requestedEffectsString);
+        //Debug.Log(requestedEffectsString);
 
         remainingDays = startDays;
         orderNumber = CalculateMarkedOrderNumber();

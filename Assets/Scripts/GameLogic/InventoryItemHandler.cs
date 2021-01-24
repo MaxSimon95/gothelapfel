@@ -19,20 +19,10 @@ public class InventoryItemHandler : MonoBehaviour
 
     private static Transform autoTransferTargetParent;
 
-    /*  IEnumerator Start()
-      {
-          updateItemContentWaitTime = Random.Range(8.0f, 12.0f);
-          //Debug.Log(updateItemContentWaitTime);
+    public List<IngredientEffect> IngredientEffects;
+    public List<float> IngredientEffectIntensities;
 
-          while (true)
-          {
-
-              UpdateTemperature();
-              UpdateItemContent();
-
-          yield return new WaitForSeconds(updateItemContentWaitTime);
-          }
-      } */
+   
 
 
     void Start()
@@ -48,6 +38,8 @@ public class InventoryItemHandler : MonoBehaviour
         StartCoroutine(updateTemperatureCoroutine);
 
         //Debug.Log("Start End");
+
+        
 
     }
 
@@ -359,7 +351,7 @@ public class InventoryItemHandler : MonoBehaviour
             DeleteInstanceOfInventoryItem();
         }
 
-        
+        UpdateIngredientEffects();
         SetToolTipText();
 
     }
@@ -458,6 +450,38 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void ButtonPress()
     {
+
+    }
+
+    public void UpdateIngredientEffects()
+    {
+        // cleanse old list
+        IngredientEffects = new List<IngredientEffect>();
+        IngredientEffectIntensities = new List<float>();
+
+        // go through all ingredients
+        for(int i=0; i<ingredientTypes.Count; i++)
+        {
+            // go through all effects: if its already been logged, add into that slot, if not, log it newly
+            for(int e = 0; e < ingredientTypes[i].effects.Count; e++)
+            {
+                if(IngredientEffects.Contains(ingredientTypes[i].effects[e]))
+                {
+                    int t = IngredientEffects.IndexOf(ingredientTypes[i].effects[e]);
+                    IngredientEffectIntensities[t] += ingredientTypes[i].effectIntensities[e] * ingredientTypeAmounts[i];
+                }
+                else
+                {
+                    IngredientEffects.Add(ingredientTypes[i].effects[e]);
+                    IngredientEffectIntensities.Add(ingredientTypes[i].effectIntensities[e] * ingredientTypeAmounts[i]);
+                }
+            }
+        }
+        
+        for(int j = 0; j < IngredientEffectIntensities.Count; j++)
+        {
+            IngredientEffectIntensities[j] = IngredientEffectIntensities[j] / ingredientTypeAmounts.Sum();
+        }
 
     }
 
