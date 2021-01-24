@@ -8,6 +8,9 @@ public class JobHandler : MonoBehaviour
     public int payment;
 
     public IngredientType requestedIngredientType;
+    public List<IngredientEffect> requestedEffects = new List<IngredientEffect>();
+    public List<IngredientEffect.EffectIntensity> requestedEffectIntensities = new List<IngredientEffect.EffectIntensity> ();
+    public string requestedEffectsString = "";
 
     public int requestedAmount;
 
@@ -24,6 +27,25 @@ public class JobHandler : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        for (int i=0; i < requestedEffects.Count; i++) 
+        {
+            IngredientEffect e = requestedEffects[i];
+            int tempEffectStrength = (int)requestedEffectIntensities[i];
+
+            requestedEffectsString += e.GetEffectDescriptionString(tempEffectStrength).ToString() + ",\n" ;
+        }
+
+        // clean up string
+        if(requestedEffectsString != "")
+        {
+            // remove last ,
+            requestedEffectsString = requestedEffectsString.Remove(requestedEffectsString.Length - 1);
+            // remove last linebreak
+            requestedEffectsString = requestedEffectsString.Remove(requestedEffectsString.Length - 1);
+        }
+
+        Debug.Log(requestedEffectsString);
+
         remainingDays = startDays;
         orderNumber = CalculateMarkedOrderNumber();
     }

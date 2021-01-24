@@ -1740,15 +1740,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Strength
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Weakness
+  stringM100ToM50: Strong Weakness
+  stringM50To0: Slight Weakness
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Strength
+  string50To100: Great Strength
+  stringHigher100: Extreme Strength
 --- !u!1 &44958775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,15 +2000,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Agreeableness
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Aggressivity
+  stringM100ToM50: Strong Aggressivity
+  stringM50To0: Slight Aggressivity
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Agreeableness
+  string50To100: Strong Agreeableness
+  stringHigher100: Extreme Agreeableness
 --- !u!1 &46648795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,6 +5479,9 @@ MonoBehaviour:
   title: Completed Pillz
   payment: 7
   requestedIngredientType: {fileID: 0}
+  requestedEffects: []
+  requestedEffectIntensities: 
+  requestedEffectsString: 
   requestedAmount: 15
   startPointInTime: 4
   startDays: 9
@@ -9065,13 +9068,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: 
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extermely Bad Smell
+  stringM100ToM50: Bad Smell
+  stringM50To0: Slightly Bad Smell
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slightly Good Smell
+  string50To100: Great Smell
+  stringHigher100: Extermely Good Smell
 --- !u!1 &211674656
 GameObject:
   m_ObjectHideFlags: 0
@@ -10053,11 +10056,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: tempHallucinations
+  effectName: Hallucinations
   sprite: {fileID: 0}
-  stringLowerM100: Completely Stop Hallucinations
-  stringM100ToM50: 'Moderately '
-  stringM50To0: Slightly Decrease Hallucinations
+  stringLowerM100: Complete Hallucination Decrease
+  stringM100ToM50: 'Strong Hallucination Decrease '
+  stringM50To0: Slight Hallucination Decrease
   string0: 
   string0To50: Weak Hallucinations
   string50To100: Strong Hallucinations
@@ -19671,15 +19674,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Tiredness
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Remove Tiredness
+  stringM100ToM50: Strongly Reduce Tiredness
+  stringM50To0: Slightly Reduce Tiredness
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Tiredness
+  string50To100: Strong Tiredness
+  stringHigher100: Extreme Tiredness
 --- !u!1 &556529774
 GameObject:
   m_ObjectHideFlags: 0
@@ -20892,13 +20895,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: 
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Lust Decrease
+  stringM100ToM50: Strong Lust Decrease
+  stringM50To0: Slight Lust Decrease
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Lust
+  string50To100: Strong Lust
+  stringHigher100: Extreme Lust
 --- !u!1 &596206004
 GameObject:
   m_ObjectHideFlags: 0
@@ -21089,15 +21092,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Health Heart
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Lethal Poison (Heart)
+  stringM100ToM50: Strong Poison (Heart)
+  stringM50To0: Weak Poison (Heart)
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Light Medicine (Heart)
+  string50To100: Strong Medicine (Heart)
+  stringHigher100: Extreme Medicine (Heart)
 --- !u!1 &598549285
 GameObject:
   m_ObjectHideFlags: 0
@@ -21801,6 +21804,9 @@ MonoBehaviour:
   title: Fisherman's Friend Ex
   payment: 5
   requestedIngredientType: {fileID: 0}
+  requestedEffects: []
+  requestedEffectIntensities: 
+  requestedEffectsString: 
   requestedAmount: 5
   startPointInTime: 7
   startDays: 1
@@ -26648,6 +26654,9 @@ MonoBehaviour:
   title: A farmer's delight
   payment: 25
   requestedIngredientType: {fileID: 825555047}
+  requestedEffects: []
+  requestedEffectIntensities: 
+  requestedEffectsString: 
   requestedAmount: 20
   startPointInTime: 6
   startDays: 5
@@ -28605,15 +28614,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Intelligence
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Intelligence Decrease
+  stringM100ToM50: Strong Intelligence Decrease
+  stringM50To0: Slight Intelligence Decrease
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Intelligence Boost
+  string50To100: Strong Intelligence Boost
+  stringHigher100: Extreme Intelligence Boost
 --- !u!1 &815883977
 GameObject:
   m_ObjectHideFlags: 0
@@ -28885,15 +28894,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Happiness
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Sadness
+  stringM100ToM50: Strong Sadness
+  stringM50To0: Slight Sadness
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Happiness
+  string50To100: Strong Happiness
+  stringHigher100: Extreme Happiness
 --- !u!1 &820514878
 GameObject:
   m_ObjectHideFlags: 0
@@ -29475,15 +29484,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Health Infection
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Lethal Poison (Infection)
+  stringM100ToM50: Strong Poison (Infection)
+  stringM50To0: Weak Poison (Infection)
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Light Medicine (Infection)
+  string50To100: Strong Medicine (Infection)
+  stringHigher100: Extreme Medicine (Infection)
 --- !u!1 &847646644
 GameObject:
   m_ObjectHideFlags: 0
@@ -31296,9 +31305,9 @@ MonoBehaviour:
   stringM100ToM50: 
   stringM50To0: 
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Weak Light Source
+  string50To100: Moderate Light Source
+  stringHigher100: Extreme Light Source
 --- !u!1 &905907879
 GameObject:
   m_ObjectHideFlags: 0
@@ -43006,15 +43015,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Health Skin
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Devastating Poison (Skin)
+  stringM100ToM50: Strong Poison (Skin)
+  stringM50To0: Weak Poison (Skin)
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Light Medicine (Skin)
+  string50To100: Strong Medicine (Skin)
+  stringHigher100: Extreme Medicine (Skin)
 --- !u!1 &1177571178
 GameObject:
   m_ObjectHideFlags: 0
@@ -52869,15 +52878,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Chattiness
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Mute
+  stringM100ToM50: Strongly Decrease Chattiness
+  stringM50To0: Slightly Decrease Chattiness
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Chattiness
+  string50To100: Strong Chattiness
+  stringHigher100: Extreme Chattiness
 --- !u!1 &1458079435
 GameObject:
   m_ObjectHideFlags: 0
@@ -55336,6 +55345,9 @@ MonoBehaviour:
   title: The Werewolf Problem
   payment: 10
   requestedIngredientType: {fileID: 1435748820}
+  requestedEffects: []
+  requestedEffectIntensities: 
+  requestedEffectsString: 
   requestedAmount: 1
   startPointInTime: 0
   startDays: 4
@@ -56100,15 +56112,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Health Sanity
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Devastating Poison (Sanity)
+  stringM100ToM50: Strong Poison (Sanity)
+  stringM50To0: Weak Poison (Sanity)
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Light Medicine (Sanity)
+  string50To100: Strong Medicine (Sanity)
+  stringHigher100: Extreme Medicine (Sanity)
 --- !u!1 &1574777282
 GameObject:
   m_ObjectHideFlags: 0
@@ -56229,13 +56241,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: 
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extremely Bad Taste
+  stringM100ToM50: Bad Taste
+  stringM50To0: Slightly Bad Taste
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slightly Good Taste
+  string50To100: Good Taste
+  stringHigher100: Extremely Good Taste
 --- !u!1 &1578480258
 GameObject:
   m_ObjectHideFlags: 0
@@ -58461,15 +58473,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Health Eyes
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Devastating Poison (Eyes)
+  stringM100ToM50: Strong Poison (Eyes)
+  stringM50To0: Weak Poison (Eyes)
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Light Medicine (Eyes)
+  string50To100: Strong Medicine (Eyes)
+  stringHigher100: Extreme Medicine (Eyes)
 --- !u!1 &1634490358
 GameObject:
   m_ObjectHideFlags: 0
@@ -60540,6 +60552,9 @@ MonoBehaviour:
   title: The expired Job
   payment: 17
   requestedIngredientType: {fileID: 0}
+  requestedEffects: []
+  requestedEffectIntensities: 
+  requestedEffectsString: 
   requestedAmount: 10
   startPointInTime: 5
   startDays: 12
@@ -60857,15 +60872,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Dizziness
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Remove Dizziness
+  stringM100ToM50: 'Greatly Decrease Dizziness '
+  stringM50To0: Slightly Decrease Dizziness
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Weak Dizziness
+  string50To100: Strong Dizziness
+  stringHigher100: Extreme Dizziness
 --- !u!1 &1711348638
 GameObject:
   m_ObjectHideFlags: 0
@@ -62825,6 +62840,10 @@ MonoBehaviour:
   title: A cure for sadness
   payment: 5
   requestedIngredientType: {fileID: 0}
+  requestedEffects:
+  - {fileID: 819554738}
+  requestedEffectIntensities: 32000000
+  requestedEffectsString: 
   requestedAmount: 100
   startPointInTime: 2
   startDays: 6
@@ -66475,13 +66494,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: 
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Bravery
+  stringM100ToM50: Strong Bravery
+  stringM50To0: Slight Bravery
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Fear
+  string50To100: Strong Fear
+  stringHigher100: Extreme Fear
 --- !u!1 &1869533944
 GameObject:
   m_ObjectHideFlags: 0
@@ -66767,6 +66786,12 @@ MonoBehaviour:
   title: Medicine for Herby
   payment: 3
   requestedIngredientType: {fileID: 0}
+  requestedEffects:
+  - {fileID: 596681136}
+  - {fileID: 819554738}
+  - {fileID: 1576759617}
+  requestedEffectIntensities: 320000000100000001000000
+  requestedEffectsString: 
   requestedAmount: 5
   startPointInTime: 1
   startDays: 2
@@ -67114,7 +67139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: acidity
+  effectName: Acidity
   sprite: {fileID: 0}
   stringLowerM100: 
   stringM100ToM50: 
@@ -67122,7 +67147,7 @@ MonoBehaviour:
   string0: 
   string0To50: Weak Acid
   string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  stringHigher100: Extremely Strong Acid
 --- !u!1 &1894943167
 GameObject:
   m_ObjectHideFlags: 0
@@ -67169,6 +67194,11 @@ MonoBehaviour:
   title: Beetle Powder Please
   payment: 0
   requestedIngredientType: {fileID: 0}
+  requestedEffects:
+  - {fileID: 1949762744}
+  - {fileID: 235741183}
+  requestedEffectIntensities: 9cffffff9cffffff
+  requestedEffectsString: 
   requestedAmount: 5
   startPointInTime: 3
   startDays: 3
@@ -69078,15 +69108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Relaxation
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Tension
+  stringM100ToM50: Strong Tension
+  stringM50To0: Slight Tension
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Relaxation
+  string50To100: Strong Relaxation
+  stringHigher100: Extreme  Relaxation
 --- !u!1 &1949570163
 GameObject:
   m_ObjectHideFlags: 0
@@ -69209,15 +69239,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Health Stomach
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Lethal Poison (Stomach)
+  stringM100ToM50: Strong Poison (Stomach)
+  stringM50To0: Weak Poison (Stomach)
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Light Medicine (Stomach)
+  string50To100: Strong Medicine (Stomach)
+  stringHigher100: Extreme Medicine (Stomach)
 --- !u!1 &1949917431
 GameObject:
   m_ObjectHideFlags: 0
@@ -73291,15 +73321,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Health Respiration
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Lethal Poison (Respiration)
+  stringM100ToM50: Strong Poison (Respiration)
+  stringM50To0: Weak Poison (Respiration)
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Light Medicine (Respiration)
+  string50To100: Strong Medicine (Respiration)
+  stringHigher100: Extreme Medicine (Respiration)
 --- !u!1 &2065350404
 GameObject:
   m_ObjectHideFlags: 0
@@ -74102,15 +74132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: Sensitivity
   sprite: {fileID: 0}
-  stringLowerM100: 
-  stringM100ToM50: 
-  stringM50To0: 
+  stringLowerM100: Extreme Numbness
+  stringM100ToM50: Strong Numbness
+  stringM50To0: Slight Numbness
   string0: 
-  string0To50: Weak Acid
-  string50To100: Strong Acid
-  stringHigher100: Lethal Acid
+  string0To50: Slight Sensitivity
+  string50To100: Strong Sensitivity
+  stringHigher100: Extreme Sensitivity
 --- !u!1 &2074108584
 GameObject:
   m_ObjectHideFlags: 0
@@ -76240,15 +76270,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: healthBrain
+  effectName: Health Brain
   sprite: {fileID: 0}
   stringLowerM100: Lethal Poison (Brain)
   stringM100ToM50: Strong Poison (Brain)
   stringM50To0: Weak Poison (Brain)
   string0: 
   string0To50: Light Medicine (Brain)
-  string50To100: Moderate Medicine (Brain)
-  stringHigher100: Powerful Medicine (Brain)
+  string50To100: Strong Medicine (Brain)
+  stringHigher100: Extreme Medicine (Brain)
 --- !u!1 &2135084118
 GameObject:
   m_ObjectHideFlags: 0

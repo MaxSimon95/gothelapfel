@@ -32,6 +32,8 @@ public class IngredientType : MonoBehaviour
     // -100 removes effect completely, 0 doesn't change effect, +100 increases to maximum
     public int tempHallucinations;
     public int tempDizziness;   
+
+
     public int tempRelaxation;  // opposite: tension
     public int tempSensitivity; // opposite: numbness
     public int tempTiredness;
@@ -65,7 +67,7 @@ public class IngredientType : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(nameof(luminosity));
+       
     }
 
     void Update()

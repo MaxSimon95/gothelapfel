@@ -42,7 +42,7 @@ public class NotebookJobs : MonoBehaviour
                 jobPanels[i].localScale = new Vector3(1, 1, 1);
 
 
-                // CAREFUL: THIS STUFF IS ORDER SENSITIVE. YOU MESS WITH THE ORDER, YOU MESS WITH THE CONTENTS, YO! 
+                // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
 
                 jobPanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].title;
                 jobPanels[i].GetChild(3).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].requestedAmount.ToString();
@@ -58,7 +58,7 @@ public class NotebookJobs : MonoBehaviour
                 else
                 {
                     jobPanels[i].GetChild(8).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Requested Effects:";
-                    jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Kein spezifisches Alchemicum";
+                    jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = JobsManagement.activeJobList[i].requestedEffectsString;
                     // todo effekte
                 }
             }
