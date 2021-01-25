@@ -15,7 +15,18 @@ public class IngredientEffect : MonoBehaviour
     public string string50To100;
     public string stringHigher100;
 
+    // using an enum effectinstensity for including the intensity in jobs. it would be instransparent to the player to work with freely chosen ints there
 
+    public enum EffectIntensity
+    {
+        EXTREME_NEGATIVE = -100,
+        STRONG_NEGATIVE = -50,
+        SLIGHT_NEGATIVE = -1,
+        NEUTRAL = 0,
+        SLIGHT_POSITIVE = 1,
+        STRONG_POSITIVE = 50,
+        EXTREME_POSITIVE = 100
+    }
     
     
 
@@ -32,7 +43,7 @@ public class IngredientEffect : MonoBehaviour
     }
 
     
-    public string EffectDescriptionString(int value)
+    public string GetEffectDescriptionString(int value)
     {
         string tempString;
 
