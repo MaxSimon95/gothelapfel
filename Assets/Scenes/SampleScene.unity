@@ -15297,7 +15297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchoredPosition: {x: 157.88512, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -30423,12 +30423,8 @@ MonoBehaviour:
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
-  effects:
-  - {fileID: 1576759617}
-  - {fileID: 2132143655}
-  - {fileID: 1949762744}
-  - {fileID: 555409901}
-  effectIntensities: 19000000190000004b00000019000000
+  effects: []
+  effectIntensities: 
 --- !u!4 &825555048
 Transform:
   m_ObjectHideFlags: 0
@@ -38642,7 +38638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029212324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.29, y: -0.99, z: 0}
+  m_LocalPosition: {x: -23.94, y: -0.7, z: 0}
   m_LocalScale: {x: 0.28556693, y: 0.27287075, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47577,8 +47573,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Slightly Reduce Tieredness, \nSlightly Reduce Chattiness, \nExtremely Decrease
-    Intelligence\n"
+  m_Text: "Slightly Reduce Tieredness, \nSlightly Reduce Chattiness, \nExtremely
+    Decrease Intelligence\n"
 --- !u!222 &1248754142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65658,9 +65654,8 @@ MonoBehaviour:
   title: A cure for sadness
   payment: 5
   requestedIngredientType: {fileID: 0}
-  requestedEffects:
-  - {fileID: 819554738}
-  requestedEffectIntensities: 32000000
+  requestedEffects: []
+  requestedEffectIntensities: 
   requestedEffectsString: 
   requestedAmount: 100
   startPointInTime: 2
@@ -69094,8 +69089,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Tempor orci eu lobortis elementum
-    nibh tellus molestie nunc. Faucibus in ornare quam viverra orci sagittis eu. Ac
-    odio tempor orci dapibus. Suspendisse sed nisi lacus sed viverra tellus. Tempor
+    nibh tellus molestie nunc. Faucibus in ornare quam viverra orci sagittis eu.
+    Ac odio tempor orci dapibus. Suspendisse sed nisi lacus sed viverra tellus. Tempor
     orci dapibus ultrices in iaculis nunc sed. Massa tincidunt dui ut ornare lectus.
     Sed adipiscing diam donec adipiscing tristique risus nec. Imperdiet proin fermentum
     leo vel orci porta non. Adipiscing at in tellus integer feugiat scelerisque varius
@@ -69106,29 +69101,29 @@ MonoBehaviour:
 
 
 
-    Duis tristique sollicitudin nibh sit amet commodo. Sit amet porttitor eget dolor.
-    Proin libero nunc consequat interdum varius. Tortor posuere ac ut consequat semper
-    viverra nam libero. Hendrerit gravida rutrum quisque non tellus orci ac auctor.
-    Non odio euismod lacinia at quis risus sed vulputate. Non curabitur gravida arcu
-    ac tortor dignissim convallis aenean. Vitae ultricies leo integer malesuada nunc
-    vel risus commodo viverra. Iaculis at erat pellentesque adipiscing. Tempor id
-    eu nisl nunc mi ipsum faucibus vitae aliquet. Justo donec enim diam vulputate
-    ut pharetra sit. Ultricies leo integer malesuada nunc vel. Morbi tempus iaculis
-    urna id volutpat lacus. Placerat duis ultricies lacus sed turpis. Ullamcorper
-    eget nulla facilisi etiam dignissim diam. Est placerat in egestas erat imperdiet
-    sed euismod. Egestas diam in arcu cursus. Consectetur libero id faucibus nisl
-    tincidunt eget nullam non. Ut porttitor leo a diam. Venenatis cras sed felis eget
-    velit.
+    Duis tristique sollicitudin nibh sit amet
+    commodo. Sit amet porttitor eget dolor. Proin libero nunc consequat interdum
+    varius. Tortor posuere ac ut consequat semper viverra nam libero. Hendrerit gravida
+    rutrum quisque non tellus orci ac auctor. Non odio euismod lacinia at quis risus
+    sed vulputate. Non curabitur gravida arcu ac tortor dignissim convallis aenean.
+    Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Iaculis
+    at erat pellentesque adipiscing. Tempor id eu nisl nunc mi ipsum faucibus vitae
+    aliquet. Justo donec enim diam vulputate ut pharetra sit. Ultricies leo integer
+    malesuada nunc vel. Morbi tempus iaculis urna id volutpat lacus. Placerat duis
+    ultricies lacus sed turpis. Ullamcorper eget nulla facilisi etiam dignissim diam.
+    Est placerat in egestas erat imperdiet sed euismod. Egestas diam in arcu cursus.
+    Consectetur libero id faucibus nisl tincidunt eget nullam non. Ut porttitor leo
+    a diam. Venenatis cras sed felis eget velit.
 
 
 
-    Nisi porta lorem mollis aliquam ut porttitor leo a. Nisl nisi scelerisque eu ultrices.
-    Quisque non tellus orci ac auctor augue. Purus sit amet luctus venenatis lectus
-    magna fringilla. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque
-    pulvinar. Eget nullam non nisi est sit amet facilisis magna. Sit amet consectetur
-    adipiscing elit duis tristique sollicitudin nibh. Magna eget est lorem ipsum dolor
-    sit. Id aliquet lectus proin nibh nisl condimentum id venenatis. Rhoncus urna
-    neque viverra justo.'
+    Nisi porta lorem mollis aliquam
+    ut porttitor leo a. Nisl nisi scelerisque eu ultrices. Quisque non tellus orci
+    ac auctor augue. Purus sit amet luctus venenatis lectus magna fringilla. Mauris
+    rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Eget nullam
+    non nisi est sit amet facilisis magna. Sit amet consectetur adipiscing elit duis
+    tristique sollicitudin nibh. Magna eget est lorem ipsum dolor sit. Id aliquet
+    lectus proin nibh nisl condimentum id venenatis. Rhoncus urna neque viverra justo.'
 --- !u!222 &1834996173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -70397,11 +70392,8 @@ MonoBehaviour:
   title: Medicine for Herby
   payment: 3
   requestedIngredientType: {fileID: 0}
-  requestedEffects:
-  - {fileID: 596681136}
-  - {fileID: 819554738}
-  - {fileID: 1576759617}
-  requestedEffectIntensities: 320000000100000001000000
+  requestedEffects: []
+  requestedEffectIntensities: 
   requestedEffectsString: 
   requestedAmount: 5
   startPointInTime: 1
@@ -70884,10 +70876,8 @@ MonoBehaviour:
   title: Beetle Powder Please
   payment: 0
   requestedIngredientType: {fileID: 0}
-  requestedEffects:
-  - {fileID: 1949762744}
-  - {fileID: 235741183}
-  requestedEffectIntensities: 9cffffff9cffffff
+  requestedEffects: []
+  requestedEffectIntensities: 
   requestedEffectsString: 
   requestedAmount: 5
   startPointInTime: 3
