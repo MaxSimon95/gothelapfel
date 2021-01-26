@@ -5548,6 +5548,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 1
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 2
 --- !u!1 &104730502
 GameObject:
@@ -19811,6 +19813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7c642945666204c880bc6dcc380fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jobDetails: {fileID: 0}
 --- !u!114 &535484071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22643,6 +22646,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 0
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 3
 --- !u!1 &623366439
 GameObject:
@@ -27865,6 +27870,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 1
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 1
 --- !u!1 &756879417
 GameObject:
@@ -36549,6 +36556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7c642945666204c880bc6dcc380fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jobDetails: {fileID: 0}
 --- !u!114 &976199202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58031,6 +58039,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 0
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 1
 --- !u!1 &1560172279
 GameObject:
@@ -63240,6 +63250,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 0
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 3
 --- !u!1 &1702280314
 GameObject:
@@ -65663,6 +65675,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 0
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 0
 --- !u!1 &1757449540
 GameObject:
@@ -70401,6 +70415,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 0
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 1
 --- !u!1 &1877088791
 GameObject:
@@ -70885,6 +70901,8 @@ MonoBehaviour:
   remainingDays: 0
   jobIsSaved: 0
   orderNumber: 0
+  description: 
+  client: {fileID: 0}
   currentState: 1
 --- !u!1 &1895493873
 GameObject:
