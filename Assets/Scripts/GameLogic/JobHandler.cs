@@ -19,6 +19,11 @@ public class JobHandler : MonoBehaviour
     public int remainingDays;
     public bool jobIsSaved;
     public int orderNumber;
+    public string description;
+
+    public NPC client;
+
+    public static JobHandler detailJob;
 
     public enum state { UPCOMING, ACTIVE, COMPLETED, EXPIRED}
     public state currentState;
