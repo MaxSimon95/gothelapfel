@@ -38,6 +38,8 @@ public class NotebookJobs : MonoBehaviour
         Debug.Log("open1");
         UpdateJobPanels();
         Debug.Log("open1");
+
+        GetComponent<NotebookBaseUI>().Open();
     }
     
     public void UpdateJobPanels()
