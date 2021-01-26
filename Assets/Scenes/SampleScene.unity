@@ -18794,6 +18794,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18809,6 +18810,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -47581,8 +47598,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Slightly Reduce Tieredness, \nSlightly Reduce Chattiness, \nExtremely
-    Decrease Intelligence\n"
+  m_Text: "Slightly Reduce Tieredness, \nSlightly Reduce Chattiness, \nExtremely Decrease
+    Intelligence\n"
 --- !u!222 &1248754142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -69103,8 +69120,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Tempor orci eu lobortis elementum
-    nibh tellus molestie nunc. Faucibus in ornare quam viverra orci sagittis eu.
-    Ac odio tempor orci dapibus. Suspendisse sed nisi lacus sed viverra tellus. Tempor
+    nibh tellus molestie nunc. Faucibus in ornare quam viverra orci sagittis eu. Ac
+    odio tempor orci dapibus. Suspendisse sed nisi lacus sed viverra tellus. Tempor
     orci dapibus ultrices in iaculis nunc sed. Massa tincidunt dui ut ornare lectus.
     Sed adipiscing diam donec adipiscing tristique risus nec. Imperdiet proin fermentum
     leo vel orci porta non. Adipiscing at in tellus integer feugiat scelerisque varius
@@ -69115,29 +69132,29 @@ MonoBehaviour:
 
 
 
-    Duis tristique sollicitudin nibh sit amet
-    commodo. Sit amet porttitor eget dolor. Proin libero nunc consequat interdum
-    varius. Tortor posuere ac ut consequat semper viverra nam libero. Hendrerit gravida
-    rutrum quisque non tellus orci ac auctor. Non odio euismod lacinia at quis risus
-    sed vulputate. Non curabitur gravida arcu ac tortor dignissim convallis aenean.
-    Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Iaculis
-    at erat pellentesque adipiscing. Tempor id eu nisl nunc mi ipsum faucibus vitae
-    aliquet. Justo donec enim diam vulputate ut pharetra sit. Ultricies leo integer
-    malesuada nunc vel. Morbi tempus iaculis urna id volutpat lacus. Placerat duis
-    ultricies lacus sed turpis. Ullamcorper eget nulla facilisi etiam dignissim diam.
-    Est placerat in egestas erat imperdiet sed euismod. Egestas diam in arcu cursus.
-    Consectetur libero id faucibus nisl tincidunt eget nullam non. Ut porttitor leo
-    a diam. Venenatis cras sed felis eget velit.
+    Duis tristique sollicitudin nibh sit amet commodo. Sit amet porttitor eget dolor.
+    Proin libero nunc consequat interdum varius. Tortor posuere ac ut consequat semper
+    viverra nam libero. Hendrerit gravida rutrum quisque non tellus orci ac auctor.
+    Non odio euismod lacinia at quis risus sed vulputate. Non curabitur gravida arcu
+    ac tortor dignissim convallis aenean. Vitae ultricies leo integer malesuada nunc
+    vel risus commodo viverra. Iaculis at erat pellentesque adipiscing. Tempor id
+    eu nisl nunc mi ipsum faucibus vitae aliquet. Justo donec enim diam vulputate
+    ut pharetra sit. Ultricies leo integer malesuada nunc vel. Morbi tempus iaculis
+    urna id volutpat lacus. Placerat duis ultricies lacus sed turpis. Ullamcorper
+    eget nulla facilisi etiam dignissim diam. Est placerat in egestas erat imperdiet
+    sed euismod. Egestas diam in arcu cursus. Consectetur libero id faucibus nisl
+    tincidunt eget nullam non. Ut porttitor leo a diam. Venenatis cras sed felis eget
+    velit.
 
 
 
-    Nisi porta lorem mollis aliquam
-    ut porttitor leo a. Nisl nisi scelerisque eu ultrices. Quisque non tellus orci
-    ac auctor augue. Purus sit amet luctus venenatis lectus magna fringilla. Mauris
-    rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Eget nullam
-    non nisi est sit amet facilisis magna. Sit amet consectetur adipiscing elit duis
-    tristique sollicitudin nibh. Magna eget est lorem ipsum dolor sit. Id aliquet
-    lectus proin nibh nisl condimentum id venenatis. Rhoncus urna neque viverra justo.'
+    Nisi porta lorem mollis aliquam ut porttitor leo a. Nisl nisi scelerisque eu ultrices.
+    Quisque non tellus orci ac auctor augue. Purus sit amet luctus venenatis lectus
+    magna fringilla. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque
+    pulvinar. Eget nullam non nisi est sit amet facilisis magna. Sit amet consectetur
+    adipiscing elit duis tristique sollicitudin nibh. Magna eget est lorem ipsum dolor
+    sit. Id aliquet lectus proin nibh nisl condimentum id venenatis. Rhoncus urna
+    neque viverra justo.'
 --- !u!222 &1834996173
 CanvasRenderer:
   m_ObjectHideFlags: 0
