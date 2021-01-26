@@ -137,5 +137,9 @@ public class JobsManagement : MonoBehaviour
 
     }
 
-
+    public static void CompleteJob(JobHandler job, InventoryItemHandler inventoryItem)
+    {
+        Debug.Log("job completed: " + job.title);
+        Debug.Log(inventoryItem);
+    }
 }

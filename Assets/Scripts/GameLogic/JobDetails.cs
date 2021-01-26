@@ -18,6 +18,8 @@ public class JobDetails : MonoBehaviour
     public GameObject UIjobDaysLeft;
     public GameObject UIjobCompensation;
 
+    public Transform InventoryItemSlot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,21 @@ public class JobDetails : MonoBehaviour
         UIjobAmount.GetComponent<UnityEngine.UI.Text>().text = job.requestedAmount.ToString();
         UIjobDaysLeft.GetComponent<UnityEngine.UI.Text>().text = job.remainingDays.ToString();
         UIjobCompensation.GetComponent<UnityEngine.UI.Text>().text = job.payment.ToString();
+
+    }
+
+    public void SubmitInventoryItem()
+    {
+        GameObject tempItem = InventoryItemSlot.GetChild(0).gameObject;
+        JobsManagement.CompleteJob(job, tempItem.GetComponent<InventoryItemHandler>());
+        UpdateSubmitButton();
+
+        transform.SetParent(GameObject.Find("CanvasDragItem").transform);
+        GameObject.Destroy(tempItem);
+    }
+
+    public void UpdateSubmitButton()
+    {
 
     }
 }
