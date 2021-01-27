@@ -138,6 +138,12 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                 {
                     child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                 }
+
+                if (child.gameObject.name == "ButtonSubmitInventoryItem")
+                {
+                    Debug.Log("Origin");
+                    child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateSubmitButton();
+                }
             }
 
             incomingItemOriginalSlot.GetComponent<ItemSlotHandler>().UpdateSlotVisibility();
@@ -179,6 +185,12 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             if (child.gameObject.name == "ButtonStartCentrifuge")
             {
                 child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+            }
+
+            if (child.gameObject.name == "ButtonSubmitInventoryItem")
+            {
+                Debug.Log("Target");
+                child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateSubmitButton();
             }
         }
 

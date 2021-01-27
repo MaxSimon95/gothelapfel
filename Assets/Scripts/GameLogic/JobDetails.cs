@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JobDetails : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class JobDetails : MonoBehaviour
     public GameObject UIjobCompensation;
 
     public Transform InventoryItemSlot;
+    public GameObject SubmitButton; 
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,8 @@ public class JobDetails : MonoBehaviour
 
     public void Open(JobHandler pJob)
     {
+        GetComponent<AutoTransferItemCapability>().PrepareAutoTransferTarget();
+        UpdateSubmitButton();
         job = pJob;
         UpdateJobDetails();
     }
@@ -72,14 +76,23 @@ public class JobDetails : MonoBehaviour
     {
         GameObject tempItem = InventoryItemSlot.GetChild(0).gameObject;
         JobsManagement.CompleteJob(job, tempItem.GetComponent<InventoryItemHandler>());
-        UpdateSubmitButton();
 
-        transform.SetParent(GameObject.Find("CanvasDragItem").transform);
+
+        tempItem.transform.SetParent(GameObject.Find("CanvasDragItem").transform);
+        Debug.Log(tempItem);
         GameObject.Destroy(tempItem);
+        UpdateSubmitButton(); 
     }
 
     public void UpdateSubmitButton()
     {
-
+        if (InventoryItemSlot.childCount == 0)
+        {
+            SubmitButton.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            SubmitButton.GetComponent<Button>().interactable = true;
+        }
     }
 }

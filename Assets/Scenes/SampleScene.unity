@@ -9115,6 +9115,7 @@ GameObject:
   - component: {fileID: 196199906}
   - component: {fileID: 196199905}
   - component: {fileID: 196199910}
+  - component: {fileID: 196199911}
   m_Layer: 5
   m_Name: CanvasChestView
   m_TagString: Untagged
@@ -9136,7 +9137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedSceneObject: {fileID: 1121086216}
   hasTransferAmountSelection: 0
-  itemAutoTransferTargetParent: {fileID: 434519395}
 --- !u!114 &196199906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9229,6 +9229,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26ff72ecf330f7419216d0d0e4a5a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &196199911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196199904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad38be0751551148805b786d1420e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAutoTransferTargetParent: {fileID: 434519395}
 --- !u!1 &197039244
 GameObject:
   m_ObjectHideFlags: 0
@@ -15713,9 +15726,9 @@ RectTransform:
   m_Father: {fileID: 1036056017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -30943,6 +30956,7 @@ GameObject:
   - component: {fileID: 820514880}
   - component: {fileID: 820514879}
   - component: {fileID: 820514884}
+  - component: {fileID: 820514885}
   m_Layer: 5
   m_Name: CanvasCauldronView
   m_TagString: Untagged
@@ -30964,7 +30978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedSceneObject: {fileID: 82705930}
   hasTransferAmountSelection: 1
-  itemAutoTransferTargetParent: {fileID: 847646644}
 --- !u!114 &820514880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31057,6 +31070,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26ff72ecf330f7419216d0d0e4a5a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &820514885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820514878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad38be0751551148805b786d1420e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAutoTransferTargetParent: {fileID: 847646644}
 --- !u!1 &820876391
 GameObject:
   m_ObjectHideFlags: 0
@@ -31665,6 +31691,7 @@ GameObject:
   - component: {fileID: 851149074}
   - component: {fileID: 851149073}
   - component: {fileID: 851149072}
+  - component: {fileID: 851149075}
   m_Layer: 5
   m_Name: ButtonSubmitInventoryItem
   m_TagString: Untagged
@@ -31716,7 +31743,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.6156863}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -31730,7 +31757,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 851149073}
   m_OnClick:
     m_PersistentCalls:
@@ -31785,6 +31812,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851149070}
   m_CullTransparentMesh: 0
+--- !u!114 &851149075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851149070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4a184785637954da039a727e7b6905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 976199204}
 --- !u!1 &851520643
 GameObject:
   m_ObjectHideFlags: 0
@@ -37303,6 +37343,7 @@ GameObject:
   - component: {fileID: 976199200}
   - component: {fileID: 976199199}
   - component: {fileID: 976199201}
+  - component: {fileID: 976199206}
   m_Layer: 5
   m_Name: CanvasJobDetailPage
   m_TagString: Untagged
@@ -37358,6 +37399,7 @@ MonoBehaviour:
   UIjobDaysLeft: {fileID: 1518292963}
   UIjobCompensation: {fileID: 1282887448}
   InventoryItemSlot: {fileID: 1826996621}
+  SubmitButton: {fileID: 851149070}
 --- !u!114 &976199202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37438,6 +37480,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &976199206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976199198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad38be0751551148805b786d1420e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAutoTransferTargetParent: {fileID: 1111033639}
 --- !u!1 &977188908
 GameObject:
   m_ObjectHideFlags: 0
@@ -60396,6 +60451,7 @@ GameObject:
   - component: {fileID: 1593051878}
   - component: {fileID: 1593051877}
   - component: {fileID: 1593051876}
+  - component: {fileID: 1593051882}
   m_Layer: 5
   m_Name: CanvasOvenView
   m_TagString: Untagged
@@ -60429,7 +60485,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedSceneObject: {fileID: 1121086216}
   hasTransferAmountSelection: 0
-  itemAutoTransferTargetParent: {fileID: 799374083}
 --- !u!114 &1593051878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60510,6 +60565,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1593051882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593051875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad38be0751551148805b786d1420e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAutoTransferTargetParent: {fileID: 799374083}
 --- !u!1 &1596245658
 GameObject:
   m_ObjectHideFlags: 0
@@ -70083,8 +70151,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -424.76996, y: -2.9}
-  m_SizeDelta: {x: 771.4435, y: 712.38025}
+  m_AnchoredPosition: {x: -431.4, y: -2.9}
+  m_SizeDelta: {x: 758.254, y: 712.38025}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834996172
 MonoBehaviour:
@@ -76243,7 +76311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedSceneObject: {fileID: 0}
   hasTransferAmountSelection: 0
-  itemAutoTransferTargetParent: {fileID: 0}
 --- !u!114 &2005955039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78320,6 +78387,7 @@ GameObject:
   - component: {fileID: 2067448338}
   - component: {fileID: 2067448337}
   - component: {fileID: 2067448342}
+  - component: {fileID: 2067448343}
   m_Layer: 5
   m_Name: CanvasCentrifugeView
   m_TagString: Untagged
@@ -78341,7 +78409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedSceneObject: {fileID: 1721150276}
   hasTransferAmountSelection: 0
-  itemAutoTransferTargetParent: {fileID: 157252916}
 --- !u!114 &2067448338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78434,6 +78501,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26ff72ecf330f7419216d0d0e4a5a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2067448343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067448336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad38be0751551148805b786d1420e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemAutoTransferTargetParent: {fileID: 157252916}
 --- !u!1 &2070939934
 GameObject:
   m_ObjectHideFlags: 0
