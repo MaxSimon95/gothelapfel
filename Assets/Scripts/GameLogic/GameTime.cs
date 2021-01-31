@@ -118,12 +118,12 @@ public class GameTime : MonoBehaviour
 
         seasonLengthWinter = tempRemainingDays;
 
-        Debug.Log("Spring: " + seasonLengthSpring + "; Summer: " + seasonLengthSummer + "; Autumn: " + seasonLengthAutumn + "; Winter: " + seasonLengthWinter);
+        //Debug.Log("Spring: " + seasonLengthSpring + "; Summer: " + seasonLengthSummer + "; Autumn: " + seasonLengthAutumn + "; Winter: " + seasonLengthWinter);
     }
 
     void UpdateSeason()
     {
-        Debug.Log("update season");
+        //Debug.Log("update season");
         if(daysSinceYearStart < seasonLengthSpring)
         {
             currentSeason = season.SPRING;

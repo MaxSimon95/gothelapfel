@@ -28,7 +28,16 @@ public class IngredientEffect : MonoBehaviour
         EXTREME_POSITIVE = 100
     }
     
-    
+    public enum IntensityType
+    {
+        MAXIMUM_IS_HEALTHY,
+        ZERO_IS_HEALTHY,
+        MINIMUM_IS_HEALTHY,
+        IRRELEVANT
+    }
+
+    public IntensityType intensityType;
+
 
     // Start is called before the first frame update
     void Start()

@@ -93,6 +93,8 @@ public class JobDetails : MonoBehaviour
         else
         {
             SubmitButton.GetComponent<Button>().interactable = true;
+            Debug.Log(job.CheckItemAmoundSuitable(InventoryItemSlot.GetChild(0).gameObject.GetComponent<InventoryItemHandler>()));
+            Debug.Log(job.CheckItemTypeSuitable(InventoryItemSlot.GetChild(0).gameObject.GetComponent<InventoryItemHandler>()));
         }
     }
 }
