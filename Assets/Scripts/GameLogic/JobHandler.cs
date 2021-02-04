@@ -9,13 +9,20 @@ public class JobHandler : MonoBehaviour
     public int payment;
 
     public IngredientType requestedIngredientType;
+
+    // only relevant if effects (not a specific item) are sought after
     public List<IngredientEffect> requestedEffects = new List<IngredientEffect>();
+
+    // only relevant if effects (not a specific item) are sought after
     public List<IngredientEffect.EffectIntensity> requestedEffectIntensities = new List<IngredientEffect.EffectIntensity> ();
+
+    // only relevant if effects (not a specific item) are sought after
+    public List<ExpectedEffectIntensityOperator> requestedEffectIntensityOperators = new List<ExpectedEffectIntensityOperator>();
     public string requestedEffectsString = "";
 
     public int requestedAmount;
 
-    bool ignoreSideffectsForItemSuitableChecks;
+    public bool ignoreSideffectsForItemSuitableChecks;
 
     public int startPointInTime;
     public int startDays;
@@ -45,13 +52,20 @@ public class JobHandler : MonoBehaviour
         TOO_LITTLE,
         CORRECT,
         TOO_MUCH
+    }
 
+    public enum ExpectedEffectIntensityOperator
+    {
+        HIGHER_OR_EQUAL,
+        LOWER_OR_EQUAL,
+        EXACTLY_EQUAL,
     }
 
 
     // Start is called before the first frame update
     void Awake()
     {
+
         for (int i=0; i < requestedEffects.Count; i++) 
         {
             IngredientEffect e = requestedEffects[i];
@@ -114,7 +128,7 @@ public class JobHandler : MonoBehaviour
     {
         if(requestedIngredientType != null)
         {
-            if(requestedIngredientType == item.ingredientTypes[0])
+            if(requestedIngredientType == item.ingredientTypes[0] && item.ingredientTypes.Count == 1)
             {
                 return ItemTypeSuitable.CORRECT_INVENTORYITEM;
             }
@@ -137,29 +151,47 @@ public class JobHandler : MonoBehaviour
                     Debug.Log("Effect " + tempJobeffect.effectName + "is present in the item. Intensity check following.");
                     // if one of the requested effect intensities is not being met --> WRONG EFFECT
 
-                    Debug.Log("Effect " + tempJobeffect.effectName + "; requested intensity: " + (int) requestedEffectIntensities[i] + "; item intensity: " + item.IngredientEffectIntensities[item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect))]);
-                    if((int)requestedEffectIntensities[i]<0)
-                    {
-                        if (item.IngredientEffectIntensities[item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect))] < (int)requestedEffectIntensities[i])
-                        {
-                            Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
-                            return ItemTypeSuitable.WRONG_EFFECT;
-                        }
+                    Debug.Log("Effect " + tempJobeffect.effectName + "; requested intensity: " + /*(int)*/ requestedEffectIntensities[i] + "; requested intensity operator: " + requestedEffectIntensityOperators[i] + "; item intensity: " + IngredientEffect.IntensityTypeIntToEnum(item.IngredientEffectIntensities[item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect))]));
 
-                        Debug.Log(item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect)));
-                    }
-                    else
-                    {
-                        if (item.IngredientEffectIntensities[item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect))] > (int)requestedEffectIntensities[i])
-                        {
-                            Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
-                            return ItemTypeSuitable.WRONG_EFFECT;
-                        }
+                    float itemIntensity = item.IngredientEffectIntensities[item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect))];
 
-                        Debug.Log(item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect)));
+                    switch (requestedEffectIntensityOperators[i])
+                    {
+                        case ExpectedEffectIntensityOperator.LOWER_OR_EQUAL:
+
+                            if (itemIntensity > (int)requestedEffectIntensities[i])
+                            {
+                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
+                                return ItemTypeSuitable.WRONG_EFFECT;
+                            }
+
+                            break;
+
+                        case ExpectedEffectIntensityOperator.EXACTLY_EQUAL:
+
+                            if(IngredientEffect.IntensityTypeIntToEnum(itemIntensity) != requestedEffectIntensities[i])
+                            {
+                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
+                                return ItemTypeSuitable.WRONG_EFFECT;
+                            }
+
+                            break;
+
+                        case ExpectedEffectIntensityOperator.HIGHER_OR_EQUAL:
+
+                            if (itemIntensity < (int)requestedEffectIntensities[i])
+                            {
+                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
+                                return ItemTypeSuitable.WRONG_EFFECT;
+                            }
+
+                            break;
+
+                        
                     }
-                    
+  
                 }
+                // effect not present at all --> fail
                 else
                 {
                     Debug.Log("Effect " + tempJobeffect.effectName + "not found at all in item effects");
@@ -168,7 +200,7 @@ public class JobHandler : MonoBehaviour
 
                 Debug.Log("All effects are there in the correct intensity");
             }
-                // if we got this far then the requested effect is being met. time to see if there are sideeffects.
+                // if we got this far then the requested effects are being met. time to see if there are sideeffects.
                 if (ignoreSideffectsForItemSuitableChecks)
                 {
                 Debug.Log("Side effects are being ignored.");
@@ -179,18 +211,29 @@ public class JobHandler : MonoBehaviour
                 Debug.Log("Side effects are not being ignored. Now iterating through all present item effects, to see if any are harmful");
                 //bool problematicEffectDetected = false;
                 for (int e = 0; e< item.IngredientEffects.Count; e++)
-                    {
+                {
+                    
                     Debug.Log("effect: " + item.IngredientEffects[e].effectName);
+                    Debug.Log((requestedEffects.Contains(item.IngredientEffects[e])));
+                    if (requestedEffects.Contains(item.IngredientEffects[e]) )
+                    {
+                        
+                        Debug.Log(e + " Effect is present in job effects, and therefore not relevant for side effect determination");
+                    }
+                    else
+                    {
+                        
+                        Debug.Log(e + " Effect is not present in job effects --> check if it is a relevant side effect");
                         if (item.IngredientEffectIntensities[e] != 0)
                         {
                             IngredientEffect effect = item.IngredientEffects[e];
 
-                            
+                            Debug.Log(" effect type: " + effect.intensityType + "; intensity: " + item.IngredientEffectIntensities[e]);
 
-                            switch (item.IngredientEffects[e].intensityType)
+                            switch (effect.intensityType)
                             {
                                 case IngredientEffect.IntensityType.IRRELEVANT:
-                                    //return ItemTypeSuitable.CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS;
+                                    Debug.Log(e + " effect type irrelevant");
                                     break;
 
                                 case IngredientEffect.IntensityType.ZERO_IS_HEALTHY:
@@ -203,7 +246,7 @@ public class JobHandler : MonoBehaviour
 
                                 case IngredientEffect.IntensityType.MAXIMUM_IS_HEALTHY:
                                     if (item.IngredientEffectIntensities[e] >= 0) { }
-                                    //return ItemTypeSuitable.CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS;
+
                                     else
                                         return ItemTypeSuitable.CORRECT_EFFECT_WITH_UNWANTED_HARMFUL_SIDEFFECTS;
                                     break;
@@ -214,12 +257,15 @@ public class JobHandler : MonoBehaviour
                                     else
                                         return ItemTypeSuitable.CORRECT_EFFECT_WITH_UNWANTED_HARMFUL_SIDEFFECTS;
                                     break;
-                            
 
 
-                                
+
+
                             }
                         }
+                    }
+
+                        
                     }
 
                     
@@ -230,7 +276,7 @@ public class JobHandler : MonoBehaviour
         }
         return ItemTypeSuitable.CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS;
     }
-
+    
     public ItemAmountSuitable CheckItemAmoundSuitable (InventoryItemHandler item)
     {
         if (item.ingredientTypeAmounts.Sum() < requestedAmount)
@@ -248,7 +294,8 @@ public class JobHandler : MonoBehaviour
             return ItemAmountSuitable.TOO_MUCH;
         //}
     }
-
+    
+    
 
     // Update is called once per frame
     void Update()

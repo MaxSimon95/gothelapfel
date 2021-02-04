@@ -141,8 +141,9 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
 
                 if (child.gameObject.name == "ButtonSubmitInventoryItem")
                 {
-                    Debug.Log("Origin");
+                    //Debug.Log("Origin");
                     child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateSubmitButton();
+                    child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateItemSubmissionInfoText();
                 }
             }
 
@@ -191,6 +192,7 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             {
                 Debug.Log("Target");
                 child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateSubmitButton();
+                child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateItemSubmissionInfoText();
             }
         }
 

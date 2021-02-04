@@ -51,7 +51,57 @@ public class IngredientEffect : MonoBehaviour
         
     }
 
-    
+    public static EffectIntensity IntensityTypeIntToEnum(float intensityInt)
+    {
+        // <=-100 = lethal poison (____) , -99 to -50 strong poison, -49 to 0 weak poison (___), 
+        //0 to 49 light medicine (___), 50 to 99 potent medicine (___) , 100+ extremely potent medicine (___)
+
+        EffectIntensity tempIntensityType ;
+
+        if (intensityInt <= -100)
+            tempIntensityType = EffectIntensity.EXTREME_NEGATIVE;
+        else
+        {
+            if (intensityInt > -100 && intensityInt <= -50)
+                tempIntensityType = EffectIntensity.STRONG_NEGATIVE;
+            else
+            {
+                if (intensityInt > -50 && intensityInt < 0)
+                    tempIntensityType = EffectIntensity.SLIGHT_NEGATIVE;
+                else
+                {
+
+                    if (intensityInt == 0)
+                        tempIntensityType = EffectIntensity.NEUTRAL;
+                    else
+                    {
+                        if (intensityInt > 0 && intensityInt < 50)
+                            tempIntensityType = EffectIntensity.SLIGHT_POSITIVE;
+                        else
+                        {
+                            if (intensityInt >= 50 && intensityInt < 100)
+                                tempIntensityType = EffectIntensity.STRONG_POSITIVE;
+                            else
+                            {
+                                tempIntensityType = EffectIntensity.EXTREME_POSITIVE;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return tempIntensityType;
+
+
+
+
+
+
+
+
+    }
+
     public string GetEffectDescriptionString(int value)
     {
         string tempString;
