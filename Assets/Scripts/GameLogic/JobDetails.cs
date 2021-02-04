@@ -46,7 +46,7 @@ public class JobDetails : MonoBehaviour
 
     public void UpdateJobDetails()
     {
-        Debug.Log("details update");
+        //Debug.Log("details update");
  
         UIjobTitle.GetComponent<UnityEngine.UI.Text>().text = job.title;
         UIjobDescription.GetComponent<UnityEngine.UI.Text>().text = job.description;

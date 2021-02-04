@@ -155,13 +155,17 @@ public class JobHandler : MonoBehaviour
 
                     float itemIntensity = item.IngredientEffectIntensities[item.IngredientEffects.FindIndex(s => s.Equals(tempJobeffect))];
 
+                    Debug.Log(itemIntensity);
+                    Debug.Log((int)requestedEffectIntensities[i]);
+
                     switch (requestedEffectIntensityOperators[i])
                     {
                         case ExpectedEffectIntensityOperator.LOWER_OR_EQUAL:
+                            
 
-                            if (itemIntensity > (int)requestedEffectIntensities[i])
+                            if ((int)IngredientEffect.IntensityTypeIntToEnum(itemIntensity) > (int)requestedEffectIntensities[i])
                             {
-                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
+                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting lower or equal not met");
                                 return ItemTypeSuitable.WRONG_EFFECT;
                             }
 
@@ -171,7 +175,7 @@ public class JobHandler : MonoBehaviour
 
                             if(IngredientEffect.IntensityTypeIntToEnum(itemIntensity) != requestedEffectIntensities[i])
                             {
-                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
+                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting equal not met");
                                 return ItemTypeSuitable.WRONG_EFFECT;
                             }
 
@@ -179,9 +183,9 @@ public class JobHandler : MonoBehaviour
 
                         case ExpectedEffectIntensityOperator.HIGHER_OR_EQUAL:
 
-                            if (itemIntensity < (int)requestedEffectIntensities[i])
+                            if ((int)IngredientEffect.IntensityTypeIntToEnum(itemIntensity) < (int)requestedEffectIntensities[i])
                             {
-                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting");
+                                Debug.Log("Effect " + tempJobeffect.effectName + "intensity not fitting because higher or equal not met");
                                 return ItemTypeSuitable.WRONG_EFFECT;
                             }
 
