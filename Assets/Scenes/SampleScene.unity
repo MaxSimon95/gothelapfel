@@ -6543,7 +6543,7 @@ MonoBehaviour:
   - {fileID: 1576759617}
   - {fileID: 1862200899}
   - {fileID: 1177362383}
-  effectIntensities: 9dffffff9dffffff9dffffff9dffffff00000000f7ffffff
+  effectIntensities: f40100009dffffff9dffffff9dffffff00000000f7ffffff
 --- !u!4 &106782608
 Transform:
   m_ObjectHideFlags: 0
@@ -79300,7 +79300,7 @@ MonoBehaviour:
   - {fileID: 235741183}
   - {fileID: 1457406855}
   requestedEffectIntensities: ceffffffceffffffceffffff
-  requestedEffectIntensityOperators: 020000000200000001000000
+  requestedEffectIntensityOperators: 000000000200000001000000
   requestedEffectsString: 
   requestedAmount: 5
   ignoreSideffectsForItemSuitableChecks: 0
