@@ -30,7 +30,7 @@ public class GameTime : MonoBehaviour
     public static int yearLengthInDays = 60;
     public static int dayLengthInHours = 24;
     public static float hourLengthInSecondinhos = 60;
-    public float secondinhoLengthInSeconds = 0.01f;//0.625f/1000;
+    public float secondinhoLengthInSeconds = 0.625f;//0.01f;//0.625f/1000;
 
     System.Random randomizer = new System.Random();
 
@@ -51,7 +51,6 @@ public class GameTime : MonoBehaviour
             }
 
             timeSinceLastSecondinhoCalculation = currentTime;
-            //Debug.Log(secondinhosSinceStart);
             yield return new WaitForSeconds(secondinhoLengthInSeconds);
         }
 
@@ -60,17 +59,13 @@ public class GameTime : MonoBehaviour
     void UpdateHourOfTheDay()
     {
         float tempHour = (secondinhosSinceStart - daysSinceStart * dayLengthInHours * hourLengthInSecondinhos) / hourLengthInSecondinhos;
-        //float tempHour = secondinhosSinceStart / hourLengthInSecondinhos;
-        //Debug.Log(tempHour);
+
         if (tempHour > dayLengthInHours)
         {
             tempHour -= dayLengthInHours;
             UpdateDay(1); 
         }
         hourOfTheDay = tempHour;
-        //Debug.Log(hourOfTheDay);
-
-        
         
     }
 
@@ -118,12 +113,10 @@ public class GameTime : MonoBehaviour
 
         seasonLengthWinter = tempRemainingDays;
 
-        //Debug.Log("Spring: " + seasonLengthSpring + "; Summer: " + seasonLengthSummer + "; Autumn: " + seasonLengthAutumn + "; Winter: " + seasonLengthWinter);
     }
 
     void UpdateSeason()
     {
-        //Debug.Log("update season");
         if(daysSinceYearStart < seasonLengthSpring)
         {
             currentSeason = season.SPRING;

@@ -4515,6 +4515,7 @@ MonoBehaviour:
   color: {r: 0.6839622, g: 0.7727127, b: 1, a: 0.16470589}
   inventorySprite: {fileID: 21300000, guid: eddb7d422c518164997ffb50d73cfb96, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -7441,7 +7442,7 @@ RectTransform:
   - {fileID: 1180320965}
   - {fileID: 1459253407}
   - {fileID: 1591247615}
-  - {fileID: 2013895317}
+  - {fileID: 1618169992}
   m_Father: {fileID: 552456165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8556,6 +8557,7 @@ MonoBehaviour:
   color: {r: 0.9847498, g: 1, b: 0, a: 1}
   inventorySprite: {fileID: 21300000, guid: cf352012d6967734faaaa8b57afebeab, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -11446,6 +11448,7 @@ MonoBehaviour:
   color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   inventorySprite: {fileID: 21300000, guid: cd3bcd937deeac94086cb8ef3efb4a0b, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -12746,8 +12749,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 547.45, y: -540}
-  m_SizeDelta: {x: 720.5543, y: 27.984741}
+  m_AnchoredPosition: {x: 257.63, y: -540}
+  m_SizeDelta: {x: 140.9173, y: 27.984741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &175090163
 MonoBehaviour:
@@ -12782,7 +12785,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Health Stomach
+  m_Text: 'Hallucinations:'
 --- !u!222 &175090164
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20869,6 +20872,7 @@ MonoBehaviour:
   color: {r: 0.7057148, g: 0.7075472, b: 0.59073514, a: 1}
   inventorySprite: {fileID: 21300000, guid: 17759d899d20d5e4fabe692f17a65c94, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -22791,9 +22795,9 @@ RectTransform:
   m_Father: {fileID: 1036056017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -24708,6 +24712,7 @@ MonoBehaviour:
   color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   inventorySprite: {fileID: 21300000, guid: 05369bb79bd4de34c8982b4e0b58c055, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -31080,6 +31085,7 @@ MonoBehaviour:
   color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   inventorySprite: {fileID: 21300000, guid: 8034e618f1f2f8445a5da3b77dd2be4d, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -34128,6 +34134,7 @@ MonoBehaviour:
   color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   inventorySprite: {fileID: 21300000, guid: e0613eb3603a8d540b7144f2cc792795, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -34692,6 +34699,7 @@ MonoBehaviour:
   color: {r: 0.3962264, g: 0.27970758, b: 0.09158064, a: 1}
   inventorySprite: {fileID: 21300000, guid: bef8fb8e56a69c14c960842ba004f36d, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
@@ -35798,6 +35806,7 @@ MonoBehaviour:
   color: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
   inventorySprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
@@ -38695,6 +38704,7 @@ MonoBehaviour:
   color: {r: 0.4, g: 0.5458757, b: 0.5764706, a: 1}
   inventorySprite: {fileID: 21300000, guid: c8ea99639301bbd4e92c0b5c50e6cf29, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -43734,6 +43744,7 @@ MonoBehaviour:
   color: {r: 0.8490566, g: 0.58412695, b: 0.26032397, a: 1}
   inventorySprite: {fileID: 21300000, guid: 88a06fb445b5b074691def291ba7c17f, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
@@ -53126,6 +53137,7 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 0.6839622, a: 0.59607846}
   inventorySprite: {fileID: 21300000, guid: 76236e836f3521d4488eb04dfbbd19de, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -67353,6 +67365,7 @@ MonoBehaviour:
   color: {r: 1, g: 0.24056602, b: 0.9234374, a: 1}
   inventorySprite: {fileID: 21300000, guid: 5cd414e02ec67104cba79a9a292e2514, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -72463,6 +72476,7 @@ MonoBehaviour:
   color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
   inventorySprite: {fileID: 21300000, guid: 9790bf47c5283404ea857cb146be87f1, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -77825,6 +77839,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0.5053153, a: 1}
   inventorySprite: {fileID: 21300000, guid: 5cd414e02ec67104cba79a9a292e2514, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -78504,6 +78519,7 @@ MonoBehaviour:
   color: {r: 1, g: 0.17502466, b: 0, a: 1}
   inventorySprite: {fileID: 21300000, guid: 21f1e42e8ee4400409a53c55671bd27f, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -80413,6 +80429,7 @@ MonoBehaviour:
   color: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
   inventorySprite: {fileID: 21300000, guid: 1d97ca33d1febca4c825d83b2cdba952, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -80993,6 +81010,7 @@ MonoBehaviour:
   color: {r: 0.5896226, g: 0.7948113, b: 1, a: 0.23921569}
   inventorySprite: {fileID: 21300000, guid: eddb7d422c518164997ffb50d73cfb96, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -82747,6 +82765,7 @@ MonoBehaviour:
   color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   inventorySprite: {fileID: 21300000, guid: 7c66defc6dad53343a92bdfb73415db9, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -86891,6 +86910,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617646241}
+  m_CullTransparentMesh: 0
+--- !u!1 &1618169991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618169992}
+  - component: {fileID: 1618169994}
+  - component: {fileID: 1618169993}
+  m_Layer: 5
+  m_Name: NameEffect (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1618169992
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618169991}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 92289330}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 472.01, y: -540}
+  m_SizeDelta: {x: 287.85034, y: 27.984741}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1618169993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618169991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.21698111, g: 0.037869345, b: 0.037869345, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Strong Hallucination Decrease
+--- !u!222 &1618169994
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618169991}
   m_CullTransparentMesh: 0
 --- !u!1 &1618375672
 GameObject:
@@ -92426,6 +92524,7 @@ MonoBehaviour:
   color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   inventorySprite: {fileID: 21300000, guid: a7996984f3c7746448361a96856914e2, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -104585,6 +104684,7 @@ MonoBehaviour:
   color: {r: 0.051886797, g: 1, b: 0.20218757, a: 1}
   inventorySprite: {fileID: 21300000, guid: 30dcef64afd847e49874af90e4260565, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 0
   meltingTemperature: 0
   boilingTemperature: 0
@@ -107913,85 +108013,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012227003}
   m_CullTransparentMesh: 0
---- !u!1 &2013895316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2013895317}
-  - component: {fileID: 2013895319}
-  - component: {fileID: 2013895318}
-  m_Layer: 5
-  m_Name: NameEffect (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2013895317
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013895316}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 92289330}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 547.45, y: -612}
-  m_SizeDelta: {x: 175.17957, y: 27.984741}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2013895318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013895316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21698111, g: 0.037869345, b: 0.037869345, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 50
-    m_Alignment: 3
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Health Stomach
---- !u!222 &2013895319
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013895316}
-  m_CullTransparentMesh: 0
 --- !u!1 &2014498057
 GameObject:
   m_ObjectHideFlags: 0
@@ -110359,6 +110380,7 @@ MonoBehaviour:
   color: {r: 0.764151, g: 0.73801863, b: 0.58753115, a: 1}
   inventorySprite: {fileID: 21300000, guid: 006840a3143209e49978b3ace77c06ce, type: 3}
   ingredientSound: {fileID: 0}
+  description: 
   burnsToAsh: 1
   meltingTemperature: 0
   boilingTemperature: 0
