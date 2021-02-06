@@ -22,7 +22,7 @@ public class FeaturedJobListSlotHandler : MonoBehaviour
         //Debug.Log(i + " " + JobsManagement.activeJobList[i + openPage * 10].title);
         //Debug.Log(jobList[i + openPage * 10]);
         //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
-        GameObject.Find("CanvasJobDetailPage").GetComponent<JobDetails>().Open(JobsManagement.activeJobList[i]);
+        GameObject.Find("CanvasNotebookJobDetails").GetComponent<JobDetails>().Open(JobsManagement.activeJobList[i]);
 
     }
 }
