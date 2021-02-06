@@ -5,6 +5,8 @@ using UnityEngine;
 public class IngredientType : MonoBehaviour
 {
 
+    public bool knownToPlayer;
+
     public string ingredientName;
     public Color color;
     public Sprite inventorySprite;
