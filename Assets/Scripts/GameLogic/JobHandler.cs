@@ -213,7 +213,6 @@ public class JobHandler : MonoBehaviour
                 else
                 {
                 Debug.Log("Side effects are not being ignored. Now iterating through all present item effects, to see if any are harmful");
-                //bool problematicEffectDetected = false;
                 for (int e = 0; e< item.IngredientEffects.Count; e++)
                 {
                     
@@ -242,7 +241,6 @@ public class JobHandler : MonoBehaviour
 
                                 case IngredientEffect.IntensityType.ZERO_IS_HEALTHY:
                                     if (item.IngredientEffectIntensities[e] == 0) { }
-                                    //return ItemTypeSuitable.CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS;
 
                                     else
                                         return ItemTypeSuitable.CORRECT_EFFECT_WITH_UNWANTED_HARMFUL_SIDEFFECTS;
@@ -257,7 +255,7 @@ public class JobHandler : MonoBehaviour
 
                                 case IngredientEffect.IntensityType.MINIMUM_IS_HEALTHY:
                                     if (item.IngredientEffectIntensities[e] <= 0) { }
-                                    //return ItemTypeSuitable.CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS;
+
                                     else
                                         return ItemTypeSuitable.CORRECT_EFFECT_WITH_UNWANTED_HARMFUL_SIDEFFECTS;
                                     break;
@@ -293,10 +291,7 @@ public class JobHandler : MonoBehaviour
             return ItemAmountSuitable.CORRECT;
         }
 
-        //if (item.ingredientTypeAmounts.Sum() > requestedAmount)
-        //{
             return ItemAmountSuitable.TOO_MUCH;
-        //}
     }
     
     

@@ -7,7 +7,6 @@ public class AlchemyEngineLogic : MonoBehaviour
     public bool isActive;
     public float UpdateFrequencyInSeconds;
     public List<GameObject> alchemyReactions;
-    //private GameObject alchemyReactionsParent;
     public AudioClip reactionSound;
     private AudioSource source;
 
@@ -24,8 +23,6 @@ public class AlchemyEngineLogic : MonoBehaviour
         while (isActive)
         {
             yield return new WaitForSeconds(UpdateFrequencyInSeconds);
-            //Debug.Log("Alchemy Commencing");
-
 
             foreach (Transform child in transform.parent)
             {
@@ -49,7 +46,6 @@ public class AlchemyEngineLogic : MonoBehaviour
         foreach (Transform ingredientTransform in ingredients)
         {
             IngredientType ingredient = ingredientTransform.gameObject.GetComponent<IngredientType>();
-            //Debug.Log(ingredient + " " + ingredient.burnsToAsh);
             if (ingredient.burnsToAsh)
             {
                 GameObject slotInventoryItem = (GameObject)Instantiate(Resources.Load("AlchemyReaction_BurnsToAsh_Prefab"), new Vector3(0, 0, 0), Quaternion.identity);
@@ -57,7 +53,6 @@ public class AlchemyEngineLogic : MonoBehaviour
                 slotInventoryItem.GetComponent<AlchemyReaction>().outputIngredientTypes.Add(specialIngredientType_ash);
                 slotInventoryItem.transform.SetParent(alchemyReactionsTransform);
 
-                //Debug.Log(ingredient);
             }
             
 
@@ -85,7 +80,6 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         foreach (var x in alchemyReactions)
         {
-            //Debug.Log(x.ToString());
         }
 
     }
@@ -98,23 +92,18 @@ public class AlchemyEngineLogic : MonoBehaviour
     public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, int reactionsHaveHappened, float surroundingTemperature, string surroundingContainerName)
     {
         
-        //Debug.Log("Starting CheckForFittingAlchemyReaction");
         // Vorgehen: Eine temp liste von alchemyreactions anlegen, die erstmal alle enthält. und in jedem durchlauf werden dann auf möglichst performante weise 
         // reactions eliminiert, die es nicht sein können und rausgeschmissen, bis nur noch die gültigen bleiben. dann wird nach prio sortiert.
 
         List<GameObject> alchemyReactionCandidates = new List<GameObject>(alchemyReactions);
-        //Debug.Log(alchemyReactionCandidates.Count);
 
-        /*foreach (var x in alchemyReactionCandidates)
-        {
-            Debug.Log(x.ToString());
-        }*/
+
 
         // step 1: remove all alchemyreactions which have to few different input ingredienttypes to even be possible (precheck)
 
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         {
-            //Debug.Log(index);
+ 
             if (alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().inputIngredientTypes.Count > ingredientTypes.Count)
             {
                 alchemyReactionCandidates.RemoveAt(index);
@@ -160,7 +149,6 @@ public class AlchemyEngineLogic : MonoBehaviour
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         //for (int index = 0; index < ingredientTypes.Count; index++)
         {
-            //Debug.Log(CheckForEnoughIngredients(alchemyReactionCandidates[index],ingredientTypes, ingredientTypeAmounts));
             if(!CheckForEnoughIngredients(alchemyReactionCandidates[index], ingredientTypes, ingredientTypeAmounts))
             {
                 alchemyReactionCandidates.RemoveAt(index);
@@ -169,14 +157,13 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         // step 3: find remaining alchemyreaction-candidate with highest priority and make that alchemy reaction happen!
 
-        //Debug.Log("FINAL APPLICABLE SET OF CANDIDATES");
+
         
         if(alchemyReactionCandidates.Count > 0)
         {
             reactionsHaveHappened++;
             foreach (var x in alchemyReactionCandidates)
             {
-                //Debug.Log(x.ToString());
             }
 
             int tempMaxPrio = 0;
@@ -191,7 +178,6 @@ public class AlchemyEngineLogic : MonoBehaviour
                     
             }
 
-            //Debug.Log(tempCandidate);
             ExecuteAlchemyReaction(tempCandidate, ingredientTypes, ingredientTypeAmounts);
             
             CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened, surroundingTemperature, surroundingContainerName);
@@ -199,7 +185,6 @@ public class AlchemyEngineLogic : MonoBehaviour
         }
         else
         {
-            //Debug.Log("No alchemy reaction candidates applicable");
         }
 
         if (reactionsHaveHappened == 1)
@@ -225,12 +210,10 @@ public class AlchemyEngineLogic : MonoBehaviour
 
                 if(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i] == ingredientTypesAvailable[j])
                 {
-                    //Debug.Log("HIT");
                     ingredientTypeAmountsAvailable[j] -= reaction.GetComponent<AlchemyReaction>().inputIngredientTypeAmounts[i];
                 }
                 else
                 {
-                    //Debug.Log("MISS");
                 }
 
             }

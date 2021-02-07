@@ -108,7 +108,6 @@ public class CentrifugeHandler : MonoBehaviour
     public void updateButtonActive()
 
     {
-       //Debug.Log("button active test");
         buttonActive = true;
 
         // inactive when theres no item to centrifugize
@@ -124,11 +123,7 @@ public class CentrifugeHandler : MonoBehaviour
             if(slot.transform.childCount>0)
                 buttonActive = false;
         }
-        
-        /* if (container.GetComponent<AlchemyContainer>().capacity <= container.GetComponent<AlchemyContainer>().ingredientTypeAmounts.Sum())
-        {
-            buttonActive = false;
-        } */
+       
 
         if (buttonActive)
         {
@@ -174,14 +169,12 @@ public class CentrifugeHandler : MonoBehaviour
                 }
                 
 
-                    //Debug.Log("i = " + i);
-                // (i < inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.Count)
                
 
                 slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypes[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().temperature);
 
                 slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
-                //slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateTemperature();
+
 
 
                 // update slot visuals

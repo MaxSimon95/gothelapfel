@@ -27,9 +27,9 @@ public class InventoryItemHandler : MonoBehaviour
 
     void Start()
     {
-        //ResetAutoTransferTargetParent();
+ 
         updateItemContentWaitTime = Random.Range(8.0f, 12.0f);
-        //Debug.Log("Start");
+
 
         updateItemContentCoroutine = UpdateItemContentCoroutine(updateItemContentWaitTime);
         updateTemperatureCoroutine = UpdateTemperatureCoroutine(updateTemperatureWaitTime);
@@ -37,7 +37,6 @@ public class InventoryItemHandler : MonoBehaviour
         StartCoroutine(updateItemContentCoroutine);
         StartCoroutine(updateTemperatureCoroutine);
 
-        //Debug.Log("Start End");
 
         
 
@@ -45,31 +44,31 @@ public class InventoryItemHandler : MonoBehaviour
 
     private IEnumerator UpdateTemperatureCoroutine(float waitTime)
     {
-       // Debug.Log("UpdateTemperatureCourtine START");
+ 
         while (true)
         {
-            //Debug.Log("temperature Loop Start");
+ 
             if (name != "InventoryItemPrefab")
             {
                 UpdateTemperature();
             }
             yield return new WaitForSeconds(waitTime);
-            //print("WaitAndPrint " + Time.time);
+  
         }
     }
 
     private IEnumerator UpdateItemContentCoroutine(float waitTime)
     {
-        //Debug.Log("UpdateItemCourotine START");
+
         while (true)
         {
             if (name != "InventoryItemPrefab")
             {
-                //Debug.Log("Item Loop start");
+
                 UpdateItemContent();
             }
             yield return new WaitForSeconds(waitTime);
-            //print("WaitAndPrint " + Time.time);
+ 
         }
     }
     
@@ -82,12 +81,12 @@ public class InventoryItemHandler : MonoBehaviour
     {
         foreach (Transform child in GameObject.Find("PanelInventory").transform)
         {
-            //Debug.Log(child.gameObject.name);
+
             if (child.gameObject.name == "PanelInventorySlots")
             {
 
                 autoTransferTargetParent = child;
-                //Debug.Log(targetPanelInventorySlots.name);
+ 
             }
         }
     }
@@ -102,7 +101,7 @@ public class InventoryItemHandler : MonoBehaviour
         
         GameObject targetPanelInventorySlots = null;
         // check if its in the inventory or anywhere else, and depending on that were to put it now
-        //Debug.Log(originalSlot.transform.parent.parent.gameObject.name);
+
         if (gameObject.transform.parent.parent.parent.gameObject.name == "PanelInventory")
         {
             // the clicked item is in the inventory, therefore transfer item in the autoTransferTargetParent's slots
@@ -117,17 +116,17 @@ public class InventoryItemHandler : MonoBehaviour
 
             foreach (Transform child in GameObject.Find("PanelInventory").transform)
             {
-                //Debug.Log(child.gameObject.name);
+ 
                 if (child.gameObject.name == "PanelInventorySlots")
                 {
 
                     targetPanelInventorySlots = child.gameObject;
-                    //Debug.Log(targetPanelInventorySlots.name);
+
                 }
             }
         }
 
-        //Debug.Log("targetPanelInventorySlots: " + targetPanelInventorySlots);
+
 
         ItemSlotHandler targetItemSlot = null;
         bool itemMergeSlotFound = false;
@@ -136,9 +135,7 @@ public class InventoryItemHandler : MonoBehaviour
        
 
         //check if the item to be moved has exactly 1 ingredient
-        //Debug.Log("check if the item to be moved has exactly 1 ingredient: " + (gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1));
-        //Debug.Log(gameObject);
-        //Debug.Log(gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count);
+
         if (gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
         {
             foreach (Transform child in targetPanelInventorySlots.transform)
@@ -152,7 +149,6 @@ public class InventoryItemHandler : MonoBehaviour
                         // check if the item in the slot has exactly 1 ingredient
                         if (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1)
                         {
-                            //Debug.Log("check if the item in the target slot has exactly 1 ingredient: " + (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes.Count == 1));
                             //check if the ingredients match
                             if (child.transform.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0] == gameObject.GetComponent<InventoryItemHandler>().ingredientTypes[0])
                             {
@@ -162,7 +158,6 @@ public class InventoryItemHandler : MonoBehaviour
 
                                     targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
                                     itemMergeSlotFound = true;
-                                    //Debug.Log("item slot applicable for merge found" + targetItemSlot);
 
                                     break;
                                 }
@@ -179,7 +174,6 @@ public class InventoryItemHandler : MonoBehaviour
         {
             foreach (Transform child in targetPanelInventorySlots.transform)
             {
-                //Debug.Log("iteration step 1");
                 
                 //check if thr loop comes across the origin slot before it reaches any free slot --> in that case stop right there and don't switch anything.
                 // this only works before we do not even reach this loop if we found something appicable for a merge. That would have a higher priority.
@@ -196,7 +190,6 @@ public class InventoryItemHandler : MonoBehaviour
                     if (child.GetComponent<ItemSlotHandler>() != null)
                     {
                         targetItemSlot = child.gameObject.gameObject.GetComponent<ItemSlotHandler>();
-                        //Debug.Log("free slot: " + targetPanelInventorySlots.name);
                         break;
                     }
 
@@ -212,10 +205,7 @@ public class InventoryItemHandler : MonoBehaviour
         if (targetItemSlot != null)
         {
             Debug.Log("target Itemslot for instant transfer set");
-            //Debug.Log(targetItemSlot);
-            /*var colors = GetComponent<Button>().colors;
-            colors.normalColor = Color.red;
-            GetComponent<Button>().colors = colors; */
+
 
             targetItemSlot.PutItemIntoSlot(gameObject.GetComponent<InventoryItemHandler>());
         }
@@ -240,7 +230,6 @@ public class InventoryItemHandler : MonoBehaviour
         else
         {
             GetComponent<TooltipUITargetHandler>().tooltipText = "Mysterious Mixture";
-            //Debug.Log(ingredientTypes.Count);
         }
     }
 
@@ -249,7 +238,6 @@ public class InventoryItemHandler : MonoBehaviour
         float temperatureChange;
         float targetTemperature;
 
-        //Debug.Log(transform.parent.gameObject.name);
 
         // adjust target temperature
 
@@ -260,15 +248,12 @@ public class InventoryItemHandler : MonoBehaviour
             )
         {
             targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.GetComponent<RoomHandler>().temperature;
-            //Debug.Log(targetTemperature);
         }
         else
         {
             targetTemperature = transform.parent.GetComponent<ItemSlotHandler>().associatedContainer.GetComponent<AlchemyStorageContainer>().temperature;
-            //Debug.Log(targetTemperature);
         }
         
-        //targetTemperature = 30; 
 
 
         temperatureChange = (targetTemperature - temperature) * 0.1f;
@@ -279,22 +264,6 @@ public class InventoryItemHandler : MonoBehaviour
         {
             temperature = targetTemperature;
         }
-
-
-
-       /* // zu niedrige temperatur auf raumtemperatur setzen
-        if (GetComponent<AlchemyContainer>().temperature <= fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature)
-        {
-            GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().room.GetComponent<RoomHandler>().temperature;
-        }
-
-        // zu hohe temperatur auf max temperatur setzen
-
-        if (GetComponent<AlchemyContainer>().temperature > fire.GetComponent<CauldronFire>().maxTemperature)
-            GetComponent<AlchemyContainer>().temperature = fire.GetComponent<CauldronFire>().maxTemperature;
-        */ 
-
-
 
     }
 
@@ -364,14 +333,12 @@ public class InventoryItemHandler : MonoBehaviour
             {
                 ingredientTypeAmounts.RemoveAt(index);
                 ingredientTypes.RemoveAt(index);
-                //Debug.Log("REMOVED EMPTY INGREDIENT");
             }
         }
     }
 
     public void AddIngredientAndUpdate(IngredientType ingredientType, int amount)
     {
-        //Debug.Log("AddIngredientAndUpdate");
         AddIngredient(ingredientType, amount);
         UpdateItemContent();
 
@@ -379,27 +346,19 @@ public class InventoryItemHandler : MonoBehaviour
 
     public void AddIngredient(IngredientType ingredientType, int amount)
     {
-        //Debug.Log("Add ingredient without temperature");
         AddIngredient(ingredientType, amount, temperature);
     }
 
     public void AddIngredient(IngredientType ingredientType, int amount, float addedIngredientTemperature)
     {
-        //Debug.Log("Add ingredient with temperature: " + addedIngredientTemperature);
-        //Debug.Log("Adding ingredient");
-        //Debug.Log(ingredientType);
-        //Debug.Log(amount);
+  
 
         ingredientTypes.Add(ingredientType);
         ingredientTypeAmounts.Add(amount);
 
-        //Debug.Log("Temperature Before " + temperature);
-        //Debug.Log("amountTotal " + amountTotal);
-        //Debug.Log("amount " + amount);
-        //Debug.Log("addedIngredientTemperature  " + addedIngredientTemperature);
+    
         temperature = ((float)amountTotal / ((float)amountTotal + (float)amount)) * temperature + ((float)amount / ((float)amountTotal + (float)amount)) * addedIngredientTemperature;
-        //Debug.Log("Temperature After " + temperature);
-        //Debug.Log(((float)10 / ((float)10 + (float)10)) * 50 + ((float)10 / ((float)10 + (float)10)) * 100);
+    
     }
 
     private void MergeIdenticalIngredients()
