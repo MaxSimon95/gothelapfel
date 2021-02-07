@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class NotebookIngredientDetails : MonoBehaviour
 {
+
+    public IngredientType ingredient;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,18 @@ public class NotebookIngredientDetails : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Open(IngredientType pIngredientType)
+    {
+       
+        ingredient = pIngredientType;
+        UpdateIngredientDetails();
+        GetComponent<NotebookBaseUI>().Open();
+    }
+
+    public void UpdateIngredientDetails()
+    {
+
     }
 }

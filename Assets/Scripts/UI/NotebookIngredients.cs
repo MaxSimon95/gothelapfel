@@ -9,6 +9,8 @@ public class NotebookIngredients : MonoBehaviour
     private List<IngredientType> ingredientTypeList = new List<IngredientType>();
 
     public Transform AlchemyEngineIngredientTypes;
+
+    public NotebookIngredientDetails notebookIngredientDetails;
     
 
     //public ingredientItemDetails ingredientTypeDetails;
@@ -89,13 +91,24 @@ public class NotebookIngredients : MonoBehaviour
                 // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
                 //Debug.Log(i);
 
-                ingredientTypePanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = ingredientTypeList[i + openPage * 10].inventorySprite;
+                ingredientTypePanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = ingredientTypeList[i + openPage * 100].inventorySprite;
                 
-                ingredientTypePanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text =  ingredientTypeList[i + openPage * 10].ingredientName;
+                ingredientTypePanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text =  ingredientTypeList[i + openPage * 100].ingredientName;
 
                 Debug.Log(i + "info updated");
 
             }
         }
+    }
+
+    public void OpenIngredientDetails(int i)
+    {
+        //Debug.Log(i + openPage * 10);
+        //Debug.Log(i + " " + JobsManagement.activeJobList[i + openPage * 10].title);
+        //Debug.Log(jobList[i + openPage * 10]);
+        //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
+        notebookIngredientDetails.Open(ingredientTypeList[i + openPage * 100]);
+       
+
     }
 }
