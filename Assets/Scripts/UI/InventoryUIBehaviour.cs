@@ -93,7 +93,7 @@ public class InventoryUIBehaviour : MonoBehaviour
 
             isScrolledUp = true;
             LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), customMoveY, 0.8f).setEaseInOutCubic();
-            LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic();
+            LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0f);
         }
     }
 
@@ -118,7 +118,7 @@ public class InventoryUIBehaviour : MonoBehaviour
         }
         
 
-    LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0.1f).setEaseInOutCubic(); ;
+    LeanTween.rotate(GameObject.Find("ButtonArrowInventoryImage").GetComponent<RectTransform>(), 180.0f, 0f);
     }
 
     public void HideButton()

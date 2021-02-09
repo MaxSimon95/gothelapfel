@@ -47,7 +47,10 @@ public class NotebookIngredientDetails : MonoBehaviour
         effects = ingredient.effects;
         effectIntensities = ingredient.effectIntensities;
 
+        
         UIname.GetComponent<UnityEngine.UI.Text>().text = ingredient.ingredientName;
+
+        
         
         if(ingredient.description == "")
         {
@@ -66,6 +69,8 @@ public class NotebookIngredientDetails : MonoBehaviour
             UIdescription.GetComponent<UnityEngine.UI.Text>().text = ingredient.description;
         }
 
+        // adjust the graphical intensity indicators
+
         for (int i = 0; i < effectPanels.Count; i++)
         {
             effectPanels[i].localScale = new Vector3(0, 0, 0);
@@ -81,13 +86,87 @@ public class NotebookIngredientDetails : MonoBehaviour
                 // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
                 //Debug.Log(i);
 
-                effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = effects[i].effectName;
+                
+                effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text = effects[i].effectName + ": ";
+
+                switch(IngredientEffect.IntensityTypeIntToEnum(effectIntensities[i]) )
+                {
+                    case IngredientEffect.EffectIntensity.EXTREME_NEGATIVE:
+                        effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text += effects[i].stringLowerM100;
+                        break;
+
+                    case IngredientEffect.EffectIntensity.STRONG_NEGATIVE:
+                        effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text += effects[i].stringM100ToM50;
+                        break;
+
+                    case IngredientEffect.EffectIntensity.SLIGHT_NEGATIVE:
+                        effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text += effects[i].stringM50To0;
+                        break;
+
+                    case IngredientEffect.EffectIntensity.EXTREME_POSITIVE:
+                        effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text += effects[i].stringHigher100;
+                        break;
+
+                    case IngredientEffect.EffectIntensity.STRONG_POSITIVE:
+                        effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text += effects[i].string50To100;
+                        break;
+
+                    case IngredientEffect.EffectIntensity.SLIGHT_POSITIVE:
+                        effectPanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Text>().text += effects[i].string0To50;
+                        break;
+
+                }
+
+                //adjust fill amount and transparency
+
+                if (effectIntensities[i]>0)
+                {
+                    Debug.Log(effectPanels[i].GetChild(3));
+                    Debug.Log(i + "positive");
+                    effectPanels[i].GetChild(2).GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(0.6603774f, 0.6375712f, 0.5326629f, 0.3f);
+                    effectPanels[i].GetChild(2).GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().fillAmount = 0f;
+                    effectPanels[i].GetChild(2).GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f, 1f, 1f, 0.3f);
+
+                    effectPanels[i].GetChild(3).GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(0.6603774f, 0.6375712f, 0.5326629f, 1f);
+                    effectPanels[i].GetChild(3).GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().fillAmount = (Mathf.Abs((float)effectIntensities[i])) / 100;
+                    effectPanels[i].GetChild(3).GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f, 1f, 1f, 1f);
+                }
+                else
+                {
+                    Debug.Log(effectPanels[i].GetChild(2));
+                    Debug.Log(i + "negative");
+                    effectPanels[i].GetChild(2).GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(0.6603774f, 0.6375712f, 0.5326629f, 1f);
+                    effectPanels[i].GetChild(2).GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().fillAmount = (Mathf.Abs((float)effectIntensities[i])) / 100;
+                    effectPanels[i].GetChild(2).GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f, 1f, 1f, 1f);
+
+                    effectPanels[i].GetChild(3).GetChild(0).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(0.6603774f, 0.6375712f, 0.5326629f, 0.3f);
+                    effectPanels[i].GetChild(3).GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().fillAmount = 0f;
+                    effectPanels[i].GetChild(3).GetChild(2).gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f, 1f, 1f, 0.3f);
+                }
 
 
-                Debug.Log(i + "info updated");
+                // adjust foreground fill colors
 
+                effectPanels[i].GetChild(2).GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = effects[i].negativeColor;
+                effectPanels[i].GetChild(3).GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().color = effects[i].positiveColor;
+
+                //adjust indicator icon
+
+                float adjustedOffset;
+                adjustedOffset = effectIntensities[i];
+
+                if (adjustedOffset < -100) adjustedOffset = -100;
+
+                if (adjustedOffset > 100) adjustedOffset = 100;
+
+                effectPanels[i].GetChild(4).gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(375 + adjustedOffset*375/100, effectPanels[i].GetChild(4).gameObject.GetComponent<RectTransform>().anchoredPosition.y);
+               
             }
         }
+
+        
+
+        
 
     }
 }

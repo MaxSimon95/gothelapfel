@@ -15,6 +15,8 @@ public class IngredientEffect : MonoBehaviour
     public string string50To100;
     public string stringHigher100;
 
+    public Color positiveColor;
+    public Color negativeColor;
     // using an enum effectinstensity for including the intensity in jobs. it would be instransparent to the player to work with freely chosen ints there
 
     public enum EffectIntensity
@@ -42,13 +44,44 @@ public class IngredientEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetColors();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetColors()
+    {
+        switch(intensityType)
+        {
+            case IntensityType.MAXIMUM_IS_HEALTHY:
+
+                positiveColor = new Color(0.3384212f, 0.6132076f, 0.3411817f);
+                negativeColor = new Color(0.764151f, 0.3280082f, 0.3280082f);
+                break;
+
+            case IntensityType.ZERO_IS_HEALTHY:
+
+                positiveColor = new Color(0, 0, 0);
+                negativeColor = new Color(0, 0, 0);
+                break;
+
+            case IntensityType.IRRELEVANT:
+
+                positiveColor = new Color(0, 0, 0);
+                negativeColor = new Color(0, 0, 0);
+                break;
+
+            case IntensityType.MINIMUM_IS_HEALTHY:
+
+                positiveColor = new Color(0.764151f, 0.3280082f, 0.3280082f);
+                negativeColor = new Color(0.3384212f, 0.6132076f, 0.3411817f);
+                break;
+
+        }
     }
 
     public static EffectIntensity IntensityTypeIntToEnum(float intensityInt)
