@@ -107,6 +107,7 @@ public class NotebookIngredients : MonoBehaviour
         //Debug.Log(i + " " + JobsManagement.activeJobList[i + openPage * 10].title);
         //Debug.Log(jobList[i + openPage * 10]);
         //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
+        GetComponent<NotebookBaseUI>().Close();
         notebookIngredientDetails.Open(ingredientTypeList[i + openPage * 100]);
        
 

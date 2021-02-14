@@ -1213,7 +1213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 13967704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 92
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &13967704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1964,7 +1976,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 23580228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 68
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &23580228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2085,7 +2109,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 23865049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 99
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &23865049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,7 +2662,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 31873365}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 48
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &31873365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4152,7 +4200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 56976597}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 66
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &56976597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4686,7 +4746,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 63542600}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 73
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &63542600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5036,7 +5108,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 69471167}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 88
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &69471167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6440,7 +6524,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 86203211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 41
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &86203211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8198,7 +8294,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 102949032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 47
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &102949032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8821,7 +8929,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 107575161}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 26
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &107575161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8942,7 +9062,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 107838090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &107838090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9670,7 +9802,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 120645400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 16
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &120645400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10161,7 +10305,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 127142284}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 80
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &127142284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12301,7 +12457,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 160072582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &160072582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13810,7 +13978,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 187171811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 83
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &187171811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13931,7 +14111,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 195384005}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &195384005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14774,7 +14966,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 207895433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &207895433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15219,7 +15423,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 217411110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 96
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &217411110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17887,7 +18103,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 263483646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &263483646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18008,7 +18236,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 264346390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 21
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &264346390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19563,7 +19803,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 299331147}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 85
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &299331147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20207,7 +20459,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 312811070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &312811070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20994,7 +21258,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 324621245}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 51
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &324621245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21269,7 +21545,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 330881682}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &330881682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23344,7 +23632,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 380844770}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 20
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &380844770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23574,9 +23874,9 @@ RectTransform:
   m_Father: {fileID: 1036056017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 170, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382711963
@@ -23950,7 +24250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 392315748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 12
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &392315748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27225,7 +27537,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 472817130}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 69
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &472817130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27421,7 +27745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 473330843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 75
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &473330843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28847,7 +29183,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 509722260}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 82
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &509722260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31740,7 +32088,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 553687296}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 53
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &553687296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31822,15 +32182,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be0718fa2eaeec74baea48e95ded8033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectName: Tiredness
+  effectName: Energy
   sprite: {fileID: 0}
-  stringLowerM100: Remove Tiredness
-  stringM100ToM50: Strongly Reduce Tiredness
+  stringLowerM100: Extreme Tiredness
+  stringM100ToM50: Strong Tiredness
   stringM50To0: Slightly Reduce Tiredness
   string0: 
-  string0To50: Slight Tiredness
-  string50To100: Strong Tiredness
-  stringHigher100: Extreme Tiredness
+  string0To50: Slight Energy Increase
+  string50To100: Strong Energy Increase
+  stringHigher100: Extreme Energy Increase
   positiveColor: {r: 0, g: 0, b: 0, a: 0}
   negativeColor: {r: 0, g: 0, b: 0, a: 0}
   intensityType: 1
@@ -33314,7 +33674,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 580188435}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &580188435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33963,7 +34335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 592471732}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 56
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &592471732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34139,7 +34523,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 593703165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 46
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &593703165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34784,7 +35180,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 610609306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 34
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &610609306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35531,7 +35939,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 618990942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 11
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &618990942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36260,7 +36680,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 633172962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &633172962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37088,7 +37520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 648790423}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 33
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &648790423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37442,7 +37886,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 655148551}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 64
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &655148551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42044,7 +42500,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 747929308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 78
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &747929308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42836,7 +43304,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 771740043}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 76
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &771740043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47245,7 +47725,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 872479491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 57
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &872479491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48252,7 +48744,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 885823474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 38
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &885823474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48373,7 +48877,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 887478171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 71
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &887478171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48688,7 +49204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 888828609}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 55
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &888828609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49208,7 +49736,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 900175135}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 31
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &900175135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49329,7 +49869,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 900278271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 52
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &900278271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49652,7 +50204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 903023285}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 79
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &903023285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50944,7 +51508,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 917215525}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 62
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &917215525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51219,7 +51795,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 922030909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 81
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &922030909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51340,7 +51928,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 922541505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 22
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &922541505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53604,7 +54204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 959528667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 54
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &959528667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54377,7 +54989,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 971190425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 91
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &971190425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56339,7 +56963,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1005210459}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 37
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1005210459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57983,7 +58619,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1027949501}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 45
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1027949501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58826,7 +59474,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1034430846}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 95
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1034430846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62958,7 +63618,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1091897161}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 19
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1091897161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65922,7 +66594,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1143918110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 63
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1143918110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66799,7 +67483,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1164150195}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1164150195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67754,7 +68450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1176130180}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1176130180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68865,7 +69573,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1194437329}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 74
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1194437329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69472,7 +70192,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1209658551}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 86
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1209658551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70304,7 +71036,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1235167029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 65
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1235167029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72021,7 +72765,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1258153286}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 94
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1258153286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72436,7 +73192,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1260708196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 18
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1260708196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73464,7 +74232,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1286254361}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1286254361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73958,7 +74738,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1295273320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 59
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1295273320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74223,7 +75015,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1299944791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1299944791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76216,7 +77020,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1341951754}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 97
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1341951754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77022,7 +77838,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1354301467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 43
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1354301467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80471,7 +81299,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1404043318}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 42
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1404043318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81058,7 +81898,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1421883203}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 27
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1421883203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81548,7 +82400,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1433681684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 58
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1433681684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82382,7 +83246,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1447345788}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 98
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1447345788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83929,7 +84805,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1466774389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 39
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1466774389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84050,7 +84938,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1468240560}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 60
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1468240560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85226,7 +86126,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1490066947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 87
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1490066947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85426,7 +86338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1496360539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 32
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1496360539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90350,18 +91274,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1456534746}
-        m_TargetAssemblyTypeName: NotebookBaseUI, Assembly-CSharp
-        m_MethodName: Close
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1456534745}
         m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
         m_MethodName: OpenIngredientDetails
@@ -93143,7 +94055,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1659011677}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 70
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1659011677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93585,7 +94509,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1661232595}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 36
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1661232595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93785,7 +94721,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1663361783}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1663361783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94821,7 +95769,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1680169954}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 28
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1680169954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95961,7 +96921,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1707746658}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 44
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1707746658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96431,7 +97403,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1712152315}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 61
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1712152315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96924,7 +97908,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1719630690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 90
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1719630690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98390,7 +99386,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1738910994}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 30
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1738910994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100979,7 +101987,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1793985584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 40
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1793985584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103161,7 +104181,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1823868914}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 77
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1823868914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105609,7 +106641,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1858132300}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 35
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1858132300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106178,7 +107222,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1873410325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1873410325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107164,7 +108220,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1896987335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 93
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1896987335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110224,7 +111292,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1959869488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 25
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1959869488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110952,7 +112032,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1974850291}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 29
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1974850291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112394,7 +113486,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1998218034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 49
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1998218034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112515,7 +113619,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2000287858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 84
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2000287858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112907,7 +114023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0048828125, y: 16.800003}
+  m_AnchoredPosition: {x: 0.0048828125, y: 16.800049}
   m_SizeDelta: {x: -0.009765625, y: -311.9602}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2008088597
@@ -113413,7 +114529,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2014498060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 23
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2014498060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115402,7 +116530,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2040526403}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 72
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2040526403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116028,7 +117168,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2055030249}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 24
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2055030249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116204,7 +117356,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2060107308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 67
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2060107308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116731,7 +117895,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2070204473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1456534745}
+        m_TargetAssemblyTypeName: NotebookIngredients, Assembly-CSharp
+        m_MethodName: OpenIngredientDetails
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 89
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2070204473
 MonoBehaviour:
   m_ObjectHideFlags: 0
