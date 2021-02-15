@@ -51,6 +51,7 @@ public class AlchemyEngineLogic : MonoBehaviour
                 GameObject slotInventoryItem = (GameObject)Instantiate(Resources.Load("AlchemyReaction_BurnsToAsh_Prefab"), new Vector3(0, 0, 0), Quaternion.identity);
                 slotInventoryItem.GetComponent<AlchemyReaction>().inputIngredientTypes.Add(ingredient); 
                 slotInventoryItem.GetComponent<AlchemyReaction>().outputIngredientTypes.Add(specialIngredientType_ash);
+                slotInventoryItem.GetComponent<AlchemyReaction>().AlwaysHideFromNotebookView = true;
                 slotInventoryItem.transform.SetParent(alchemyReactionsTransform);
 
             }

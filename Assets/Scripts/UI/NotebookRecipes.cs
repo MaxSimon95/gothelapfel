@@ -43,8 +43,11 @@ public class NotebookRecipes : MonoBehaviour
 
         foreach (Transform child in AlchemyEngineRecipes)
         {
+            Debug.Log(child);
+
             if (child.gameObject.GetComponent<AlchemyReaction>().knownToPlayer && !child.gameObject.GetComponent<AlchemyReaction>().AlwaysHideFromNotebookView)
             {
+                Debug.Log(child.gameObject.name + "it's in there");
                 recipesList.Add(child.gameObject.GetComponent<AlchemyReaction>());
             }
         }
@@ -73,8 +76,8 @@ public class NotebookRecipes : MonoBehaviour
 
         LoadRecipes();
 
-        Debug.Log("ingredienttypepanel count " + recipePanels.Count);
-        Debug.Log("ingredienttypes count" + recipesList.Count);
+        //Debug.Log("ingredienttypepanel count " + recipePanels.Count);
+        //Debug.Log("ingredienttypes count" + recipesList.Count);
 
         for (int i = 0; i < recipePanels.Count; i++)
         {
@@ -86,7 +89,7 @@ public class NotebookRecipes : MonoBehaviour
             if (i < recipesList.Count)
             {
                 recipePanels[i].localScale = new Vector3(1, 1, 1);
-                Debug.Log(i + "set to visible, local scale: " + recipePanels[i].localScale);
+                //Debug.Log(i + "set to visible, local scale: " + recipePanels[i].localScale);
                 //Debug.Log(i);
                 // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
                 //Debug.Log(i);
@@ -97,7 +100,7 @@ public class NotebookRecipes : MonoBehaviour
 
                 recipePanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = recipesList[i + openPage * 100].reactionName;
 
-                Debug.Log(i + "info updated");
+                //Debug.Log(i + "info updated");
 
             }
         }
