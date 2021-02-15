@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AlchemyReaction : MonoBehaviour
 {
+    public bool knownToPlayer;
+    public bool AlwaysHideFromNotebookView;
+
+    public string reactionName;
 
     // Start is called before the first frame update
     public int priority;
@@ -18,7 +22,8 @@ public class AlchemyReaction : MonoBehaviour
 
     void Start()
     {
-        
+        if (reactionName == "")
+            reactionName = "!Reaction name not set: " + name;
     }
 
     // Update is called once per frame

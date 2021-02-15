@@ -43,7 +43,7 @@ public class NotebookIngredients : MonoBehaviour
 
         foreach (Transform child in AlchemyEngineIngredientTypes)
         {
-            if (child.gameObject.GetComponent<IngredientType>().knownToPlayer)
+            if (child.gameObject.GetComponent<IngredientType>().knownToPlayer && !child.gameObject.GetComponent<IngredientType>().AlwaysHideFromNotebookView)
             {
                 ingredientTypeList.Add(child.gameObject.GetComponent<IngredientType>());
             }

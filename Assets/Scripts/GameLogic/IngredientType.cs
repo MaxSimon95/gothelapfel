@@ -6,6 +6,7 @@ public class IngredientType : MonoBehaviour
 {
 
     public bool knownToPlayer;
+    public bool AlwaysHideFromNotebookView;
 
     public string ingredientName;
     public Color color;
