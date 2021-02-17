@@ -81,19 +81,18 @@ public class NotebookRecipes : MonoBehaviour
 
         for (int i = 0; i < recipePanels.Count; i++)
         {
-            recipePanels[i].localScale = new Vector3(0, 0, 0);
+            //recipePanels[i].localScale = new Vector3(0, 0, 0);
+            recipePanels[i].gameObject.SetActive(false);
 
             //Debug.Log(i);
 
             //Debug.Log(JobsManagement.activeJobList.Count);
             if (i < recipesList.Count)
             {
-                recipePanels[i].localScale = new Vector3(1, 1, 1);
-                //Debug.Log(i + "set to visible, local scale: " + recipePanels[i].localScale);
-                //Debug.Log(i);
-                // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
-                //Debug.Log(i);
+                //recipePanels[i].localScale = new Vector3(1, 1, 1);
+                recipePanels[i].gameObject.SetActive(true);
 
+                // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
 
                 // setting sprite: 
                 //recipePanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = recipesList[i + openPage * 100].inventorySprite;
@@ -113,7 +112,7 @@ public class NotebookRecipes : MonoBehaviour
         //Debug.Log(jobList[i + openPage * 10]);
         //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
         GetComponent<NotebookBaseUI>().Close();
-        //notebookRecipeDetails.Open(recipesList[i + openPage * 100]);
+        notebookRecipeDetails.Open(recipesList[i + openPage * 100]);
 
 
     }
