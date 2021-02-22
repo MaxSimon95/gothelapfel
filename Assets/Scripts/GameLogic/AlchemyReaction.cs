@@ -8,6 +8,7 @@ public class AlchemyReaction : MonoBehaviour
     public bool AlwaysHideFromNotebookView;
 
     public string reactionName;
+    public string description;
 
     // Start is called before the first frame update
     public int priority;

@@ -112,7 +112,8 @@ public class NotebookRecipes : MonoBehaviour
         //Debug.Log(jobList[i + openPage * 10]);
         //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
         GetComponent<NotebookBaseUI>().Close();
-        notebookRecipeDetails.Open(recipesList[i + openPage * 100]);
+        Debug.Log("opening call");
+        notebookRecipeDetails.Open(recipesList[i + openPage * 37]);
 
 
     }
