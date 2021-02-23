@@ -89,6 +89,7 @@ public class NotebookRecipeDetails : MonoBehaviour
             UIdescription.GetComponent<UnityEngine.UI.Text>().text = recipe.description;
         }
 
+        // set input ingredients
         for (int i = 0; i < inputIngredientsPanels.Count; i++)
         {
             inputIngredientsPanels[i].gameObject.SetActive(false);
@@ -115,6 +116,7 @@ public class NotebookRecipeDetails : MonoBehaviour
 
         }
 
+        // set output ingredients
         for (int i = 0; i < outputIngredientsPanels.Count; i++)
         {
             outputIngredientsPanels[i].gameObject.SetActive(false);
@@ -138,5 +140,92 @@ public class NotebookRecipeDetails : MonoBehaviour
 
 
         }
+
+
+        // set requirements
+
+        // 1) display all requirements as inactive
+        float alphaInactive = 0.2f;
+
+        UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Irrelevant";
+
+
+        UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Irrelevant";
+
+        UIrequirementPanel_ventilation.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_ventilation.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_ventilation.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_ventilation.GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_ventilation.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_ventilation.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_ventilation.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_ventilation.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_ventilation.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_ventilation.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_ventilation.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_ventilation.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_ventilation.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_ventilation.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_ventilation.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_ventilation.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_ventilation.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Irrelevant";
+
+        UIrequirementPanel_light.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_light.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_light.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_light.GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_light.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_light.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_light.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_light.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_light.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_light.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_light.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_light.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_light.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_light.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_light.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_light.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_light.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Irrelevant";
+
+        UIrequirementPanel_moonphase.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_moonphase.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_moonphase.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_moonphase.GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_moonphase.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_moonphase.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_moonphase.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_moonphase.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_moonphase.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_moonphase.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_moonphase.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_moonphase.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_moonphase.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_moonphase.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_moonphase.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_moonphase.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_moonphase.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Irrelevant";
+
+        UIrequirementPanel_timeOfDay.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_timeOfDay.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_timeOfDay.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_timeOfDay.GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_timeOfDay.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_timeOfDay.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_timeOfDay.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_timeOfDay.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_timeOfDay.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_timeOfDay.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_timeOfDay.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_timeOfDay.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_timeOfDay.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_timeOfDay.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_timeOfDay.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_timeOfDay.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_timeOfDay.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Irrelevant";
+
+        UIrequirementPanel_demonicpresence.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_demonicpresence.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_demonicpresence.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_demonicpresence.GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_demonicpresence.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_demonicpresence.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_demonicpresence.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_demonicpresence.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, alphaInactive);
+        UIrequirementPanel_demonicpresence.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_demonicpresence.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_demonicpresence.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_demonicpresence.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_demonicpresence.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_demonicpresence.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_demonicpresence.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_demonicpresence.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, alphaInactive);
+        UIrequirementPanel_demonicpresence.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Irrelevant";
+
+        // change the requirements that are actually set as active to be displayed as such
+
+        //container
+
+        if (recipe.validAlchemyContainers.Count > 0)
+        {
+            UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_alchemyContainer.GetComponent<UnityEngine.UI.Image>().color.b, 1);
+            UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_alchemyContainer.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, 1);
+            UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_alchemyContainer.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, 1);
+            UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, 1);
+
+            UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "";
+            foreach (string child in recipe.validAlchemyContainers)
+            {
+                UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().text += (child + ", ");
+            }
+            UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().text.Remove(UIrequirementPanel_alchemyContainer.GetChild(2).GetComponent<UnityEngine.UI.Text>().text.Length - 2);
+        }
+
+        // temperature
+        if ((recipe.minTemperature != 0)||(recipe.maxTemperature !=0))
+        {
+            UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_temperature.GetComponent<UnityEngine.UI.Image>().color.b, 1);
+            UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color = new Color(UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.r, UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.g, UIrequirementPanel_temperature.GetChild(0).GetComponent<UnityEngine.UI.Image>().color.b, 1);
+            UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_temperature.GetChild(1).GetComponent<UnityEngine.UI.Text>().color.b, 1);
+            UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color = new Color(UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.r, UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.g, UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().color.b, 1);
+            
+            if ((recipe.minTemperature > -10000) && (recipe.maxTemperature < 10000))
+                UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = "Between " + recipe.minTemperature + "° and " + recipe.maxTemperature + "°";
+            if (recipe.minTemperature <= -10000)
+                UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = recipe.maxTemperature + "° or less";
+            if (recipe.maxTemperature >= 10000)
+                UIrequirementPanel_temperature.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = recipe.minTemperature + "° or more";
+        }
+
+      
+
     }
 }
