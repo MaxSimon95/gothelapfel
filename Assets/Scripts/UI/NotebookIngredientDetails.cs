@@ -19,6 +19,8 @@ public class NotebookIngredientDetails : MonoBehaviour
     private List<int> effectIntensities = new List<int>();
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -169,4 +171,17 @@ public class NotebookIngredientDetails : MonoBehaviour
         
 
     }
+
+    public void UpdateAllAttachedRecipes()
+    {
+
+        // Get all recipes, which have the ingredient as part of their OUTPUT. Put them in order.
+
+        // Add in the label for the second group of recipes in order.
+
+        // Get all recipes, which have the ingredient as part of their INPUT. Put them in order.
+    }
+
+
+
 }

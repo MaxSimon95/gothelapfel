@@ -135,7 +135,7 @@ public class AlchemyEngineLogic : MonoBehaviour
             // check if there are any constraints on the container at all
             if (alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().validAlchemyContainers.Count > 0)
             {
-                Debug.Log(surroundingContainerName);
+                //Debug.Log(surroundingContainerName);
                 // check if this container is one of the valid ones
                 if (!alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().validAlchemyContainers.Contains(surroundingContainerName))
                 {
