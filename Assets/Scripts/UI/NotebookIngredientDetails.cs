@@ -12,6 +12,9 @@ public class NotebookIngredientDetails : MonoBehaviour
     public GameObject UIimage_noDescription;
     public GameObject UIdescription;
 
+    public GameObject UI_outputRecipesLabel;
+    public GameObject UI_inputRecipesLabel;
+
     public Transform effectPanelsParent;
 
     private List<Transform> effectPanels = new List<Transform>();
@@ -41,6 +44,7 @@ public class NotebookIngredientDetails : MonoBehaviour
        
         ingredient = pIngredientType;
         UpdateIngredientDetails();
+        UpdateAllAttachedRecipes();
         GetComponent<NotebookBaseUI>().Open();
     }
 
@@ -175,9 +179,25 @@ public class NotebookIngredientDetails : MonoBehaviour
     public void UpdateAllAttachedRecipes()
     {
 
+        // label for first group of recipes
+
+        if(ingredient.reactionsOutput.Count>0)
+           // UI_outputRecipesLabel.transform.localScale = new Vector3(1, 1, 1);
+        UI_outputRecipesLabel.SetActive(true);
+        else
+            // UI_outputRecipesLabel.transform.localScale = new Vector3(0, 0, 0);
+            UI_outputRecipesLabel.SetActive(false);
+
         // Get all recipes, which have the ingredient as part of their OUTPUT. Put them in order.
 
         // Add in the label for the second group of recipes in order.
+
+        if (ingredient.reactionsInput.Count > 0)
+            UI_inputRecipesLabel.SetActive(true);
+        //UI_inputRecipesLabel.transform.localScale = new Vector3(1, 1, 1);
+        else
+            UI_inputRecipesLabel.SetActive(false);
+        //UI_inputRecipesLabel.transform.localScale = new Vector3(0, 0, 0);
 
         // Get all recipes, which have the ingredient as part of their INPUT. Put them in order.
     }
