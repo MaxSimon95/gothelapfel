@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class NotebookIngredientDetails : MonoBehaviour
 {
@@ -21,7 +22,12 @@ public class NotebookIngredientDetails : MonoBehaviour
     private List<IngredientEffect> effects = new List<IngredientEffect>();
     private List<int> effectIntensities = new List<int>();
 
+    private int numberRecipes;
+    public Transform recipePanelsParent;
+    private List<Transform> recipePanels = new List<Transform>();
+    public List<AlchemyReaction> allReactions = new List<AlchemyReaction>();
 
+    public NotebookRecipeDetails notebookRecipeDetails;
 
 
     // Start is called before the first frame update
@@ -31,6 +37,12 @@ public class NotebookIngredientDetails : MonoBehaviour
         {
             effectPanels.Add(child);
         }
+
+        /*foreach (Transform child in effectPanelsParent)
+        {
+            effectPanels.Add(child);
+        }*/
+
     }
 
     // Update is called once per frame
@@ -44,7 +56,11 @@ public class NotebookIngredientDetails : MonoBehaviour
        
         ingredient = pIngredientType;
         UpdateIngredientDetails();
+
+        LoadRecipePanels();
+
         UpdateAllAttachedRecipes();
+
         GetComponent<NotebookBaseUI>().Open();
     }
 
@@ -176,21 +192,49 @@ public class NotebookIngredientDetails : MonoBehaviour
 
     }
 
+    public void LoadRecipePanels()
+    {
+        recipePanels.Clear();
+
+        foreach (Transform child in recipePanelsParent)
+        {
+            if (child.gameObject.name == "PanelRecipe")
+            {
+                recipePanels.Add(child);
+            }
+        }
+    }
+
+    public void OpenRecipe(int i)
+    {
+        //Debug.Log(i + openPage * 10);
+        //Debug.Log(i + " " + JobsManagement.activeJobList[i + openPage * 10].title);
+        //Debug.Log(jobList[i + openPage * 10]);
+        //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
+        GetComponent<NotebookBaseUI>().Close();
+        Debug.Log("opening call");
+        notebookRecipeDetails.Open(allReactions[i]);
+
+    }
+
     public void UpdateAllAttachedRecipes()
     {
+        // set AllReactions
+        allReactions = ingredient.reactionsOutput.Concat(ingredient.reactionsInput).ToList();
 
         // label for first group of recipes
 
-        if(ingredient.reactionsOutput.Count>0)
+        if (ingredient.reactionsOutput.Count>0)
            // UI_outputRecipesLabel.transform.localScale = new Vector3(1, 1, 1);
         UI_outputRecipesLabel.SetActive(true);
         else
             // UI_outputRecipesLabel.transform.localScale = new Vector3(0, 0, 0);
             UI_outputRecipesLabel.SetActive(false);
 
-        // Get all recipes, which have the ingredient as part of their OUTPUT. Put them in order.
-
         // Add in the label for the second group of recipes in order.
+
+        Debug.Log("ingredient.reactionsOutput.Count " + ingredient.reactionsOutput.Count + 1);
+        UI_inputRecipesLabel.transform.SetSiblingIndex(ingredient.reactionsOutput.Count + 1);
 
         if (ingredient.reactionsInput.Count > 0)
             UI_inputRecipesLabel.SetActive(true);
@@ -199,7 +243,18 @@ public class NotebookIngredientDetails : MonoBehaviour
             UI_inputRecipesLabel.SetActive(false);
         //UI_inputRecipesLabel.transform.localScale = new Vector3(0, 0, 0);
 
-        // Get all recipes, which have the ingredient as part of their INPUT. Put them in order.
+        // recipe details
+
+        foreach(Transform recipePanel in recipePanels)
+        {
+            recipePanel.localScale = new Vector3(0, 0, 0);
+        }
+
+        for(int i=0;i< allReactions.Count(); i++)
+        {
+            recipePanels[i].localScale = new Vector3(1, 1, 1);
+            recipePanels[i].GetChild(0).GetComponent<UnityEngine.UI.Text>().text = allReactions[i].reactionName;
+        }
     }
 
 
