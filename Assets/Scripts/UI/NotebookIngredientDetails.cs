@@ -18,6 +18,8 @@ public class NotebookIngredientDetails : MonoBehaviour
 
     public Transform effectPanelsParent;
 
+    public Transform effectsLabel;
+
     private List<Transform> effectPanels = new List<Transform>();
     private List<IngredientEffect> effects = new List<IngredientEffect>();
     private List<int> effectIntensities = new List<int>();
@@ -90,6 +92,14 @@ public class NotebookIngredientDetails : MonoBehaviour
             UIdescription.transform.localScale = new Vector3(1, 1, 1);
             UIdescription.GetComponent<UnityEngine.UI.Text>().text = ingredient.description;
         }
+
+
+        // show / hide effects label
+
+        if(effects.Count == 0 )
+            effectsLabel.localScale = new Vector3(0, 0, 0);
+        else effectsLabel.localScale = new Vector3(1, 1, 1);
+
 
         // adjust the graphical intensity indicators
 
