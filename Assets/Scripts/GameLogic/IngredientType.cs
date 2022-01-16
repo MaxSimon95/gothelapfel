@@ -41,7 +41,7 @@ public class IngredientType : MonoBehaviour
 
     public void UpdateReactionsOutput()
     {
-        Debug.Log("UpdateReactionsOutput START");
+        //Debug.Log("UpdateReactionsOutput START");
 
         reactionsOutput.Clear();
 
@@ -76,7 +76,7 @@ public class IngredientType : MonoBehaviour
 
     public void UpdateReactionsInput()
     {
-        Debug.Log("UpdateReactionsInput START");
+       // Debug.Log("UpdateReactionsInput START");
 
         reactionsInput.Clear();
 
