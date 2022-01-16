@@ -104,7 +104,7 @@ public class JobHandler : MonoBehaviour
 
     public void Expire()
     {
-        Debug.Log(" EXPIRE: " + title);
+        //Debug.Log(" EXPIRE: " + title);
         currentState = JobHandler.state.EXPIRED;
         jobIsSaved = false;
 
