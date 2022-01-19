@@ -141,7 +141,110 @@ public class PlayerCharacter : MonoBehaviour
 
     void CharacterMovement(Direction direction, float distanceX, float distanceY)
     {
-        switch(direction)
+        RotateCharacterTowardsDirection(direction);
+
+        this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(distanceX, distanceY, 0);
+    }
+
+
+    public void RotateCharacterTowardsPoint(float targetX, float targetY)
+    {
+      
+
+        float charX = transform.position.x;
+        float charY = transform.position.y;
+        float ratio = (charX - targetX) / (charY - targetY);
+
+        Debug.Log(" ");
+        if (charX < targetX)
+        {
+            // N, NE, E, SE, S
+            if(charY < targetY)
+            {
+                // N, NE, E
+                //Debug.Log("charX: " + charX + " targetX: " + targetX + " charX/targetX: " + charX / targetX);
+                //Debug.Log("charY: " + charY + " targetY: " + targetY + " charY/targetY: " + charY / targetY);
+                //Debug.Log("ratio X: " + charX / targetX + " ratio Y: " + charY / targetY);
+                //Debug.Log("distance X: " + (charX - targetX) + " distance Y: " + (charY - targetY) + "ratio :" + ((charX - targetX) / (charY - targetY)));
+
+                if(ratio <= 0.33)
+                {
+                    
+                    RotateCharacterTowardsDirection(Direction.N);
+                }
+                if((ratio <= 3.3)&&(ratio >= 0.33))
+                {
+                    RotateCharacterTowardsDirection(Direction.NE);
+                }
+                if (ratio >= 3.3)
+                {
+                    RotateCharacterTowardsDirection(Direction.E);
+                }
+            }
+            else
+            {
+                // S, SE, E
+                //Debug.Log("distance X: " + (charX - targetX) + " distance Y: " + (charY - targetY) + "ratio :" + ((charX - targetX) / (charY - targetY)));
+                if (ratio >= -0.33)
+                {
+                    RotateCharacterTowardsDirection(Direction.S);
+                }
+                if ((ratio >= -3.3) && (ratio <= -0.33))
+                {
+                    RotateCharacterTowardsDirection(Direction.SE);
+                }
+                if (ratio <= -3.3)
+                {
+                    RotateCharacterTowardsDirection(Direction.E);
+                }
+            }
+        }
+        else
+        {
+            // N, NW, W, SW, S
+            if (charY < targetY)
+            {
+                // N, NW, W
+                //Debug.Log("distance X: " + (charX - targetX) + " distance Y: " + (charY - targetY) + "ratio :" + ((charX - targetX) / (charY - targetY)));
+                if (ratio >= -0.33)
+                {
+                    RotateCharacterTowardsDirection(Direction.N);
+                }
+                if ((ratio >= -3.3) && (ratio <= -0.33))
+                {
+                    RotateCharacterTowardsDirection(Direction.NW);
+                }
+                if (ratio <= -3.3)
+                {
+                    RotateCharacterTowardsDirection(Direction.W);
+                }
+            }
+            else
+            {
+                // S, SW, W
+                //Debug.Log("distance X: " + (charX - targetX) + " distance Y: " + (charY - targetY) + "ratio :" + ((charX - targetX) / (charY - targetY)));
+                if (ratio <= 0.33)
+                {
+                    RotateCharacterTowardsDirection(Direction.S);
+                }
+                if ((ratio <= 3.3) && (ratio >= 0.33))
+                {
+                    RotateCharacterTowardsDirection(Direction.SW);
+                }
+                if (ratio >= 3.3)
+                {
+                    RotateCharacterTowardsDirection(Direction.W);
+                }
+            }
+
+        }
+
+        
+    }
+
+    void RotateCharacterTowardsDirection(Direction direction)
+    {
+        switch (direction)
         {
             case Direction.SW:
 
@@ -169,13 +272,6 @@ public class PlayerCharacter : MonoBehaviour
                 GetComponent<SpriteRenderer>().sprite = sprites[7];
                 break;
         }
-
-        this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(distanceX, distanceY, 0);
-    }
-
-    void UpdateSpriteDirection()
-    {
-
     }
 
 }

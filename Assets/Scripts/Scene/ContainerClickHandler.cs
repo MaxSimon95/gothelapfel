@@ -35,7 +35,9 @@ public class ContainerClickHandler : MonoBehaviour, IPointerClickHandler,
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
+        GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().RotateCharacterTowardsPoint(transform.position.x, transform.position.y) ;
+
+        // containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
     }
 
     public void OnPointerDown(PointerEventData eventData)
