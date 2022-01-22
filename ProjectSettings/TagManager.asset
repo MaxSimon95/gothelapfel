@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clickable2D
   - PlayerCharacter
+  - StationaryCollider
   layers:
   - Default
   - TransparentFX

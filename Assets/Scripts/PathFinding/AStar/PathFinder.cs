@@ -39,16 +39,22 @@ public static class PathFinder
 	private static BreadCrumb FindPathReversed(Grid world, Point start, Point end)
 	{
 	    MinHeap<BreadCrumb> openList = new MinHeap<BreadCrumb>(256);
+
+        //Debug.Log("world right and top: " + world.Right + " " + world.Top);
+
 	    BreadCrumb[,] brWorld = new BreadCrumb[world.Right, world.Top];
-	    BreadCrumb node;
-	    Point tmp;
+	    BreadCrumb tempBreadCrumb;
+	    Point tempPoint;
 	    int cost;
-	    int diff;
+	    float diff;
 	
 	    BreadCrumb current = new BreadCrumb(start);
 	    current.cost = 0;
 	
 	    BreadCrumb finish = new BreadCrumb(end);
+
+        //Debug.Log(current.position.X + " " + current.position.Y);
+        Debug.Log(brWorld);
 	    brWorld[current.position.X, current.position.Y] = current;
 	    openList.Add(current);
 	
@@ -61,67 +67,85 @@ public static class PathFinder
 	        //Find neighbours
 	        for (int i = 0; i < surrounding.Length; i++)
 	        {
-                tmp = new Point(current.position.X + surrounding[i].X, current.position.Y + surrounding[i].Y);
+                tempPoint = new Point(current.position.X + surrounding[i].X, current.position.Y + surrounding[i].Y);
 
-                if (!world.ConnectionIsValid(current.position, tmp)) 
-                    continue;                				                  
+                if(current.position.X == 11 && current.position.Y == 21 && tempPoint.X == 11 && tempPoint.Y == 22)
+                {
+                    Debug.Log("UNSER PATHFINDER FIND NEIGHBOURS CHECK --> VALID? " + world.ConnectionIsValid(current.position, tempPoint));
+                    
+                }
+
+                if (!world.ConnectionIsValid(current.position, tempPoint)) 
+                    continue;
+
+                if(world.Nodes[tempPoint.X, tempPoint.Y].BadNode )
+                    continue;
+
+                //Debug.Log("valid temppoint in find neighbours" + tempPoint.X + " " + tempPoint.Y);
 
                 //Check if we've already examined a neighbour, if not create a new node for it.
-                if (brWorld[tmp.X, tmp.Y] == null)
+                if (brWorld[tempPoint.X, tempPoint.Y] == null)
                 {
-                    node = new BreadCrumb(tmp);
-                    brWorld[tmp.X, tmp.Y] = node;
+                    tempBreadCrumb = new BreadCrumb(tempPoint);
+                    brWorld[tempPoint.X, tempPoint.Y] = tempBreadCrumb;
                 }
                 else
                 {
-                    node = brWorld[tmp.X, tmp.Y];
+                    tempBreadCrumb = brWorld[tempPoint.X, tempPoint.Y];
                 }
 
                 //If the node is not on the 'closedList' check it's new score, keep the best
-                if (!node.onClosedList)
+                if (!tempBreadCrumb.onClosedList)
                 {
                     diff = 0;
-                    if (current.position.X != node.position.X)
+                    if (current.position.X != tempBreadCrumb.position.X)
                     {
-                        diff += 1;
+                        diff += world.UnitSizeX * 100;
                     }
-                    if (current.position.Y != node.position.Y)
+                    if (current.position.Y != tempBreadCrumb.position.Y)
                     {
-                        diff += 1;
+                        diff += world.UnitSizeY * 100;
                     }
 
-					int distance = (int)Mathf.Pow(Mathf.Max(Mathf.Abs (end.X - node.position.X), Mathf.Abs(end.Y - node.position.Y)), 2);
-                    cost = current.cost + diff + distance;
+					int distance = (int)Mathf.Pow(Mathf.Max(Mathf.Abs (end.X - tempBreadCrumb.position.X), Mathf.Abs(end.Y - tempBreadCrumb.position.Y)), 2);
+                    cost = current.cost + (int) diff + distance * 100;
 
-                    if (cost < node.cost)
+                    if (cost < tempBreadCrumb.cost)
                     {
-                        node.cost = cost;
-                        node.next = current;
+                        tempBreadCrumb.cost = cost;
+                        tempBreadCrumb.next = current;
                     }
 
                     //If the node wasn't on the openList yet, add it 
-                    if (!node.onOpenList)
+                    if (!tempBreadCrumb.onOpenList)
                     {
                         //Check to see if we're done
-                        if (node.Equals(finish))
+                        if (tempBreadCrumb.Equals(finish))
                         {
-                            node.next = current;
-                            return node;
+                            Debug.Log("Finished, Path Found");
+                            Debug.Log(tempBreadCrumb);
+                            tempBreadCrumb.next = current;
+                            return tempBreadCrumb;
                         }
-                        node.onOpenList = true;
-                        openList.Add(node);
+                        tempBreadCrumb.onOpenList = true;
+                        openList.Add(tempBreadCrumb);
                     }
 	            }
 	        }
 	    }
-	    return null; //no path found
+
+        Debug.Log("Failure, No Path available");
+
+        return null; //no path found
 	}
 	
 	//Neighbour options
 	//Our diamond pattern offsets top/bottom/left/right by 2 instead of 1
 	private static Point[] surrounding = new Point[]{                         
-		new Point(0, 2), new Point(-2, 0), new Point(2, 0), new Point(0,-2),	
-        new Point(-1, 1), new Point(-1, -1), new Point(1, 1), new Point(1, -1)
-	};
+	//	new Point(0, 2), new Point(-2, 0), new Point(2, 0), new Point(0,-2),	
+    //    new Point(-1, 1), new Point(-1, -1), new Point(1, 1), new Point(1, -1)
+    new Point(0,1), new Point(1,1), new Point(1,0), new Point(1,-1), new Point(0,-1), new Point(-1,-1), new Point(-1,0), new Point(-1,1)
+
+    };
 }
 

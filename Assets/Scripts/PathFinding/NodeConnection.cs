@@ -8,11 +8,12 @@ public class NodeConnection
 	public bool Valid;
 
 	//Debug
-	private LineRenderer Debug;
+	private LineRenderer Debugger;
 	GameObject go;
 	
 	public NodeConnection(Node parent, Node node, bool valid)
 	{
+		//Debug.Log("new node connection: " + parent + ", " + node + ", " + valid);
 		Valid = valid;
 		Node = node;	
 		Parent = parent;
@@ -29,15 +30,15 @@ public class NodeConnection
 		if (Valid) {
 			if (Parent != null && Node != null) {
 				go = GameObject.Instantiate (Resources.Load ("Line")) as GameObject;
-				Debug = go.GetComponent<LineRenderer> ();
+				Debugger = go.GetComponent<LineRenderer> ();
 				
-				Debug.SetPosition (0, Parent.Position);
-				Debug.SetPosition (1, Node.Position);
-				Debug.SetWidth (0.06f, 0.00f);
+				Debugger.SetPosition (0, Parent.Position);
+				Debugger.SetPosition (1, Node.Position);
+				Debugger.SetWidth (0.06f, 0.00f);
 				if (Valid)
-					Debug.SetColors (Color.green, Color.green);
+					Debugger.SetColors (Color.green, Color.green);
 				else
-					Debug.SetColors (Color.red, Color.red);
+					Debugger.SetColors (Color.red, Color.red);
 			}
 		}
 	}

@@ -8,10 +8,15 @@ public class PlayerCharacter : MonoBehaviour
     public GameObject currentRoom;
     public Sprite[] sprites;
 
+    public Grid grid;
+
+    public bool currentlyMovingTowardsPoint = false;
+    public Vector2 currentDestinationPoint;
+
     enum Direction { SW, S, SE, E, NE, N, NW, W};
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         
     }
@@ -20,132 +25,117 @@ public class PlayerCharacter : MonoBehaviour
     void FixedUpdate()
     {
 
-        // vertical and horizontal movement
-
-        if ((Input.GetKey("w")) && !((Input.GetKey("a")|| Input.GetKey("s"))|| Input.GetKey("d")))
+        if (currentlyMovingTowardsPoint)
         {
-            CharacterMovement(Direction.N, 0, movementSpeed * 1.0f);
-           
+            MovingTowardsPoint();
+        }
+
+        if(Input.GetKey("d") || Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s"))
+        {
+            KeyInputMovement();
+        }
+        
+
+        GetComponent<RenderOrderAdjustment>().AdjustRenderOrder();
+
+    }
+
+    void KeyInputMovement()
+    {
+        currentlyMovingTowardsPoint = false;
+
+        // vertical and horizontal movement through key input
+
+        if ((Input.GetKey("w")) && !((Input.GetKey("a") || Input.GetKey("s")) || Input.GetKey("d")))
+        {
+            //CharacterMovement(Direction.N, 0, movementSpeed * 1.0f);
+            CharacterMovement(new Vector2(0, 1));
+
         }
 
         if ((Input.GetKey("s")) && !((Input.GetKey("w") || Input.GetKey("a")) || Input.GetKey("d")))
         {
 
-            CharacterMovement(Direction.S, 0, movementSpeed * -1.0f);
+            //CharacterMovement(Direction.S, 0, movementSpeed * -1.0f);
+            CharacterMovement(new Vector2(0, -1));
         }
 
         if ((Input.GetKey("a")) && !((Input.GetKey("w") || Input.GetKey("s")) || Input.GetKey("d")))
         {
-            CharacterMovement(Direction.W, movementSpeed * -1.0f,0);
+            //CharacterMovement(Direction.W, movementSpeed * -1.0f,0);
+            CharacterMovement(new Vector2(-1, 0));
 
         }
 
         if ((Input.GetKey("d")) && !((Input.GetKey("w") || Input.GetKey("a")) || Input.GetKey("s")))
         {
 
-            CharacterMovement(Direction.E, movementSpeed * 1.0f, 0);
+            //CharacterMovement(Direction.E, movementSpeed * 1.0f, 0);
+            CharacterMovement(new Vector2(1, 0));
         }
 
         // isometric movement
 
-        if ((Input.GetKey("w") && Input.GetKey("a")) && !( Input.GetKey("s") || Input.GetKey("d")))
+        if ((Input.GetKey("w") && Input.GetKey("a")) && !(Input.GetKey("s") || Input.GetKey("d")))
         {
-            CharacterMovement(Direction.NW, movementSpeed * -1.0f, movementSpeed * 0.47f);
+            //CharacterMovement(Direction.NW, movementSpeed * -1.0f, movementSpeed * 0.47f);
+            CharacterMovement(new Vector2(-1, 0.47f));
         }
 
         if ((Input.GetKey("w") && Input.GetKey("d")) && !(Input.GetKey("s") || Input.GetKey("a")))
         {
-            CharacterMovement(Direction.NE, movementSpeed * 1.0f, movementSpeed * 0.47f);
+            //CharacterMovement(Direction.NE, movementSpeed * 1.0f, movementSpeed * 0.47f);
+            CharacterMovement(new Vector2(1, 0.47f));
         }
 
         if ((Input.GetKey("s") && Input.GetKey("a")) && !(Input.GetKey("w") || Input.GetKey("d")))
         {
-            CharacterMovement(Direction.SW, movementSpeed * -1.0f, movementSpeed * -0.47f);
+            //CharacterMovement(Direction.SW, movementSpeed * -1.0f, movementSpeed * -0.47f);
+            CharacterMovement(new Vector2(-1, -0.47f));
         }
 
         if ((Input.GetKey("s") && Input.GetKey("d")) && !(Input.GetKey("w") || Input.GetKey("a")))
         {
-            CharacterMovement(Direction.SE, movementSpeed * 1.0f, movementSpeed * -0.47f);
+            //CharacterMovement(Direction.SE, movementSpeed * 1.0f, movementSpeed * -0.47f);
+            CharacterMovement(new Vector2(1, -0.47f));
         }
-
-        GetComponent<RenderOrderAdjustment>().AdjustRenderOrder();
-
     }
 
-    /*
-     * 
-     void Update()
+
+
+    void CharacterMovement(Vector2 direction)
     {
-
-        // vertical and horizontal movement
-
-        if ((Input.GetKey("w")) && !((Input.GetKey("a")|| Input.GetKey("s"))|| Input.GetKey("d")))
-        {
-
-
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(0, movementSpeed * 1.0f * Time.deltaTime, 0);
-        }
-
-        if ((Input.GetKey("s")) && !((Input.GetKey("w") || Input.GetKey("a")) || Input.GetKey("d")))
-        {
-
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(0, movementSpeed * -1.0f * Time.deltaTime, 0);
-        }
-
-        if ((Input.GetKey("a")) && !((Input.GetKey("w") || Input.GetKey("s")) || Input.GetKey("d")))
-        {
-
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(movementSpeed * -1.0f * Time.deltaTime, 0, 0);
-        }
-
-        if ((Input.GetKey("d")) && !((Input.GetKey("w") || Input.GetKey("a")) || Input.GetKey("s")))
-        {
-
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(movementSpeed * 1.0f * Time.deltaTime, 0, 0);
-        }
-
-        // isometric movement
-
-        if ((Input.GetKey("w") && Input.GetKey("a")) && !( Input.GetKey("s") || Input.GetKey("d")))
-        {
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(movementSpeed * -1.0f * Time.deltaTime, movementSpeed * 0.47f * Time.deltaTime, 0);
-        }
-
-        if ((Input.GetKey("w") && Input.GetKey("d")) && !(Input.GetKey("s") || Input.GetKey("a")))
-        {
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(movementSpeed * 1.0f * Time.deltaTime, movementSpeed * 0.47f * Time.deltaTime, 0);
-        }
-
-        if ((Input.GetKey("s") && Input.GetKey("a")) && !(Input.GetKey("w") || Input.GetKey("d")))
-        {
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(movementSpeed * -1.0f * Time.deltaTime, movementSpeed * -0.47f * Time.deltaTime, 0);
-        }
-
-        if ((Input.GetKey("s") && Input.GetKey("d")) && !(Input.GetKey("w") || Input.GetKey("a")))
-        {
-            Debug.Log(this.gameObject.transform.position);
-            this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(movementSpeed * 1.0f * Time.deltaTime, movementSpeed * -0.47f * Time.deltaTime, 0);
-        }
-
-        GetComponent<RenderOrderAdjustment>().AdjustRenderOrder();
-
-    }
-     */
-
-    void CharacterMovement(Direction direction, float distanceX, float distanceY)
-    {
-        RotateCharacterTowardsDirection(direction);
+        direction.Normalize();
+        float distanceX = direction.x * movementSpeed;
+        float distanceY = direction.y * movementSpeed;
+        //RotateCharacterTowardsDirection(facing);
+        RotateCharacterTowardsPoint(transform.position.x + direction.x, transform.position.y + direction.y);
 
         this.gameObject.transform.position = this.gameObject.transform.position + new Vector3(distanceX, distanceY, 0);
     }
 
+    public void StartMoveToPoint(Vector2 destination)
+    {
+        currentlyMovingTowardsPoint = true;
+        currentDestinationPoint = destination;
+    }
+    void MovingTowardsPoint()
+    {
+        Point gridTargetPoint = grid.WorldToGrid(currentDestinationPoint);
+        Point gridPCPoint = grid.WorldToGrid(new Vector2(transform.position.x, transform.position.y));
+
+        Debug.Log("target: "+ gridTargetPoint.X + " " + gridTargetPoint.Y + "; current: " + gridPCPoint.X + " " + gridPCPoint.Y);
+
+        if ((gridTargetPoint.X == gridPCPoint.X)&& (gridTargetPoint.Y == gridPCPoint.Y))
+        {
+            Debug.Log("MoveTowards PointZiel erreicht");
+            currentlyMovingTowardsPoint = false;
+        }
+
+        CharacterMovement(new Vector2(currentDestinationPoint.x - transform.position.x, currentDestinationPoint.y - transform.position.y));
+
+
+    }
 
     public void RotateCharacterTowardsPoint(float targetX, float targetY)
     {
@@ -155,7 +145,7 @@ public class PlayerCharacter : MonoBehaviour
         float charY = transform.position.y;
         float ratio = (charX - targetX) / (charY - targetY);
 
-        Debug.Log(" ");
+        //Debug.Log(" ");
         if (charX < targetX)
         {
             // N, NE, E, SE, S

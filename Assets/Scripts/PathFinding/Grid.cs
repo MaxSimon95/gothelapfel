@@ -17,87 +17,93 @@ public enum Direction
 public class Grid : MonoBehaviour {
 		
 	public Vector2 Offset;
-	
+	public float UnitSize;
+	public float UnitSizeX;
+	public float UnitSizeY;
+
 	public int Width;
 	public int Height;
 	
 	public Node[,] Nodes;
 	
 	public int Left { get { return 0; } }
-	public int Right { get { return Width; } }
+	public int Right { get { return (int)(Width / UnitSizeX+1); } }
 	public int Bottom { get { return 0; } }
-	public int Top { get { return Height; } }
+	public int Top { get { return (int)(Height / UnitSizeY+1); } }
 
-	public const float UnitSize = 1f;
+	private BreadCrumb currentTargetBC = null;
 
 	private LineRenderer LineRenderer;
 	GameObject Player;
 
 	void Awake () 
 	{	
-		Player = GameObject.Find ("Player");
+		Player = GameObject.Find ("PlayerCharacter");
 		LineRenderer = transform.GetComponent<LineRenderer>();
 
 		//Get grid dimensions
 		Offset = this.transform.position;
 
-		Width = ((int)this.transform.localScale.x) * 2 + 2;
-		Height = ((int)this.transform.localScale.y) * 2 + 2;
-		
-		Nodes = new Node[Width, Height];
+		//Width = ((int)this.transform.localScale.x) * 30 + 2;
+		//Height = ((int)this.transform.localScale.y) * 30 + 2;
 
-		//Initialize the grid nodes - 1 grid unit between each node
+	UnitSizeX = Player.GetComponent<BoxCollider2D>().size.x * Player.transform.localScale.x * 1.3f;
+	UnitSizeY = Player.GetComponent<BoxCollider2D>().size.y * Player.transform.localScale.y * 1.3f; 
+
+
+	Nodes = new Node[(int)(Width/ UnitSizeX)+1, (int)(Height / UnitSizeY)+1];
+
+		//Debug.Log("Initialize the grid nodes - 1 grid unit between each node");
 		//We render the grid in a diamond pattern
-		for (int x = 0; x < Width/2; x++)
-		{
-			for (int y = 0; y < Height; y++)
-			{
-				float ptx = x;
-				float pty = -(y/2) + (UnitSize/2f);
-				int offsetx = 0;
 
-				if (y % 2 == 0)
-				{
-					ptx = x + (UnitSize/2f);
-					offsetx = 1;
-				}	
-				else
-				{
-					pty = -(y/2);
-				}
-							
-				Vector2 pos = new Vector2(ptx, pty);
-				Node node = new Node(x*2 + offsetx, y, pos, this);
-				Nodes[x*2 + offsetx, y] = node;
+		for(int x = 0; x < Width/UnitSizeX; x++)
+        {
+			for(int y = 0; y < Height/UnitSizeY; y++)
+            {
+				float ptx = x*UnitSizeX;
+				float pty = y*UnitSizeY;
+
+				Vector2 pos = new Vector2(ptx + Offset.x, pty + Offset.y);
+				Node node = new Node(x, y, pos, this);
+				Nodes[x, y] = node;
 			}
-		}
-		
-		//Create connections between each node
-		for (int x = 0; x < Width; x++)
+        }
+
+	
+
+
+
+		//Debug.Log(Nodes.Length + " Nodes created");
+
+		//Debug.Log("Create connections between each node");
+		for (int x = 1; x < Width / UnitSizeX -1; x++)
 		{
-			for (int y = 0; y < Height; y++)
+			for (int y = 1; y < Height / UnitSizeY -1; y++)
 			{
-				if (Nodes[x,y] == null) continue;				
+				
+				//if (Nodes[x,y] == null) continue;				
 				Nodes[x, y].InitializeConnections(this);
 			}
-		}		
+		}
 
-		//Pass 1, we removed the bad nodes, based on valid connections
-		for (int x = 0; x < Width; x++)
+		//Debug.Log("Pass 1, we removed the bad nodes, based on valid connections");
+		for (int x = 0; x < Width / UnitSizeX; x++)
 		{
-			for (int y = 0; y < Height; y++)
+			for (int y = 0; y < Height / UnitSizeY; y++)
 			{
 				if (Nodes[x,y] == null) 
 					continue;				
 
 				Nodes[x, y].CheckConnectionsPass1 (this);
 			}
-		}		
+		}
 
-		//Pass 2, remove bad connections based on bad nodes
-		for (int x = 0; x < Width; x++)
+		//Debug.Log(Nodes.Length + " Nodes remaining");
+
+		//Debug.Log("Pass 2, remove bad connections based on bad nodes");
+		for (int x = 0; x < Width / UnitSizeX; x++)
 		{
-			for (int y = 0; y < Height; y++)
+			for (int y = 0; y < Height / UnitSizeY; y++)
 			{
 				if (Nodes[x,y] == null) 
 					continue;				
@@ -111,8 +117,17 @@ public class Grid : MonoBehaviour {
 
 	public Point WorldToGrid(Vector2 worldPosition)
 	{
-		Vector2 gridPosition = new Vector2((worldPosition.x * 2f), -(worldPosition.y * 2f) + 1);
 
+		int x = Mathf.RoundToInt((worldPosition.x - transform.position.x) / UnitSizeX);
+		int y = Mathf.RoundToInt((worldPosition.y - transform.position.y) / UnitSizeY);
+		//Debug.Log(x);
+		//Debug.Log(y);
+		return new Point(Nodes[x, y].X, Nodes[x, y].Y);
+
+		//Vector2 gridPosition = new Vector2((worldPosition.x * 2f), (worldPosition.y * 2f) + 1);
+
+
+		/*
 		//adjust to our nearest integer
 		float rx = gridPosition.x % 1;
 		if (rx < 0.5f)
@@ -177,12 +192,21 @@ public class Grid : MonoBehaviour {
 				}
 			}
 		}
+
+
 		return new Point(node.X , node.Y);
+
+		*/
 	}
 
-	public static Vector2 GridToWorld(Point gridPosition)
+	public Vector2 GridToWorld(Point gridPosition)
 	{
-		Vector2 world = new Vector2(gridPosition.X / 2f, -(gridPosition.Y / 2f - 0.5f));
+		//Vector2 world = new Vector2(gridPosition.X / 2f, -(gridPosition.Y / 2f - 0.5f));
+		float worldX = (gridPosition.X ) * UnitSizeX + transform.position.x;
+		float worldY = (gridPosition.Y ) * UnitSizeY + transform.position.y;
+
+
+		Vector2 world = new Vector2(worldX, worldY);
 
 		return world;
 	}
@@ -201,9 +225,9 @@ public class Grid : MonoBehaviour {
 
 		if (point1.X == point2.X)
 		{
-			if (point1.Y < point2.Y)
+			if (point1.Y > point2.Y)
 				direction = Direction.Bottom;
-			else if (point1.Y > point2.Y)
+			else if (point1.Y < point2.Y)
 				direction = Direction.Top;
 		}
 		else if (point1.Y == point2.Y)
@@ -215,17 +239,22 @@ public class Grid : MonoBehaviour {
 		}
 		else if (point1.X < point2.X)
 		{
-			if (point1.Y > point2.Y)
+			if (point1.Y < point2.Y)
 				direction = Direction.TopRight;
-			else if (point1.Y < point2.Y)
+			else if (point1.Y > point2.Y)
 				direction = Direction.BottomRight;
 		}
 		else if (point1.X > point2.X)
 		{
-			if (point1.Y > point2.Y)
+			if (point1.Y < point2.Y)
 				direction = Direction.TopLeft;
-			else if (point1.Y < point2.Y)
+			else if (point1.Y > point2.Y)
 				direction = Direction.BottomLeft;
+		}
+
+		if (((point1.X == 11) && (point1.Y == 21)) && ((point2.X == 11) && (point2.Y == 22)))
+		{
+			Debug.Log("Direction: " + direction);
 		}
 
 		//check connection
@@ -238,6 +267,12 @@ public class Grid : MonoBehaviour {
 				return false;
 
 			case Direction.Top:
+
+				if((point1.X == 11) && (point1.Y == 21))
+				{
+					Debug.Log("UNSER PUNKT: TOP = " + Nodes[point1.X, point1.Y].Top.Valid);
+						}
+
 			if (Nodes[point1.X, point1.Y].Top != null)
 				return Nodes[point1.X, point1.Y].Top.Valid;
 			else
@@ -284,27 +319,88 @@ public class Grid : MonoBehaviour {
 		}		
 	}
 
+	void PrintCorrectPathNodes(int index,  BreadCrumb currentBC)
+    {
+		//Debug.Log(index + ": " + currentBC.position.X +", " + currentBC.position.Y + "    next: " + currentBC.next + "  prev: " + currentBC.prev);
+
+		//Debug.Log("POAINT");
+
+		if (currentBC.next != null)
+        {
+
+			//Debug.Log("sdasdasd");
+			if (index > 1) Nodes[currentBC.position.X, currentBC.position.Y].SetColor(Color.black);
+			//if (index == 2) Nodes[currentBC.position.X, currentBC.position.Y].SetColor(Color.magenta);
+			PrintCorrectPathNodes(index + 1, currentBC.next);
+
+		}
+    }
 
 	void Update()
 	{
+
+		if(currentTargetBC != null)
+        {
+			Point gridPCPoint = WorldToGrid(new Vector2(Player.transform.position.x, Player.transform.position.y));
+
+			if ((currentTargetBC.position.X == gridPCPoint.X) && (currentTargetBC.position.Y == gridPCPoint.Y))
+			{
+				Debug.Log("Breadcrumbs Punkt erreicht");
+				
+				if(currentTargetBC.next == null)
+                {
+					Debug.Log("Pathfinding Ziel erreicht");
+				}
+				else
+                {
+					currentTargetBC = currentTargetBC.next;
+					Player.GetComponent<PlayerCharacter>().StartMoveToPoint(GridToWorld(currentTargetBC.position));
+
+				}
+
+			}
+		}
+
 		//Pathfinding demo
 		if(Input.GetMouseButtonDown(0))
 		{
+
+			//Debug.Log("Mouse Button Down");
 			//Convert mouse click point to grid coordinates
 			Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+			
+
+			//Debug.Log(worldPos);
+
 			Point gridPos = WorldToGrid(worldPos);
+			//Debug.Log(gridPos);
 
 			if (gridPos != null) {						
 				
-				if (gridPos.X > 0 && gridPos.Y > 0 && gridPos.X < Width && gridPos.Y < Height) {
+				if (gridPos.X > 0 && gridPos.Y > 0 && gridPos.X < (Width / UnitSizeX) && gridPos.Y < (Height / UnitSizeY)) {
 
 					//Convert player point to grid coordinates
 					Point playerPos = WorldToGrid (Player.transform.position);					
 					Nodes[playerPos.X, playerPos.Y].SetColor(Color.blue);
 
+					Nodes[gridPos.X, gridPos.Y].SetColor(Color.white);
+
+
 					//Find path from player to clicked position
 					BreadCrumb bc = PathFinder.FindPath (this, playerPos, gridPos);
 
+					if(bc!=null)
+                    {
+		
+						PrintCorrectPathNodes(1, bc);
+						currentTargetBC = bc;
+						Player.GetComponent<PlayerCharacter>().StartMoveToPoint(GridToWorld(currentTargetBC.position));
+						
+						
+					}
+					
+					/*
 					int count = 0;		
 					LineRenderer lr = Player.GetComponent<LineRenderer> ();
 					lr.SetVertexCount(100);  //Need a higher number than 2, or crashes out
@@ -313,11 +409,11 @@ public class Grid : MonoBehaviour {
 
 					//Draw out our path
 					while (bc != null) {					
-						lr.SetPosition(count, Grid.GridToWorld(bc.position));
+						lr.SetPosition(count, GridToWorld(bc.position));
 						bc = bc.next;
 						count += 1;
 					}
-					lr.SetVertexCount(count);					
+					lr.SetVertexCount(count);		*/			
 				}				
 			}
 		}
