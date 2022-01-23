@@ -37,8 +37,18 @@ public class ContainerClickHandler : MonoBehaviour, IPointerClickHandler,
     {
         GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().RotateCharacterTowardsPoint(transform.position.x, transform.position.y) ;
 
-         containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
+        GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentMovementTargetGO = gameObject;
+
+        //containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
+
+        if (!GameObject.Find("Grid").GetComponent<Grid>().TryGoToWorldpos(new Vector2 (transform.position.x, transform.position.y)))
+        {
+
+        }
+
     }
+
+   
 
     public void OnPointerDown(PointerEventData eventData)
     {

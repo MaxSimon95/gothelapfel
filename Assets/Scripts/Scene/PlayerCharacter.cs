@@ -11,6 +11,7 @@ public class PlayerCharacter : MonoBehaviour
     public Grid grid;
 
     public bool currentlyMovingTowardsPoint = false;
+    public GameObject currentMovementTargetGO = null;
     public Vector2 currentDestinationPoint;
 
     enum Direction { SW, S, SE, E, NE, N, NW, W};
@@ -21,9 +22,30 @@ public class PlayerCharacter : MonoBehaviour
         
     }
 
+    float CheckDistanceToGO(GameObject go)
+    {
+        Debug.Log("go: " + go.transform.position.x + " " + go.transform.position.y);
+        Debug.Log("pc: " + transform.position.x + " " + transform.position.y);
+
+
+    
+
+        float distance = Mathf.Sqrt(Mathf.Pow((go.transform.position.x - transform.position.x), 2) + Mathf.Pow((go.transform.position.y - transform.position.y), 2));
+
+        return distance;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (currentMovementTargetGO != null)
+        {
+            if (CheckDistanceToGO(currentMovementTargetGO) < 1.5)
+            {
+                currentMovementTargetGO.GetComponent<ContainerClickHandler>().containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
+            }
+        }
 
         if (currentlyMovingTowardsPoint)
         {
@@ -43,6 +65,7 @@ public class PlayerCharacter : MonoBehaviour
     void KeyInputMovement()
     {
         currentlyMovingTowardsPoint = false;
+        //currentMovementTargetGO = null;
 
         // vertical and horizontal movement through key input
 
@@ -124,11 +147,11 @@ public class PlayerCharacter : MonoBehaviour
         Point gridTargetPoint = grid.WorldToGrid(currentDestinationPoint);
         Point gridPCPoint = grid.WorldToGrid(new Vector2(transform.position.x, transform.position.y));
 
-        Debug.Log("target: "+ gridTargetPoint.X + " " + gridTargetPoint.Y + "; current: " + gridPCPoint.X + " " + gridPCPoint.Y);
+        //Debug.Log("target: "+ gridTargetPoint.X + " " + gridTargetPoint.Y + "; current: " + gridPCPoint.X + " " + gridPCPoint.Y);
 
         if ((gridTargetPoint.X == gridPCPoint.X)&& (gridTargetPoint.Y == gridPCPoint.Y))
         {
-            Debug.Log("MoveTowards PointZiel erreicht");
+            //Debug.Log("MoveTowards PointZiel erreicht");
             currentlyMovingTowardsPoint = false;
         }
 

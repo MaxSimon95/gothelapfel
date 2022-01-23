@@ -254,7 +254,7 @@ public class Grid : MonoBehaviour {
 
 		if (((point1.X == 11) && (point1.Y == 21)) && ((point2.X == 11) && (point2.Y == 22)))
 		{
-			Debug.Log("Direction: " + direction);
+			//Debug.Log("Direction: " + direction);
 		}
 
 		//check connection
@@ -270,7 +270,7 @@ public class Grid : MonoBehaviour {
 
 				if((point1.X == 11) && (point1.Y == 21))
 				{
-					Debug.Log("UNSER PUNKT: TOP = " + Nodes[point1.X, point1.Y].Top.Valid);
+					//Debug.Log("UNSER PUNKT: TOP = " + Nodes[point1.X, point1.Y].Top.Valid);
 						}
 
 			if (Nodes[point1.X, point1.Y].Top != null)
@@ -336,6 +336,53 @@ public class Grid : MonoBehaviour {
 		}
     }
 
+	public bool TryGoToWorldpos(Vector2 worldPos)
+    {
+
+
+		//Debug.Log(worldPos);
+
+		Point gridPos = WorldToGrid(worldPos);
+		//Debug.Log(gridPos);
+
+		if (gridPos != null)
+		{
+
+			if (gridPos.X > 0 && gridPos.Y > 0 && gridPos.X < (Width / UnitSizeX) && gridPos.Y < (Height / UnitSizeY))
+			{
+
+				//Convert player point to grid coordinates
+				Point playerPos = WorldToGrid(Player.transform.position);
+				Nodes[playerPos.X, playerPos.Y].SetColor(Color.blue);
+
+				Nodes[gridPos.X, gridPos.Y].SetColor(Color.white);
+
+
+				//Find path from player to clicked position
+				BreadCrumb bc = PathFinder.FindPath(this, playerPos, gridPos);
+
+				if (bc != null)
+				{
+
+					PrintCorrectPathNodes(1, bc);
+					currentTargetBC = bc;
+					Player.GetComponent<PlayerCharacter>().StartMoveToPoint(GridToWorld(currentTargetBC.position));
+
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+
+			}
+			else return false;
+		}
+		else
+			return false;
+	}
+
 	void Update()
 	{
 
@@ -345,11 +392,11 @@ public class Grid : MonoBehaviour {
 
 			if ((currentTargetBC.position.X == gridPCPoint.X) && (currentTargetBC.position.Y == gridPCPoint.Y))
 			{
-				Debug.Log("Breadcrumbs Punkt erreicht");
+				//Debug.Log("Breadcrumbs Punkt erreicht");
 				
 				if(currentTargetBC.next == null)
                 {
-					Debug.Log("Pathfinding Ziel erreicht");
+					//Debug.Log("Pathfinding Ziel erreicht");
 				}
 				else
                 {
@@ -369,53 +416,9 @@ public class Grid : MonoBehaviour {
 			//Convert mouse click point to grid coordinates
 			Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-			
-
-			//Debug.Log(worldPos);
-
-			Point gridPos = WorldToGrid(worldPos);
-			//Debug.Log(gridPos);
-
-			if (gridPos != null) {						
-				
-				if (gridPos.X > 0 && gridPos.Y > 0 && gridPos.X < (Width / UnitSizeX) && gridPos.Y < (Height / UnitSizeY)) {
-
-					//Convert player point to grid coordinates
-					Point playerPos = WorldToGrid (Player.transform.position);					
-					Nodes[playerPos.X, playerPos.Y].SetColor(Color.blue);
-
-					Nodes[gridPos.X, gridPos.Y].SetColor(Color.white);
+			TryGoToWorldpos(worldPos);
 
 
-					//Find path from player to clicked position
-					BreadCrumb bc = PathFinder.FindPath (this, playerPos, gridPos);
-
-					if(bc!=null)
-                    {
-		
-						PrintCorrectPathNodes(1, bc);
-						currentTargetBC = bc;
-						Player.GetComponent<PlayerCharacter>().StartMoveToPoint(GridToWorld(currentTargetBC.position));
-						
-						
-					}
-					
-					/*
-					int count = 0;		
-					LineRenderer lr = Player.GetComponent<LineRenderer> ();
-					lr.SetVertexCount(100);  //Need a higher number than 2, or crashes out
-					lr.SetWidth(0.1f, 0.1f);
-					lr.SetColors(Color.yellow, Color.yellow);
-
-					//Draw out our path
-					while (bc != null) {					
-						lr.SetPosition(count, GridToWorld(bc.position));
-						bc = bc.next;
-						count += 1;
-					}
-					lr.SetVertexCount(count);		*/			
-				}				
-			}
 		}
 	}
 

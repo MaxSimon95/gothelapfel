@@ -54,7 +54,7 @@ public static class PathFinder
 	    BreadCrumb finish = new BreadCrumb(end);
 
         //Debug.Log(current.position.X + " " + current.position.Y);
-        Debug.Log(brWorld);
+       // Debug.Log(brWorld);
 	    brWorld[current.position.X, current.position.Y] = current;
 	    openList.Add(current);
 	
@@ -71,7 +71,7 @@ public static class PathFinder
 
                 if(current.position.X == 11 && current.position.Y == 21 && tempPoint.X == 11 && tempPoint.Y == 22)
                 {
-                    Debug.Log("UNSER PATHFINDER FIND NEIGHBOURS CHECK --> VALID? " + world.ConnectionIsValid(current.position, tempPoint));
+                    //Debug.Log("UNSER PATHFINDER FIND NEIGHBOURS CHECK --> VALID? " + world.ConnectionIsValid(current.position, tempPoint));
                     
                 }
 
@@ -122,8 +122,8 @@ public static class PathFinder
                         //Check to see if we're done
                         if (tempBreadCrumb.Equals(finish))
                         {
-                            Debug.Log("Finished, Path Found");
-                            Debug.Log(tempBreadCrumb);
+                            //Debug.Log("Finished, Path Found");
+                            //Debug.Log(tempBreadCrumb);
                             tempBreadCrumb.next = current;
                             return tempBreadCrumb;
                         }
