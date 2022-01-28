@@ -45,6 +45,8 @@ public class PlayerCharacter : MonoBehaviour
             {
                 RotateCharacterTowardsPoint(currentMovementTargetGO.transform.position.x, currentMovementTargetGO.transform.position.y);
                 currentMovementTargetGO.GetComponent<ContainerClickHandler>().containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
+                currentMovementTargetGO = null;
+                currentlyMovingTowardsPoint = false;
             }
         }
 
@@ -66,6 +68,7 @@ public class PlayerCharacter : MonoBehaviour
     void KeyInputMovement()
     {
         currentlyMovingTowardsPoint = false;
+        currentMovementTargetGO = null;
         //currentMovementTargetGO = null;
 
         // vertical and horizontal movement through key input

@@ -22,12 +22,15 @@ public class NotebookBaseUI : MonoBehaviour
     {
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
         notebookIsOpen = true;
+        RenderOrderAdjustment.anyOverlayOpen = true;
+
     }
 
     public void Close()
     {
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
         notebookIsOpen = false;
+        RenderOrderAdjustment.anyOverlayOpen = false;
         // 
         GameObject.Find("JobManagement").GetComponent<JobsManagement>().UpdateActiveJobs(false);
     }

@@ -34,6 +34,8 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void OpenContainerView()
     {
+        RenderOrderAdjustment.anyOverlayOpen = true;
+
         //Debug.Log("OpenContainerView");
 
         /*// set auto transfer target parent, so the auto transfer from the inventory knows where to put items when this canvas has been opened
@@ -90,6 +92,8 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void CloseContainerView()
     {
+        RenderOrderAdjustment.anyOverlayOpen = false;
+
         //Debug.Log("close cauld");
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 1);

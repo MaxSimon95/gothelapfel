@@ -409,16 +409,18 @@ public class Grid : MonoBehaviour {
 
 		//Pathfinding demo
 		if(Input.GetMouseButtonDown(0))
-		{
+        {
+			if (!RenderOrderAdjustment.anyOverlayOpen)
+			{
 
-			//Debug.Log("Mouse Button Down");
-			//Convert mouse click point to grid coordinates
-			Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				//Debug.Log("Mouse Button Down");
+				//Convert mouse click point to grid coordinates
+				Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-			TryGoToWorldpos(worldPos);
-
-
+				TryGoToWorldpos(worldPos);
+			}
 		}
+		
 	}
 
 	public Node FindNearestAccessibleNodeFromWorldCoordinates(Vector2 world_coordinates)
