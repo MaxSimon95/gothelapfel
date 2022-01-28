@@ -363,7 +363,6 @@ public class Grid : MonoBehaviour {
 
 				if (bc != null)
 				{
-
 					PrintCorrectPathNodes(1, bc);
 					currentTargetBC = bc;
 					Player.GetComponent<PlayerCharacter>().StartMoveToPoint(GridToWorld(currentTargetBC.position));
@@ -421,6 +420,35 @@ public class Grid : MonoBehaviour {
 
 		}
 	}
+
+	public Node FindNearestAccessibleNodeFromWorldCoordinates(Vector2 world_coordinates)
+    {
+		Node temp_return_node = null;
+		Point grid_point = WorldToGrid(world_coordinates);
+		
+		float compare_distance = 9999999;
+
+		for(int i=0; i<Nodes.GetLength(0); i++)
+        {
+			for (int j = 0; j < Nodes.GetLength(1); j++)
+			{
+				float temp_distance = Mathf.Sqrt(Mathf.Pow((grid_point.X - Nodes[i, j].X), 2) + Mathf.Pow((grid_point.Y - Nodes[i, j].Y), 2));
+				if (!Nodes[i,j].BadNode && temp_distance < compare_distance)
+                {
+					Debug.Log("temp_distance: " + temp_distance + ", compare_distance: " + compare_distance);
+					if (PathFinder.FindPath(this, WorldToGrid(Player.transform.position), new Point(Nodes[i, j].X, Nodes[i, j].Y)) !=null)
+                    {
+						compare_distance = temp_distance;
+						temp_return_node = Nodes[i, j];
+
+					}
+                }
+			}
+		}
+
+		Debug.Log("temp_return_node = " + temp_return_node.X + " " + temp_return_node.Y);
+		return (temp_return_node);
+    }
 
 }
 

@@ -24,8 +24,8 @@ public class PlayerCharacter : MonoBehaviour
 
     float CheckDistanceToGO(GameObject go)
     {
-        Debug.Log("go: " + go.transform.position.x + " " + go.transform.position.y);
-        Debug.Log("pc: " + transform.position.x + " " + transform.position.y);
+      //  Debug.Log("go: " + go.transform.position.x + " " + go.transform.position.y);
+      //  Debug.Log("pc: " + transform.position.x + " " + transform.position.y);
 
 
     
@@ -43,6 +43,7 @@ public class PlayerCharacter : MonoBehaviour
         {
             if (CheckDistanceToGO(currentMovementTargetGO) < 1.5)
             {
+                RotateCharacterTowardsPoint(currentMovementTargetGO.transform.position.x, currentMovementTargetGO.transform.position.y);
                 currentMovementTargetGO.GetComponent<ContainerClickHandler>().containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
             }
         }
