@@ -7,7 +7,8 @@ public class RenderOrderAdjustment : MonoBehaviour
     // Start is called before the first frame update
     public bool lyingOnFloor;
 
-    public static bool anyOverlayOpen = false; 
+    public static bool anyOverlayOpen = false;
+    //public static bool BlockedByUI = false;
 
     public void AdjustRenderOrder()
     {
@@ -31,4 +32,6 @@ public class RenderOrderAdjustment : MonoBehaviour
     {
         
     }
+
+
 }

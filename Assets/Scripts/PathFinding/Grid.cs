@@ -384,7 +384,7 @@ public class Grid : MonoBehaviour {
 
 	void Update()
 	{
-
+		
 		if(currentTargetBC != null)
         {
 			Point gridPCPoint = WorldToGrid(new Vector2(Player.transform.position.x, Player.transform.position.y));
@@ -407,19 +407,24 @@ public class Grid : MonoBehaviour {
 			}
 		}
 
-		//Pathfinding demo
-		if(Input.GetMouseButtonDown(0))
-        {
-			if (!RenderOrderAdjustment.anyOverlayOpen)
+		if (!MouseInputUIBlocker.BlockedByUI)
+		{
+			//Pathfinding demo
+			if (Input.GetMouseButtonDown(0))
 			{
+				if (!RenderOrderAdjustment.anyOverlayOpen)
+				{
 
-				//Debug.Log("Mouse Button Down");
-				//Convert mouse click point to grid coordinates
-				Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+					//Debug.Log("Mouse Button Down");
+					//Convert mouse click point to grid coordinates
+					Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-				TryGoToWorldpos(worldPos);
+					TryGoToWorldpos(worldPos);
+				}
 			}
 		}
+
+		
 		
 	}
 
@@ -452,6 +457,7 @@ public class Grid : MonoBehaviour {
 		return (temp_return_node);
     }
 
+	
 }
 
 
