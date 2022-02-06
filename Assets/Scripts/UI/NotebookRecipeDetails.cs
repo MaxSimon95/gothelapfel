@@ -30,6 +30,8 @@ public class NotebookRecipeDetails : MonoBehaviour
     private List<int> inputIngredientAmounts = new List<int>();
     private List<int> outputIngredientAmounts = new List<int>();
 
+    public NotebookIngredientDetails notebookIngredientDetails;
+
 
     // Start is called before the first frame update
     void Start()
@@ -227,5 +229,17 @@ public class NotebookRecipeDetails : MonoBehaviour
 
       
 
+    }
+
+    public void OpenIngredientDetailPageInput(int index)
+    {
+        GetComponent<NotebookBaseUI>().Close();
+        notebookIngredientDetails.Open(inputIngredients[index]);
+    }
+
+    public void OpenIngredientDetailPageOutput(int index)
+    {
+        GetComponent<NotebookBaseUI>().Close();
+        notebookIngredientDetails.Open(outputIngredients[index]);
     }
 }

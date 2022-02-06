@@ -222,7 +222,7 @@ public class NotebookIngredientDetails : MonoBehaviour
         //Debug.Log(jobList[i + openPage * 10]);
         //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
         GetComponent<NotebookBaseUI>().Close();
-        Debug.Log("opening call");
+        //Debug.Log("opening call");
         notebookRecipeDetails.Open(allReactions[i]);
 
     }

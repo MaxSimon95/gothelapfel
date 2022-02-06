@@ -30,7 +30,7 @@ public class GameTime : MonoBehaviour
     public static int yearLengthInDays = 60;
     public static int dayLengthInHours = 24;
     public static float hourLengthInSecondinhos = 60;
-    public float secondinhoLengthInSeconds = 0.625f;//0.01f;//0.625f/1000;
+    public float secondinhoLengthInSeconds; // 0.004 standard für fast tiem debug = 1f;//0.01f;//0.625f/1000;
 
     System.Random randomizer = new System.Random();
 

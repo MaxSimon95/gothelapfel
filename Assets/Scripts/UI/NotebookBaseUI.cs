@@ -15,13 +15,9 @@ public class NotebookBaseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("notebookIsOpen: " + notebookIsOpen);
-        if (/*notebookIsOpen &&*/ Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-
-                Debug.Log("Escape key was pressed");
                 Close();
-
         }
     }
 
