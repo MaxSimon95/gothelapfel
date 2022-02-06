@@ -10,6 +10,7 @@ public class CanvasContainerHandler : MonoBehaviour
     private InventoryUIBehaviour inventoryUIBehaviour;
     public GameObject associatedSceneObject;
     public bool hasTransferAmountSelection;
+    //public bool closingInProgress = false;
     //public GameObject itemAutoTransferTargetParent;
 
     
@@ -29,11 +30,21 @@ public class CanvasContainerHandler : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+           
+            if (transform.GetChild(0).localScale.Equals(new Vector3(1, 1, 1)))
+            {
+                Debug.Log("Escape key was pressed");
+                CloseContainerView();
+
+            }
+        }
     }
 
     public void OpenContainerView()
     {
+        //closingInProgress = false;
         RenderOrderAdjustment.anyOverlayOpen = true;
 
         //Debug.Log("OpenContainerView");
@@ -94,7 +105,7 @@ public class CanvasContainerHandler : MonoBehaviour
     {
         RenderOrderAdjustment.anyOverlayOpen = false;
 
-        //Debug.Log("close cauld");
+        Debug.Log("close cauld");
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 1);
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
@@ -108,4 +119,25 @@ public class CanvasContainerHandler : MonoBehaviour
         InventoryItemHandler.ResetAutoTransferTargetParent();
 
     }
+    /*
+    void OnGUI()
+    {
+        
+        Event e = Event.current;
+        // nur zuhören, wenn das zugehörige panel auf 100% skaliertist, d.h. es offen ist.
+        if (transform.GetChild(0).localScale.Equals(new Vector3(1, 1, 1)))
+        {
+            //closingInProgressCounter += 1;
+            Debug.Log("Detected key code: " + e.keyCode);
+            Debug.Log(gameObject.name);
+
+            if (e.keyCode == KeyCode.Escape)
+            {
+                CloseContainerView();
+            }
+            
+        }
+    }
+    */
+
 }

@@ -134,7 +134,7 @@ public static class PathFinder
 	        }
 	    }
 
-        Debug.Log("Failure, No Path available");
+        //Debug.Log("Failure, No Path available");
 
         return null; //no path found
 	}

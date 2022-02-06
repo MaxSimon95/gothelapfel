@@ -30,14 +30,9 @@ public class NotebookJobs : MonoBehaviour
     
     public void Open()
     {
-        Debug.Log("open1");
-
         jobManagement.OrderActiveJobs(noteBookActiveJobSorting);
-        Debug.Log("open1");
         jobList = JobsManagement.activeJobList;
-        Debug.Log("open1");
         UpdateJobPanels();
-        Debug.Log("open1");
 
         GetComponent<NotebookBaseUI>().Open();
     }
@@ -48,35 +43,35 @@ public class NotebookJobs : MonoBehaviour
         {
             jobPanels[i].localScale = new Vector3(0, 0, 0);
 
-            Debug.Log(i);
+            //Debug.Log(i);
 
             //Debug.Log(JobsManagement.activeJobList.Count);
             if (i < jobList.Count)
             {
                 jobPanels[i].localScale = new Vector3(1, 1, 1);
 
-                Debug.Log(i);
+                //Debug.Log(i);
                 // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
-                Debug.Log(i);
+                //Debug.Log(i);
                 jobPanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = jobList[i + openPage * 10].title;
                 jobPanels[i].GetChild(3).gameObject.GetComponent<UnityEngine.UI.Text>().text = jobList[i + openPage * 10].requestedAmount.ToString();
                 jobPanels[i].GetChild(5).gameObject.GetComponent<UnityEngine.UI.Text>().text = jobList[i + openPage * 10].remainingDays.ToString();
                 jobPanels[i].GetChild(7).gameObject.GetComponent<UnityEngine.UI.Text>().text = jobList[i + openPage * 10].payment.ToString();
-                Debug.Log(i);
+                //Debug.Log(i);
                 if (jobList[i].requestedIngredientType != null)
                 {
                     jobPanels[i].GetChild(8).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Requested Alchemicum:"; 
                     jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = jobList[i + openPage * 10].requestedIngredientType.ingredientName; // JobsManagement.activeJobList[i].payment.ToString();
-                    Debug.Log(i);
+                    //Debug.Log(i);
                 }
                 else
                 {
                     jobPanels[i].GetChild(8).gameObject.GetComponent<UnityEngine.UI.Text>().text = "Requested Effects:";
                     jobPanels[i].GetChild(9).gameObject.GetComponent<UnityEngine.UI.Text>().text = jobList[i + openPage * 10].requestedEffectsString;
                     // todo effekte
-                    Debug.Log(i);
+                    //Debug.Log(i);
                 }
-                Debug.Log(i);
+                //Debug.Log(i);
 
             }
         }

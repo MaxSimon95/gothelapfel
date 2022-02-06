@@ -442,7 +442,7 @@ public class Grid : MonoBehaviour {
 				float temp_distance = Mathf.Sqrt(Mathf.Pow((grid_point.X - Nodes[i, j].X), 2) + Mathf.Pow((grid_point.Y - Nodes[i, j].Y), 2));
 				if (!Nodes[i,j].BadNode && temp_distance < compare_distance)
                 {
-					Debug.Log("temp_distance: " + temp_distance + ", compare_distance: " + compare_distance);
+					//Debug.Log("temp_distance: " + temp_distance + ", compare_distance: " + compare_distance);
 					if (PathFinder.FindPath(this, WorldToGrid(Player.transform.position), new Point(Nodes[i, j].X, Nodes[i, j].Y)) !=null)
                     {
 						compare_distance = temp_distance;
@@ -453,7 +453,7 @@ public class Grid : MonoBehaviour {
 			}
 		}
 
-		Debug.Log("temp_return_node = " + temp_return_node.X + " " + temp_return_node.Y);
+		//Debug.Log("temp_return_node = " + temp_return_node.X + " " + temp_return_node.Y);
 		return (temp_return_node);
     }
 

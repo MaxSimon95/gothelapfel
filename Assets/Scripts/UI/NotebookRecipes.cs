@@ -31,7 +31,7 @@ public class NotebookRecipes : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log("opening");
+        //Debug.Log("opening");
         UpdateDetailPanels();
         GetComponent<NotebookBaseUI>().Open();
 
@@ -43,11 +43,11 @@ public class NotebookRecipes : MonoBehaviour
 
         foreach (Transform child in AlchemyEngineRecipes)
         {
-            Debug.Log(child);
+            //Debug.Log(child);
 
             if (child.gameObject.GetComponent<AlchemyReaction>().knownToPlayer && !child.gameObject.GetComponent<AlchemyReaction>().AlwaysHideFromNotebookView)
             {
-                Debug.Log(child.gameObject.name + "it's in there");
+                //Debug.Log(child.gameObject.name + "it's in there");
                 recipesList.Add(child.gameObject.GetComponent<AlchemyReaction>());
             }
         }
@@ -76,20 +76,15 @@ public class NotebookRecipes : MonoBehaviour
 
         LoadRecipes();
 
-        //Debug.Log("ingredienttypepanel count " + recipePanels.Count);
-        //Debug.Log("ingredienttypes count" + recipesList.Count);
 
         for (int i = 0; i < recipePanels.Count; i++)
         {
-            //recipePanels[i].localScale = new Vector3(0, 0, 0);
+            
             recipePanels[i].gameObject.SetActive(false);
 
-            //Debug.Log(i);
-
-            //Debug.Log(JobsManagement.activeJobList.Count);
             if (i < recipesList.Count)
             {
-                //recipePanels[i].localScale = new Vector3(1, 1, 1);
+                
                 recipePanels[i].gameObject.SetActive(true);
 
                 // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
@@ -99,7 +94,6 @@ public class NotebookRecipes : MonoBehaviour
 
                 recipePanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text = recipesList[i + openPage * 100].reactionName;
 
-                //Debug.Log(i + "info updated");
 
             }
         }
@@ -107,12 +101,8 @@ public class NotebookRecipes : MonoBehaviour
 
     public void OpenIngredientDetails(int i)
     {
-        //Debug.Log(i + openPage * 10);
-        //Debug.Log(i + " " + JobsManagement.activeJobList[i + openPage * 10].title);
-        //Debug.Log(jobList[i + openPage * 10]);
-        //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
+
         GetComponent<NotebookBaseUI>().Close();
-        Debug.Log("opening call");
         notebookRecipeDetails.Open(recipesList[i + openPage * 37]);
 
 

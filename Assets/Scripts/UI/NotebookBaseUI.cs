@@ -15,7 +15,14 @@ public class NotebookBaseUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log("notebookIsOpen: " + notebookIsOpen);
+        if (/*notebookIsOpen &&*/ Input.GetKeyDown(KeyCode.Escape))
+        {
+
+                Debug.Log("Escape key was pressed");
+                Close();
+
+        }
     }
 
     public void Open()
@@ -28,7 +35,10 @@ public class NotebookBaseUI : MonoBehaviour
 
     public void Close()
     {
+        Debug.Log("CLOSE");
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
+
+        Debug.Log(transform.GetChild(0).localScale);
         notebookIsOpen = false;
         RenderOrderAdjustment.anyOverlayOpen = false;
         // 
