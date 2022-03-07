@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -153,6 +154,9 @@ MonoBehaviour:
   - {fileID: 0}
   ingredientTypeAmounts: 01000000
   amountTotal: 0
+  temperature: 0
+  IngredientEffects: []
+  IngredientEffectIntensities: []
 --- !u!225 &2281666088860395963
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -177,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3481d142d382934aa58c54f0773273d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
   startParent: {fileID: 0}
 --- !u!114 &2281666088860395961
 MonoBehaviour:
@@ -336,7 +339,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 5
