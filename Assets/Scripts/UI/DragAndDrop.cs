@@ -83,6 +83,11 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                     child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                 }
 
+                if (child.gameObject.name == "ButtonCutIngredient")
+                {
+                    child.gameObject.GetComponent<CuttingBoardHandler>().updateButtonActive();
+                }
+
                 if (child.gameObject.name == "ButtonSubmitInventoryItem")
                 {
                     Debug.Log("Take out");
@@ -109,6 +114,29 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                         }
 
                         
+                    }
+
+                }
+            }
+        }
+
+        //special case centrifuge output slots:
+        if (originalParent.transform.parent.parent.gameObject.name == "PanelCuttingboardView")
+        {
+            foreach (Transform child in originalParent.transform.parent.parent)
+            {
+                //Debug.Log(child.gameObject.name);
+                if (child.gameObject.name == "PanelTransfer")
+                {
+                    // Debug.Log(child.gameObject.name);
+                    foreach (Transform child2 in child)
+                    {
+                        if (child2.gameObject.name == "ButtonCutIngredient")
+                        {
+                            child2.gameObject.GetComponent<CuttingBoardHandler>().updateButtonActive();
+                        }
+
+
                     }
 
                 }

@@ -139,6 +139,11 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                     child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                 }
 
+                if (child.gameObject.name == "ButtonCutIngredient")
+                {
+                    child.gameObject.GetComponent<CuttingBoardHandler>().updateButtonActive();
+                }
+
                 if (child.gameObject.name == "ButtonSubmitInventoryItem")
                 {
                     //Debug.Log("Origin");
@@ -160,6 +165,11 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                         if (child2.gameObject.name == "ButtonStartCentrifuge")
                         {
                             child2.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+                        }
+
+                        if (child.gameObject.name == "ButtonCutIngredient")
+                        {
+                            child.gameObject.GetComponent<CuttingBoardHandler>().updateButtonActive();
                         }
                     }
                 }
@@ -186,6 +196,11 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
             if (child.gameObject.name == "ButtonStartCentrifuge")
             {
                 child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
+            }
+
+            if (child.gameObject.name == "ButtonCutIngredient")
+            {
+                child.gameObject.GetComponent<CuttingBoardHandler>().updateButtonActive();
             }
 
             if (child.gameObject.name == "ButtonSubmitInventoryItem")

@@ -80,6 +80,11 @@ public class CanvasContainerHandler : MonoBehaviour
                         child2.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                         child2.gameObject.GetComponent<CentrifugeHandler>().UpdateDisplayedSlotsNumber();
                     }
+
+                    if (child.gameObject.name == "ButtonCutIngredient")
+                    {
+                        child.gameObject.GetComponent<CuttingBoardHandler>().updateButtonActive();
+                    }
                 }
             }
         }

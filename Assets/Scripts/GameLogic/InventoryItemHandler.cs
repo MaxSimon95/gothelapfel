@@ -218,7 +218,7 @@ public class InventoryItemHandler : MonoBehaviour
 
     private void SetToolTipText()
     {
-
+      
 
         // just one ingredienttype: use its ingredienttype name for tooltip text
         if (ingredientTypes.Count == 1)

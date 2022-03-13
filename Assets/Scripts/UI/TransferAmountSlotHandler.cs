@@ -39,6 +39,11 @@ public class TransferAmountSlotHandler : MonoBehaviour, IDropHandler
                 {
                     child.gameObject.GetComponent<CentrifugeHandler>().updateButtonActive();
                 }
+
+                if (child.gameObject.name == "ButtonCutIngredient")
+                {
+                    child.gameObject.GetComponent<CuttingBoardHandler>().updateButtonActive();
+                }
             }
         }
 
