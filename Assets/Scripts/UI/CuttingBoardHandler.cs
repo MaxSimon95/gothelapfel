@@ -117,14 +117,34 @@ public class CuttingBoardHandler : MonoBehaviour
             Debug.Log("inactive because no item");
             buttonActive = false;
         }
+        else
+        {
+            if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript().GetComponent<InventoryItemHandler>().ingredientTypes.Count > 1)
+            {
+                Debug.Log("inactive because mixture");
+                buttonActive = false;
+            }
+            else
+            {
+                if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript().GetComponent<InventoryItemHandler>().ingredientTypes[0].ingredientCutUp == null)
+                {
+                    Debug.Log("inactive because no cut up found");
+                    buttonActive = false;
+                }
+            }
+        }
+       
 
         // inactive when theres alteast one item still in the output slots
 
         foreach (ItemSlotHandler slot in outputItemSlots)
         {
-            Debug.Log("inactive because output slots not free");
             if (slot.transform.childCount > 0)
+            {
+                Debug.Log("inactive because output slots not free");
                 buttonActive = false;
+            }
+                
         }
 
 
@@ -152,7 +172,7 @@ public class CuttingBoardHandler : MonoBehaviour
 
 
 
-            for (int i = 0; i < inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.Count; i++)
+            for (int i = 0; i < inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypes[0].ingredientCutUp.OutputIngredientTypes.Count; i++)
             {
 
 
@@ -167,6 +187,7 @@ public class CuttingBoardHandler : MonoBehaviour
                     slotInventoryItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
                     slotInventoryItem.GetComponent<RectTransform>().localScale = new Vector3(slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
 
+                    // throw out the prefab amount and type
                     slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.RemoveAt(0);
                     slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypes.RemoveAt(0);
                 }
@@ -174,7 +195,7 @@ public class CuttingBoardHandler : MonoBehaviour
 
 
 
-                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypes[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypeAmounts[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().temperature);
+                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypes[0].ingredientCutUp.OutputIngredientTypes[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().ingredientTypes[0].ingredientCutUp.OutputIngredientAmounts[i], inventoryItemInSlot.GetComponent<InventoryItemHandler>().temperature);
 
                 slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
 

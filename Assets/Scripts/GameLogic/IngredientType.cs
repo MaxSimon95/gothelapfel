@@ -27,6 +27,8 @@ public class IngredientType : MonoBehaviour
 
     private GameObject alchemyReactions;
 
+    public IngredientCutUp ingredientCutUp;
+
     void Start()
     {
         alchemyReactions = GameObject.Find("AlchemyReactions");
