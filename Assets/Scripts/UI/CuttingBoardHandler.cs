@@ -9,6 +9,8 @@ public class CuttingBoardHandler : MonoBehaviour
     private bool buttonActive;
     private GameObject inventoryItemInSlot;
     private List<ItemSlotHandler> outputItemSlots = new List<ItemSlotHandler>();
+    private AudioSource source;
+    public AudioClip sound;
 
 
     // Start is called before the first frame update
@@ -163,6 +165,7 @@ public class CuttingBoardHandler : MonoBehaviour
 
     public void SeparateIngredients()
     {
+        PlaySound();
         GameObject slotInventoryItem = null;
 
         Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript());
@@ -215,5 +218,11 @@ public class CuttingBoardHandler : MonoBehaviour
 
         updateButtonActive();
 
+    }
+
+    public void PlaySound()
+    {
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(sound, 1f);
     }
 }

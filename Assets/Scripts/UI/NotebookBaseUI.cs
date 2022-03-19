@@ -5,6 +5,8 @@ using UnityEngine;
 public class NotebookBaseUI : MonoBehaviour
 {
     public static bool notebookIsOpen = false;
+    private AudioSource source;
+    public AudioClip sound;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class NotebookBaseUI : MonoBehaviour
 
     public void Open()
     {
+        PlaySound();
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
         notebookIsOpen = true;
         RenderOrderAdjustment.anyOverlayOpen = true;
@@ -46,5 +49,11 @@ public class NotebookBaseUI : MonoBehaviour
         // close this one
         // open the target
     }
-    
+
+    public void PlaySound()
+    {
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(sound, 1f);
+    }
+
 }

@@ -13,11 +13,17 @@ public class CanvasContainerHandler : MonoBehaviour
     //public bool closingInProgress = false;
     //public GameObject itemAutoTransferTargetParent;
 
-    
+    public static List<GameObject> sceneUIToggle = new List<GameObject>();
+
+
     void Awake()
     {
-
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
+
+        sceneUIToggle.Add(GameObject.Find("CanvasClock"));
+        sceneUIToggle.Add(GameObject.Find("CanvasFeaturedJobs"));
+        sceneUIToggle.Add(GameObject.Find("CanvasTopBar"));
+        sceneUIToggle.Add(GameObject.Find("CanvasEnvironmentIndicators"));
 
     }
  
@@ -42,8 +48,19 @@ public class CanvasContainerHandler : MonoBehaviour
         }
     }
 
+    public static void SetSceneUIVisible(bool visible)
+    {
+        foreach(GameObject go in sceneUIToggle)
+        {
+            go.SetActive(visible);
+        }
+    }
+
     public void OpenContainerView()
     {
+
+        SetSceneUIVisible(false);
+
         //closingInProgress = false;
         RenderOrderAdjustment.anyOverlayOpen = true;
 
@@ -109,6 +126,7 @@ public class CanvasContainerHandler : MonoBehaviour
     public void CloseContainerView()
     {
         RenderOrderAdjustment.anyOverlayOpen = false;
+        SetSceneUIVisible(true);
 
         Debug.Log("close cauld");
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
