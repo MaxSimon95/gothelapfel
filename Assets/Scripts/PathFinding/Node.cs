@@ -167,7 +167,7 @@ public class Node {
 		if (X <= 0)
 			tempValid = false;
 		hit = Physics2D.Raycast(Position, new Vector2(-1, 0), grid.UnitSizeX, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 			
 			tempValid = false;
@@ -185,7 +185,7 @@ public class Node {
 			tempValid = false;
 
 		hit = Physics2D.Raycast(Position, new Vector2(-grid.UnitSizeX, grid.UnitSizeY), diagonalDistance, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 			
 			tempValid = false;
@@ -203,7 +203,7 @@ public class Node {
 			tempValid = false;
 
 		hit = Physics2D.Raycast(Position, new Vector2(-grid.UnitSizeX, -grid.UnitSizeY), diagonalDistance, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 			
 			tempValid = false;
@@ -219,7 +219,7 @@ public class Node {
 			tempValid = false;
 
 		hit = Physics2D.Raycast(Position, new Vector2(0, -1), grid.UnitSizeY, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 			
 			tempValid = false;
@@ -237,7 +237,7 @@ public class Node {
 			tempValid = false;
 
 		hit = Physics2D.Raycast(Position, new Vector2(grid.UnitSizeX, -grid.UnitSizeY), diagonalDistance, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 		
 			tempValid = false;
@@ -253,7 +253,7 @@ public class Node {
 			tempValid = false;
 
 		hit = Physics2D.Raycast(Position, new Vector2(1, 0), grid.UnitSizeX, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 			
 			tempValid = false;
@@ -271,7 +271,7 @@ public class Node {
 			tempValid = false;
 
 		hit = Physics2D.Raycast(Position, new Vector2(grid.UnitSizeX, grid.UnitSizeY), diagonalDistance, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 			
 			tempValid = false;
@@ -287,7 +287,7 @@ public class Node {
 			tempValid = false;
 
 		hit = Physics2D.Raycast(Position, new Vector2(0, 1), grid.UnitSizeY, LayerMask.GetMask("ColliderLayer"));
-		if (hit.collider != null && hit.collider.tag != "PlayerCharacter")
+		if (hit.collider != null && hit.collider.tag != "PlayerCharacter" && !hit.collider.isTrigger)
 		{
 			
 			tempValid = false;
@@ -299,104 +299,6 @@ public class Node {
 
 		//DrawConnections();
 
-		/*
-		if (X > 1)
-		{	
-			//Left
-			valid = true;
-			hit = Physics2D.Raycast(Position, new Vector2(-1, 0), grid.UnitSize);
-			if (hit.collider != null && hit.collider.tag == "Wall")
-			{
-				valid = false;
-			}
-			Left = new NodeConnection(this, grid.Nodes[X - 2, Y], valid);
-
-			//TopLeft
-			if (Y > 0)
-			{
-				valid = true;
-				hit = Physics2D.Raycast(Position, new Vector2(-1, 1), diagonalDistance);
-				if (hit.collider != null && hit.collider.tag == "Wall")
-				{
-					valid = false;
-				}
-				TopLeft = new NodeConnection(this, grid.Nodes[X - 1, Y - 1], valid);
-			}
-
-			//BottomLeft
-			if (Y < grid.Height - 1)
-			{
-				valid = true;
-				hit = Physics2D.Raycast(Position, new Vector2(-1, -1), diagonalDistance);
-				if (hit.collider != null && hit.collider.tag == "Wall")
-				{
-					valid = false;
-				}			
-				BottomLeft = new NodeConnection(this,grid.Nodes[X - 1, Y + 1], valid);
-			}
-		}
-
-
-		if (X < grid.Width - 2)
-		{
-			valid = true;
-			hit = Physics2D.Raycast(Position, new Vector2(1, 0), grid.UnitSize);
-			if (hit.collider != null && hit.collider.tag == "Wall")
-			{
-				valid = false;
-			}
-			Right = new NodeConnection(this,grid.Nodes[X + 2, Y], valid);
-
-			//TopRight
-			if (Y > 0)
-			{
-				valid = true;
-				hit = Physics2D.Raycast(Position, new Vector2(1, 1), diagonalDistance);
-				if (hit.collider != null && hit.collider.tag == "Wall")
-				{
-					valid = false;
-				}
-				TopRight = new NodeConnection(this,grid.Nodes[X + 1, Y - 1], valid);
-			}
-			
-			//BottomRight
-			if (Y < grid.Height - 1)
-			{
-				valid = true;
-				hit = Physics2D.Raycast(Position, new Vector2(1, -1), diagonalDistance);
-				if (hit.collider != null && hit.collider.tag == "Wall")
-				{
-					valid = false;
-				}
-				BottomRight = new NodeConnection(this,grid.Nodes[X + 1, Y + 1], valid);
-			}
-
-		}
-	
-		if (Y - 1 > 0)
-		{
-			valid = true;
-			hit = Physics2D.Raycast(Position, new Vector2(0, 1), grid.UnitSize);
-			if (hit.collider != null && hit.collider.tag == "Wall")
-			{
-				valid = false;
-			}			
-			Top = new NodeConnection(this,grid.Nodes[X, Y - 2], valid);
-		}
-
-
-		if (Y < grid.Height - 2)
-		{
-			valid = true;
-			hit = Physics2D.Raycast(Position, new Vector2(0, -1), grid.UnitSize);
-			if (hit.collider != null && hit.collider.tag == "Wall")
-			{
-				valid = false;
-			}						
-			Bottom = new NodeConnection(this,grid.Nodes[X, Y + 2], valid);
-		}
-
-		*/
 	}
 
 

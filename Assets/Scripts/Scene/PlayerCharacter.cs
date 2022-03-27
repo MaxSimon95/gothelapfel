@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCharacter : MonoBehaviour
 {
     public float movementSpeed;
-    public GameObject currentRoom;
+    public RoomHandler currentRoom;
     public Sprite[] sprites;
 
     public Grid grid;

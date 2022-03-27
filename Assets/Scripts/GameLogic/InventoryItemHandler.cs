@@ -247,7 +247,8 @@ public class InventoryItemHandler : MonoBehaviour
             || (transform.parent.GetComponent<ItemSlotHandler>().associatedContainer.name == "PanelInventory")
             )
         {
-            targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.GetComponent<RoomHandler>().temperature;
+            //targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.GetComponent<RoomHandler>().temperature;
+            targetTemperature = GameObject.Find("PlayerCharacter").GetComponent<PlayerCharacter>().currentRoom.temperature;
         }
         else
         {

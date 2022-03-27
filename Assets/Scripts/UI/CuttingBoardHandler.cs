@@ -16,8 +16,8 @@ public class CuttingBoardHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("START CUTTING BOARD");
-        Debug.Log(transform.parent.parent.gameObject.name);
+        //Debug.Log("START CUTTING BOARD");
+        //Debug.Log(transform.parent.parent.gameObject.name);
 
         updateButtonActive();
 
@@ -26,14 +26,14 @@ public class CuttingBoardHandler : MonoBehaviour
         {
             if (child.gameObject.name == "PanelCuttingboard")
             {
-                Debug.Log(child.gameObject.name);
+                //Debug.Log(child.gameObject.name);
                 foreach (Transform child2 in child)
                 {
 
 
                     if (child2.gameObject.name == "PanelInventorySlots")
                     {
-                        Debug.Log(child2.gameObject.name);
+                        //Debug.Log(child2.gameObject.name);
                         foreach (Transform slot in child2)
                         {
                             outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
@@ -116,21 +116,21 @@ public class CuttingBoardHandler : MonoBehaviour
         // inactive when theres no item to centrifugize
         if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript() == null)
         {
-            Debug.Log("inactive because no item");
+            //Debug.Log("inactive because no item");
             buttonActive = false;
         }
         else
         {
             if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript().GetComponent<InventoryItemHandler>().ingredientTypes.Count > 1)
             {
-                Debug.Log("inactive because mixture");
+                //Debug.Log("inactive because mixture");
                 buttonActive = false;
             }
             else
             {
                 if (GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript().GetComponent<InventoryItemHandler>().ingredientTypes[0].ingredientCutUp == null)
                 {
-                    Debug.Log("inactive because no cut up found");
+                    //Debug.Log("inactive because no cut up found");
                     buttonActive = false;
                 }
             }
@@ -168,7 +168,7 @@ public class CuttingBoardHandler : MonoBehaviour
         PlaySound();
         GameObject slotInventoryItem = null;
 
-        Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript());
+        //Debug.Log(GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript());
         inventoryItemInSlot = GetComponent<TransferContainerHandler>().LoadSlotItemIntoScript();
         if (inventoryItemInSlot != null)
         {
