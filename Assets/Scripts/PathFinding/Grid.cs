@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public enum Direction
 {
@@ -15,7 +17,12 @@ public enum Direction
 }
 
 public class Grid : MonoBehaviour {
-		
+
+
+	public Camera camera;
+
+	//Pathfinding demo
+
 	public Vector2 Offset;
 	public float UnitSize;
 	public float UnitSizeX;
@@ -37,7 +44,8 @@ public class Grid : MonoBehaviour {
 	GameObject Player;
 
 	void Awake () 
-	{	
+	{
+
 		Player = GameObject.Find ("PlayerCharacter");
 		LineRenderer = transform.GetComponent<LineRenderer>();
 
@@ -409,17 +417,45 @@ public class Grid : MonoBehaviour {
 
 		if (!MouseInputUIBlocker.BlockedByUI)
 		{
-			//Pathfinding demo
+			
 			if (Input.GetMouseButtonDown(0))
 			{
 				if (!RenderOrderAdjustment.anyOverlayOpen)
 				{
+					Debug.Log("HALLO");
+					bool blockedByCollider = false;
+					List<GameObject> movementTargetBlockers = GameObject.FindGameObjectsWithTag("MovementTargetBlocker").ToList();
 
-					//Debug.Log("Mouse Button Down");
-					//Convert mouse click point to grid coordinates
-					Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+					Vector3 worldPosClick = camera.ScreenToWorldPoint(Input.mousePosition);
 
-					TryGoToWorldpos(worldPos);
+					Debug.Log(movementTargetBlockers);
+
+					foreach (GameObject tempGO in movementTargetBlockers) {
+						Debug.Log("Loop");
+						
+						if(tempGO.GetComponent<Collider2D>().OverlapPoint(new Vector2(worldPosClick.x, worldPosClick.y)))
+                        {
+							blockedByCollider = true;
+							Debug.Log(blockedByCollider);
+
+						}
+						else
+                        {
+							Debug.Log("kein overlap");
+							Debug.Log("mouse " + new Vector2(worldPosClick.x, worldPosClick.y));
+							Debug.Log("Collider " + new Vector2(tempGO.transform.position.x, tempGO.transform.position.y));  
+						}
+                    }
+
+					if(!blockedByCollider)
+                    {
+						//Debug.Log("Mouse Button Down");
+						//Convert mouse click point to grid coordinates
+						Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+						TryGoToWorldpos(worldPos);
+					}
+					
 				}
 			}
 		}

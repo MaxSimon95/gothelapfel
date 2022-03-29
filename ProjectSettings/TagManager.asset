@@ -7,6 +7,8 @@ TagManager:
   - Clickable2D
   - PlayerCharacter
   - StationaryCollider
+  - Room
+  - MovementTargetBlocker
   layers:
   - Default
   - TransparentFX

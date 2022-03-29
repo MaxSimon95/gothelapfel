@@ -9,6 +9,7 @@ public class RenderOrderAdjustment : MonoBehaviour
 
     public static bool anyOverlayOpen = false;
     //public static bool BlockedByUI = false;
+    public RoomHandler room;
 
     public void AdjustRenderOrder()
     {
@@ -24,7 +25,28 @@ public class RenderOrderAdjustment : MonoBehaviour
 
     void Start()
     {
+        room = DetermineRoom(transform);
         AdjustRenderOrder();
+    }
+
+    private RoomHandler DetermineRoom(Transform pTransform)
+    {
+        if(pTransform.parent != null)
+        {
+            if(pTransform.parent.gameObject.tag == "Room")
+            {
+                return(pTransform.parent.gameObject.GetComponent<RoomHandler>());
+            }
+            else
+            {
+                return (DetermineRoom(pTransform.parent));
+            }
+        }
+        else
+        {
+            Debug.LogError(name + " is not set in any Room. It has to be set in a room via the Unity Editor (Transform Hierarchy). ");
+            return null;
+        }
     }
 
     // Update is called once per frame
