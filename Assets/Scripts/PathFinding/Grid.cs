@@ -422,9 +422,9 @@ public class Grid : MonoBehaviour {
 			{
 				if (!RenderOrderAdjustment.anyOverlayOpen)
 				{
-					Debug.Log("HALLO");
+					
 					bool blockedByCollider = false;
-					List<GameObject> movementTargetBlockers = GameObject.FindGameObjectsWithTag("MovementTargetBlocker").ToList();
+					List<GameObject> movementTargetBlockers = GameObject.FindGameObjectsWithTag("PlayerCharacter")[0].GetComponent<PlayerCharacter>().currentRoom.movementBlockers;
 
 					Vector3 worldPosClick = camera.ScreenToWorldPoint(Input.mousePosition);
 

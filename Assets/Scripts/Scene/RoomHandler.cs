@@ -12,6 +12,7 @@ public class RoomHandler : MonoBehaviour
     public Vector2 cameraCenter;
     public float cameraZoom;
     private RoomManagement roomManagement;
+    public List<GameObject> movementBlockers;
 
     public float temperature;
 
@@ -27,6 +28,12 @@ public class RoomHandler : MonoBehaviour
 
 
         roomManagement = GameObject.Find("RoomManagement").GetComponent<RoomManagement>();
+
+        foreach (Transform child in transform)
+        {
+            if (child.tag == "MovementTargetBlocker")
+                movementBlockers.Add(child.gameObject);
+        }
     }
 
     // Update is called once per frame
