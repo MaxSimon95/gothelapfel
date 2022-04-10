@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorHandler : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class DoorHandler : MonoBehaviour
         //Debug.Log("Door Handler Touched");
         if(GameObject.FindGameObjectsWithTag("PlayerCharacter")[0].GetComponent<PlayerCharacter>().currentRoom != gameObject.transform.parent.gameObject.GetComponent<RoomHandler>())
         {
-            gameObject.transform.parent.gameObject.GetComponent<RoomHandler>().OnEnter();
+            gameObject.transform.parent.gameObject.GetComponent<RoomHandler>().OnEnter(false);
         }
     }
 }

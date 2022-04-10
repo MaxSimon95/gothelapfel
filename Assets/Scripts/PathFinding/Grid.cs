@@ -428,22 +428,22 @@ public class Grid : MonoBehaviour {
 
 					Vector3 worldPosClick = camera.ScreenToWorldPoint(Input.mousePosition);
 
-					Debug.Log(movementTargetBlockers);
+					//Debug.Log(movementTargetBlockers);
 
 					foreach (GameObject tempGO in movementTargetBlockers) {
-						Debug.Log("Loop");
+						//Debug.Log("Loop");
 						
 						if(tempGO.GetComponent<Collider2D>().OverlapPoint(new Vector2(worldPosClick.x, worldPosClick.y)))
                         {
 							blockedByCollider = true;
-							Debug.Log(blockedByCollider);
+							//Debug.Log(blockedByCollider);
 
 						}
 						else
                         {
-							Debug.Log("kein overlap");
-							Debug.Log("mouse " + new Vector2(worldPosClick.x, worldPosClick.y));
-							Debug.Log("Collider " + new Vector2(tempGO.transform.position.x, tempGO.transform.position.y));  
+							//Debug.Log("kein overlap");
+							//Debug.Log("mouse " + new Vector2(worldPosClick.x, worldPosClick.y));
+							//Debug.Log("Collider " + new Vector2(tempGO.transform.position.x, tempGO.transform.position.y));  
 						}
                     }
 

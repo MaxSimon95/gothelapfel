@@ -297,7 +297,7 @@ public class Node {
 		Debugger.GetComponent<Debugger>().Top = Top;
 		Debugger.GetComponent<Debugger>().TopValid = tempValid;
 
-		//DrawConnections();
+	//DrawConnections();
 
 	}
 

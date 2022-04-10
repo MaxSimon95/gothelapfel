@@ -44,7 +44,15 @@ public class ContainerClickHandler : MonoBehaviour, IPointerClickHandler,
 
         } */
 
-        Node reachableTargetNode = GameObject.Find("Grid").GetComponent<Grid>().FindNearestAccessibleNodeFromWorldCoordinates(new Vector2(transform.position.x, transform.position.y));
+        Vector3 targetVector = new Vector3(0,0,0);
+
+        if (transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>() != null)
+        {
+
+        }
+            targetVector = transform.GetChild(0).gameObject.GetComponent<PolygonCollider2D>().bounds.center;
+
+        Node reachableTargetNode = GameObject.Find("Grid").GetComponent<Grid>().FindNearestAccessibleNodeFromWorldCoordinates(new Vector2(targetVector.x, targetVector.y));
 
         if (reachableTargetNode != null)
         {
@@ -62,7 +70,7 @@ public class ContainerClickHandler : MonoBehaviour, IPointerClickHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        LeanTween.color(gameObject, new Color(1f, 0.94f, 0.43f, 1f), 0.1f);
+        LeanTween.color(gameObject, new Color(1f, 0.94f, 0.13f, 1f), 0.1f);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -70,7 +78,8 @@ public class ContainerClickHandler : MonoBehaviour, IPointerClickHandler,
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        LeanTween.color(gameObject, Color.white, 0.1f);
+        LeanTween.color(gameObject, GetComponent<RenderOrderAdjustment>().room.currentRoomColor, 0.1f);
+        
     }
 
     

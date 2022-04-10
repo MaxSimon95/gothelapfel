@@ -24,13 +24,15 @@ public class PlayerCharacter : MonoBehaviour
 
     float CheckDistanceToGO(GameObject go)
     {
-      //  Debug.Log("go: " + go.transform.position.x + " " + go.transform.position.y);
-      //  Debug.Log("pc: " + transform.position.x + " " + transform.position.y);
+        //  Debug.Log("go: " + go.transform.position.x + " " + go.transform.position.y);
+        //  Debug.Log("pc: " + transform.position.x + " " + transform.position.y);
 
 
-    
 
-        float distance = Mathf.Sqrt(Mathf.Pow((go.transform.position.x - transform.position.x), 2) + Mathf.Pow((go.transform.position.y - transform.position.y), 2));
+
+        // float distance = Mathf.Sqrt(Mathf.Pow((go.transform.position.x - transform.position.x), 2) + Mathf.Pow((go.transform.position.y - transform.position.y), 2));
+
+        float distance = Mathf.Sqrt(Mathf.Pow((go.transform.GetChild(0).GetComponent<PolygonCollider2D>().bounds.center.x - transform.position.x), 2) + Mathf.Pow((go.transform.GetChild(0).GetComponent<PolygonCollider2D>().bounds.center.y - transform.position.y), 2));
 
         return distance;
     }
@@ -43,8 +45,18 @@ public class PlayerCharacter : MonoBehaviour
         {
             if (CheckDistanceToGO(currentMovementTargetGO) < 1.5)
             {
+                Debug.Log("Movement target reached");
                 RotateCharacterTowardsPoint(currentMovementTargetGO.transform.position.x, currentMovementTargetGO.transform.position.y);
-                currentMovementTargetGO.GetComponent<ContainerClickHandler>().containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
+
+                if(currentMovementTargetGO.GetComponent<ContainerClickHandler>() != null)
+                {
+                    currentMovementTargetGO.GetComponent<ContainerClickHandler>().containerCanvas.GetComponent<CanvasContainerHandler>().OpenContainerView();
+                }
+                else if (currentMovementTargetGO.GetComponent<TeleportHandler>() != null)
+                {
+                    currentMovementTargetGO.GetComponent<TeleportHandler>().Teleport();
+                }
+
                 currentMovementTargetGO = null;
                 currentlyMovingTowardsPoint = false;
             }

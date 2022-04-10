@@ -1,0 +1,900 @@
+fileFormatVersion: 2
+guid: ef00279d3f28ec24082cbd6e435e900f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3991057437579151806
+    second: pillar_corner_0
+  - first:
+      213: -8769049117172976979
+    second: pillar_corner_1
+  - first:
+      213: -3738116619115315102
+    second: pillar_corner_2
+  - first:
+      213: 6612832267567141346
+    second: pillar_corner_3
+  - first:
+      213: 3291938113257714642
+    second: pillar_corner_4
+  - first:
+      213: -175350998215668997
+    second: pillar_corner_5
+  - first:
+      213: 9101787649813877393
+    second: pillar_corner_6
+  - first:
+      213: 3807553231358447124
+    second: pillar_corner_7
+  - first:
+      213: 3315540859404289147
+    second: pillar_corner_8
+  - first:
+      213: 112858941445461423
+    second: pillar_corner_9
+  - first:
+      213: 1116967350348733225
+    second: pillar_corner_10
+  - first:
+      213: 6851680084183756893
+    second: pillar_corner_11
+  - first:
+      213: -1285208277493224947
+    second: pillar_corner_12
+  - first:
+      213: -3996786383321152264
+    second: pillar_corner_13
+  - first:
+      213: 2327702029988714597
+    second: pillar_corner_14
+  - first:
+      213: 209991205766899682
+    second: pillar_corner_15
+  - first:
+      213: -5322566684295737860
+    second: pillar_corner_16
+  - first:
+      213: -7028316309341766412
+    second: pillar_corner_17
+  - first:
+      213: -6865808390887650724
+    second: pillar_corner_18
+  - first:
+      213: 1069398356770383519
+    second: pillar_corner_19
+  - first:
+      213: -2716237832108320400
+    second: pillar_corner_20
+  - first:
+      213: -1846147529536804339
+    second: pillar_corner_21
+  - first:
+      213: 6641950031554295263
+    second: pillar_corner_22
+  - first:
+      213: -5466739360150290370
+    second: pillar_corner_23
+  - first:
+      213: -337349280746673320
+    second: pillar_corner_24
+  - first:
+      213: 7255198886245698806
+    second: pillar_corner_25
+  - first:
+      213: 7986607872318968764
+    second: pillar_corner_26
+  - first:
+      213: 726595278519572945
+    second: pillar_corner_27
+  - first:
+      213: 5047860429260541530
+    second: pillar_corner_28
+  - first:
+      213: 534103354188573514
+    second: pillar_corner_29
+  - first:
+      213: -82258792724138436
+    second: pillar_corner_30
+  - first:
+      213: 9071348500202532910
+    second: pillar_corner_31
+  - first:
+      213: 4988286764907086780
+    second: pillar_corner_32
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pillar_corner_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1579
+        width: 291
+        height: 1412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246f9e2f76aec98c0800000000000000
+      internalID: -3991057437579151806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_1
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1539
+        width: 291
+        height: 1431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2b3f0d9441e4680800000000000000
+      internalID: -8769049117172976979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_2
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 2944
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260c5a48dba8f1cc0800000000000000
+      internalID: -3738116619115315102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_3
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 2946
+        width: 6
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1949b39ef75cb50800000000000000
+      internalID: 6612832267567141346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1569
+        width: 291
+        height: 1417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d3bb47c5405fad20800000000000000
+      internalID: 3291938113257714642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_5
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 1540
+        width: 292
+        height: 1427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa48583237019df0800000000000000
+      internalID: -175350998215668997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_6
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 2942
+        width: 8
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1929138e4ab005e70800000000000000
+      internalID: 9101787649813877393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_7
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 2941
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ec28a9d7527d430800000000000000
+      internalID: 3807553231358447124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1573
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b74061b58da230e20800000000000000
+      internalID: 3315540859404289147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 1560
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5559afb94f09100800000000000000
+      internalID: 112858941445461423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_10
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1556
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92bde3f13e3408f00800000000000000
+      internalID: 1116967350348733225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1551
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50346c1cbe061f50800000000000000
+      internalID: 6851680084183756893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_12
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 1547
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0aef9581e50a2ee0800000000000000
+      internalID: -1285208277493224947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_13
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1539
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f44603d5ff8888c0800000000000000
+      internalID: -3996786383321152264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_14
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1535
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568de60e9a8ad4020800000000000000
+      internalID: 2327702029988714597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_15
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1535
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e721b993e90ae200800000000000000
+      internalID: 209991205766899682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_16
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 80
+        width: 291
+        height: 1412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd49310dc17226b0800000000000000
+      internalID: -5322566684295737860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_17
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 1447
+        width: 6
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc7994ed87667e90800000000000000
+      internalID: -7028316309341766412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_18
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 80
+        width: 291
+        height: 1412
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ace3525afb7b0a0800000000000000
+      internalID: -6865808390887650724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_19
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 1488
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f966faab32447de00800000000000000
+      internalID: 1069398356770383519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_20
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 45
+        width: 291
+        height: 1427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 079d4bb351cfd4ad0800000000000000
+      internalID: -2716237832108320400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_21
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1445
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a6efa6a9a2166e0800000000000000
+      internalID: -1846147529536804339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_22
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 40
+        width: 292
+        height: 1431
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd530b6fc52fc2c50800000000000000
+      internalID: 6641950031554295263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_23
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 1445
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e308896148d3224b0800000000000000
+      internalID: -5466739360150290370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_24
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 1447
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b6cd3dd9e715bf0800000000000000
+      internalID: -337349280746673320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_25
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 74
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc0c7582f4afa460800000000000000
+      internalID: 7255198886245698806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_26
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 74
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb319e58b8126de60800000000000000
+      internalID: 7986607872318968764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_27
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 61
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d992af5e82651a00800000000000000
+      internalID: 726595278519572945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_28
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 61
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e43d1d05a9d0640800000000000000
+      internalID: 5047860429260541530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_29
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 52
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b21cbbb24896700800000000000000
+      internalID: 534103354188573514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_30
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 40
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3676085012cbdef0800000000000000
+      internalID: -82258792724138436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_31
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 40
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e20385c1667e3ed70800000000000000
+      internalID: 9071348500202532910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pillar_corner_32
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 40
+        width: 43
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3c1143264f93540800000000000000
+      internalID: 4988286764907086780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
