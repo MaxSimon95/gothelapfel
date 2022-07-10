@@ -43,7 +43,7 @@ public class PlayerCharacter : MonoBehaviour
 
         if (currentMovementTargetGO != null)
         {
-            if (CheckDistanceToGO(currentMovementTargetGO) < 1.5)
+            if (CheckDistanceToGO(currentMovementTargetGO) < 1)
             {
                 Debug.Log("Movement target reached");
                 RotateCharacterTowardsPoint(currentMovementTargetGO.transform.position.x, currentMovementTargetGO.transform.position.y);

@@ -12,13 +12,18 @@ public class AlchemyEngineLogic : MonoBehaviour
 
     public IngredientType specialIngredientType_ash;
 
+    public NotificationFlagHandler notificationFlagHandler;
      
     IEnumerator Start()
     {
         CreateGeneratedAlchemyReactions();
         LoadAlchemyReactionsIntoList();
-        
 
+        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[9].GetComponent<AlchemyReaction>()));
+        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[5].GetComponent<AlchemyReaction>()));
+        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[6].GetComponent<AlchemyReaction>()));
+        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[7].GetComponent<AlchemyReaction>()));
+        //Debug.Log(notificationFlagHandler.notificationsInQueue[0].textTitle);
 
         while (isActive)
         {
@@ -34,6 +39,8 @@ public class AlchemyEngineLogic : MonoBehaviour
             }
 
         }
+
+
     }
 
     private void CreateGeneratedAlchemyReactions()

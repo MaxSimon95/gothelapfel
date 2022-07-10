@@ -229,7 +229,7 @@ public class InventoryItemHandler : MonoBehaviour
         // more than one: Say "Unknown Mixture" --> Can be fancied up later on, with all sorts of fun special cases we cover here (any mix of salt + water gets called salt water for example)
         else
         {
-            GetComponent<TooltipUITargetHandler>().tooltipText = "Mysterious Mixture";
+            GetComponent<TooltipUITargetHandler>().tooltipText = "Ingredient Mixture";
         }
     }
 

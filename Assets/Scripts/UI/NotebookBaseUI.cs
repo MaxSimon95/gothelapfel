@@ -25,6 +25,7 @@ public class NotebookBaseUI : MonoBehaviour
 
     public void Open()
     {
+        CanvasContainerHandler.SetSceneUIVisible(false);
         PlaySound();
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
         notebookIsOpen = true;
@@ -34,10 +35,11 @@ public class NotebookBaseUI : MonoBehaviour
 
     public void Close()
     {
-        Debug.Log("CLOSE");
+        CanvasContainerHandler.SetSceneUIVisible(true);
+        //Debug.Log("CLOSE");
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
 
-        Debug.Log(transform.GetChild(0).localScale);
+        //Debug.Log(transform.GetChild(0).localScale);
         notebookIsOpen = false;
         RenderOrderAdjustment.anyOverlayOpen = false;
         // 
