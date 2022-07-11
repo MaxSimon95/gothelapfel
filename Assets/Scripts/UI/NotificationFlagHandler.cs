@@ -18,6 +18,8 @@ public class NotificationFlagHandler : MonoBehaviour
     public GameObject UI_buttonLink;
     public GameObject UI_buttonClose;
 
+    Notification currentNotification;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +65,7 @@ if(LeanTween.isTweening( id ))
         Debug.Log("Show Notifcation Start");
         Debug.Log(notificationsInQueue[0].textTitle);
 
-        Notification currentNotification = notificationsInQueue[0];
+        currentNotification = notificationsInQueue[0];
         notificationActive = true;
 
         // vorderstes Queue element rausnehmen
@@ -76,6 +78,8 @@ if(LeanTween.isTweening( id ))
         UI_textBody.gameObject.GetComponent<UnityEngine.UI.Text>().text = currentNotification.textContent;
         UI_textButton.gameObject.GetComponent<UnityEngine.UI.Text>().text = currentNotification.textButton;
         UI_image.gameObject.GetComponent<UnityEngine.UI.Image>().sprite = currentNotification.notificationImage;
+
+
 
         // einblenden
 
@@ -101,6 +105,26 @@ if(LeanTween.isTweening( id ))
         {
             ShowNotification();
         }
+
+    }
+
+    public void OnClickButtonLink()
+    {
+        switch (currentNotification.notificationType)
+        {
+            case Notification.NotificationType.ALCHEMYREACTION:
+
+                GameObject.Find("CanvasNotebookRecipeDetails").GetComponent<NotebookRecipeDetails>().Open(currentNotification.alchemyReaction);
+                break;
+
+            case Notification.NotificationType.INGREDIENT:
+
+                break;
+        }
+    }
+
+    public void OnClickButtonClose()
+    {
 
     }
 

@@ -19,11 +19,6 @@ public class AlchemyEngineLogic : MonoBehaviour
         CreateGeneratedAlchemyReactions();
         LoadAlchemyReactionsIntoList();
 
-        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[9].GetComponent<AlchemyReaction>()));
-        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[5].GetComponent<AlchemyReaction>()));
-        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[6].GetComponent<AlchemyReaction>()));
-        notificationFlagHandler.AddNotificationToQueue(new Notification(alchemyReactions[7].GetComponent<AlchemyReaction>()));
-        //Debug.Log(notificationFlagHandler.notificationsInQueue[0].textTitle);
 
         while (isActive)
         {
@@ -207,10 +202,16 @@ public class AlchemyEngineLogic : MonoBehaviour
     }
     private void ExecuteAlchemyReaction(GameObject reaction, List<IngredientType> ingredientTypesAvailable, List<int> ingredientTypeAmountsAvailable)
     {
+        // trigger notification if alchemy reaction is unknown to player
+        if ((!reaction.GetComponent<AlchemyReaction>().knownToPlayer) && (!reaction.GetComponent<AlchemyReaction>().AlwaysHideFromNotebookView))
+        {
+            reaction.GetComponent<AlchemyReaction>().knownToPlayer = true;
+            notificationFlagHandler.AddNotificationToQueue(new Notification(reaction.GetComponent<AlchemyReaction>()));
+        }
 
         // remove required input ingredients from origin
 
-        for(int i=0; i< reaction.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; i++)
+            for (int i=0; i< reaction.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; i++)
         {
 
             for (int j = ingredientTypesAvailable.Count-1; j >= 0; j--)
