@@ -207,6 +207,7 @@ public class AlchemyEngineLogic : MonoBehaviour
         {
             reaction.GetComponent<AlchemyReaction>().knownToPlayer = true;
             notificationFlagHandler.AddNotificationToQueue(new Notification(reaction.GetComponent<AlchemyReaction>()));
+            
         }
 
         // remove required input ingredients from origin

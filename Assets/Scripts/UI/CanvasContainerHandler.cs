@@ -15,6 +15,8 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public static List<GameObject> sceneUIToggle = new List<GameObject>();
 
+    public static CanvasContainerHandler currentCanvasContainer;
+
 
     void Awake()
     {
@@ -58,7 +60,8 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void OpenContainerView()
     {
-
+        currentCanvasContainer = this;
+        Debug.Log(currentCanvasContainer);
         SetSceneUIVisible(false);
 
         //closingInProgress = false;

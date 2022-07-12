@@ -41,7 +41,6 @@ public class NotificationFlagHandler : MonoBehaviour
 
     public void AddNotificationToQueue(Notification notificationObject)
     {
-        Debug.Log("Notification Add start");
 
         /*  int id = LeanTween.moveX(gameObject, 1f, 3f).id;
 if(LeanTween.isTweening( id ))
@@ -61,9 +60,6 @@ if(LeanTween.isTweening( id ))
 
     public void ShowNotification()
     {
-
-        Debug.Log("Show Notifcation Start");
-        Debug.Log(notificationsInQueue[0].textTitle);
 
         currentNotification = notificationsInQueue[0];
         notificationActive = true;
@@ -95,7 +91,7 @@ if(LeanTween.isTweening( id ))
 
     public void AfterFadeOutNotification()
     {
-        Debug.Log("AfterFadeout start");
+        notificationActive = false;
 
         // if queue empty, notification active = false
 
@@ -105,11 +101,18 @@ if(LeanTween.isTweening( id ))
         {
             ShowNotification();
         }
+        
 
     }
 
     public void OnClickButtonLink()
     {
+
+        if (RenderOrderAdjustment.anyOverlayOpen)
+        {
+            CanvasContainerHandler.currentCanvasContainer.CloseContainerView();
+        }
+
         switch (currentNotification.notificationType)
         {
             case Notification.NotificationType.ALCHEMYREACTION:
@@ -125,7 +128,14 @@ if(LeanTween.isTweening( id ))
 
     public void OnClickButtonClose()
     {
+        LeanTween.alpha(UI_panel.GetComponent<RectTransform>(), 0f, 0f);
+        
+        notificationActive = false;
 
+        if (notificationsInQueue.Count > 0)
+        {
+            ShowNotification();
+        }
     }
 
     public void HideNotification()
