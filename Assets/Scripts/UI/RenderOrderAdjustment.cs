@@ -14,9 +14,9 @@ public class RenderOrderAdjustment : MonoBehaviour
     public void AdjustRenderOrder()
     {
         if (lyingOnFloor)
-            GetComponent<SpriteRenderer>().sortingOrder = -9800;
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
         else
-            GetComponent<SpriteRenderer>().sortingOrder = -1 * (int)(100 * this.gameObject.GetComponent<Collider2D>().bounds.min.y);
+            GetComponent<SpriteRenderer>().sortingOrder = -1 * (int)(100 * this.gameObject.GetComponent<Collider2D>().bounds.min.y) + 600;
 
 
         //Debug.Log("Boudn box");
