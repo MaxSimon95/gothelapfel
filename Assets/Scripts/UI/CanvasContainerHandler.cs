@@ -9,6 +9,7 @@ public class CanvasContainerHandler : MonoBehaviour
     private float inventoryStartPosition;
     private InventoryUIBehaviour inventoryUIBehaviour;
     public GameObject associatedSceneObject;
+    public bool hideInventory;
     public bool hasTransferAmountSelection;
     //public bool closingInProgress = false;
     //public GameObject itemAutoTransferTargetParent;
@@ -111,17 +112,25 @@ public class CanvasContainerHandler : MonoBehaviour
 
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
 
+        if (hideInventory)
+        {
+          //  GameObject.Find("PanelInventory").SetActive(false);
+        }
+        else { 
+
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
-        GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
-        GameObject.Find("PanelInventory").GetComponent<RectTransform>().pivot = new Vector2(0, 0.5f);
-        LeanTween.moveX(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -35, 0);
-        inventoryUIBehaviour.OpenInventory(280);
-        inventoryUIBehaviour.isLocked = true;
-        inventoryUIBehaviour.HideButton();
-        
-        
-        if(hasTransferAmountSelection)
-        GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(1, 1, 1);
+            GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
+            GameObject.Find("PanelInventory").GetComponent<RectTransform>().pivot = new Vector2(0, 0.5f);
+            LeanTween.moveX(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -35, 0);
+            inventoryUIBehaviour.OpenInventory(280);
+            inventoryUIBehaviour.isLocked = true;
+            inventoryUIBehaviour.HideButton();
+        }
+
+
+
+        if (hasTransferAmountSelection)
+        GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(0.75f, 0.75f, 1);
 
 
     }
@@ -131,15 +140,26 @@ public class CanvasContainerHandler : MonoBehaviour
         RenderOrderAdjustment.anyOverlayOpen = false;
         SetSceneUIVisible(true);
 
-        Debug.Log("close cauld");
-        transform.GetChild(0).localScale = new Vector3(0, 0, 0);
+        if (hideInventory)
+        {
+           // GameObject.Find("PanelInventory").SetActive(true);
+        }
+        else
+        {
+
+        
         GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 1);
-        GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
-        GameObject.Find("PanelInventory").GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-        LeanTween.moveX(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 35, 0);
-        inventoryUIBehaviour.isLocked = false;
-        inventoryUIBehaviour.CloseInventory();
-        inventoryUIBehaviour.ShowButton();
+            GameObject.Find("PanelInventory").GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
+            GameObject.Find("PanelInventory").GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
+            LeanTween.moveX(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 35, 0);
+            inventoryUIBehaviour.isLocked = false;
+            inventoryUIBehaviour.CloseInventory();
+            inventoryUIBehaviour.ShowButton();
+        }
+
+
+        transform.GetChild(0).localScale = new Vector3(0, 0, 0);
+        
         GameObject.Find("PanelTransferAmount").transform.localScale = new Vector3(0, 0, 0);
 
         InventoryItemHandler.ResetAutoTransferTargetParent();
