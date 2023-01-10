@@ -7,6 +7,7 @@ public class RegionHandler : MonoBehaviour
     // Start is called before the first frame update
     public string regionName;
     public float distanceToHome;
+    public float travelTimeToHome;
     public bool currentlyAccessible;
 
     public List<IngredientType> ingredientTypesSpring;
