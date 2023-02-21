@@ -162,34 +162,38 @@ public class TripPlanningHandler : MonoBehaviour
         }
     }
 
-    void DropdownRegionChanged(int dropdownIndex)
+    void DropdownRegionChanged()
     {
-
+        updateVisibilityOfElements();
     }
 
-    void DropdownActivityChanged(int dropdownIndex)
+    void DropdownActivityChanged()
     {
-
+        updateVisibilityOfElements();
     }
 
-    void DropdownIngredientChanged(int dropdownIndex)
+    void DropdownIngredientChanged()
     {
-
+        updateVisibilityOfElements();
     }
 
-    void DropdownTimeChanged(int dropdownIndex)
+    void DropdownTimeChanged()
     {
-
+        updateVisibilityOfElements();
     }
 
-    void RadioAllAvailableIngredientsSelected()
+    public void RadioAllAvailableIngredientsSelected()
     {
-
+        UIRadioSpecificIngredient.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
+        //UIRadioAllAvailableIngredients.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
+        updateVisibilityOfElements();
     }
 
-    void RadioSpecificIngredientSelected()
+    public void RadioSpecificIngredientSelected()
     {
-
+        UIRadioAllAvailableIngredients.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
+        //UIRadioSpecificIngredient.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
+        updateVisibilityOfElements();
     }
 
     void StartTrip()
