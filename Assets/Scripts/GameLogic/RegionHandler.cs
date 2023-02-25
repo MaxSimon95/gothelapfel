@@ -9,6 +9,14 @@ public class RegionHandler : MonoBehaviour
     public float distanceToHome;
     public float travelTimeToHome;
     public bool currentlyAccessible;
+    public enum rarity
+    {
+        VERY_RARE,
+        RARE,
+        MEDIUM,
+        COMMON,
+        ABUNDAND
+    }
 
     public List<IngredientType> ingredientTypesSpring;
     public List<IngredientType> ingredientTypesSummer;
@@ -25,15 +33,17 @@ public class RegionHandler : MonoBehaviour
     public List<int> amountsMaxAutumn;
     public List<int> amountsMaxWinter;
 
-    public List<int> randomSearchChanceSpring;
-    public List<int> randomSearchChanceSummer;
-    public List<int> randomSearchChanceAutumn;
-    public List<int> randomSearchChanceWinter;
+    public List<rarity> randomSearchChancesSpring;
+    public List<rarity> randomSearchChancesSummer;
+    public List<rarity> randomSearchChancesAutumn;
+    public List<rarity> randomSearchChancesWinter;
 
-    public List<int> specificSearchChanceSpring;
-    public List<int> specificSearchChanceSummer;
-    public List<int> specificSearchChanceAutumn;
-    public List<int> specificSearchChanceWinter;
+    public List<int> specificSearchChancesSpring;
+    public List<int> specificSearchChancesSummer;
+    public List<int> specificSearchChancesAutumn;
+    public List<int> specificSearchChancesWinter;
+
+   
 
 
 
