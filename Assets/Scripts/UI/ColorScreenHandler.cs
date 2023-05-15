@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ColorScreenHandler : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    public Texture2D timeCyclePaletteImage;
+    public Color[] timeCyclePaletteArray;
+
+    void Start()
+    {
+        timeCyclePaletteArray = timeCyclePaletteImage.GetPixels();
+        UpdateColorScreen();
+        //Debug.Log(timeCyclePaletteArray[0]);
+        
+    }
+
+    public void UpdateColorScreen()
+    {
+        int paletteOffset;
+        switch(GameTime.currentSeason)
+        {
+            case GameTime.season.WINTER:
+                paletteOffset = 0;
+                break;
+            case GameTime.season.AUTUMN:
+                paletteOffset = 24;
+                break;
+            case GameTime.season.SUMMER:
+                paletteOffset = 48;
+                break;
+            default:
+                paletteOffset = 72;
+                break;
+        }
+        //Debug.Log((int)GameTime.hourOfTheDay);
+        //GetComponent<UnityEngine.UI.Image>().color = timeCyclePaletteArray[1];
+        Color targetColor = timeCyclePaletteArray[(int)GameTime.hourOfTheDay + paletteOffset];
+        //GetComponent<UnityEngine.UI.Image>()
+        LeanTween.color(GetComponent<RectTransform>(), targetColor, 1f);
+        //LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 333, 0.8f).setEaseInOutCubic();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

@@ -26,6 +26,7 @@ public class GameTime : MonoBehaviour
     public static int yearsSinceStart;
     public static float secondinhosSinceStart = 0;
     public static float hourOfTheDay = 0;
+    public float hourOfTheDayOffset;
 
     public static int yearLengthInDays = 60;
     public static int dayLengthInHours = 24;
@@ -35,17 +36,25 @@ public class GameTime : MonoBehaviour
     System.Random randomizer = new System.Random();
 
     public static UnityEvent eventDayChange = new UnityEvent();
+    public ColorScreenHandler colorScreenHandler;
 
-    IEnumerator Start()
+    void Start()
+    {
+        StartCoroutine(GameTimeLoop());
+    }
+
+    IEnumerator GameTimeLoop()
     {
         CalculateSeasonsLength();
         float timeSinceLastSecondinhoCalculation = 0;
         float currentTime;
         while (true)
         {
+            //Debug.Log(NotebookBaseUI.notebookIsOpen);
             currentTime = Time.time;
             if(!NotebookBaseUI.notebookIsOpen)
             {
+                //Debug.Log("Update Time UI");
                 secondinhosSinceStart += (currentTime - timeSinceLastSecondinhoCalculation) / secondinhoLengthInSeconds;
                 UpdateHourOfTheDay();
             }
@@ -58,7 +67,7 @@ public class GameTime : MonoBehaviour
 
     void UpdateHourOfTheDay()
     {
-        float tempHour = (secondinhosSinceStart - daysSinceStart * dayLengthInHours * hourLengthInSecondinhos) / hourLengthInSecondinhos;
+        float tempHour = hourOfTheDayOffset + (secondinhosSinceStart - daysSinceStart * dayLengthInHours * hourLengthInSecondinhos) / hourLengthInSecondinhos;
 
         if (tempHour > dayLengthInHours)
         {
@@ -66,12 +75,16 @@ public class GameTime : MonoBehaviour
             UpdateDay(1); 
         }
         hourOfTheDay = tempHour;
-        
+
+        colorScreenHandler.UpdateColorScreen();
+        //Debug.Log(hourOfTheDay);
+
     }
 
     void UpdateDay(int dayAddition)
     {
-        if(dayAddition < 0)
+        GameObject.Find("JOB_PH3").GetComponent<JobHandler>().Activate();
+        if (dayAddition < 0)
         {
 
             Debug.LogError("dayAddition MAY CURRENTLY NOT BE LESS THAN ZERO, FOOLS ");
@@ -90,6 +103,7 @@ public class GameTime : MonoBehaviour
         }
 
         eventDayChange.Invoke();
+
 
     }
 

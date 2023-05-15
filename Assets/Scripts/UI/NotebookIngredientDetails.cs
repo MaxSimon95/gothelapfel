@@ -229,6 +229,10 @@ public class NotebookIngredientDetails : MonoBehaviour
 
     public void UpdateAllAttachedRecipes()
     {
+        ingredient.UpdateReactionsOutput();
+        ingredient.UpdateReactionsInput();
+
+        Debug.Log("UpdateAllAttachedRecipes");
         // set AllReactions
         allReactions = ingredient.reactionsOutput.Concat(ingredient.reactionsInput).ToList();
 

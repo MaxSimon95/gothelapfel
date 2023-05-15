@@ -27,7 +27,7 @@ public class JobHandler : MonoBehaviour
     public int startPointInTime;
     public int startDays;
     public int remainingDays;
-    public bool jobIsSaved;
+    public bool jobIsSaved = false;
     public int orderNumber;
     public string description;
 
@@ -116,6 +116,8 @@ public class JobHandler : MonoBehaviour
         currentState = JobHandler.state.ACTIVE;
         // set startpointinTime
         startPointInTime = GameTime.daysSinceYearStart;
+
+        GameObject.Find("PanelNotificationFlag").GetComponent<NotificationFlagHandler>().AddNotificationToQueue(new Notification(this));
     }
 
     public void Complete()

@@ -32,4 +32,10 @@ public class AlchemyReaction : MonoBehaviour
     {
         
     }
+
+    public void SetKnownToPlayer()
+    {
+        knownToPlayer = true;
+        GameObject.Find("PanelNotificationFlag").GetComponent<NotificationFlagHandler>().AddNotificationToQueue(new Notification(this));
+    }
 }

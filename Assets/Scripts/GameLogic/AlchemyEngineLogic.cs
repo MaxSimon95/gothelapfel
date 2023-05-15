@@ -205,9 +205,10 @@ public class AlchemyEngineLogic : MonoBehaviour
         // trigger notification if alchemy reaction is unknown to player
         if ((!reaction.GetComponent<AlchemyReaction>().knownToPlayer) && (!reaction.GetComponent<AlchemyReaction>().AlwaysHideFromNotebookView))
         {
-            reaction.GetComponent<AlchemyReaction>().knownToPlayer = true;
-            notificationFlagHandler.AddNotificationToQueue(new Notification(reaction.GetComponent<AlchemyReaction>()));
-            
+            //reaction.GetComponent<AlchemyReaction>().knownToPlayer = true;
+            //notificationFlagHandler.AddNotificationToQueue(new Notification(reaction.GetComponent<AlchemyReaction>()));
+            reaction.GetComponent<AlchemyReaction>().SetKnownToPlayer();
+
         }
 
         // remove required input ingredients from origin
@@ -236,6 +237,13 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         for (int i = 0; i < reaction.GetComponent<AlchemyReaction>().outputIngredientTypes.Count; i++)
         {
+            if ((!reaction.GetComponent<AlchemyReaction>().outputIngredientTypes[i].knownToPlayer) && (!reaction.GetComponent<AlchemyReaction>().outputIngredientTypes[i].AlwaysHideFromNotebookView))
+            {
+                //reaction.GetComponent<AlchemyReaction>().outputIngredientTypes[i].knownToPlayer = true;
+                //notificationFlagHandler.AddNotificationToQueue(new Notification(reaction.GetComponent<AlchemyReaction>().outputIngredientTypes[i]));
+                reaction.GetComponent<AlchemyReaction>().outputIngredientTypes[i].SetKnownToPlayer();
+            }
+
             ingredientTypesAvailable.Add(reaction.GetComponent<AlchemyReaction>().outputIngredientTypes[i]);
             ingredientTypeAmountsAvailable.Add(reaction.GetComponent<AlchemyReaction>().outputIngredientTypeAmounts[i]);
         }

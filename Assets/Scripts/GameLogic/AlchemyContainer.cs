@@ -16,6 +16,12 @@ public class AlchemyContainer : MonoBehaviour
     private float updateWaitTime;
     public RoomHandler room;
 
+    public enum containerType
+    {
+        CAULDRON,
+        OVEN,
+    }
+
 
 
     // Start is called before the first frame update

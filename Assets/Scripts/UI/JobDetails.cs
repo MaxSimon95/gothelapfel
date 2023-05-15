@@ -37,11 +37,15 @@ public class JobDetails : MonoBehaviour
 
     public void Open(JobHandler pJob)
     {
+
+        Debug.Log("Inside JobDetails.Open() " + pJob.name);
         GetComponent<AutoTransferItemCapability>().PrepareAutoTransferTarget();
         UpdateSubmitButton();
         job = pJob;
         UpdateJobDetails();
         UpdateItemSubmissionInfoText();
+
+        GetComponent<NotebookBaseUI>().Open();
     }
 
     public void UpdateJobDetails()

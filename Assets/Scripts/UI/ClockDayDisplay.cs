@@ -5,8 +5,12 @@ using UnityEngine;
 public class ClockDayDisplay : MonoBehaviour
 {
 
+    void Start()
+    {
+        StartCoroutine(DayDisplayLoop());
+    }
 
-    IEnumerator Start()
+    IEnumerator DayDisplayLoop()
     {
 
         while (true)

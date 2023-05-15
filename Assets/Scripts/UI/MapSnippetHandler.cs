@@ -14,6 +14,7 @@ public class MapSnippetHandler : MonoBehaviour
     void Start()
     {
         GetComponent<Image>().alphaHitTestMinimumThreshold = 0.9f;
+        SetToolTipText();
     }
 
     // Update is called once per frame
@@ -22,10 +23,10 @@ public class MapSnippetHandler : MonoBehaviour
         
     }
 
-    public void ClickHandler()
+    public void TripPlannerClickHandler()
     {
         dropdownRegions.GetComponent<Dropdown>().value = dropdownRegions.GetComponent<Dropdown>().options.FindIndex(option => option.text == region.regionName);
-        tripPlanningHelper.updateVisibilityOfElements();
+        tripPlanningHelper.UpdateVisibilityOfElements();
     }
 
     void OnMouseOver()
@@ -38,6 +39,11 @@ public class MapSnippetHandler : MonoBehaviour
     {
         //The mouse is no longer hovering over the GameObject so output this message each frame
         Debug.Log("Mouse is no longer on GameObject." + region.regionName);
+    }
+
+    private void SetToolTipText()
+    {
+            GetComponent<TooltipUITargetHandler>().tooltipText = region.regionName;
     }
 
 

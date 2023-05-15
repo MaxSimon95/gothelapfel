@@ -24,11 +24,8 @@ public class JobsManagement : MonoBehaviour
     public static List<JobHandler> upcomingJobList = new List<JobHandler>();
     public static List<JobHandler> doneJobsList = new List<JobHandler>();
 
-
-
     UnityEvent eventDayChange;
-
-
+    //public NotificationFlagHandler notificationFlagHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +46,45 @@ public class JobsManagement : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AddJob(string pTitle, int pPayment, IngredientType pRequestedIngredientType, int pRequestedAmount, int pStartDays, string pDescription, NPC pClient)
+    {
+        GameObject tempJobGO = (GameObject)Instantiate(Resources.Load("JobItemPrefab"), new Vector3(0, 0, 0), Quaternion.identity);
+        JobHandler jobItem = tempJobGO.GetComponent<JobHandler>();
+        jobItem.transform.SetParent(this.transform.GetChild(0));
+
+        jobItem.title = pTitle;
+        jobItem.payment = pPayment;
+        jobItem.requestedIngredientType = pRequestedIngredientType;
+        jobItem.requestedAmount = pRequestedAmount;
+        jobItem.startDays = pStartDays;
+        jobItem.description = pDescription;
+        jobItem.client = pClient;
+
+        jobItem.Activate();
+        //notificationFlagHandler.AddNotificationToQueue(new Notification(jobItem));
+    }
+
+    public void AddJob(string pTitle, int pPayment, List<IngredientEffect> pRequestedEffects, List<IngredientEffect.EffectIntensity> pRequestedEffectIntensities, List<JobHandler.ExpectedEffectIntensityOperator> pRequestedEffectIntensityOperators, int pRequestedAmount, bool pIgnoreSideffectsForItemSuitableChecks, int pStartDays, string pDescription, NPC pClient)
+    {
+        GameObject tempJobGO = (GameObject)Instantiate(Resources.Load("JobItemPrefab"), new Vector3(0, 0, 0), Quaternion.identity);
+        JobHandler jobItem = tempJobGO.GetComponent<JobHandler>();
+        jobItem.transform.SetParent(this.transform.GetChild(0));
+
+        jobItem.title = pTitle;
+        jobItem.payment = pPayment;
+        jobItem.requestedEffects = pRequestedEffects;
+        jobItem.requestedEffectIntensities = pRequestedEffectIntensities;
+        jobItem.requestedEffectIntensityOperators = pRequestedEffectIntensityOperators;
+        jobItem.requestedAmount = pRequestedAmount;
+        jobItem.ignoreSideffectsForItemSuitableChecks = pIgnoreSideffectsForItemSuitableChecks;
+        jobItem.startDays = pStartDays;
+        jobItem.description = pDescription;
+        jobItem.client = pClient;
+
+        jobItem.Activate();
+        //notificationFlagHandler.AddNotificationToQueue(new Notification(jobItem));
     }
 
     private void ReceivedDayChangeEvent()

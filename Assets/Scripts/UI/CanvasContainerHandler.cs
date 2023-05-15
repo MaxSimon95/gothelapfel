@@ -53,9 +53,25 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public static void SetSceneUIVisible(bool visible)
     {
-        foreach(GameObject go in sceneUIToggle)
+
+        foreach(GameObject canvasGo in sceneUIToggle)
         {
-            go.SetActive(visible);
+            if(visible)
+            {
+                foreach(Transform goTransform in canvasGo.transform)
+                {
+                    goTransform.localScale = new Vector3(1, 1, 1);
+                }
+                
+            }
+            else
+            {
+                foreach (Transform goTransform in canvasGo.transform)
+                {
+                    goTransform.localScale = new Vector3(0, 0, 0);
+                }
+            }
+            //go.SetActive(visible);
         }
     }
 
@@ -108,6 +124,12 @@ public class CanvasContainerHandler : MonoBehaviour
                     }
                 }
             }
+        }
+
+
+        if(gameObject.GetComponent<TripPlanningHandler>() != null)
+        {
+            gameObject.GetComponent<TripPlanningHandler>().OpenTripPlanner();
         }
 
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);

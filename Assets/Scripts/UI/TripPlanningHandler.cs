@@ -7,6 +7,9 @@ public class TripPlanningHandler : MonoBehaviour
 {
     public GameObject regions;
     public List<RegionHandler> regionHandlerList = new List<RegionHandler>();
+    public List<IngredientType> curatedIngredientTypeList = new List<IngredientType>();
+    List<Dropdown.OptionData> regionsDropdownOptions = new List<Dropdown.OptionData>();
+
     public GameObject UIDropdownRegion;
     public GameObject UIDropdownActivity;
     public GameObject UIDropdownIngredient;
@@ -26,19 +29,7 @@ public class TripPlanningHandler : MonoBehaviour
     void Start()
     {
         // initialize dropdownregion
-
-        List<Dropdown.OptionData> dropdownOptions = new List<Dropdown.OptionData>();
-
-        foreach(Transform region in regions.transform)
-        {
-            regionHandlerList.Add(region.GetComponent<RegionHandler>());
-            //Debug.Log(region.GetComponent<RegionHandler>().regionName);
-            dropdownOptions.Add(new Dropdown.OptionData(region.GetComponent<RegionHandler>().regionName));
-        }
-
-        UIDropdownRegion.GetComponent<Dropdown>().AddOptions(dropdownOptions);
-
-        updateVisibilityOfElements();
+        
     }
 
     // Update is called once per frame
@@ -47,8 +38,34 @@ public class TripPlanningHandler : MonoBehaviour
         
     }
 
+
+    public void OpenTripPlanner()
+    {
+        Debug.Log("OpenTripPlanner");
+
+        regionHandlerList.Clear();
+        regionsDropdownOptions.Clear();
+        UIDropdownRegion.GetComponent<Dropdown>().ClearOptions();
+
+        foreach (Transform region in regions.transform)
+        {
+            regionHandlerList.Add(region.GetComponent<RegionHandler>());
+            //Debug.Log(region.GetComponent<RegionHandler>().regionName);
+            regionsDropdownOptions.Add(new Dropdown.OptionData(region.GetComponent<RegionHandler>().regionName));
+        }
+
+        UIDropdownRegion.GetComponent<Dropdown>().AddOptions(regionsDropdownOptions);
+
+        UpdateVisibilityOfElements();
+    }
+
+    public void CloseTripPlanner()
+    {
+
+    }
+
     // updateVisibility based on conducted selections
-    public void updateVisibilityOfElements()
+    public void UpdateVisibilityOfElements()
     {
         // if region selected, show activity + timetogetthere, else --> hide activity + timetogetthere
         if (UIDropdownRegion.GetComponent<Dropdown>().value == 0)
@@ -162,38 +179,117 @@ public class TripPlanningHandler : MonoBehaviour
         }
     }
 
-    void DropdownRegionChanged()
+    public void DropdownRegionChanged()
     {
-        updateVisibilityOfElements();
+        UpdateIngredientDropdown();
+        UpdateVisibilityOfElements();
     }
 
-    void DropdownActivityChanged()
+    public void DropdownActivityChanged()
     {
-        updateVisibilityOfElements();
+        UpdateVisibilityOfElements();
     }
 
-    void DropdownIngredientChanged()
+    public void DropdownIngredientChanged()
     {
-        updateVisibilityOfElements();
+        UpdateVisibilityOfElements();
     }
 
-    void DropdownTimeChanged()
+    public void DropdownTimeChanged()
     {
-        updateVisibilityOfElements();
+        UpdateVisibilityOfElements();
     }
 
     public void RadioAllAvailableIngredientsSelected()
     {
         UIRadioSpecificIngredient.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
         //UIRadioAllAvailableIngredients.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
-        updateVisibilityOfElements();
+        UpdateVisibilityOfElements();
+    }
+
+    public void UpdateIngredientDropdown()
+    {
+        //
+        List<Dropdown.OptionData> ingredientsDropdownOptions = new List<Dropdown.OptionData>();
+        RegionHandler region = regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value-1];
+
+        curatedIngredientTypeList.Clear();
+        UIDropdownIngredient.GetComponent<Dropdown>().ClearOptions();
+
+
+        ingredientsDropdownOptions.Add(new Dropdown.OptionData("Click to Select"));
+
+        switch (GameTime.currentSeason)
+        {
+
+            case GameTime.season.SPRING:
+
+                for (int i = 0; i < region.ingredientTypes.Count; i++)
+                {
+                    if (region.raritiesSpring[i] != RegionHandler.rarity.NONE)
+                    {
+                        curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesSpring[i]) + ")"));
+                    }
+
+                }
+
+                break;
+
+            case GameTime.season.SUMMER:
+
+                for (int i = 0; i < region.ingredientTypes.Count; i++)
+                {
+                    if (region.raritiesSummer[i] != RegionHandler.rarity.NONE)
+                    {
+                        curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesSummer[i]) + ")"));
+                    }
+
+                }
+
+                break;
+
+            case GameTime.season.AUTUMN:
+
+                for (int i = 0; i < region.ingredientTypes.Count; i++)
+                {
+                    if (region.raritiesAutumn[i] != RegionHandler.rarity.NONE)
+                    {
+                        curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesAutumn[i]) + ")"));
+                    }
+
+                }
+
+                break;
+
+            case GameTime.season.WINTER:
+
+                for (int i = 0; i < region.ingredientTypes.Count; i++)
+                {
+                    if (region.raritiesAutumn[i] != RegionHandler.rarity.NONE)
+                    {
+                        curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesWinter[i]) + ")"));
+                    }
+
+                }
+
+                break;
+        }
+
+
+
+        UIDropdownIngredient.GetComponent<Dropdown>().AddOptions(ingredientsDropdownOptions);
     }
 
     public void RadioSpecificIngredientSelected()
     {
         UIRadioAllAvailableIngredients.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
         //UIRadioSpecificIngredient.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
-        updateVisibilityOfElements();
+
+        UpdateVisibilityOfElements();
     }
 
     void StartTrip()

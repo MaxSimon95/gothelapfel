@@ -29,6 +29,8 @@ public class IngredientType : MonoBehaviour
 
     public IngredientCutUp ingredientCutUp;
 
+    public int standardGatherAmount;
+
     void Start()
     {
         alchemyReactions = GameObject.Find("AlchemyReactions");
@@ -105,5 +107,11 @@ public class IngredientType : MonoBehaviour
             }
 
         }
+    }
+
+    public void SetKnownToPlayer()
+    {
+        knownToPlayer = true;
+        GameObject.Find("PanelNotificationFlag").GetComponent<NotificationFlagHandler>().AddNotificationToQueue(new Notification(this));
     }
 }

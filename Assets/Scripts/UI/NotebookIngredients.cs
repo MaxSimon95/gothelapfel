@@ -73,8 +73,8 @@ public class NotebookIngredients : MonoBehaviour
         
         LoadIngredients();
 
-        Debug.Log("ingredienttypepanel count " + ingredientTypePanels.Count);
-        Debug.Log("ingredienttypes count" + ingredientTypeList.Count);
+        //Debug.Log("ingredienttypepanel count " + ingredientTypePanels.Count);
+        //Debug.Log("ingredienttypes count" + ingredientTypeList.Count);
 
         for (int i = 0; i < ingredientTypePanels.Count; i++)
         {
@@ -86,7 +86,7 @@ public class NotebookIngredients : MonoBehaviour
             if (i < ingredientTypeList.Count)
             {
                 ingredientTypePanels[i].localScale = new Vector3(1, 1, 1);
-                Debug.Log(i + "set to visible, local scale: " + ingredientTypePanels[i].localScale);
+                //Debug.Log(i + "set to visible, local scale: " + ingredientTypePanels[i].localScale);
                 //Debug.Log(i);
                 // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
                 //Debug.Log(i);
@@ -95,7 +95,7 @@ public class NotebookIngredients : MonoBehaviour
                 
                 ingredientTypePanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text =  ingredientTypeList[i + openPage * 100].ingredientName;
 
-                Debug.Log(i + "info updated");
+                //Debug.Log(i + "info updated");
 
             }
         }

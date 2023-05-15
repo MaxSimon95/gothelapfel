@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ClockTimeDisplay : MonoBehaviour
 {
-    IEnumerator Start()
+    void Start()
+    {
+        StartCoroutine(TimeDisplayLoop());
+    }
+
+    IEnumerator TimeDisplayLoop()
     {
 
         while (true)

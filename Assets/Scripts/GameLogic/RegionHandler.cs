@@ -9,21 +9,22 @@ public class RegionHandler : MonoBehaviour
     public float distanceToHome;
     public float travelTimeToHome;
     public bool currentlyAccessible;
+
+    public string description;
+    public Sprite image;
     public enum rarity
     {
-        VERY_RARE,
-        RARE,
-        MEDIUM,
-        COMMON,
-        ABUNDAND
+        NONE,  // 0%
+        VERY_RARE, // 8%
+        RARE, // 16%
+        MEDIUM, // 32%
+        COMMON, // 64%
+        ABUNDAND // 100%
     }
 
-    public List<IngredientType> ingredientTypesSpring;
-    public List<IngredientType> ingredientTypesSummer;
-    public List<IngredientType> ingredientTypesAutumn;
-    public List<IngredientType> ingredientTypesWinter;
+    public List<IngredientType> ingredientTypes;
 
-    public List<int> amountsMinSpring;
+   /* public List<int> amountsMinSpring;
     public List<int> amountsMinSummer;
     public List<int> amountsMinAutumn;
     public List<int> amountsMinWinter;
@@ -31,20 +32,53 @@ public class RegionHandler : MonoBehaviour
     public List<int> amountsMaxSpring;
     public List<int> amountsMaxSummer;
     public List<int> amountsMaxAutumn;
-    public List<int> amountsMaxWinter;
+    public List<int> amountsMaxWinter; */
 
-    public List<rarity> randomSearchChancesSpring;
-    public List<rarity> randomSearchChancesSummer;
-    public List<rarity> randomSearchChancesAutumn;
-    public List<rarity> randomSearchChancesWinter;
-
+    public List<rarity> raritiesSpring;
+    public List<rarity> raritiesSummer;
+    public List<rarity> raritiesAutumn;
+    public List<rarity> raritiesWinter;
+    /*
     public List<int> specificSearchChancesSpring;
     public List<int> specificSearchChancesSummer;
     public List<int> specificSearchChancesAutumn;
     public List<int> specificSearchChancesWinter;
-
+    */ 
    
+    public static string RarityToString(rarity pRarity)
+    {
+        switch(pRarity)
+        {
+            case rarity.NONE:
+                return ("Not Available");
+                break;
 
+            case rarity.VERY_RARE:
+                return ("Very Rare");
+                break;
+
+            case rarity.RARE:
+                return ("Rare");
+                break;
+
+            case rarity.MEDIUM:
+                return ("Medium");
+                break;
+
+            case rarity.COMMON:
+                return ("Common");
+                break;
+
+            case rarity.ABUNDAND:
+                return ("Abundand");
+                break;
+
+            default:
+                return ("ERROR");
+                break;
+
+        }
+    }
 
 
     void Start()

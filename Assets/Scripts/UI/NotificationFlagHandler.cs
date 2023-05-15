@@ -17,6 +17,7 @@ public class NotificationFlagHandler : MonoBehaviour
     public GameObject UI_panel;
     public GameObject UI_buttonLink;
     public GameObject UI_buttonClose;
+    public Sprite jobSprite;
 
     Notification currentNotification;
 
@@ -24,6 +25,7 @@ public class NotificationFlagHandler : MonoBehaviour
     void Start()
     {
         PrepareUIElements();
+        //AddNotificationToQueue(new Notification());
 
     }
 
@@ -121,7 +123,13 @@ if(LeanTween.isTweening( id ))
                 break;
 
             case Notification.NotificationType.INGREDIENT:
+                GameObject.Find("CanvasNotebookIngredientDetails").GetComponent<NotebookIngredientDetails>().Open(currentNotification.ingredientType);
+                break;
 
+            case Notification.NotificationType.JOB:
+                Debug.Log("Open JobDetails from Notification");
+                GameObject.Find("CanvasNotebookJobDetails").GetComponent<JobDetails>().Open(currentNotification.job);
+                //GameObject.Find("CanvasNotebookJobDetails").GetComponent<JobDetails>().Open(JobsManagement.activeJobList[1]);
                 break;
         }
     }

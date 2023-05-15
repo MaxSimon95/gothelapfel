@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ClockSeasonDisplay : MonoBehaviour
 {
-    IEnumerator Start()
+    void Start()
+    {
+        StartCoroutine(SeasonDisplayLoop());
+    }
+
+    IEnumerator SeasonDisplayLoop()
     {
 
         while (true)
