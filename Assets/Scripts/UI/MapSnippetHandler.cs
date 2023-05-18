@@ -26,7 +26,7 @@ public class MapSnippetHandler : MonoBehaviour
     public void TripPlannerClickHandler()
     {
         dropdownRegions.GetComponent<Dropdown>().value = dropdownRegions.GetComponent<Dropdown>().options.FindIndex(option => option.text == region.regionName);
-        tripPlanningHelper.UpdateVisibilityOfElements();
+        tripPlanningHelper.UpdateElements();
     }
 
     void OnMouseOver()

@@ -145,11 +145,6 @@ public class RoomHandler : MonoBehaviour
 
     }
 
-    public void OnEnter()
-    {
-
-    }
-
     void AdjustZoom()
     {
         mainCamera.orthographicSize = cameraZoom;

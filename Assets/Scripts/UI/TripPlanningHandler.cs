@@ -45,18 +45,19 @@ public class TripPlanningHandler : MonoBehaviour
 
         regionHandlerList.Clear();
         regionsDropdownOptions.Clear();
+        regionsDropdownOptions.Add(new Dropdown.OptionData("Click to Select"));
         UIDropdownRegion.GetComponent<Dropdown>().ClearOptions();
 
         foreach (Transform region in regions.transform)
         {
             regionHandlerList.Add(region.GetComponent<RegionHandler>());
-            //Debug.Log(region.GetComponent<RegionHandler>().regionName);
+            //Debug.Log(region.GetComponent<RegionHandler>().regionName); 
             regionsDropdownOptions.Add(new Dropdown.OptionData(region.GetComponent<RegionHandler>().regionName));
         }
 
         UIDropdownRegion.GetComponent<Dropdown>().AddOptions(regionsDropdownOptions);
 
-        UpdateVisibilityOfElements();
+        UpdateElements();
     }
 
     public void CloseTripPlanner()
@@ -65,9 +66,10 @@ public class TripPlanningHandler : MonoBehaviour
     }
 
     // updateVisibility based on conducted selections
-    public void UpdateVisibilityOfElements()
+    public void UpdateElements()
     {
         // if region selected, show activity + timetogetthere, else --> hide activity + timetogetthere
+        Debug.Log("UIDropdownRegion.GetComponent<Dropdown>().value = " + UIDropdownRegion.GetComponent<Dropdown>().value);
         if (UIDropdownRegion.GetComponent<Dropdown>().value == 0)
         {
             UILabelActivitySelection.transform.localScale = new Vector3(0, 0, 0);
@@ -79,6 +81,7 @@ public class TripPlanningHandler : MonoBehaviour
         }
         else
         {
+            UpdateIngredientDropdown();
             UILabelActivitySelection.transform.localScale = new Vector3(1, 1, 1);
             UIDropdownActivity.transform.localScale = new Vector3(1, 1, 1);
             
@@ -181,30 +184,29 @@ public class TripPlanningHandler : MonoBehaviour
 
     public void DropdownRegionChanged()
     {
-        UpdateIngredientDropdown();
-        UpdateVisibilityOfElements();
+        UpdateElements();
     }
 
     public void DropdownActivityChanged()
     {
-        UpdateVisibilityOfElements();
+        UpdateElements();
     }
 
     public void DropdownIngredientChanged()
     {
-        UpdateVisibilityOfElements();
+        UpdateElements();
     }
 
     public void DropdownTimeChanged()
     {
-        UpdateVisibilityOfElements();
+        UpdateElements();
     }
 
     public void RadioAllAvailableIngredientsSelected()
     {
         UIRadioSpecificIngredient.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
         //UIRadioAllAvailableIngredients.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
-        UpdateVisibilityOfElements();
+        UpdateElements();
     }
 
     public void UpdateIngredientDropdown()
@@ -289,7 +291,7 @@ public class TripPlanningHandler : MonoBehaviour
         UIRadioAllAvailableIngredients.GetComponent<Toggle>().SetIsOnWithoutNotify(false);
         //UIRadioSpecificIngredient.GetComponent<Toggle>().SetIsOnWithoutNotify(true);
 
-        UpdateVisibilityOfElements();
+        UpdateElements();
     }
 
     void StartTrip()
