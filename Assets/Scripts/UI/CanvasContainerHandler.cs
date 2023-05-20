@@ -78,7 +78,7 @@ public class CanvasContainerHandler : MonoBehaviour
     public void OpenContainerView()
     {
         currentCanvasContainer = this;
-        Debug.Log(currentCanvasContainer);
+        //Debug.Log(currentCanvasContainer);
         SetSceneUIVisible(false);
 
         //closingInProgress = false;

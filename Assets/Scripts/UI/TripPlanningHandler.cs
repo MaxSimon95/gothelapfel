@@ -7,8 +7,9 @@ public class TripPlanningHandler : MonoBehaviour
 {
     public GameObject regions;
     public List<RegionHandler> regionHandlerList = new List<RegionHandler>();
-    public List<IngredientType> curatedIngredientTypeList = new List<IngredientType>();
-    List<Dropdown.OptionData> regionsDropdownOptions = new List<Dropdown.OptionData>();
+    public List<IngredientType> curatedIngredientTypeList = new List<IngredientType>(); // list to access which specific ingredient the user has selected
+    public List<IngredientType> oldIngredientList = new List<IngredientType>(); // list to compare the new lists to to see if there are changes and UI updates are in order
+    public List<Dropdown.OptionData> regionsDropdownOptions = new List<Dropdown.OptionData>();
 
     public GameObject UIDropdownRegion;
     public GameObject UIDropdownActivity;
@@ -41,7 +42,7 @@ public class TripPlanningHandler : MonoBehaviour
 
     public void OpenTripPlanner()
     {
-        Debug.Log("OpenTripPlanner");
+        //Debug.Log("OpenTripPlanner");
 
         regionHandlerList.Clear();
         regionsDropdownOptions.Clear();
@@ -69,7 +70,6 @@ public class TripPlanningHandler : MonoBehaviour
     public void UpdateElements()
     {
         // if region selected, show activity + timetogetthere, else --> hide activity + timetogetthere
-        Debug.Log("UIDropdownRegion.GetComponent<Dropdown>().value = " + UIDropdownRegion.GetComponent<Dropdown>().value);
         if (UIDropdownRegion.GetComponent<Dropdown>().value == 0)
         {
             UILabelActivitySelection.transform.localScale = new Vector3(0, 0, 0);
@@ -211,13 +211,12 @@ public class TripPlanningHandler : MonoBehaviour
 
     public void UpdateIngredientDropdown()
     {
-        //
+        
         List<Dropdown.OptionData> ingredientsDropdownOptions = new List<Dropdown.OptionData>();
         RegionHandler region = regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value-1];
 
-        curatedIngredientTypeList.Clear();
-        UIDropdownIngredient.GetComponent<Dropdown>().ClearOptions();
 
+        curatedIngredientTypeList.Clear();
 
         ingredientsDropdownOptions.Add(new Dropdown.OptionData("Click to Select"));
 
@@ -281,9 +280,26 @@ public class TripPlanningHandler : MonoBehaviour
                 break;
         }
 
+        if (CheckMatch(oldIngredientList, curatedIngredientTypeList))
+        {
+            Debug.Log("SAME LISTS");
+        }
+        else
+        {
+            Debug.Log("DIFFERENT LISTS");
+            UIDropdownIngredient.GetComponent<Dropdown>().ClearOptions();
+            UIDropdownIngredient.GetComponent<Dropdown>().AddOptions(ingredientsDropdownOptions);
+        }
 
+        // for future comparisons to see if an update of the list is in order
+        //oldIngredientList = curatedIngredientTypeList;
+        oldIngredientList.Clear();
+        foreach (IngredientType iT in curatedIngredientTypeList)
+        {
+            oldIngredientList.Add(iT);
+        }
 
-        UIDropdownIngredient.GetComponent<Dropdown>().AddOptions(ingredientsDropdownOptions);
+        
     }
 
     public void RadioSpecificIngredientSelected()
@@ -293,6 +309,39 @@ public class TripPlanningHandler : MonoBehaviour
 
         UpdateElements();
     }
+
+    bool CheckMatch(List <IngredientType> l1, List<IngredientType> l2)
+    {
+        if (l1 == null && l2 == null)
+        {
+            Debug.Log("true, both null:  oldList: " + l1.Count + ",  curatedList: " + l2.Count);
+            return true;
+        }
+        else if (l1 == null || l2 == null)
+        {
+            Debug.Log("false, only 1 is null");
+            return false;
+        }
+
+        if (l1.Count != l2.Count)
+        {
+            Debug.Log("false, different list counts: oldList: " + l1.Count + ",  curatedList: " + l2.Count);
+            return false;
+        }
+            
+        for (int i = 0; i < l1.Count; i++)
+        {
+            if (l1[i] != l2[i])
+            {
+                Debug.Log("false, item " + i + " is different  oldList: " + l1.Count + ",  curatedList: " + l2.Count );
+                return false;
+            }
+                
+        }
+        Debug.Log("true, identical existing lists, oldList: " + l1.Count + ",  curatedList: " + l2.Count);
+        return true;
+    }
+
 
     void StartTrip()
     {
