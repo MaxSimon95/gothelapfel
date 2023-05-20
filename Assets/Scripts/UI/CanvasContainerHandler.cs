@@ -132,6 +132,11 @@ public class CanvasContainerHandler : MonoBehaviour
             gameObject.GetComponent<TripPlanningHandler>().OpenTripPlanner();
         }
 
+        /*if (gameObject.GetComponent<BedHandler>() != null)
+        {
+            gameObject.GetComponent<BedHandler>().OpenBedCanvas();
+        }*/
+
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
 
         if (hideInventory)
