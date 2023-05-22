@@ -18,6 +18,8 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public static CanvasContainerHandler currentCanvasContainer;
 
+    public bool interruptTime;
+
 
     void Awake()
     {
@@ -77,6 +79,12 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void OpenContainerView()
     {
+        if(interruptTime)
+        {
+            GameTime.timeIsStopped = true;
+        }
+
+
         currentCanvasContainer = this;
         //Debug.Log(currentCanvasContainer);
         SetSceneUIVisible(false);
@@ -164,6 +172,9 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void CloseContainerView()
     {
+
+        GameTime.timeIsStopped = false;
+
         RenderOrderAdjustment.anyOverlayOpen = false;
         SetSceneUIVisible(true);
 
@@ -212,5 +223,6 @@ public class CanvasContainerHandler : MonoBehaviour
         }
     }
     */
+    
 
 }

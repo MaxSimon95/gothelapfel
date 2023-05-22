@@ -24,8 +24,8 @@ public class GameTime : MonoBehaviour
     public static int daysSinceStart = 0;
     public static int daysSinceYearStart = 0;
     public static int yearsSinceStart;
-    public static float secondinhosSinceStart = 0;
-    public static float hourOfTheDay = 0;
+    //public static float secondinhosSinceStart = 0;
+    public static float hourOfTheDay = 22;
     public float hourOfTheDayOffset;
 
     public static int yearLengthInDays = 60;
@@ -38,6 +38,8 @@ public class GameTime : MonoBehaviour
     public static UnityEvent eventDayChange = new UnityEvent();
     public ColorScreenHandler colorScreenHandler;
 
+    public static bool timeIsStopped = false;
+
     void Start()
     {
         StartCoroutine(GameTimeLoop());
@@ -45,45 +47,61 @@ public class GameTime : MonoBehaviour
 
     IEnumerator GameTimeLoop()
     {
+        float secondinhosSinceLastHourUpdate=0;
+
         CalculateSeasonsLength();
-        float timeSinceLastSecondinhoCalculation = 0;
+        //float timeSinceLastSecondinhoCalculation = 0;
         float currentTime;
         while (true)
         {
-            //Debug.Log(NotebookBaseUI.notebookIsOpen);
+            
             currentTime = Time.time;
-            if(!NotebookBaseUI.notebookIsOpen)
+            if(!timeIsStopped)
             {
                 //Debug.Log("Update Time UI");
-                secondinhosSinceStart += (currentTime - timeSinceLastSecondinhoCalculation) / secondinhoLengthInSeconds;
-                UpdateHourOfTheDay();
+                //secondinhosSinceStart += (currentTime - timeSinceLastSecondinhoCalculation) / secondinhoLengthInSeconds;
+                secondinhosSinceLastHourUpdate++;
+                if(secondinhosSinceLastHourUpdate>= hourLengthInSecondinhos)
+                {
+                    secondinhosSinceLastHourUpdate = secondinhosSinceLastHourUpdate - hourLengthInSecondinhos;
+                    IncrementHourOfTheDay(true);
+                }
+                
             }
+            //Debug.Log(secondinhosSinceLastHourUpdate);
 
-            timeSinceLastSecondinhoCalculation = currentTime;
+            //timeSinceLastSecondinhoCalculation = currentTime;
             yield return new WaitForSeconds(secondinhoLengthInSeconds);
+            
         }
 
     }
 
-    void UpdateHourOfTheDay()
+    void IncrementHourOfTheDay(bool colorChangeAnimationOverTime)
     {
-        float tempHour = hourOfTheDayOffset + (secondinhosSinceStart - daysSinceStart * dayLengthInHours * hourLengthInSecondinhos) / hourLengthInSecondinhos;
-
-        if (tempHour > dayLengthInHours)
+        /*if(hourOfTheDayOffset > dayLengthInHours)
         {
-            tempHour -= dayLengthInHours;
-            UpdateDay(1); 
+            hourOfTheDayOffset = hourOfTheDayOffset - dayLengthInHours;
+        }*/
+        hourOfTheDay++;
+        /*
+        float tempHour = hourOfTheDayOffset + (secondinhosSinceStart - daysSinceStart * dayLengthInHours * hourLengthInSecondinhos) / hourLengthInSecondinhos;
+        */
+        if (hourOfTheDay >= dayLengthInHours)
+        {
+            hourOfTheDay -= dayLengthInHours;
+            IncrementDay(1); 
         }
-        hourOfTheDay = tempHour;
+        //hourOfTheDay = tempHour;
 
-        colorScreenHandler.UpdateColorScreen();
+        colorScreenHandler.UpdateColorScreen(colorChangeAnimationOverTime);
         //Debug.Log(hourOfTheDay);
 
     }
 
-    void UpdateDay(int dayAddition)
+    public void IncrementDay(int dayAddition)
     {
-        GameObject.Find("JOB_PH3").GetComponent<JobHandler>().Activate();
+        //GameObject.Find("JOB_PH3").GetComponent<JobHandler>().Activate();
         if (dayAddition < 0)
         {
 
@@ -153,6 +171,26 @@ public class GameTime : MonoBehaviour
         }
     }
 
+    public void JumpToHourOfTheDay(float targetHour)
+    {
+        // no day change if we dont need to change the day, but day change if the target time is on the next day
+        if(targetHour > hourOfTheDay)
+        {
+            Debug.Log("Move forward same day"); //+ targetHour + ", hour of the day: " + hourOfTheDay  + ", hourOfTheDayOffset Addition: " + (hourOfTheDay - targetHour));
+            //hourOfTheDayOffset += (targetHour - hourOfTheDay);
+        }
+        else
+        {
+            Debug.Log("Move forward NEXT day");
+            //Debug.Log("Move forward new day, target hour: " + targetHour + ", hour of the day: " + hourOfTheDay + ", hourOfTheDayOffset Addition: " + (targetHour + dayLengthInHours - hourOfTheDay));
+            //hourOfTheDayOffset += 10; // (targetHour + dayLengthInHours - hourOfTheDay);
+            IncrementDay(1);
+        }
+
+        hourOfTheDay = targetHour;
+        colorScreenHandler.UpdateColorScreen(false);
+        //UpdateHourOfTheDay(false);
+    }
 
     // Update is called once per frame
     void Update()

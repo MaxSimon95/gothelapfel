@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NotebookBaseUI : MonoBehaviour
 {
-    public static bool notebookIsOpen = false;
+    //public static bool timeIsStopped = false;
     private AudioSource source;
     public AudioClip sound;
 
@@ -28,7 +28,7 @@ public class NotebookBaseUI : MonoBehaviour
         CanvasContainerHandler.SetSceneUIVisible(false);
         PlaySound();
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
-        notebookIsOpen = true;
+        GameTime.timeIsStopped = true;
         RenderOrderAdjustment.anyOverlayOpen = true;
 
     }
@@ -40,7 +40,7 @@ public class NotebookBaseUI : MonoBehaviour
         transform.GetChild(0).localScale = new Vector3(0, 0, 0);
 
         //Debug.Log(transform.GetChild(0).localScale);
-        notebookIsOpen = false;
+        GameTime.timeIsStopped = false;
         RenderOrderAdjustment.anyOverlayOpen = false;
         // 
         GameObject.Find("JobManagement").GetComponent<JobsManagement>().UpdateActiveJobs(false);

@@ -12,12 +12,12 @@ public class ColorScreenHandler : MonoBehaviour
     void Start()
     {
         timeCyclePaletteArray = timeCyclePaletteImage.GetPixels();
-        UpdateColorScreen();
+        UpdateColorScreen(false);
         //Debug.Log(timeCyclePaletteArray[0]);
         
     }
 
-    public void UpdateColorScreen()
+    public void UpdateColorScreen(bool animationOverTime)
     {
         int paletteOffset;
         switch(GameTime.currentSeason)
@@ -39,7 +39,14 @@ public class ColorScreenHandler : MonoBehaviour
         //GetComponent<UnityEngine.UI.Image>().color = timeCyclePaletteArray[1];
         Color targetColor = timeCyclePaletteArray[(int)GameTime.hourOfTheDay + paletteOffset];
         //GetComponent<UnityEngine.UI.Image>()
-        LeanTween.color(GetComponent<RectTransform>(), targetColor, 1f);
+
+        if(animationOverTime)
+            LeanTween.color(GetComponent<RectTransform>(), targetColor, 1f);
+        else
+            LeanTween.color(GetComponent<RectTransform>(), targetColor, 0f);
+
+
+
         //LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), 333, 0.8f).setEaseInOutCubic();
     }
 

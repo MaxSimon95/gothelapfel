@@ -123,7 +123,7 @@ public class JobsManagement : MonoBehaviour
             }
         }
 
-        if (!NotebookBaseUI.notebookIsOpen)
+        if (!GameTime.timeIsStopped)
         {
             OrderActiveJobs(sortingType.MARKED);
             panelFeaturedJobsInner.GetComponent<FeaturedJobs>().UpdateFeaturedJobs();
