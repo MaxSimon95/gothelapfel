@@ -118,6 +118,7 @@ public class RoomHandler : MonoBehaviour
     public void ApplyRoomColor(bool withAnimation)
     {
 
+        
         if(withAnimation)
         {
             if (GetComponent<SpriteRenderer>() != null)
@@ -142,6 +143,7 @@ public class RoomHandler : MonoBehaviour
                     child.gameObject.GetComponent<SpriteRenderer>().color = currentRoomColor;
             }
         }
+        
 
     }
 
