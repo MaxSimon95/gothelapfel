@@ -39,7 +39,7 @@ public class ColorScreenHandler : MonoBehaviour
                 paletteOffset = 72;
                 break;
         }
-        Debug.Log((int)GameTime.hourOfTheDay);
+        //Debug.Log((int)GameTime.hourOfTheDay);
         //GetComponent<UnityEngine.UI.Image>().color = timeCyclePaletteArray[1];
         Color targetColor = timeCyclePaletteArray[(int)GameTime.hourOfTheDay + paletteOffset];
         //GetComponent<UnityEngine.UI.Image>()

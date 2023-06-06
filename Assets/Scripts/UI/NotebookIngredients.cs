@@ -31,7 +31,7 @@ public class NotebookIngredients : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log("opening");
+        //Debug.Log("opening");
         UpdateDetailPanels();
         GetComponent<NotebookBaseUI>().Open();
 

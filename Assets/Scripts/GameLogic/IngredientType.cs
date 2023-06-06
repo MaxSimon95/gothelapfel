@@ -24,8 +24,10 @@ public class IngredientType : MonoBehaviour
 
     public List<AlchemyReaction> reactionsOutput = new List<AlchemyReaction>();
     public List<AlchemyReaction> reactionsInput = new List<AlchemyReaction>();
+    public List<RegionHandler> regions = new List<RegionHandler>();
 
     private GameObject alchemyReactions;
+    private GameObject regionsGO;
 
     public IngredientCutUp ingredientCutUp;
 
@@ -34,8 +36,10 @@ public class IngredientType : MonoBehaviour
     void Start()
     {
         alchemyReactions = GameObject.Find("AlchemyReactions");
+        regionsGO = GameObject.Find("Regions");
         UpdateReactionsOutput();
         UpdateReactionsInput();
+        UpdateRegions();
     }
 
     void Update()
@@ -106,6 +110,23 @@ public class IngredientType : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+    public void UpdateRegions()
+    {
+        regions.Clear();
+
+        foreach (Transform region in regionsGO.transform)
+        {
+            foreach (IngredientType ingredient in region.gameObject.GetComponent<RegionHandler>().ingredientTypes)
+            {
+                if(ingredient == this)
+                {
+                    // Debug.Log("Ingredient Match: " + ingredientName + ", " + region.gameObject.GetComponent<RegionHandler>().regionName);
+                    regions.Add(region.gameObject.GetComponent<RegionHandler>());
+                }
+            }
         }
     }
 
