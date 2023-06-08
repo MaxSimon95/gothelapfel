@@ -32,6 +32,9 @@ public class NotebookRecipes : MonoBehaviour
     public void Open()
     {
         //Debug.Log("opening");
+
+        NotebookBaseUI.AddToHistory(this.gameObject);
+
         UpdateDetailPanels();
         GetComponent<NotebookBaseUI>().Open();
 

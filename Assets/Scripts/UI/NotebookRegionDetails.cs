@@ -41,6 +41,8 @@ public class NotebookRegionDetails : MonoBehaviour
     {
         region = pRegion;
 
+        NotebookBaseUI.AddToHistory(this.gameObject, region.gameObject);
+
         UpdateRegionDetails();
 
         GetComponent<NotebookBaseUI>().Open();

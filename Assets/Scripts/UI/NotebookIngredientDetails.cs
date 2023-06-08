@@ -72,6 +72,9 @@ public class NotebookIngredientDetails : MonoBehaviour
     {
        
         ingredient = pIngredientType;
+
+        NotebookBaseUI.AddToHistory(this.gameObject, ingredient.gameObject);
+
         UpdateIngredientDetails();
 
         LoadPanels();

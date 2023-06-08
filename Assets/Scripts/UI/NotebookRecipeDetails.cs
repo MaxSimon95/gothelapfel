@@ -55,12 +55,15 @@ public class NotebookRecipeDetails : MonoBehaviour
 
     public void Open(AlchemyReaction pReaction)
     {
-        Debug.Log("Opening 2");
+        //Debug.Log("Opening 2");
         recipe = pReaction;
-        Debug.Log(recipe);
+
+        NotebookBaseUI.AddToHistory(this.gameObject, recipe.gameObject);
+
+        //Debug.Log(recipe);
         UpdateRecipeDetails();
         GetComponent<NotebookBaseUI>().Open();
-        Debug.Log(recipe.reactionName);
+        //Debug.Log(recipe.reactionName);
     }
 
     public void UpdateRecipeDetails()

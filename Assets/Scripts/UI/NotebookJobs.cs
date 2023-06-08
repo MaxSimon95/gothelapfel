@@ -32,6 +32,9 @@ public class NotebookJobs : MonoBehaviour
     {
         jobManagement.OrderActiveJobs(noteBookActiveJobSorting);
         jobList = JobsManagement.activeJobList;
+
+        NotebookBaseUI.AddToHistory(this.gameObject);
+
         UpdateJobPanels();
 
         GetComponent<NotebookBaseUI>().Open();

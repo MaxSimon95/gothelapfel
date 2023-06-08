@@ -28,6 +28,8 @@ public class NotebookRegions : MonoBehaviour
 
     public void Open()
     {
+        NotebookBaseUI.AddToHistory(this.gameObject);
+
         // jobManagement.OrderActiveJobs(noteBookActiveJobSorting);
         // jobList = JobsManagement.activeJobList;
         UpdateRegionPanels();

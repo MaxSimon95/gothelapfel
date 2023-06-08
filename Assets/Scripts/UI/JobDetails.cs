@@ -42,6 +42,9 @@ public class JobDetails : MonoBehaviour
         GetComponent<AutoTransferItemCapability>().PrepareAutoTransferTarget();
         UpdateSubmitButton();
         job = pJob;
+
+        NotebookBaseUI.AddToHistory(this.gameObject, job.gameObject);
+
         UpdateJobDetails();
         UpdateItemSubmissionInfoText();
 
