@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class TripPlanningHandler : MonoBehaviour
 {
+
+    public TripHandler tripHandler;
+
     public GameObject regions;
     public List<RegionHandler> regionHandlerList = new List<RegionHandler>();
     public List<IngredientType> curatedIngredientTypeList = new List<IngredientType>(); // list to access which specific ingredient the user has selected
     public List<IngredientType> oldIngredientList = new List<IngredientType>(); // list to compare the new lists to to see if there are changes and UI updates are in order
+    public List<RegionHandler.rarity> curatedRaritiesList = new List<RegionHandler.rarity>();
+
     public List<Dropdown.OptionData> regionsDropdownOptions = new List<Dropdown.OptionData>();
 
     public GameObject UIDropdownRegion;
@@ -25,6 +30,19 @@ public class TripPlanningHandler : MonoBehaviour
     public GameObject UILabelActivitySelection;
     public GameObject UILabelIngredientSelection;
     public GameObject UILabelTimeSelection;
+    public GameObject UILabelTotalTime;
+
+    public int totalDuration;
+
+    public enum activity
+    {
+        GATHER_EVERYTHING,
+        GATHER_SPECIFIC,
+    }
+
+    activity selectedActivity;
+    IngredientType selectedIngredientType;
+    RegionHandler.rarity selectedIngredientRarity;
 
     // Start is called before the first frame update
     void Start()
@@ -119,10 +137,12 @@ public class TripPlanningHandler : MonoBehaviour
         // if specific ingredient is toggled, show ingredient selection --> else hide
         if (UIRadioSpecificIngredient.GetComponent<Toggle>().isOn)
         {
+            selectedActivity = activity.GATHER_SPECIFIC;
             UIDropdownIngredient.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
+            selectedActivity = activity.GATHER_EVERYTHING;
             UIDropdownIngredient.transform.localScale = new Vector3(0, 0, 0);
 
             // clean up values down the line
@@ -136,6 +156,13 @@ public class TripPlanningHandler : MonoBehaviour
          * show time selection --> else hide
 
         */
+
+        if (UIDropdownIngredient.GetComponent<Dropdown>().value != 0)
+        {
+            selectedIngredientType = curatedIngredientTypeList[UIDropdownIngredient.GetComponent<Dropdown>().value - 1];
+            selectedIngredientRarity = curatedRaritiesList[UIDropdownIngredient.GetComponent<Dropdown>().value - 1];
+            Debug.Log(selectedIngredientType.ingredientName);
+        } 
 
 
 
@@ -161,11 +188,12 @@ public class TripPlanningHandler : MonoBehaviour
 
         /* via tempVariable bool visibilitybutton  = false 
          * if activity.manualTimespanSelection == true and time selected --> visibilityButton = true;
-         * depending on visibilitybutton variable show/hide Button
+         * depending on visibilitybutton variable show/hide Button (and also the total time info)
 
        */
 
         bool tempVisiblityButton = false;
+
 
         if (UIDropdownTime.GetComponent<Dropdown>().value != 0)
         {
@@ -175,12 +203,21 @@ public class TripPlanningHandler : MonoBehaviour
         if (tempVisiblityButton)
         {
             UIButtonStartTrip.transform.localScale = new Vector3(1, 1, 1);
+
+            totalDuration = (int)regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value - 1].travelTimeToHome*2 + UIDropdownTime.GetComponent<Dropdown>().value;
+            UILabelTotalTime.transform.localScale = new Vector3(1, 1, 1);
+            UILabelTotalTime.GetComponent<UnityEngine.UI.Text>().text = "Total Duration: " + totalDuration + " Hours";
         }
         else
         {
             UIButtonStartTrip.transform.localScale = new Vector3(0, 0, 0);
+            UILabelTotalTime.transform.localScale = new Vector3(0, 0, 0);
         }
+
+
+
     }
+
 
     public void DropdownRegionChanged()
     {
@@ -217,6 +254,7 @@ public class TripPlanningHandler : MonoBehaviour
 
 
         curatedIngredientTypeList.Clear();
+        curatedRaritiesList.Clear();
 
         ingredientsDropdownOptions.Add(new Dropdown.OptionData("Click to Select"));
 
@@ -230,6 +268,7 @@ public class TripPlanningHandler : MonoBehaviour
                     if (region.raritiesSpring[i] != RegionHandler.rarity.NONE)
                     {
                         curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        curatedRaritiesList.Add(region.raritiesSpring[i]);
                         ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesSpring[i]) + ")"));
                     }
 
@@ -244,6 +283,7 @@ public class TripPlanningHandler : MonoBehaviour
                     if (region.raritiesSummer[i] != RegionHandler.rarity.NONE)
                     {
                         curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        curatedRaritiesList.Add(region.raritiesSummer[i]);
                         ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesSummer[i]) + ")"));
                     }
 
@@ -258,6 +298,7 @@ public class TripPlanningHandler : MonoBehaviour
                     if (region.raritiesAutumn[i] != RegionHandler.rarity.NONE)
                     {
                         curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        curatedRaritiesList.Add(region.raritiesAutumn[i]);
                         ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesAutumn[i]) + ")"));
                     }
 
@@ -269,9 +310,10 @@ public class TripPlanningHandler : MonoBehaviour
 
                 for (int i = 0; i < region.ingredientTypes.Count; i++)
                 {
-                    if (region.raritiesAutumn[i] != RegionHandler.rarity.NONE)
+                    if (region.raritiesWinter[i] != RegionHandler.rarity.NONE)
                     {
                         curatedIngredientTypeList.Add(region.ingredientTypes[i]);
+                        curatedRaritiesList.Add(region.raritiesWinter[i]);
                         ingredientsDropdownOptions.Add(new Dropdown.OptionData(region.ingredientTypes[i].ingredientName + " (" + RegionHandler.RarityToString(region.raritiesWinter[i]) + ")"));
                     }
 
@@ -314,18 +356,18 @@ public class TripPlanningHandler : MonoBehaviour
     {
         if (l1 == null && l2 == null)
         {
-            Debug.Log("true, both null:  oldList: " + l1.Count + ",  curatedList: " + l2.Count);
+            //Debug.Log("true, both null:  oldList: " + l1.Count + ",  curatedList: " + l2.Count);
             return true;
         }
         else if (l1 == null || l2 == null)
         {
-            Debug.Log("false, only 1 is null");
+            //Debug.Log("false, only 1 is null");
             return false;
         }
 
         if (l1.Count != l2.Count)
         {
-            Debug.Log("false, different list counts: oldList: " + l1.Count + ",  curatedList: " + l2.Count);
+            //Debug.Log("false, different list counts: oldList: " + l1.Count + ",  curatedList: " + l2.Count);
             return false;
         }
             
@@ -333,18 +375,26 @@ public class TripPlanningHandler : MonoBehaviour
         {
             if (l1[i] != l2[i])
             {
-                Debug.Log("false, item " + i + " is different  oldList: " + l1.Count + ",  curatedList: " + l2.Count );
+                //Debug.Log("false, item " + i + " is different  oldList: " + l1.Count + ",  curatedList: " + l2.Count );
                 return false;
             }
                 
         }
-        Debug.Log("true, identical existing lists, oldList: " + l1.Count + ",  curatedList: " + l2.Count);
+        //Debug.Log("true, identical existing lists, oldList: " + l1.Count + ",  curatedList: " + l2.Count);
         return true;
     }
 
 
-    void StartTrip()
+    public void StartTrip()
     {
+        int activityDuration = UIDropdownTime.GetComponent<Dropdown>().value;
+        int travelDuration = (int)regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value - 1].travelTimeToHome;
+
+        tripHandler.ExecuteTrip(selectedActivity, selectedIngredientType, selectedIngredientRarity, totalDuration, activityDuration, travelDuration, curatedIngredientTypeList, curatedRaritiesList);
+
+
+
+
 
     }
 }

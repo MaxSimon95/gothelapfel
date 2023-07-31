@@ -14,12 +14,12 @@ public class RegionHandler : MonoBehaviour
     public Sprite image;
     public enum rarity
     {
-        NONE,  // 0%
-        VERY_RARE, // 8%
-        RARE, // 16%
-        MEDIUM, // 32%
-        COMMON, // 64%
-        ABUNDAND // 100%
+        NONE,  
+        VERY_RARE, 
+        RARE, 
+        MEDIUM, 
+        COMMON, 
+        ABUNDAND 
     }
 
     public List<IngredientType> ingredientTypes;
@@ -75,6 +75,42 @@ public class RegionHandler : MonoBehaviour
 
             default:
                 return ("ERROR");
+                break;
+
+        }
+    }
+
+    public static float RarityToFloat(rarity pRarity)
+    {
+        switch (pRarity)
+        {
+            case rarity.NONE:
+                return (0f);
+                break;
+
+            case rarity.VERY_RARE:
+                return (0.08f);
+                break;
+
+            case rarity.RARE:
+                return (0.16f);
+                break;
+
+            case rarity.MEDIUM:
+                return (0.32f);
+                break;
+
+            case rarity.COMMON:
+                return (0.64f);
+                break;
+
+            case rarity.ABUNDAND:
+                return (1f);
+                break;
+
+            default:
+                Debug.Log("Error, invalid Rarity (public static float RarityToFloat): " + pRarity);
+                return (0f);
                 break;
 
         }
