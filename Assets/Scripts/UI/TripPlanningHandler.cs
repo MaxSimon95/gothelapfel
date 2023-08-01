@@ -324,11 +324,11 @@ public class TripPlanningHandler : MonoBehaviour
 
         if (CheckMatch(oldIngredientList, curatedIngredientTypeList))
         {
-            Debug.Log("SAME LISTS");
+            //Debug.Log("SAME LISTS");
         }
         else
         {
-            Debug.Log("DIFFERENT LISTS");
+            //Debug.Log("DIFFERENT LISTS");
             UIDropdownIngredient.GetComponent<Dropdown>().ClearOptions();
             UIDropdownIngredient.GetComponent<Dropdown>().AddOptions(ingredientsDropdownOptions);
         }
