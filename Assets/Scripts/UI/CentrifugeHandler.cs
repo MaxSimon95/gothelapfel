@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class CentrifugeHandler : MonoBehaviour
 {
-    public int outputSlotsUnlocked = 4;
+    public int outputSlotsUnlocked;
     private bool buttonActive;
     private GameObject inventoryItemInSlot;
+    public GameObject panelInvetorySlots;
     private List<ItemSlotHandler> outputItemSlots = new List<ItemSlotHandler>();
      
 
@@ -19,32 +20,17 @@ public class CentrifugeHandler : MonoBehaviour
         updateButtonActive();
 
         // Load output item slots into the variable
-        foreach (Transform child in transform.parent.parent)
-        {
-            if (child.gameObject.name == "PanelCentrifuge")
-            {
-                //Debug.Log(child.gameObject.name);
-                foreach (Transform child2 in child)
-                {
-                  
-                   
-                    if (child2.gameObject.name == "PanelInventorySlots")
-                    {
+       
                         //Debug.Log(child2.gameObject.name);
-                        foreach (Transform slot in child2)
-                        {
-                            outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
-                        }
-
-
-
-                    }
-
-                }
-            }
-
-           
+                        
+        foreach (Transform slot in panelInvetorySlots.transform)
+                        
+        {
+            if (slot.gameObject.activeSelf)
+                outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
+                        
         }
+
 
         /*if (slot.childCount > 0)
        {
@@ -68,19 +54,9 @@ public class CentrifugeHandler : MonoBehaviour
     public void UpdateDisplayedSlotsNumber()
     {
         int i = 0;
-        foreach (Transform child in transform.parent.parent)
-        {
-            if (child.gameObject.name == "PanelCentrifuge")
-            {
-                //Debug.Log(child.gameObject.name);
-                foreach (Transform child2 in child)
-                {
-
-
-                    if (child2.gameObject.name == "PanelInventorySlots")
-                    {
+        
                         //Debug.Log(child2.gameObject.name);
-                        foreach (Transform slot in child2)
+                        foreach (Transform slot in panelInvetorySlots.transform)
                         {
                             outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
                             if(i< outputSlotsUnlocked)
@@ -94,15 +70,6 @@ public class CentrifugeHandler : MonoBehaviour
                             i++;
                         }
 
-
-
-                    }
-
-                }
-            }
-
-
-        }
     }
 
     public void updateButtonActive()
@@ -191,5 +158,16 @@ public class CentrifugeHandler : MonoBehaviour
 
         updateButtonActive();
 
+    }
+
+    public void ButtonTakeAllPressed()
+    {
+        foreach (Transform slot in panelInvetorySlots.transform)
+        {
+            if (slot.childCount > 0)
+            {
+                slot.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().TransferItemAutomatically();
+            }
+        }
     }
 }

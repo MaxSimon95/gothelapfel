@@ -8,7 +8,8 @@ public class CuttingBoardHandler : MonoBehaviour
     private int outputSlotsUnlocked = 9999;
     private bool buttonActive;
     private GameObject inventoryItemInSlot;
-    private List<ItemSlotHandler> outputItemSlots = new List<ItemSlotHandler>();
+    public GameObject panelInvetorySlots;
+    public List<ItemSlotHandler> outputItemSlots = new List<ItemSlotHandler>();
     private AudioSource source;
     public AudioClip sound;
 
@@ -22,32 +23,14 @@ public class CuttingBoardHandler : MonoBehaviour
         updateButtonActive();
 
         // Load output item slots into the variable
-        foreach (Transform child in transform.parent.parent)
-        {
-            if (child.gameObject.name == "PanelCuttingboard")
-            {
-                //Debug.Log(child.gameObject.name);
-                foreach (Transform child2 in child)
-                {
-
-
-                    if (child2.gameObject.name == "PanelInventorySlots")
-                    {
+ 
                         //Debug.Log(child2.gameObject.name);
-                        foreach (Transform slot in child2)
+                        foreach (Transform slot in panelInvetorySlots.transform)
                         {
+                            if(slot.gameObject.activeSelf)
                             outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
                         }
 
-
-
-                    }
-
-                }
-            }
-
-
-        }
 
         /*if (slot.childCount > 0)
        {
@@ -71,19 +54,8 @@ public class CuttingBoardHandler : MonoBehaviour
     public void UpdateDisplayedSlotsNumber()
     {
         int i = 0;
-        foreach (Transform child in transform.parent.parent)
-        {
-            if (child.gameObject.name == "PanelCentrifuge")
-            {
-                //Debug.Log(child.gameObject.name);
-                foreach (Transform child2 in child)
-                {
-
-
-                    if (child2.gameObject.name == "PanelInventorySlots")
-                    {
                         //Debug.Log(child2.gameObject.name);
-                        foreach (Transform slot in child2)
+                        foreach (Transform slot in panelInvetorySlots.transform)
                         {
                             outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
                             if (i < outputSlotsUnlocked)
@@ -97,15 +69,6 @@ public class CuttingBoardHandler : MonoBehaviour
                             i++;
                         }
 
-
-
-                    }
-
-                }
-            }
-
-
-        }
     }
 
     public void updateButtonActive()
@@ -225,4 +188,16 @@ public class CuttingBoardHandler : MonoBehaviour
         source = GetComponent<AudioSource>();
         source.PlayOneShot(sound, 1f);
     }
+
+    public void ButtonTakeAllPressed()
+    {
+        foreach (Transform slot in panelInvetorySlots.transform)
+        {
+            if (slot.childCount > 0)
+            {
+                slot.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().TransferItemAutomatically();
+            }
+        }
+    }
+
 }

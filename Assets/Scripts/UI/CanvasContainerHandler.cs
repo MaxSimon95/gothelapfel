@@ -8,7 +8,7 @@ public class CanvasContainerHandler : MonoBehaviour
 
     private float inventoryStartPosition;
     private InventoryUIBehaviour inventoryUIBehaviour;
-    public GameObject associatedSceneObject;
+    //public GameObject associatedSceneObject;
     public bool hideInventory;
     public bool hasTransferAmountSelection;
     //public bool closingInProgress = false;
