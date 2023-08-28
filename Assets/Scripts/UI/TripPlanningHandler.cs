@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class TripPlanningHandler : MonoBehaviour
 {
 
-    public TripHandler tripHandler;
-
+    public GameObject tripHandler;
     public GameObject regions;
     public List<RegionHandler> regionHandlerList = new List<RegionHandler>();
     public List<IngredientType> curatedIngredientTypeList = new List<IngredientType>(); // list to access which specific ingredient the user has selected
@@ -390,9 +389,11 @@ public class TripPlanningHandler : MonoBehaviour
         int activityDuration = UIDropdownTime.GetComponent<Dropdown>().value;
         int travelDuration = (int)regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value - 1].travelTimeToHome;
 
-        tripHandler.ExecuteTrip(selectedActivity, selectedIngredientType, selectedIngredientRarity, totalDuration, activityDuration, travelDuration, curatedIngredientTypeList, curatedRaritiesList);
+        
+        tripHandler.GetComponent<TripHandler>().ExecuteTrip(selectedActivity, selectedIngredientType, selectedIngredientRarity, totalDuration, activityDuration, travelDuration, curatedIngredientTypeList, curatedRaritiesList);
 
-
+        GetComponent<CanvasContainerHandler>().CloseContainerView();
+        tripHandler.GetComponent<CanvasContainerHandler>().OpenContainerView();
 
 
 

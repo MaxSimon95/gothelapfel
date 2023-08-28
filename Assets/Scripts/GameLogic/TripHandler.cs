@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class TripHandler : MonoBehaviour
 {
+    public GameObject panelInvetorySlots;
+
+
     public List<IngredientType> outputIngredients = new List<IngredientType>();
     public List<int> outputAmounts = new List<int>();
+
+    public List<ItemSlotHandler> outputItemSlots = new List<ItemSlotHandler>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (Transform slot in panelInvetorySlots.transform)
+        {
+            if (slot.gameObject.activeSelf)
+                outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
+        }
     }
 
     // Update is called once per frame
@@ -113,7 +122,7 @@ public class TripHandler : MonoBehaviour
 
         // execute travel returning
 
-
+        PutOutputIntoInventoryItems();
     }
 
     private void AddFindingsToOutput(IngredientType pFoundIngredientType, int pFoundAmount)
@@ -139,4 +148,60 @@ public class TripHandler : MonoBehaviour
 
 
     }
+
+    public void ButtonTakeAllPressed()
+    {
+        foreach (Transform slot in panelInvetorySlots.transform)
+        {
+            if (slot.childCount > 0)
+            {
+                slot.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().TransferItemAutomatically();
+            }
+        }
+    }
+
+    private void PutOutputIntoInventoryItems()
+    {
+        for (int i = 0; i < outputItemSlots.Count; i++)
+        {
+            if(i < outputIngredients.Count)
+            {
+                GameObject slotInventoryItem = null;
+                // make a new item in a free slot if i is less than unlockedslots,
+                //otherwise the remaining ingredients just get added into the last item that was created on the last free slot in every loop
+
+                slotInventoryItem = (GameObject)Instantiate(Resources.Load("InventoryItemPrefab"), new Vector3(0, 0, 0), Quaternion.identity);
+                slotInventoryItem.transform.SetParent(outputItemSlots[i].transform);
+                slotInventoryItem.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
+                slotInventoryItem.GetComponent<RectTransform>().localScale = new Vector3(slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale, slotInventoryItem.transform.parent.gameObject.GetComponent<ItemSlotHandler>().uiScale);
+
+                // throw out the prefab amount and type
+                slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypeAmounts.RemoveAt(0);
+                slotInventoryItem.GetComponent<InventoryItemHandler>().ingredientTypes.RemoveAt(0);
+
+                slotInventoryItem.GetComponent<InventoryItemHandler>().AddIngredient(outputIngredients[i], outputAmounts[i]);
+
+                slotInventoryItem.GetComponent<InventoryItemHandler>().UpdateItemContent();
+
+            }
+
+
+
+
+            // update slot visuals
+            outputItemSlots[i].UpdateSlotVisibility();
+
+        }
+    }
+
+    public void EmptyItemSlots()
+    {
+        foreach(ItemSlotHandler itemslot in outputItemSlots)
+        {
+            if(itemslot.transform.childCount > 0)
+            GameObject.Destroy(itemslot.transform.GetChild(0).gameObject);
+            //itemslot.UpdateSlotVisibility();
+        }
+    }
+
 }
