@@ -42,6 +42,7 @@ public class TripPlanningHandler : MonoBehaviour
     activity selectedActivity;
     IngredientType selectedIngredientType;
     RegionHandler.rarity selectedIngredientRarity;
+    RegionHandler region;
 
     // Start is called before the first frame update
     void Start()
@@ -249,7 +250,7 @@ public class TripPlanningHandler : MonoBehaviour
     {
         
         List<Dropdown.OptionData> ingredientsDropdownOptions = new List<Dropdown.OptionData>();
-        RegionHandler region = regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value-1];
+        region = regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value-1];
 
 
         curatedIngredientTypeList.Clear();
@@ -389,13 +390,10 @@ public class TripPlanningHandler : MonoBehaviour
         int activityDuration = UIDropdownTime.GetComponent<Dropdown>().value;
         int travelDuration = (int)regionHandlerList[UIDropdownRegion.GetComponent<Dropdown>().value - 1].travelTimeToHome;
 
-        
-        tripHandler.GetComponent<TripHandler>().ExecuteTrip(selectedActivity, selectedIngredientType, selectedIngredientRarity, totalDuration, activityDuration, travelDuration, curatedIngredientTypeList, curatedRaritiesList);
-
         GetComponent<CanvasContainerHandler>().CloseContainerView();
-        tripHandler.GetComponent<CanvasContainerHandler>().OpenContainerView();
+        //tripHandler.GetComponent<CanvasContainerHandler>().OpenContainerView();
 
-
+        tripHandler.GetComponent<TripHandler>().ExecuteTrip(selectedActivity, selectedIngredientType, selectedIngredientRarity, totalDuration, activityDuration, travelDuration, curatedIngredientTypeList, curatedRaritiesList, region);
 
     }
 }

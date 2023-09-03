@@ -1,16 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TripHandler : MonoBehaviour
 {
-    public GameObject panelInvetorySlots;
+    public GameTime gameTime;
 
+    public GameObject panelInvetorySlots;
 
     public List<IngredientType> outputIngredients = new List<IngredientType>();
     public List<int> outputAmounts = new List<int>();
 
     public List<ItemSlotHandler> outputItemSlots = new List<ItemSlotHandler>();
+
+    public GameObject panelTripOngoing;
+    public GameObject panelTripOngoingTextMain;
+    public GameObject panelTripOngoingTextTime;
+    public GameObject panelTripResults;
+
+    TripPlanningHandler.activity selectedActivity;
+    IngredientType selectedIngredient;
+    RegionHandler.rarity selectedIngredientRarity;
+    RegionHandler region;
+    int totalDuration;
+    int activityDuration;
+    int travelDuration;
+    List<IngredientType> regionIngredientTypeList;
+    List<RegionHandler.rarity> regionRaritiesList;
+    int tempHour = (int)GameTime.hourOfTheDay;
+
+    private InventoryUIBehaviour inventoryUIBehaviour;
+
+    public Canvas inventoryCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +42,11 @@ public class TripHandler : MonoBehaviour
             if (slot.gameObject.activeSelf)
                 outputItemSlots.Add(slot.gameObject.GetComponent<ItemSlotHandler>());
         }
+
+        panelTripOngoing.transform.localScale = new Vector3(0, 0, 0);
+        panelTripResults.transform.localScale = new Vector3(0, 0, 0);
+
+        inventoryUIBehaviour = GameObject.Find("ButtonArrowInventory").GetComponent<InventoryUIBehaviour>();
     }
 
     // Update is called once per frame
@@ -28,20 +55,21 @@ public class TripHandler : MonoBehaviour
         
     }
 
-    public void ExecuteTrip(TripPlanningHandler.activity pSelectedActivity, IngredientType pSelectedIngredient, RegionHandler.rarity pSelectedIngredientRarity, int pTotalDuration, int pActivityDuration, int pTravelDuration, List<IngredientType> pRegionIngredientTypeList, List<RegionHandler.rarity> pRegionRaritiesList)
+    public void ExecuteTrip(TripPlanningHandler.activity pSelectedActivity, IngredientType pSelectedIngredient, RegionHandler.rarity pSelectedIngredientRarity, int pTotalDuration, int pActivityDuration, int pTravelDuration, List<IngredientType> pRegionIngredientTypeList, List<RegionHandler.rarity> pRegionRaritiesList, RegionHandler pSelectedRegion)
     {
         outputIngredients.Clear();
         outputAmounts.Clear();
 
-        TripPlanningHandler.activity selectedActivity = pSelectedActivity;
-        IngredientType selectedIngredient = pSelectedIngredient;
-        RegionHandler.rarity selectedIngredientRarity= pSelectedIngredientRarity;
-        int totalDuration = pTotalDuration;
-        int activityDuration = pActivityDuration;
-        int travelDuration = pTravelDuration;
-        List<IngredientType> regionIngredientTypeList = pRegionIngredientTypeList;
-        List<RegionHandler.rarity> regionRaritiesList = pRegionRaritiesList;
-        int tempHour = (int)GameTime.hourOfTheDay;
+        selectedActivity = pSelectedActivity;
+        selectedIngredient = pSelectedIngredient;
+        selectedIngredientRarity= pSelectedIngredientRarity;
+        totalDuration = pTotalDuration;
+        activityDuration = pActivityDuration;
+        travelDuration = pTravelDuration;
+        regionIngredientTypeList = pRegionIngredientTypeList;
+        regionRaritiesList = pRegionRaritiesList;
+        region = pSelectedRegion;
+        tempHour = (int)GameTime.hourOfTheDay;
 
         // execute travel outgoing 
 
@@ -123,6 +151,9 @@ public class TripHandler : MonoBehaviour
         // execute travel returning
 
         PutOutputIntoInventoryItems();
+
+        
+        StartCoroutine(TripAnimation());
     }
 
     private void AddFindingsToOutput(IngredientType pFoundIngredientType, int pFoundAmount)
@@ -204,4 +235,52 @@ public class TripHandler : MonoBehaviour
         }
     }
 
+    IEnumerator TripAnimation()
+    {
+        RenderOrderAdjustment.anyOverlayOpen = true;
+        GameTime.timeIsStopped = true;
+        RenderOrderAdjustment.anyOverlayOpen = true;
+        CanvasContainerHandler.SetSceneUIVisible(false);
+
+        panelTripOngoingTextMain.GetComponent<UnityEngine.UI.Text>().text = "Travelling to " + region.regionName + "...";
+        panelTripOngoingTextTime.GetComponent<UnityEngine.UI.Text>().text = travelDuration + " hours";
+        panelTripOngoing.transform.localScale = new Vector3(1, 1, 1);
+        //inventoryCanvas.transform.GetChild(0).localScale = new Vector3(0, 0, 0);
+        gameTime.JumpToHourOfTheDay(tempHour + totalDuration);
+
+        yield return new WaitForSeconds(2f);
+
+        panelTripOngoingTextMain.GetComponent<UnityEngine.UI.Text>().text = "Gathering ingredients...";
+        panelTripOngoingTextTime.GetComponent<UnityEngine.UI.Text>().text = activityDuration + " hours";
+
+        yield return new WaitForSeconds(2f);
+
+        panelTripOngoingTextMain.GetComponent<UnityEngine.UI.Text>().text = "Travelling home...";
+        panelTripOngoingTextTime.GetComponent<UnityEngine.UI.Text>().text = travelDuration + " hours";
+
+        yield return new WaitForSeconds(2f);
+
+        panelTripOngoing.transform.localScale = new Vector3(0, 0, 0);
+        panelTripResults.transform.localScale = new Vector3(1, 1, 1);
+
+        GameTime.timeIsStopped = false;
+        
+
+    }
+
+    public void CloseContainerViewCopy()
+    {
+        //inventoryCanvas.transform.GetChild(0).localScale = new Vector3(1, 1, 1);
+        GameTime.timeIsStopped = false;
+
+        RenderOrderAdjustment.anyOverlayOpen = false;
+        CanvasContainerHandler.SetSceneUIVisible(true);
+
+
+        panelTripResults.transform.localScale = new Vector3(0, 0, 0);
+
+        InventoryItemHandler.ResetAutoTransferTargetParent();
+    }
+
+  
 }
