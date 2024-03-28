@@ -45,6 +45,8 @@ public class GameTime : MonoBehaviour
         StartCoroutine(GameTimeLoop());
     }
 
+   
+
     IEnumerator GameTimeLoop()
     {
         float secondinhosSinceLastHourUpdate=0;

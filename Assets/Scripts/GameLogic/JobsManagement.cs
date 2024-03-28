@@ -8,6 +8,7 @@ public class JobsManagement : MonoBehaviour
 {
 
     public Transform panelFeaturedJobsInner;
+    public MoneyHandler moneyHandler;
     //public Transform panelFeaturedJobsOuter;
     
     public enum sortingType
@@ -25,21 +26,16 @@ public class JobsManagement : MonoBehaviour
     public static List<JobHandler> doneJobsList = new List<JobHandler>();
 
     UnityEvent eventDayChange;
-    //public NotificationFlagHandler notificationFlagHandler;
+    public NotificationFlagHandler notificationFlagHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         eventDayChange = GameTime.eventDayChange;
         eventDayChange.AddListener(ReceivedDayChangeEvent);
-
-
-
-
-
-
         UpdateActiveJobs(false);
-       
+
+        AddJob("Job that was added via Code", 32, GameObject.Find("EXMPL_1337").GetComponent<IngredientType>(), 5, 15, "Sweet Liberty No! Sound familiar?", GameObject.Find("NPC_placeholder").GetComponent<NPC>());
     }
 
     // Update is called once per frame
@@ -59,11 +55,13 @@ public class JobsManagement : MonoBehaviour
         jobItem.requestedIngredientType = pRequestedIngredientType;
         jobItem.requestedAmount = pRequestedAmount;
         jobItem.startDays = pStartDays;
+        jobItem.remainingDays = pStartDays;
         jobItem.description = pDescription;
         jobItem.client = pClient;
 
         jobItem.Activate();
         //notificationFlagHandler.AddNotificationToQueue(new Notification(jobItem));
+        UpdateActiveJobs(false);
     }
 
     public void AddJob(string pTitle, int pPayment, List<IngredientEffect> pRequestedEffects, List<IngredientEffect.EffectIntensity> pRequestedEffectIntensities, List<JobHandler.ExpectedEffectIntensityOperator> pRequestedEffectIntensityOperators, int pRequestedAmount, bool pIgnoreSideffectsForItemSuitableChecks, int pStartDays, string pDescription, NPC pClient)
@@ -84,7 +82,7 @@ public class JobsManagement : MonoBehaviour
         jobItem.client = pClient;
 
         jobItem.Activate();
-        //notificationFlagHandler.AddNotificationToQueue(new Notification(jobItem));
+        notificationFlagHandler.AddNotificationToQueue(new Notification(jobItem));
     }
 
     private void ReceivedDayChangeEvent()
@@ -173,8 +171,13 @@ public class JobsManagement : MonoBehaviour
 
     }
 
-    public static void CompleteJob(JobHandler job, InventoryItemHandler inventoryItem)
+    public void CompleteJob(JobHandler job, InventoryItemHandler inventoryItem)
     {
+        // innerworkings of the job in questing
+        job.Complete();
+        moneyHandler.currentMoney = moneyHandler.currentMoney + job.payment;
+        moneyHandler.UpdateMoneyDisplay();
+
         Debug.Log("job completed: " + job.title);
         Debug.Log(inventoryItem);
     }
