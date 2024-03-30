@@ -4,11 +4,34 @@ using UnityEngine;
 
 public class SleepHandler : MonoBehaviour
 {
-    public GameObject panel;
-    public GameObject text;
+    public MoneyHandler moneyHandler;
+    public AlchemyEngineLogic alchemyEngine;
     public GameTime gameTime;
 
+    public GameObject panel;
+    public GameObject textDay1;
+    public GameObject textDay2;
+    public GameObject textMoney;
+    public GameObject imageMoney;
+    public GameObject textMoneyChangeReason;
+    public GameObject textMoneyChangeAmount;
+    public GameObject imageMoneyChange;
+    public GameObject textRecipesToday;
+    public GameObject imageRecipeSingle;
+    public GameObject textRecipeSingle;
+
+    public GameObject textProgressBar;
+    public GameObject imageProgressBarCurrent;
+    public GameObject imageProgressBarTotal;
+
+    public GameObject panelMoneyChange;
+    public GameObject panelDay;
+    public GameObject panelMoney;
+    public GameObject panelRecipesToday;
+    public GameObject panelRecipeSingle;
+
     public float wakeUpTime;
+    int tempMoneyTotal;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +39,22 @@ public class SleepHandler : MonoBehaviour
         //LeanTween.alpha(text.GetComponent<UnityEngine.UI.Text>(), 0f, 0);
         panel.transform.localScale = new Vector3(0, 0, 0);
         LeanTween.alpha(panel.GetComponent<RectTransform>(), 0f, 0);
-        text.transform.localScale = new Vector3(0, 0, 0);
+        textDay1.transform.localScale = new Vector3(0, 0, 0);
+        textDay2.transform.localScale = new Vector3(0, 0, 0);
+        textMoney.transform.localScale = new Vector3(0, 0, 0);
+        imageMoney.transform.localScale = new Vector3(0, 0, 0);
+        textMoneyChangeReason.transform.localScale = new Vector3(0, 0, 0);
+        textMoneyChangeAmount.transform.localScale = new Vector3(0, 0, 0);
+        imageMoneyChange.transform.localScale = new Vector3(0, 0, 0);
+        textRecipesToday.transform.localScale = new Vector3(0, 0, 0);
+        imageRecipeSingle.transform.localScale = new Vector3(0, 0, 0);
+        textRecipeSingle.transform.localScale = new Vector3(0, 0, 0);
+        imageProgressBarCurrent.transform.localScale = new Vector3(0, 0, 0);
+        imageProgressBarTotal.transform.localScale = new Vector3(0, 0, 0);
+        textProgressBar.transform.localScale = new Vector3(0, 0, 0);
+        panelMoneyChange.transform.localScale = new Vector3(0, 0, 0);
+
+
     }
 
     // Update is called once per frame
@@ -35,17 +73,76 @@ public class SleepHandler : MonoBehaviour
     {
         GameTime.timeIsStopped = true;
 
+        
         panel.transform.localScale = new Vector3(1, 1, 1);
 
         LeanTween.alpha(panel.GetComponent<RectTransform>(), 1f, 3);
 
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3f);
+        moneyHandler.AddMoneyChange("Rent", (moneyHandler.rent * -1));
+
+        // appear day 1 label
+
+        textDay1.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart + 1);
+        LeanTween.alpha(textDay1.GetComponent<RectTransform>(), 1f, 0);
+        textDay1.transform.localScale = new Vector3(1, 1, 1);
+
+        // appear money label
+        tempMoneyTotal = moneyHandler.moneyAtDayStart;
+        textMoney.GetComponent<UnityEngine.UI.Text>().text = tempMoneyTotal.ToString();
+        LeanTween.alpha(textMoney.GetComponent<RectTransform>(), 1f, 0);
+        imageMoney.transform.localScale = new Vector3(1, 1, 1);
+        textMoney.transform.localScale = new Vector3(1, 1, 1);
+
+        // iterate through money changes
+        yield return new WaitForSeconds(1f);
+        
+        for(int i=0; i< moneyHandler.moneyChangeLabelsToday.Count; i++)
+        {
+            textMoneyChangeReason.GetComponent<UnityEngine.UI.Text>().text = moneyHandler.moneyChangeLabelsToday[i];
+            if(moneyHandler.moneyChangeAmountsToday[i]>0)
+            {
+                textMoneyChangeAmount.GetComponent<UnityEngine.UI.Text>().text = "+"+moneyHandler.moneyChangeAmountsToday[i].ToString();
+            }
+            else
+            {
+                textMoneyChangeAmount.GetComponent<UnityEngine.UI.Text>().text = moneyHandler.moneyChangeAmountsToday[i].ToString();
+            }
+            
+            textMoneyChangeReason.transform.localScale = new Vector3(1, 1, 1);
+            textMoneyChangeAmount.transform.localScale = new Vector3(1, 1, 1);
+            imageMoneyChange.transform.localScale = new Vector3(1, 1, 1);
+
+            panelMoneyChange.transform.localScale = new Vector3(1, 1, 1);
+            LeanTween.alpha(panelMoneyChange.GetComponent<RectTransform>(), 1f, 0);
+
+
+            yield return new WaitForSeconds(2f);
+
+            tempMoneyTotal += moneyHandler.moneyChangeAmountsToday[i];
+            textMoney.GetComponent<UnityEngine.UI.Text>().text = tempMoneyTotal.ToString();
+
+            LeanTween.moveY(panelMoneyChange.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y-200, 0.7f);
+            LeanTween.alpha(panelMoneyChange.GetComponent<RectTransform>(), 0f, 0.7f);
+
+            yield return new WaitForSeconds(2.5f);
+            LeanTween.moveY(panelMoneyChange.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y + 200, 0);
+
+        }
+
+        //hide Money stuff
+        textMoney.transform.localScale = new Vector3(0, 0, 0);
+        imageMoney.transform.localScale = new Vector3(0, 0, 0);
+        panelMoneyChange.transform.localScale = new Vector3(0, 0, 0);
+
+        yield return new WaitForSeconds(0.5f);
+        
 
         gameTime.JumpToHourOfTheDay(wakeUpTime);
 
-        text.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart + 1);
-
-        text.transform.localScale = new Vector3(1, 1, 1);
+        //show new day
+        textDay1.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart + 1);
+        textDay1.transform.localScale = new Vector3(1, 1, 1);
         
 
         yield return new WaitForSeconds(2);
@@ -56,8 +153,9 @@ public class SleepHandler : MonoBehaviour
 
     IEnumerator SleepEnd()
     {
+        moneyHandler.UpdateMoneyAtDayStart();
 
-        text.transform.localScale = new Vector3(0, 0, 0);
+        textDay1.transform.localScale = new Vector3(0, 0, 0);
 
         LeanTween.alpha(panel.GetComponent<RectTransform>(), 0f, 1);
 

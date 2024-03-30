@@ -175,8 +175,9 @@ public class JobsManagement : MonoBehaviour
     {
         // innerworkings of the job in questing
         job.Complete();
-        moneyHandler.currentMoney = moneyHandler.currentMoney + job.payment;
-        moneyHandler.UpdateMoneyDisplay();
+        //moneyHandler.currentMoney = moneyHandler.currentMoney + job.payment; //now handled in AddMoneyChange
+        //moneyHandler.UpdateMoneyDisplay();
+        moneyHandler.AddMoneyChange(job.title, job.payment);
 
         Debug.Log("job completed: " + job.title);
         Debug.Log(inventoryItem);

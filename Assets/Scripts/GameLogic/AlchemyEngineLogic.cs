@@ -13,7 +13,8 @@ public class AlchemyEngineLogic : MonoBehaviour
     public IngredientType specialIngredientType_ash;
 
     public NotificationFlagHandler notificationFlagHandler;
-     
+    public List<AlchemyReaction> reactionsDiscoveredToday;
+
     IEnumerator Start()
     {
         CreateGeneratedAlchemyReactions();
@@ -51,13 +52,13 @@ public class AlchemyEngineLogic : MonoBehaviour
             if (ingredient.burnsToAsh)
             {
                 GameObject slotInventoryItem = (GameObject)Instantiate(Resources.Load("AlchemyReaction_BurnsToAsh_Prefab"), new Vector3(0, 0, 0), Quaternion.identity);
-                slotInventoryItem.GetComponent<AlchemyReaction>().inputIngredientTypes.Add(ingredient); 
+                slotInventoryItem.GetComponent<AlchemyReaction>().inputIngredientTypes.Add(ingredient);
                 slotInventoryItem.GetComponent<AlchemyReaction>().outputIngredientTypes.Add(specialIngredientType_ash);
                 slotInventoryItem.GetComponent<AlchemyReaction>().AlwaysHideFromNotebookView = true;
                 slotInventoryItem.transform.SetParent(alchemyReactionsTransform);
 
             }
-            
+
 
         }
     }
@@ -94,7 +95,7 @@ public class AlchemyEngineLogic : MonoBehaviour
 
     public void CheckForFittingAlchemyReaction(List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts, int reactionsHaveHappened, float surroundingTemperature, string surroundingContainerName)
     {
-        
+
         // Vorgehen: Eine temp liste von alchemyreactions anlegen, die erstmal alle enthält. und in jedem durchlauf werden dann auf möglichst performante weise 
         // reactions eliminiert, die es nicht sein können und rausgeschmissen, bis nur noch die gültigen bleiben. dann wird nach prio sortiert.
 
@@ -106,7 +107,7 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         {
- 
+
             if (alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().inputIngredientTypes.Count > ingredientTypes.Count)
             {
                 alchemyReactionCandidates.RemoveAt(index);
@@ -120,7 +121,7 @@ public class AlchemyEngineLogic : MonoBehaviour
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         {
             // if min and max temperature are completely identical we assume that nothing has been specified at all --> the reaction has no temperature constraint
-            if(alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature != alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature)
+            if (alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature != alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature)
             {
                 // check if min and max temperature fit
                 if ((surroundingTemperature < alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().minTemperature) || (surroundingTemperature > alchemyReactionCandidates[index].GetComponent<AlchemyReaction>().maxTemperature))
@@ -152,7 +153,7 @@ public class AlchemyEngineLogic : MonoBehaviour
         for (int index = alchemyReactionCandidates.Count - 1; index >= 0; index--)
         //for (int index = 0; index < ingredientTypes.Count; index++)
         {
-            if(!CheckForEnoughIngredients(alchemyReactionCandidates[index], ingredientTypes, ingredientTypeAmounts))
+            if (!CheckForEnoughIngredients(alchemyReactionCandidates[index], ingredientTypes, ingredientTypeAmounts))
             {
                 alchemyReactionCandidates.RemoveAt(index);
             }
@@ -161,8 +162,8 @@ public class AlchemyEngineLogic : MonoBehaviour
         // step 3: find remaining alchemyreaction-candidate with highest priority and make that alchemy reaction happen!
 
 
-        
-        if(alchemyReactionCandidates.Count > 0)
+
+        if (alchemyReactionCandidates.Count > 0)
         {
             reactionsHaveHappened++;
             foreach (var x in alchemyReactionCandidates)
@@ -171,19 +172,19 @@ public class AlchemyEngineLogic : MonoBehaviour
 
             int tempMaxPrio = 0;
             GameObject tempCandidate = null;
-            foreach(GameObject reaction in alchemyReactionCandidates)
+            foreach (GameObject reaction in alchemyReactionCandidates)
             {
                 if (reaction.GetComponent<AlchemyReaction>().priority > tempMaxPrio)
                 {
                     tempMaxPrio = reaction.GetComponent<AlchemyReaction>().priority;
                     tempCandidate = reaction;
                 }
-                    
+
             }
 
             ExecuteAlchemyReaction(tempCandidate, ingredientTypes, ingredientTypeAmounts);
-            
-            CheckForFittingAlchemyReaction(ingredientTypes,ingredientTypeAmounts, reactionsHaveHappened, surroundingTemperature, surroundingContainerName);
+
+            CheckForFittingAlchemyReaction(ingredientTypes, ingredientTypeAmounts, reactionsHaveHappened, surroundingTemperature, surroundingContainerName);
 
         }
         else
@@ -195,7 +196,7 @@ public class AlchemyEngineLogic : MonoBehaviour
             // here we can execute fancy stuff like SOUNDZ and sparkle effects and all that that we want to happen ONCE if a batch of n>=1 reactions occured
             source = GetComponent<AudioSource>();
             source.PlayOneShot(reactionSound, 1f);
-            
+
 
         }
 
@@ -213,13 +214,13 @@ public class AlchemyEngineLogic : MonoBehaviour
 
         // remove required input ingredients from origin
 
-            for (int i=0; i< reaction.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; i++)
+        for (int i = 0; i < reaction.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; i++)
         {
 
-            for (int j = ingredientTypesAvailable.Count-1; j >= 0; j--)
+            for (int j = ingredientTypesAvailable.Count - 1; j >= 0; j--)
             {
 
-                if(reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i] == ingredientTypesAvailable[j])
+                if (reaction.GetComponent<AlchemyReaction>().inputIngredientTypes[i] == ingredientTypesAvailable[j])
                 {
                     ingredientTypeAmountsAvailable[j] -= reaction.GetComponent<AlchemyReaction>().inputIngredientTypeAmounts[i];
                 }
@@ -248,50 +249,61 @@ public class AlchemyEngineLogic : MonoBehaviour
             ingredientTypeAmountsAvailable.Add(reaction.GetComponent<AlchemyReaction>().outputIngredientTypeAmounts[i]);
         }
 
-        }
+    }
 
-    private bool CheckForEnoughIngredients (GameObject alchemyReactionCandidate, List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts)
-        {
+    private bool CheckForEnoughIngredients(GameObject alchemyReactionCandidate, List<IngredientType> ingredientTypes, List<int> ingredientTypeAmounts)
+    {
 
-        
+
         // traverse all input ingredient types in reaction candidate
         for (int j = 0; j < alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypes.Count; j++)
+        {
+            IngredientType requiredIngredientInput = alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypes[j];
+            int requiredAmountInput = alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypeAmounts[j];
+            bool enoughOfIngredient = false;
+
+            // traverse all available ingredient types (in container, inventory item, wherever this is checked)
+            for (int k = 0; k < ingredientTypes.Count; k++)
             {
-                IngredientType requiredIngredientInput = alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypes[j];
-                int requiredAmountInput = alchemyReactionCandidate.GetComponent<AlchemyReaction>().inputIngredientTypeAmounts[j];
-                bool enoughOfIngredient = false;
+                IngredientType currentIngredientAvailable = ingredientTypes[k];
+                int currentAmountAvailable = ingredientTypeAmounts[k];
 
-                // traverse all available ingredient types (in container, inventory item, wherever this is checked)
-                for (int k = 0; k < ingredientTypes.Count; k++)
+                if (
+                    (currentIngredientAvailable == requiredIngredientInput)
+                    &&
+                    (currentAmountAvailable >= requiredAmountInput)
+                   )
                 {
-                    IngredientType currentIngredientAvailable = ingredientTypes[k];
-                    int currentAmountAvailable = ingredientTypeAmounts[k];
-
-                    if (
-                        (currentIngredientAvailable == requiredIngredientInput)
-                        &&
-                        (currentAmountAvailable >= requiredAmountInput)
-                       )
-                    {
-                        enoughOfIngredient = true;
-                    }
+                    enoughOfIngredient = true;
                 }
+            }
 
-                // if the input ingredient that has just been checked is not available in sufficent quantity, return false and stop this madness
-                if(!enoughOfIngredient)
-                {
+            // if the input ingredient that has just been checked is not available in sufficent quantity, return false and stop this madness
+            if (!enoughOfIngredient)
+            {
 
 
-                    return false;
-                }
-            
+                return false;
+            }
+
         }
 
         //if all input ingredients could be traversed without it throwing false once and cancelling the method, everything we need is available
-        
+
         return true;
 
-        
+
 
     }
+
+    public void addReactionDoTodaysReactions(AlchemyReaction pReaction)
+        {
+    reactionsDiscoveredToday.Add(pReaction);
+    }
+
+    public void ClearTodaysReactions()
+    {
+        reactionsDiscoveredToday.Clear();
+    }
+
 }
