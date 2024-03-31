@@ -40,6 +40,8 @@ public class GameTime : MonoBehaviour
 
     public static bool timeIsStopped = false;
 
+    public SleepHandler sleepHandler;
+
     void Start()
     {
         StartCoroutine(GameTimeLoop());
@@ -98,6 +100,11 @@ public class GameTime : MonoBehaviour
 
         colorScreenHandler.UpdateColorScreen(colorChangeAnimationOverTime);
         //Debug.Log(hourOfTheDay);
+
+        if(hourOfTheDay == sleepHandler.wakeUpTime)
+        {
+            sleepHandler.Sleep(false);
+        }
 
     }
 

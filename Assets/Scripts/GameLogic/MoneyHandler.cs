@@ -12,6 +12,8 @@ public class MoneyHandler : MonoBehaviour
     public List<int> moneyChangeAmountsToday;
     public List<string> moneyChangeLabelsToday;
 
+    public AudioClip moneySound;
+
 
     // Start is called before the first frame update
     void Start()

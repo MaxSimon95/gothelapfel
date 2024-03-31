@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SleepHandler : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class SleepHandler : MonoBehaviour
     public float wakeUpTime;
     int tempMoneyTotal;
 
+    private AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,8 +56,6 @@ public class SleepHandler : MonoBehaviour
         imageProgressBarTotal.transform.localScale = new Vector3(0, 0, 0);
         textProgressBar.transform.localScale = new Vector3(0, 0, 0);
         panelMoneyChange.transform.localScale = new Vector3(0, 0, 0);
-
-
     }
 
     // Update is called once per frame
@@ -63,13 +64,18 @@ public class SleepHandler : MonoBehaviour
         
     }
 
-    public void Sleep()
+    public void Sleep(bool pTriggeredFromBed)
     {
-        StartCoroutine(SleepStart());
+        StartCoroutine(SleepStart(pTriggeredFromBed));
         
     }
 
-    IEnumerator SleepStart()
+    public void Sleep()
+    {
+        StartCoroutine(SleepStart(true));
+    }
+
+    IEnumerator SleepStart(bool pTriggeredFromBed)
     {
         GameTime.timeIsStopped = true;
 
@@ -82,8 +88,24 @@ public class SleepHandler : MonoBehaviour
         moneyHandler.AddMoneyChange("Rent", (moneyHandler.rent * -1));
 
         // appear day 1 label
+        if(pTriggeredFromBed)
+        {
+            if (GameTime.hourOfTheDay < wakeUpTime)
+            {
+                textDay1.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart);
+            }
+            else
+            {
+                textDay1.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart + 1);
+            }
+        }
+        else
+        {
+            textDay1.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart);
+        }
 
-        textDay1.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart + 1);
+        
+        
         LeanTween.alpha(textDay1.GetComponent<RectTransform>(), 1f, 0);
         textDay1.transform.localScale = new Vector3(1, 1, 1);
 
@@ -99,8 +121,11 @@ public class SleepHandler : MonoBehaviour
         
         for(int i=0; i< moneyHandler.moneyChangeLabelsToday.Count; i++)
         {
+            source = GetComponent<AudioSource>();
+            source.PlayOneShot(moneyHandler.moneySound, 1f);
+
             textMoneyChangeReason.GetComponent<UnityEngine.UI.Text>().text = moneyHandler.moneyChangeLabelsToday[i];
-            if(moneyHandler.moneyChangeAmountsToday[i]>0)
+            if(moneyHandler.moneyChangeAmountsToday[i]>=0)
             {
                 textMoneyChangeAmount.GetComponent<UnityEngine.UI.Text>().text = "+"+moneyHandler.moneyChangeAmountsToday[i].ToString();
             }
@@ -112,6 +137,8 @@ public class SleepHandler : MonoBehaviour
             textMoneyChangeReason.transform.localScale = new Vector3(1, 1, 1);
             textMoneyChangeAmount.transform.localScale = new Vector3(1, 1, 1);
             imageMoneyChange.transform.localScale = new Vector3(1, 1, 1);
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(panelMoneyChange.GetComponent<RectTransform>());
 
             panelMoneyChange.transform.localScale = new Vector3(1, 1, 1);
             LeanTween.alpha(panelMoneyChange.GetComponent<RectTransform>(), 1f, 0);
@@ -137,7 +164,7 @@ public class SleepHandler : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         
-
+        if(pTriggeredFromBed)
         gameTime.JumpToHourOfTheDay(wakeUpTime);
 
         //show new day
