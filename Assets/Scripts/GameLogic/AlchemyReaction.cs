@@ -21,6 +21,8 @@ public class AlchemyReaction : MonoBehaviour
     public List<IngredientType> outputIngredientTypes = new List<IngredientType>();
     public List<int> outputIngredientTypeAmounts = new List<int>();
 
+    public static List<AlchemyReaction> reactionsDiscoveredToday = new List<AlchemyReaction>();
+
     void Start()
     {
         if (reactionName == "")
@@ -37,5 +39,17 @@ public class AlchemyReaction : MonoBehaviour
     {
         knownToPlayer = true;
         GameObject.Find("PanelNotificationFlag").GetComponent<NotificationFlagHandler>().AddNotificationToQueue(new Notification(this));
+        AddReactionToTodaysReactions(this);
+    }
+
+
+    public static void AddReactionToTodaysReactions(AlchemyReaction pReaction)
+    {
+        reactionsDiscoveredToday.Add(pReaction);
+    }
+
+    public static void ClearTodaysReactions()
+    {
+        reactionsDiscoveredToday.Clear();
     }
 }

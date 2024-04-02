@@ -13,7 +13,7 @@ public class AlchemyEngineLogic : MonoBehaviour
     public IngredientType specialIngredientType_ash;
 
     public NotificationFlagHandler notificationFlagHandler;
-    public List<AlchemyReaction> reactionsDiscoveredToday;
+    
 
     IEnumerator Start()
     {
@@ -296,14 +296,5 @@ public class AlchemyEngineLogic : MonoBehaviour
 
     }
 
-    public void addReactionDoTodaysReactions(AlchemyReaction pReaction)
-        {
-    reactionsDiscoveredToday.Add(pReaction);
-    }
-
-    public void ClearTodaysReactions()
-    {
-        reactionsDiscoveredToday.Clear();
-    }
 
 }

@@ -26,13 +26,15 @@ public class SleepHandler : MonoBehaviour
     public GameObject imageProgressBarTotal;
 
     public GameObject panelMoneyChange;
-    public GameObject panelDay;
+    //public GameObject panelDay;
     public GameObject panelMoney;
     public GameObject panelRecipesToday;
     public GameObject panelRecipeSingle;
 
     public float wakeUpTime;
     int tempMoneyTotal;
+    int tempRecipesTodayAmount;
+    List<AlchemyReaction> tempReactions = new List<AlchemyReaction>();
 
     private AudioSource source;
 
@@ -56,6 +58,8 @@ public class SleepHandler : MonoBehaviour
         imageProgressBarTotal.transform.localScale = new Vector3(0, 0, 0);
         textProgressBar.transform.localScale = new Vector3(0, 0, 0);
         panelMoneyChange.transform.localScale = new Vector3(0, 0, 0);
+        panelRecipesToday.transform.localScale = new Vector3(0, 0, 0);
+        panelRecipeSingle.transform.localScale = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -163,8 +167,58 @@ public class SleepHandler : MonoBehaviour
         panelMoneyChange.transform.localScale = new Vector3(0, 0, 0);
 
         yield return new WaitForSeconds(0.5f);
+
+        //show alchemy title
+        tempRecipesTodayAmount = 0;
+        textRecipesToday.GetComponent<UnityEngine.UI.Text>().text = "New Recipes discovered: " + tempRecipesTodayAmount;
         
-        if(pTriggeredFromBed)
+        LeanTween.alpha(panelRecipesToday.GetComponent<RectTransform>(), 1f, 0);
+        textRecipesToday.transform.localScale = new Vector3(1, 1, 1);
+        panelRecipesToday.transform.localScale = new Vector3(1, 1, 1);
+
+        //iterate through new recipes
+        yield return new WaitForSeconds(1f);
+        tempReactions = AlchemyReaction.reactionsDiscoveredToday;
+
+        for (int i = 0; i < tempReactions.Count; i++)
+        {
+            source = GetComponent<AudioSource>();
+            source.PlayOneShot(moneyHandler.moneySound, 1f);
+
+            textRecipeSingle.GetComponent<UnityEngine.UI.Text>().text = tempReactions[i].outputIngredientTypes[0].ingredientName;
+            imageRecipeSingle.GetComponent<UnityEngine.UI.Image>().sprite = tempReactions[i].outputIngredientTypes[0].inventorySprite;
+
+            textRecipeSingle.transform.localScale = new Vector3(1, 1, 1);
+            imageRecipeSingle.transform.localScale = new Vector3(1, 1, 1);
+            
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(panelRecipeSingle.GetComponent<RectTransform>());
+
+            panelRecipeSingle.transform.localScale = new Vector3(1, 1, 1);
+            LeanTween.alpha(panelRecipeSingle.GetComponent<RectTransform>(), 1f, 0);
+
+
+            yield return new WaitForSeconds(2f);
+
+            tempRecipesTodayAmount += 1;
+            textRecipesToday.GetComponent<UnityEngine.UI.Text>().text = "New Recipes discovered: " + tempRecipesTodayAmount; 
+
+            LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y - 200, 0.7f);
+            LeanTween.alpha(panelRecipeSingle.GetComponent<RectTransform>(), 0f, 0.7f);
+
+            yield return new WaitForSeconds(2.5f);
+            LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y + 200, 0);
+
+        }
+
+        //hide Alchemy stuff
+        textRecipesToday.transform.localScale = new Vector3(0, 0, 0);
+        panelRecipeSingle.transform.localScale = new Vector3(0, 0, 0);
+
+        yield return new WaitForSeconds(1f);
+
+        // timejump
+        if (pTriggeredFromBed)
         gameTime.JumpToHourOfTheDay(wakeUpTime);
 
         //show new day
