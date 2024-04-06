@@ -8,6 +8,11 @@ public class NotebookIngredients : MonoBehaviour
     private List<Transform> ingredientTypePanels = new List<Transform>();
     private List<IngredientType> ingredientTypeList = new List<IngredientType>();
 
+    public GameObject paginationButtonBack;
+    public GameObject paginationButtonForward;
+    public GameObject paginationTextLeft;
+    public GameObject paginationTextRight;
+
     public Transform AlchemyEngineIngredientTypes;
 
     public NotebookIngredientDetails notebookIngredientDetails;
@@ -16,6 +21,7 @@ public class NotebookIngredients : MonoBehaviour
     //public ingredientItemDetails ingredientTypeDetails;
 
     int openPage = 0;
+    int itemsPerPage = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +39,9 @@ public class NotebookIngredients : MonoBehaviour
     {
         //Debug.Log("opening");
         NotebookBaseUI.AddToHistory(this.gameObject);
-
         UpdateDetailPanels();
+        UpdatePaginationButtons();
+        UpdatePageNumbers();
         GetComponent<NotebookBaseUI>().Open();
 
     }
@@ -85,7 +92,7 @@ public class NotebookIngredients : MonoBehaviour
             //Debug.Log(i);
 
             //Debug.Log(JobsManagement.activeJobList.Count);
-            if (i < ingredientTypeList.Count)
+            if (i < (ingredientTypeList.Count-openPage*itemsPerPage))
             {
                 ingredientTypePanels[i].localScale = new Vector3(1, 1, 1);
                 //Debug.Log(i + "set to visible, local scale: " + ingredientTypePanels[i].localScale);
@@ -93,14 +100,64 @@ public class NotebookIngredients : MonoBehaviour
                 // CAREFUL: THIS STUFF IS ORDERING SENSITIVE. YOU MESS WITH THE ORDERING, YOU MESS WITH THE CONTENTS, YO! 
                 //Debug.Log(i);
 
-                ingredientTypePanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = ingredientTypeList[i + openPage * 100].inventorySprite;
+                ingredientTypePanels[i].GetChild(1).gameObject.GetComponent<UnityEngine.UI.Image>().sprite = ingredientTypeList[i + openPage * itemsPerPage].inventorySprite;
                 
-                ingredientTypePanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text =  ingredientTypeList[i + openPage * 100].ingredientName;
+                ingredientTypePanels[i].GetChild(0).gameObject.GetComponent<UnityEngine.UI.Text>().text =  ingredientTypeList[i + openPage * itemsPerPage].ingredientName;
 
                 //Debug.Log(i + "info updated");
 
             }
+            else
+            {
+                ingredientTypePanels[i].localScale = new Vector3(0, 0, 0);
+            }
         }
+    }
+
+    public void UpdatePaginationButtons()
+    {
+        //open backbutton
+        if (openPage > 0)
+        {
+            paginationButtonBack.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
+        else
+        {
+            paginationButtonBack.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+
+        //open forwardbutton
+        if (ingredientTypeList.Count > ((openPage+1) * itemsPerPage))
+        {
+            paginationButtonForward.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
+        else
+        {
+            paginationButtonForward.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+    }
+
+    public void UpdatePageNumbers()
+    {
+        paginationTextLeft.gameObject.GetComponent<UnityEngine.UI.Text>().text = (openPage *2+ 1).ToString();
+        paginationTextRight.gameObject.GetComponent<UnityEngine.UI.Text>().text = (openPage *2 + 2).ToString();
+}
+
+    public void PaginateForward()
+    {
+        openPage++;
+        UpdatePaginationButtons();
+        UpdatePageNumbers();
+        UpdateDetailPanels();
+        //Debug.Log("Pageforward: " + openPage);
+    }
+
+    public void PaginateBackward()
+    {
+        openPage--;
+        UpdatePaginationButtons();
+        UpdatePageNumbers();
+        UpdateDetailPanels();
     }
 
     public void OpenIngredientDetails(int i)
@@ -110,7 +167,7 @@ public class NotebookIngredients : MonoBehaviour
         //Debug.Log(jobList[i + openPage * 10]);
         //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
         GetComponent<NotebookBaseUI>().Close();
-        notebookIngredientDetails.Open(ingredientTypeList[i + openPage * 100]);
+        notebookIngredientDetails.Open(ingredientTypeList[i + openPage * itemsPerPage]);
        
 
     }
