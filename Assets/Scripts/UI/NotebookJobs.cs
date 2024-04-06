@@ -123,6 +123,7 @@ public class NotebookJobs : MonoBehaviour
         UpdatePaginationButtons();
         UpdatePageNumbers();
         UpdateJobPanels();
+        GetComponent<NotebookBaseUI>().PlaySound();
         //Debug.Log("Pageforward: " + openPage);
     }
 
@@ -132,6 +133,7 @@ public class NotebookJobs : MonoBehaviour
         UpdatePaginationButtons();
         UpdatePageNumbers();
         UpdateJobPanels();
+        GetComponent<NotebookBaseUI>().PlaySound();
     }
     public void OpenJobDetails(int i)
     {

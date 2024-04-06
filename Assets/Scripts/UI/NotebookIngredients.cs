@@ -149,6 +149,7 @@ public class NotebookIngredients : MonoBehaviour
         UpdatePaginationButtons();
         UpdatePageNumbers();
         UpdateDetailPanels();
+        GetComponent<NotebookBaseUI>().PlaySound();
         //Debug.Log("Pageforward: " + openPage);
     }
 
@@ -158,6 +159,7 @@ public class NotebookIngredients : MonoBehaviour
         UpdatePaginationButtons();
         UpdatePageNumbers();
         UpdateDetailPanels();
+        GetComponent<NotebookBaseUI>().PlaySound();
     }
 
     public void OpenIngredientDetails(int i)
