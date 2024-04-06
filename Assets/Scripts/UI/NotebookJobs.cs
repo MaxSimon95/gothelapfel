@@ -12,7 +12,13 @@ public class NotebookJobs : MonoBehaviour
 
     public JobDetails jobDetails;
 
+    public GameObject paginationButtonBack;
+    public GameObject paginationButtonForward;
+    public GameObject paginationTextLeft;
+    public GameObject paginationTextRight;
+
     int openPage=0;
+    int itemsPerPage = 10;
 
     void Start()
     {
@@ -36,6 +42,8 @@ public class NotebookJobs : MonoBehaviour
         NotebookBaseUI.AddToHistory(this.gameObject);
 
         UpdateJobPanels();
+        UpdatePaginationButtons();
+        UpdatePageNumbers();
 
         GetComponent<NotebookBaseUI>().Open();
     }
@@ -80,13 +88,58 @@ public class NotebookJobs : MonoBehaviour
         }
     }
 
+    public void UpdatePaginationButtons()
+    {
+        //open backbutton
+        if (openPage > 0)
+        {
+            paginationButtonBack.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
+        else
+        {
+            paginationButtonBack.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+
+        //open forwardbutton
+        if (jobList.Count > ((openPage + 1) * itemsPerPage))
+        {
+            paginationButtonForward.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
+        else
+        {
+            paginationButtonForward.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+    }
+
+    public void UpdatePageNumbers()
+    {
+        paginationTextLeft.gameObject.GetComponent<UnityEngine.UI.Text>().text = (openPage * 2 + 1).ToString();
+        paginationTextRight.gameObject.GetComponent<UnityEngine.UI.Text>().text = (openPage * 2 + 2).ToString();
+    }
+
+    public void PaginateForward()
+    {
+        openPage++;
+        UpdatePaginationButtons();
+        UpdatePageNumbers();
+        UpdateJobPanels();
+        //Debug.Log("Pageforward: " + openPage);
+    }
+
+    public void PaginateBackward()
+    {
+        openPage--;
+        UpdatePaginationButtons();
+        UpdatePageNumbers();
+        UpdateJobPanels();
+    }
     public void OpenJobDetails(int i)
     {
         //Debug.Log(i + openPage * 10);
         //Debug.Log(i + " " + JobsManagement.activeJobList[i + openPage * 10].title);
         //Debug.Log(jobList[i + openPage * 10]);
         //JobHandler.detailJob = JobsManagement.activeJobList[i + openPage * 10];
-        jobDetails.Open(jobList[i + openPage * 10]);
+        jobDetails.Open(jobList[i + openPage * itemsPerPage]);
 
     }
     // Update is called once per frame
