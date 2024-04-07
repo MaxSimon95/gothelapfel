@@ -121,7 +121,7 @@ public class SleepHandler : MonoBehaviour
         textMoney.transform.localScale = new Vector3(1, 1, 1);
 
         // iterate through money changes
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         for (int i = 0; i < moneyHandler.moneyChangeLabelsToday.Count; i++)
         {
@@ -147,16 +147,17 @@ public class SleepHandler : MonoBehaviour
             panelMoneyChange.transform.localScale = new Vector3(1, 1, 1);
             LeanTween.alpha(panelMoneyChange.GetComponent<RectTransform>(), 1f, 0);
 
-
-            yield return new WaitForSeconds(2f);
-
             tempMoneyTotal += moneyHandler.moneyChangeAmountsToday[i];
             textMoney.GetComponent<UnityEngine.UI.Text>().text = tempMoneyTotal.ToString();
+            yield return new WaitForSeconds(1f);
+
+            //tempMoneyTotal += moneyHandler.moneyChangeAmountsToday[i];
+            //textMoney.GetComponent<UnityEngine.UI.Text>().text = tempMoneyTotal.ToString();
 
             LeanTween.moveY(panelMoneyChange.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y - 200, 0.7f);
             LeanTween.alpha(panelMoneyChange.GetComponent<RectTransform>(), 0f, 0.7f);
 
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1.5f);
             LeanTween.moveY(panelMoneyChange.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y + 200, 0);
 
         }
@@ -181,7 +182,7 @@ public class SleepHandler : MonoBehaviour
         }
 
         //iterate through new recipes
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         
 
         for (int i = 0; i < tempReactions.Count; i++)
@@ -200,17 +201,18 @@ public class SleepHandler : MonoBehaviour
 
             panelRecipeSingle.transform.localScale = new Vector3(1, 1, 1);
             LeanTween.alpha(panelRecipeSingle.GetComponent<RectTransform>(), 1f, 0);
-
-
-            yield return new WaitForSeconds(2f);
-
+            
             tempRecipesTodayAmount += 1;
-            textRecipesToday.GetComponent<UnityEngine.UI.Text>().text = "New Recipes discovered: " + tempRecipesTodayAmount; 
+            textRecipesToday.GetComponent<UnityEngine.UI.Text>().text = "New Recipes discovered: " + tempRecipesTodayAmount;
+
+            yield return new WaitForSeconds(1f);
+
+            
 
             LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelRecipeSingle.GetComponent<RectTransform>().localPosition.y - 200, 0.7f);
             LeanTween.alpha(panelRecipeSingle.GetComponent<RectTransform>(), 0f, 0.7f);
 
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1.5f);
             LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelRecipeSingle.GetComponent<RectTransform>().localPosition.y + 200, 0);
 
         }
