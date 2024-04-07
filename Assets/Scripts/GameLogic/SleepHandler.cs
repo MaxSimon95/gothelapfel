@@ -83,7 +83,7 @@ public class SleepHandler : MonoBehaviour
     {
         GameTime.timeIsStopped = true;
 
-        
+
         panel.transform.localScale = new Vector3(1, 1, 1);
 
         LeanTween.alpha(panel.GetComponent<RectTransform>(), 1f, 3);
@@ -92,7 +92,7 @@ public class SleepHandler : MonoBehaviour
         moneyHandler.AddMoneyChange("Rent", (moneyHandler.rent * -1));
 
         // appear day 1 label
-        if(pTriggeredFromBed)
+        if (pTriggeredFromBed)
         {
             if (GameTime.hourOfTheDay < wakeUpTime)
             {
@@ -108,8 +108,8 @@ public class SleepHandler : MonoBehaviour
             textDay1.GetComponent<UnityEngine.UI.Text>().text = "Day " + (GameTime.daysSinceStart);
         }
 
-        
-        
+
+
         LeanTween.alpha(textDay1.GetComponent<RectTransform>(), 1f, 0);
         textDay1.transform.localScale = new Vector3(1, 1, 1);
 
@@ -122,22 +122,22 @@ public class SleepHandler : MonoBehaviour
 
         // iterate through money changes
         yield return new WaitForSeconds(1f);
-        
-        for(int i=0; i< moneyHandler.moneyChangeLabelsToday.Count; i++)
+
+        for (int i = 0; i < moneyHandler.moneyChangeLabelsToday.Count; i++)
         {
             source = GetComponent<AudioSource>();
             source.PlayOneShot(moneyHandler.moneySound, 1f);
 
             textMoneyChangeReason.GetComponent<UnityEngine.UI.Text>().text = moneyHandler.moneyChangeLabelsToday[i];
-            if(moneyHandler.moneyChangeAmountsToday[i]>=0)
+            if (moneyHandler.moneyChangeAmountsToday[i] >= 0)
             {
-                textMoneyChangeAmount.GetComponent<UnityEngine.UI.Text>().text = "+"+moneyHandler.moneyChangeAmountsToday[i].ToString();
+                textMoneyChangeAmount.GetComponent<UnityEngine.UI.Text>().text = "+" + moneyHandler.moneyChangeAmountsToday[i].ToString();
             }
             else
             {
                 textMoneyChangeAmount.GetComponent<UnityEngine.UI.Text>().text = moneyHandler.moneyChangeAmountsToday[i].ToString();
             }
-            
+
             textMoneyChangeReason.transform.localScale = new Vector3(1, 1, 1);
             textMoneyChangeAmount.transform.localScale = new Vector3(1, 1, 1);
             imageMoneyChange.transform.localScale = new Vector3(1, 1, 1);
@@ -153,7 +153,7 @@ public class SleepHandler : MonoBehaviour
             tempMoneyTotal += moneyHandler.moneyChangeAmountsToday[i];
             textMoney.GetComponent<UnityEngine.UI.Text>().text = tempMoneyTotal.ToString();
 
-            LeanTween.moveY(panelMoneyChange.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y-200, 0.7f);
+            LeanTween.moveY(panelMoneyChange.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y - 200, 0.7f);
             LeanTween.alpha(panelMoneyChange.GetComponent<RectTransform>(), 0f, 0.7f);
 
             yield return new WaitForSeconds(2.5f);
@@ -169,16 +169,20 @@ public class SleepHandler : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         //show alchemy title
+        tempReactions = AlchemyReaction.reactionsDiscoveredToday;
         tempRecipesTodayAmount = 0;
+        if (tempReactions.Count > 0)
+        { 
         textRecipesToday.GetComponent<UnityEngine.UI.Text>().text = "New Recipes discovered: " + tempRecipesTodayAmount;
-        
+
         LeanTween.alpha(panelRecipesToday.GetComponent<RectTransform>(), 1f, 0);
         textRecipesToday.transform.localScale = new Vector3(1, 1, 1);
         panelRecipesToday.transform.localScale = new Vector3(1, 1, 1);
+        }
 
         //iterate through new recipes
         yield return new WaitForSeconds(1f);
-        tempReactions = AlchemyReaction.reactionsDiscoveredToday;
+        
 
         for (int i = 0; i < tempReactions.Count; i++)
         {
@@ -203,11 +207,11 @@ public class SleepHandler : MonoBehaviour
             tempRecipesTodayAmount += 1;
             textRecipesToday.GetComponent<UnityEngine.UI.Text>().text = "New Recipes discovered: " + tempRecipesTodayAmount; 
 
-            LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y - 200, 0.7f);
+            LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelRecipeSingle.GetComponent<RectTransform>().localPosition.y - 200, 0.7f);
             LeanTween.alpha(panelRecipeSingle.GetComponent<RectTransform>(), 0f, 0.7f);
 
             yield return new WaitForSeconds(2.5f);
-            LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelMoneyChange.GetComponent<RectTransform>().localPosition.y + 200, 0);
+            LeanTween.moveY(panelRecipeSingle.GetComponent<RectTransform>(), panelRecipeSingle.GetComponent<RectTransform>().localPosition.y + 200, 0);
 
         }
 
@@ -235,6 +239,7 @@ public class SleepHandler : MonoBehaviour
     IEnumerator SleepEnd()
     {
         moneyHandler.UpdateMoneyAtDayStart();
+        AlchemyReaction.ClearTodaysReactions();
 
         textDay1.transform.localScale = new Vector3(0, 0, 0);
 
