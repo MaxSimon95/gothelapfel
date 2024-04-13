@@ -25,6 +25,8 @@ public class JobDetails : MonoBehaviour
     public GameObject SubmitButton;
     public GameObject ItemSubmissionInfoText;
 
+    public JobFinishedScreen jobFinishedScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +92,9 @@ public class JobDetails : MonoBehaviour
         GameObject tempItem = InventoryItemSlot.GetChild(0).gameObject;
         jobsManagement.CompleteJob(job, tempItem.GetComponent<InventoryItemHandler>());
 
+        // Finished Screen öffnen
+        jobFinishedScreen.ShowScreen(job);
+
         // Item in Slot vernichten
         tempItem.transform.SetParent(GameObject.Find("CanvasDragItem").transform);
         Debug.Log(tempItem);
@@ -97,6 +102,8 @@ public class JobDetails : MonoBehaviour
 
         UpdateSubmitButton();
         UpdateItemSubmissionInfoText();
+
+        
     }
 
     public void UpdateSubmitButton()
