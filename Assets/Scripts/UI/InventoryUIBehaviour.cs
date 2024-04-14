@@ -108,9 +108,9 @@ public class InventoryUIBehaviour : MonoBehaviour
 
     public void CloseInventory()
     {
-        Debug.Log("Close Inventory");
-        Debug.Log(isLocked);
-        Debug.Log(isScrolledUp);
+     //   Debug.Log("Close Inventory");
+       // Debug.Log(isLocked);
+        //Debug.Log(isScrolledUp);
         if (!isLocked)
         {
             source = GetComponent<AudioSource>();
@@ -118,7 +118,7 @@ public class InventoryUIBehaviour : MonoBehaviour
 
             isScrolledUp = false;
             LeanTween.moveY(GameObject.Find("PanelInventory").GetComponent<RectTransform>(), -307.8795f, 0.8f).setEaseInOutCubic();
-            Debug.Log("Animation initiated");
+          //  Debug.Log("Animation initiated");
         }
         
 
