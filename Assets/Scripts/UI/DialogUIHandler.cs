@@ -12,6 +12,10 @@ public class DialogUIHandler : MonoBehaviour
     public GameObject panelContinue;
     public GameObject labelTextActionable;
     public GameObject labelTextNotActionable;
+    public GameObject labelNPCnameTextActionable;
+    public GameObject labelNPCnameNotActionable;
+    public GameObject labelNPCtitlelabelTextActionable;
+    public GameObject labelNPCtitleNotActionable;
     public GameObject pcImage;
     public GameObject npcImage;
     public List<GameObject> buttons = new List<GameObject>();
@@ -21,6 +25,9 @@ public class DialogUIHandler : MonoBehaviour
     DialogHandler activeDialog;
     DialogSectionHandler activeSection;
     DialogSubSectionHandler activeSubSection;
+
+    private AudioSource source;
+    public AudioClip clickSound;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +47,9 @@ public class DialogUIHandler : MonoBehaviour
     {
         if (!activeSubSection.actionable && dialogIsOpen && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
         {
+            source = GetComponent<AudioSource>();
+            source.PlayOneShot(clickSound, 1f);
+
             if (activeSubSection.finalSubSection)
             {
                 EndDialog();
@@ -60,6 +70,11 @@ public class DialogUIHandler : MonoBehaviour
         activeSection = activeDialog.transform.GetChild(0).GetComponent<DialogSectionHandler>();
         activeSubSection = activeSection.transform.GetChild(0).GetComponent<DialogSubSectionHandler>();
         OpenSubSection(activeSubSection);
+
+        labelNPCnameTextActionable.GetComponent<UnityEngine.UI.Text>().text = activeDialog.npc.fullname;
+        labelNPCnameNotActionable.GetComponent<UnityEngine.UI.Text>().text = activeDialog.npc.fullname; 
+        labelNPCtitlelabelTextActionable.GetComponent<UnityEngine.UI.Text>().text = activeDialog.npc.occupation; 
+        labelNPCtitleNotActionable.GetComponent<UnityEngine.UI.Text>().text = activeDialog.npc.occupation; 
 
         dialogPanel.transform.localScale = new Vector3(1, 1, 1);
 
@@ -131,6 +146,8 @@ public class DialogUIHandler : MonoBehaviour
 
     public void DialogOptionSelected(int i)
     {
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(clickSound, 1f);
         GoToSection(activeSubSection.buttonFollowUpDialogSections[i]);
     }
 }
