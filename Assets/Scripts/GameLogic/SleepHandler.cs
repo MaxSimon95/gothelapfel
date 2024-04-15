@@ -37,8 +37,9 @@ public class SleepHandler : MonoBehaviour
     List<AlchemyReaction> tempReactions = new List<AlchemyReaction>();
 
     private AudioSource source;
+    public AudioClip recipeSound;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -190,7 +191,7 @@ public class SleepHandler : MonoBehaviour
         for (int i = 0; i < tempReactions.Count; i++)
         {
             source = GetComponent<AudioSource>();
-            source.PlayOneShot(moneyHandler.moneySound, 1f);
+            source.PlayOneShot(recipeSound, 1f);
 
             textRecipeSingle.GetComponent<UnityEngine.UI.Text>().text = tempReactions[i].outputIngredientTypes[0].ingredientName;
             imageRecipeSingle.GetComponent<UnityEngine.UI.Image>().sprite = tempReactions[i].outputIngredientTypes[0].inventorySprite;

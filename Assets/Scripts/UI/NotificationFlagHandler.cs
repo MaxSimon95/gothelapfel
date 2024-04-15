@@ -62,6 +62,8 @@ if(LeanTween.isTweening( id ))
 
     public void ShowNotification()
     {
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(sound, 1f);
 
         currentNotification = notificationsInQueue[0];
         notificationActive = true;
