@@ -10,7 +10,8 @@ public class JobFinishedScreen : MonoBehaviour
     public GameObject textMoneyChangeAmount;
     public GameObject textJobTitle;
     public JobDetails jobDetails;
-
+    public MoneyHandler moneyHandler;
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,8 @@ public class JobFinishedScreen : MonoBehaviour
 
     public void CloseScreen()
     {
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(moneyHandler.moneySound, 1f);
         jobDetails.GetComponent<NotebookBaseUI>().Close();
         panel.transform.localScale = new Vector3(0, 0, 0);
     }
