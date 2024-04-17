@@ -60,7 +60,7 @@ public class TripPlanningHandler : MonoBehaviour
 
     public void OpenTripPlanner()
     {
-        //Debug.Log("OpenTripPlanner");
+        Debug.Log("OpenTripPlanner");
 
         regionHandlerList.Clear();
         regionsDropdownOptions.Clear();
@@ -87,6 +87,7 @@ public class TripPlanningHandler : MonoBehaviour
     // updateVisibility based on conducted selections
     public void UpdateElements()
     {
+        Debug.Log("UpdateElements");
         // if region selected, show activity + timetogetthere, else --> hide activity + timetogetthere
         if (UIDropdownRegion.GetComponent<Dropdown>().value == 0)
         {

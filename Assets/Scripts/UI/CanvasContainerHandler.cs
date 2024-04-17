@@ -8,9 +8,10 @@ public class CanvasContainerHandler : MonoBehaviour
 
     private float inventoryStartPosition;
     private InventoryUIBehaviour inventoryUIBehaviour;
-    //public GameObject associatedSceneObject;
+    public GameObject associatedSceneObject;
     public bool hideInventory;
     public bool hasTransferAmountSelection;
+    public bool onlyOpenConditionally;
     //public bool closingInProgress = false;
     //public GameObject itemAutoTransferTargetParent;
 
@@ -79,6 +80,9 @@ public class CanvasContainerHandler : MonoBehaviour
 
     public void OpenContainerView()
     {
+
+        Debug.Log("Open container view");
+
         if(interruptTime)
         {
             GameTime.timeIsStopped = true;
@@ -124,10 +128,19 @@ public class CanvasContainerHandler : MonoBehaviour
             }
         }
 
-
+        
         if(gameObject.GetComponent<TripPlanningHandler>() != null)
         {
-            gameObject.GetComponent<TripPlanningHandler>().OpenTripPlanner();
+            if(associatedSceneObject.GetComponent<DoorKnockHandler>().knockingActive)
+            {
+                associatedSceneObject.GetComponent<DoorKnockHandler>().OpenDoor();
+            }
+            else
+            {
+                gameObject.GetComponent<TripPlanningHandler>().OpenTripPlanner();
+                transform.GetChild(0).localScale = new Vector3(1, 1, 1);
+            }
+            
         }
 
         /*if (gameObject.GetComponent<BedHandler>() != null)
@@ -135,6 +148,7 @@ public class CanvasContainerHandler : MonoBehaviour
             gameObject.GetComponent<BedHandler>().OpenBedCanvas();
         }*/
 
+        if(!onlyOpenConditionally)
         transform.GetChild(0).localScale = new Vector3(1, 1, 1);
 
         if (hideInventory)

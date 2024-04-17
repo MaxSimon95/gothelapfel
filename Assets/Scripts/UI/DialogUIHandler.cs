@@ -38,14 +38,14 @@ public class DialogUIHandler : MonoBehaviour
 
 
         //for debugging
-        StartDialog(GameObject.Find("TESTNPC_1").GetComponent<DialogHandler>());
+        //StartDialog(GameObject.Find("TESTNPC_1").GetComponent<DialogHandler>());
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!activeSubSection.actionable && dialogIsOpen && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
+        if (dialogIsOpen && !activeSubSection.actionable && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
         {
             source = GetComponent<AudioSource>();
             source.PlayOneShot(clickSound, 1f);

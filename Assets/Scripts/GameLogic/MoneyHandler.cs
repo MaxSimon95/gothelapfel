@@ -37,7 +37,7 @@ public class MoneyHandler : MonoBehaviour
 
     public void UpdateMoneyDisplay()
     {
-        Debug.Log("crrent muney " + currentMoney.ToString());
+        //Debug.Log("crrent muney " + currentMoney.ToString());
         UI_textMoney.GetComponent<UnityEngine.UI.Text>().text = currentMoney.ToString();
     }
 
