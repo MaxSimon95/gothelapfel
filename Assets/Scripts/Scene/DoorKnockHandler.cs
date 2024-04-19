@@ -16,11 +16,17 @@ public class DoorKnockHandler : MonoBehaviour
     private AudioSource source;
     public AudioClip sound;
 
+    public List<GameObject> EffectObjects = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
         //for debugging
         AddImpedingDialog(GameObject.Find("TESTNPC_1").GetComponent<DialogHandler>());
+        foreach (GameObject specialeffect in EffectObjects)
+        {
+            LeanTween.alpha(specialeffect, 1, 0);
+        }
     }
 
     public void AddImpedingDialog(DialogHandler pImpedingDialog)
@@ -40,6 +46,12 @@ public class DoorKnockHandler : MonoBehaviour
             source.PlayOneShot(sound, 1f);
 
             //animation
+            foreach(GameObject specialeffect in EffectObjects)
+            {
+                LeanTween.cancel(specialeffect);
+                LeanTween.alpha(specialeffect, 1, 0);
+                LeanTween.alpha(specialeffect, 0f, 0.5f).setDelay(0.5f); ;
+            }
 
             //wait before repeat
 

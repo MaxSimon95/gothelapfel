@@ -29,6 +29,8 @@ public class DialogUIHandler : MonoBehaviour
     private AudioSource source;
     public AudioClip clickSound;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
