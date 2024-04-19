@@ -5,9 +5,9 @@ using UnityEngine;
 public class DialogSectionHandler : MonoBehaviour
 {
 
-    public GameObject panelActionable;
-    public GameObject panelNotActionable;
-    public GameObject labelText;
+    //public GameObject panelActionable;
+    //public GameObject panelNotActionable;
+    //public GameObject labelText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,4 +20,5 @@ public class DialogSectionHandler : MonoBehaviour
     {
         
     }
+
 }

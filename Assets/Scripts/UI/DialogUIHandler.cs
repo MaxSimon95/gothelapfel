@@ -88,6 +88,8 @@ public class DialogUIHandler : MonoBehaviour
         dialogIsOpen = false;
         GameTime.timeIsStopped = false;
         dialogPanel.transform.localScale = new Vector3(0, 0, 0);
+        activeDialog.eventQueue.Invoke();
+
     }
     public void GoToNextSubSection()
     {
@@ -150,6 +152,8 @@ public class DialogUIHandler : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         source.PlayOneShot(clickSound, 1f);
+        DialogEventCodeExecutor.ExecuteEventCode(activeDialog, activeSubSection.buttonDialogEventCodes[i]);
         GoToSection(activeSubSection.buttonFollowUpDialogSections[i]);
+        
     }
 }

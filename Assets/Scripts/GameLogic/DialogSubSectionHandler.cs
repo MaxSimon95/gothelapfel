@@ -12,7 +12,7 @@ public class DialogSubSectionHandler : MonoBehaviour
     
     public List<string> buttonLabels = new List <string>();
     public List<DialogSectionHandler> buttonFollowUpDialogSections = new List<DialogSectionHandler>();
-    public List<string> buttonAdditionalActions = new List<string>();
+    public List<string> buttonDialogEventCodes = new List<string>();
     /*
     private GameObject panelActionable;
     private GameObject panelNotActionable;
@@ -21,7 +21,7 @@ public class DialogSubSectionHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PopulateActionListIfEmpty();
 
     }
     void Awake()
@@ -40,6 +40,20 @@ public class DialogSubSectionHandler : MonoBehaviour
         else
         {
             labelText = GameObject.Find("NotActionableText");
+        } */
+    }
+
+    private void PopulateActionListIfEmpty()
+    {
+        while(buttonDialogEventCodes.Count < buttonLabels.Count)
+        {
+            buttonDialogEventCodes.Add("");
+        }
+
+       /* foreach(string e in buttonDialogEventCodes)
+        {
+          
+            Debug.Log(e);
         } */
     }
 
