@@ -89,6 +89,7 @@ public class DialogUIHandler : MonoBehaviour
         GameTime.timeIsStopped = false;
         dialogPanel.transform.localScale = new Vector3(0, 0, 0);
         activeDialog.eventQueue.Invoke();
+        CanvasContainerHandler.SetSceneUIVisible(true);
 
     }
     public void GoToNextSubSection()

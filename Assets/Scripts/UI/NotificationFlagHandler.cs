@@ -63,8 +63,7 @@ if(LeanTween.isTweening( id ))
 
     public void ShowNotification()
     {
-        source = GetComponent<AudioSource>();
-        source.PlayOneShot(sound, 1f);
+        
 
         currentNotification = notificationsInQueue[0];
         notificationActive = true;
@@ -84,7 +83,9 @@ if(LeanTween.isTweening( id ))
 
         // einblenden
 
-        LeanTween.alpha(UI_panel.GetComponent<RectTransform>(), 1f, 0f);
+        LeanTween.alpha(UI_panel.GetComponent<RectTransform>(), 1f, 0f);//.setDelay(delayTime);
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(sound, 1f);
 
         // X Sekunden (displayTime) warten und ausblenden
         LeanTween.alpha(UI_panel.GetComponent<RectTransform>(), 0f, 1f).setDelay(displayTime).setOnComplete(AfterFadeOutNotification);

@@ -48,7 +48,7 @@ public class DialogEventCodeExecutor : MonoBehaviour
                     dialog.eventQueue.AddListener(delegate 
                     { 
                         Debug.Log("EVENT ADDEVENTTOQUEUE: " + codeParameters[1]);
-                        throw new System.NotImplementedException();
+                        //throw new System.NotImplementedException();
                     });
                     
                     break;
@@ -75,6 +75,17 @@ public class DialogEventCodeExecutor : MonoBehaviour
                     dialog.eventQueue.AddListener(delegate
                     {
                         throw new System.NotImplementedException();
+                    });
+                    break;
+
+                    // activate does not create a new job go from code, but sets an UPCOMING job to ACTIVE by calling the jobhandlers corresponding Activate() Method
+                case "ACTIVATE_JOB":
+                    dialog.eventQueue.AddListener(delegate
+                    {
+                        Debug.Log("ACTIVATE_JOB" );
+                        // codeParameters[1] = jobname
+                        GameObject.Find(codeParameters[1]).GetComponent<JobHandler>().Activate();
+
                     });
                     break;
 

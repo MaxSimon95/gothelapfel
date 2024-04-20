@@ -118,12 +118,14 @@ public class JobHandler : MonoBehaviour
         startPointInTime = GameTime.daysSinceYearStart;
 
         GameObject.Find("PanelNotificationFlag").GetComponent<NotificationFlagHandler>().AddNotificationToQueue(new Notification(this));
+        transform.parent.parent.GetComponent<JobsManagement>().UpdateActiveJobs(false);
     }
 
     public void Complete()
     {
         currentState = JobHandler.state.COMPLETED;
         jobIsSaved = false;
+        transform.parent.parent.GetComponent<JobsManagement>().UpdateActiveJobs(false);
     }
 
     public ItemTypeSuitable CheckItemTypeSuitable (InventoryItemHandler item)

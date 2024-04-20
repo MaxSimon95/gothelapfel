@@ -35,7 +35,7 @@ public class JobsManagement : MonoBehaviour
         eventDayChange.AddListener(ReceivedDayChangeEvent);
         UpdateActiveJobs(false);
 
-        AddJob("Job that was added via Code", 32, GameObject.Find("EXMPL_1337").GetComponent<IngredientType>(), 5, 15, "Sweet Liberty No! Sound familiar?", GameObject.Find("NPC_placeholder").GetComponent<NPC>());
+        //AddJob("Job that was added via Code", 32, GameObject.Find("EXMPL_1337").GetComponent<IngredientType>(), 5, 15, "Sweet Liberty No! Sound familiar?", GameObject.Find("NPC_placeholder").GetComponent<NPC>());
     }
 
     // Update is called once per frame
