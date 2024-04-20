@@ -22,10 +22,10 @@ public class DoorKnockHandler : MonoBehaviour
     void Start()
     {
         //for debugging
-        AddImpedingDialog(GameObject.Find("TESTNPC_1").GetComponent<DialogHandler>());
+        //AddImpedingDialog(GameObject.Find("TESTNPC_1").GetComponent<DialogHandler>());
         foreach (GameObject specialeffect in EffectObjects)
         {
-            LeanTween.alpha(specialeffect, 1, 0);
+            LeanTween.alpha(specialeffect, 0, 0);
         }
     }
 

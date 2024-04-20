@@ -71,8 +71,18 @@ public class DialogEventCodeExecutor : MonoBehaviour
 
                     break;
 
-                case "DISCOVER_INGREDIEsNT":
-                    Debug.Log("TODO");
+                case "ADD_JOB":
+                    dialog.eventQueue.AddListener(delegate
+                    {
+                        throw new System.NotImplementedException();
+                    });
+                    break;
+
+                case "OPEN_REGION":
+                    dialog.eventQueue.AddListener(delegate
+                    {
+                        throw new System.NotImplementedException();
+                    });
                     break;
             }
         }

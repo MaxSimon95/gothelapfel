@@ -11,11 +11,12 @@ public class GameEventHandler : MonoBehaviour
     public bool inEventQueue;
     public int date;
     public int hour;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -36,9 +37,13 @@ public class GameEventHandler : MonoBehaviour
             // parameter 0 is the Functionname if you will. All following parameters are function specific. The switch case here  handles the different function behaviours.
             switch (codeParameters[0])
             {
-                case "TEST":
-                    Debug.Log("Event TEST in Qeue execeuted");
-                    throw new System.NotImplementedException();
+                case "DIALOGUE":
+                    Debug.Log("Event DIALOGUE in Qeue execeuted");
+                    //codeParameter 1 = DialogueName
+                    // start doorknock for dialog in the parameter
+                    transform.parent.GetComponent<GameEvents>().doorKnockHandler.AddImpedingDialog(GameObject.Find(codeParameters[1]).GetComponent<DialogHandler>());
+
+                    //throw new System.NotImplementedException();
 
                     break;
 
