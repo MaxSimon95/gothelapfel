@@ -31,7 +31,7 @@ public class SleepHandler : MonoBehaviour
     public GameObject panelRecipesToday;
     public GameObject panelRecipeSingle;
 
-    public float wakeUpTime;
+    public int wakeUpTime;
     int tempMoneyTotal;
     int tempRecipesTodayAmount;
     List<AlchemyReaction> tempReactions = new List<AlchemyReaction>();

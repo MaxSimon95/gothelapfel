@@ -10,6 +10,7 @@ public class NotificationFlagHandler : MonoBehaviour
     public AudioClip sound;
     private AudioSource source;
     private float displayTime = 3.2f;
+    private float delayTime = 1f;
     public GameObject UI_textTitle;
     public GameObject UI_textBody;
     public GameObject UI_image;

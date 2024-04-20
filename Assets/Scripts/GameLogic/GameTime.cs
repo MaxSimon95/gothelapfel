@@ -25,8 +25,8 @@ public class GameTime : MonoBehaviour
     public static int daysSinceYearStart = 0;
     public static int yearsSinceStart;
     //public static float secondinhosSinceStart = 0;
-    public static float hourOfTheDay = 22;
-    public float hourOfTheDayOffset;
+    public static int hourOfTheDay;
+    public int hourOfTheDayOffset;
 
     public static int yearLengthInDays = 60;
     public static int dayLengthInHours = 24;
@@ -44,6 +44,7 @@ public class GameTime : MonoBehaviour
 
     void Start()
     {
+        hourOfTheDay = hourOfTheDayOffset;
         StartCoroutine(GameTimeLoop());
     }
 
@@ -105,6 +106,8 @@ public class GameTime : MonoBehaviour
         {
             sleepHandler.Sleep(false);
         }
+
+        GameEvents.CheckForExecutableEvent(daysSinceStart, hourOfTheDay);
 
     }
 
@@ -180,7 +183,7 @@ public class GameTime : MonoBehaviour
         }
     }
 
-    public void JumpToHourOfTheDay(float targetHour)
+    public void JumpToHourOfTheDay(int targetHour)
     {
         // no day change if we dont need to change the day, but day change if the target time is on the next day
         if(targetHour > hourOfTheDay)
