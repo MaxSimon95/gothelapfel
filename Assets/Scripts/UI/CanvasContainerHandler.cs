@@ -81,7 +81,7 @@ public class CanvasContainerHandler : MonoBehaviour
     public void OpenContainerView()
     {
 
-        Debug.Log("Open container view");
+        //Debug.Log("Open container view");
 
         if(interruptTime)
         {

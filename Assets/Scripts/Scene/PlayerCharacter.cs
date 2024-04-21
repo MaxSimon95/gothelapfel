@@ -45,7 +45,7 @@ public class PlayerCharacter : MonoBehaviour
         {
             if (CheckDistanceToGO(currentMovementTargetGO) < 1)
             {
-                Debug.Log("Movement target reached");
+                //Debug.Log("Movement target reached");
                 RotateCharacterTowardsPoint(currentMovementTargetGO.transform.position.x, currentMovementTargetGO.transform.position.y);
 
                 if(currentMovementTargetGO.GetComponent<ContainerClickHandler>() != null)

@@ -112,6 +112,14 @@ public class DragAndDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
                     child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateItemSubmissionInfoText();
                 }
             }
+
+            //update analytics station: outside of this loop, since were not looking at the submit button but rather just go for the main script in case of the analytic station
+
+            if (originalParent.transform.parent.gameObject.name == "PanelAnalyticStationView")
+            {
+                originalParent.transform.parent.GetComponent<AnalyticStationHandler>().UpdateDisplayedEffects();
+                //Debug.Log("Origin");
+            }
         }
 
         //special case centrifuge output slots:
