@@ -12,8 +12,8 @@ public class DialogHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        eventQueue.AddListener(delegate { Test("frei"); });
-        eventQueue.AddListener(Test2);
+        //eventQueue.AddListener(delegate { Test("frei"); });
+        //eventQueue.AddListener(Test2);
         //eventQueue.AddListener(delegate { Debug.Log("Externally Added eventcode : '" + "SSSS" + "' gets executed."); });
         // eventQueue.Invoke();
     }

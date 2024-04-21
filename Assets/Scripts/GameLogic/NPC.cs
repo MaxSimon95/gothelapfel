@@ -8,7 +8,8 @@ public class NPC : MonoBehaviour
     public string lastname;
     public string fullname;
     public string occupation;
-    public Sprite image;
+    public Sprite imagePortrait;
+    public Sprite imageLarge;
 
     // Start is called before the first frame update
     void Start()

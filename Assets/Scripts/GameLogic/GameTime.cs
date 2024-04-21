@@ -107,7 +107,7 @@ public class GameTime : MonoBehaviour
             sleepHandler.Sleep(false);
         }
 
-        GameEvents.CheckForExecutableEvent(daysSinceStart, hourOfTheDay);
+        GameEvents.CheckForExecutableEvent(daysSinceStart, hourOfTheDay, true);
 
     }
 

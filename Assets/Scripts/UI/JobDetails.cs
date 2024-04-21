@@ -63,7 +63,7 @@ public class JobDetails : MonoBehaviour
         UIjobDescription.GetComponent<UnityEngine.UI.Text>().text = job.description;
         UIclientName.GetComponent<UnityEngine.UI.Text>().text = job.client.fullname;
         UIclientOccupation.GetComponent<UnityEngine.UI.Text>().text = job.client.occupation;
-        UIclientImage.GetComponent<UnityEngine.UI.Image>().sprite = job.client.image;
+        UIclientImage.GetComponent<UnityEngine.UI.Image>().sprite = job.client.imagePortrait;
         UIjobDateOfInquiry.GetComponent<UnityEngine.UI.Text>().text = job.startPointInTime.ToString();
 
         if (job.requestedIngredientType != null)

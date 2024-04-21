@@ -65,6 +65,7 @@ public class DialogUIHandler : MonoBehaviour
 
     public void StartDialog(DialogHandler dialog)
     {
+        npcImage.GetComponent<Image>().sprite = dialog.npc.imageLarge;
         RenderOrderAdjustment.anyOverlayOpen = true;
         dialogIsOpen = true;
         GameTime.timeIsStopped = true;
@@ -103,7 +104,7 @@ public class DialogUIHandler : MonoBehaviour
 
         if (activeSubSection.actionable)
         {
-            npcImage.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
+            npcImage.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 0.8f);
             pcImage.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
 
             labelTextActionable.GetComponent<UnityEngine.UI.Text>().text = activeSubSection.text;
@@ -126,7 +127,7 @@ public class DialogUIHandler : MonoBehaviour
         else
         {
             npcImage.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
-            pcImage.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.5f);
+            pcImage.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
             if (activeSubSection.finalSubSection)
             {
                 panelContinue.transform.localScale = new Vector3(0, 0, 0);

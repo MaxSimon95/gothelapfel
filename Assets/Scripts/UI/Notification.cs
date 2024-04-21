@@ -56,7 +56,7 @@ public class Notification //: MonoBehaviour
         textButton = "Show Details";
         textContent = job.title;
         //notificationImage = notificationFlagHandler.jobSprite;
-        notificationImage = pJob.client.image;
+        notificationImage = pJob.client.imagePortrait;
     }
 
         public Notification ( AlchemyReaction pAlchemyReaction)
