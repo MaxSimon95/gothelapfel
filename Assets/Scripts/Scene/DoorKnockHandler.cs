@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class DoorKnockHandler : MonoBehaviour
 {
+    public GameEvents gameEvents;
 
     public bool knockingActive;
     public DialogHandler impendingDialog;
     public DialogUIHandler dialogUI;
 
     public int MaxKnockingDurationInSeconds;
-    private int MaxKnockingDurationInIterations=400;
+    private int MaxKnockingDurationInIterations=1;
 
     private AudioSource source;
     public AudioClip sound;
@@ -31,9 +32,20 @@ public class DoorKnockHandler : MonoBehaviour
 
     public void AddImpedingDialog(DialogHandler pImpedingDialog)
     {
-        impendingDialog = pImpedingDialog;
-        knockingActive = true;
-        StartCoroutine(Knocking());
+        
+
+        if(knockingActive)
+        {
+            gameEvents.AddEventToQueue(pImpedingDialog, true);
+            
+        }
+        else
+        {
+            impendingDialog = pImpedingDialog;
+            knockingActive = true;
+            StartCoroutine(Knocking());
+        }
+
     }
 
     public IEnumerator Knocking()
@@ -59,6 +71,8 @@ public class DoorKnockHandler : MonoBehaviour
             
         }
         StopKnocking();
+        gameEvents.AddEventToQueue(impendingDialog, false);
+
     }
 
     public void StopKnocking()

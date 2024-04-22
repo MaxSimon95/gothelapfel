@@ -23,7 +23,8 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    void AddEventToQueue(GameEventHandler gameEvent)
+    // all other AddEventToQeue overloads will be translated into this one, which works with the GameEventHandler we will ultimately use.
+    public void AddEventToQueue(GameEventHandler gameEvent)
     {
         //check if there's already an event at that date+hour, if so, move this one X hours
         int tempDate = gameEvent.date;
@@ -48,6 +49,25 @@ public class GameEvents : MonoBehaviour
         //Debug.Log("Adding Event to Queue: " + gameEvent.name);
         gameEvent.inEventQueue = true;
         eventQueue.Add(gameEvent);
+    }
+
+    // Overload to allow directly inputting a Dialog as an Event
+    public void AddEventToQueue(DialogHandler dialog, bool repeatToday)
+    {
+        GameObject tempGO = (GameObject)Instantiate(Resources.Load("GameEventPrefab"), new Vector3(0, 0, 0), Quaternion.identity);
+        GameEventHandler tempGameEvent = tempGO.GetComponent<GameEventHandler>();
+        tempGameEvent.eventCode = "DIALOGUE " + dialog.name;
+        Debug.Log("tempGameEvent.eventCode: " + tempGameEvent.eventCode);
+        tempGameEvent.description = "EventHandler created from code.";
+        tempGameEvent.inEventQueue = false; // probably irrelevant, as this really gets only used at the Start()
+        tempGameEvent.date = GameTime.daysSinceStart;
+        if (!repeatToday) tempGameEvent.date = tempGameEvent.date + 1;
+        tempGameEvent.hour = GameTime.hourOfTheDay;
+        if (repeatToday) tempGameEvent.hour = tempGameEvent.hour + eventConflictHourOffset;
+
+        tempGO.transform.SetParent(transform);
+
+        AddEventToQueue(tempGameEvent);
     }
 
         public static GameEventHandler CheckForExecutableEvent(int date, int hour, bool executeEvent)

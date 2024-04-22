@@ -119,11 +119,11 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
         //Debug.Log(incomingItemOriginalSlot);
         //Debug.Log(incomingItemOriginalSlot.transform.parent);
 
-        Debug.Log("ITEM BEING MOVED");
+        
 
         if (incomingItemOriginalSlot.name != "CanvasDragItem")
         {
-            Debug.Log("inside canvasdrag not if statement");
+            
             foreach (Transform child in incomingItemOriginalSlot.transform.parent)
             {
                 //Debug.Log(child.gameObject);
@@ -154,10 +154,9 @@ public class ItemSlotHandler : MonoBehaviour, IDropHandler
                     child.gameObject.GetComponent<SubmitAlchemicumButton>().canvas.GetComponent<JobDetails>().UpdateItemSubmissionInfoText();
                 }
             }
-            Debug.Log("after foreach button checker");
+            
             //update analytics station: outside of this loop, since were not looking at the submit button but rather just go for the main script in case of the analytic station
-            Debug.Log("reached code for item moval panael analytica");
-            Debug.Log(incomingItemOriginalSlot.transform.parent.parent.gameObject.name);
+            
             if (incomingItemOriginalSlot.transform.parent.parent.gameObject.name == "PanelAnalyticStationView")
             {
                 incomingItemOriginalSlot.transform.parent.parent.GetComponent<AnalyticStationHandler>().UpdateDisplayedEffects();
