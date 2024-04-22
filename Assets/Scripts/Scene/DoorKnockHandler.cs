@@ -12,7 +12,7 @@ public class DoorKnockHandler : MonoBehaviour
     public DialogUIHandler dialogUI;
 
     public int MaxKnockingDurationInSeconds;
-    private int MaxKnockingDurationInIterations=1;
+    private int MaxKnockingDurationInIterations=10;
 
     private AudioSource source;
     public AudioClip sound;

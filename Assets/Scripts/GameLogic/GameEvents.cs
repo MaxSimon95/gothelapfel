@@ -23,22 +23,25 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    // all other AddEventToQeue overloads will be translated into this one, which works with the GameEventHandler we will ultimately use.
+    // all other AddEventToQeue overloads will be translated into this one, which works with the GameEventHandler we will ultimately use. Here we do the final adjustments to make sure no Events overlap on the hour.
     public void AddEventToQueue(GameEventHandler gameEvent)
     {
+        //Debug.Log("Adde Event To Queue");
         //check if there's already an event at that date+hour, if so, move this one X hours
         int tempDate = gameEvent.date;
         int tempHour = gameEvent.hour; 
         while(CheckForExecutableEvent(tempDate, tempHour, false)!=null)
         {
-            Debug.Log("CheckForExecutableEvent(tempDate: "+ tempDate+", tempHour: " + tempHour + ", false)!=null");
+            
             if(tempHour<(24-eventConflictHourOffset))
             {
+                
                 tempHour = tempHour + eventConflictHourOffset;
             }
             else
             {
-                tempHour = sleepHandler.wakeUpTime;
+                
+                tempHour = sleepHandler.wakeUpTime+1;
                 tempDate = tempDate + 1;
             }
         }
@@ -52,18 +55,33 @@ public class GameEvents : MonoBehaviour
     }
 
     // Overload to allow directly inputting a Dialog as an Event
-    public void AddEventToQueue(DialogHandler dialog, bool repeatToday)
+    public void AddEventToQueue(DialogHandler dialog, bool executeToday)
     {
         GameObject tempGO = (GameObject)Instantiate(Resources.Load("GameEventPrefab"), new Vector3(0, 0, 0), Quaternion.identity);
         GameEventHandler tempGameEvent = tempGO.GetComponent<GameEventHandler>();
         tempGameEvent.eventCode = "DIALOGUE " + dialog.name;
-        Debug.Log("tempGameEvent.eventCode: " + tempGameEvent.eventCode);
+        //Debug.Log("tempGameEvent.eventCode: " + tempGameEvent.eventCode);
         tempGameEvent.description = "EventHandler created from code.";
         tempGameEvent.inEventQueue = false; // probably irrelevant, as this really gets only used at the Start()
         tempGameEvent.date = GameTime.daysSinceStart;
-        if (!repeatToday) tempGameEvent.date = tempGameEvent.date + 1;
         tempGameEvent.hour = GameTime.hourOfTheDay;
-        if (repeatToday) tempGameEvent.hour = tempGameEvent.hour + eventConflictHourOffset;
+        
+        if (executeToday)
+        {
+            
+            
+            if (tempGameEvent.hour >= 24)
+            {
+                tempGameEvent.hour = sleepHandler.wakeUpTime+1;
+                tempGameEvent.date = tempGameEvent.date + 1;
+            }
+        }
+        else
+        {
+            
+            tempGameEvent.date = tempGameEvent.date + 1;
+        }
+        
 
         tempGO.transform.SetParent(transform);
 

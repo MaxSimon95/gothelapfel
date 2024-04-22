@@ -42,6 +42,8 @@ public class GameTime : MonoBehaviour
 
     public SleepHandler sleepHandler;
 
+    public bool jumpToHourOfTheDayCurrentlyActive;
+
     void Start()
     {
         hourOfTheDay = hourOfTheDayOffset;
@@ -102,7 +104,7 @@ public class GameTime : MonoBehaviour
         colorScreenHandler.UpdateColorScreen(colorChangeAnimationOverTime);
         //Debug.Log(hourOfTheDay);
 
-        if(hourOfTheDay == sleepHandler.wakeUpTime)
+        if((hourOfTheDay == sleepHandler.wakeUpTime)&&(!jumpToHourOfTheDayCurrentlyActive))
         {
             sleepHandler.Sleep(false);
         }
@@ -185,6 +187,7 @@ public class GameTime : MonoBehaviour
 
     public void JumpToHourOfTheDay(int targetHour)
     {
+        /*
         // no day change if we dont need to change the day, but day change if the target time is on the next day
         if(targetHour > hourOfTheDay)
         {
@@ -199,7 +202,16 @@ public class GameTime : MonoBehaviour
             IncrementDay(1);
         }
 
+
         hourOfTheDay = targetHour;
+        */
+        jumpToHourOfTheDayCurrentlyActive = true;
+        while (hourOfTheDay != targetHour)
+        {
+            Debug.Log("hourIncrement starting from " + hourOfTheDay);
+            IncrementHourOfTheDay(false);
+        }
+        jumpToHourOfTheDayCurrentlyActive = false;
         colorScreenHandler.UpdateColorScreen(false);
         //UpdateHourOfTheDay(false);
     }
