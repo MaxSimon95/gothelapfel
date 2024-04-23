@@ -88,7 +88,7 @@ public class GameEvents : MonoBehaviour
         AddEventToQueue(tempGameEvent);
     }
 
-        public static GameEventHandler CheckForExecutableEvent(int date, int hour, bool executeEvent)
+    public static GameEventHandler CheckForExecutableEvent(int date, int hour, bool executeEvent)
     {
         
         foreach (GameEventHandler gameEvent in eventQueue)
@@ -103,6 +103,15 @@ public class GameEvents : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void DeleteCompletedEvents()
+    {
+        foreach (Transform gameEvent in transform)
+        {
+            if (gameEvent.GetComponent<GameEventHandler>().date < GameTime.daysSinceStart)
+                Destroy(gameEvent.gameObject);
+        }
     }
 
 

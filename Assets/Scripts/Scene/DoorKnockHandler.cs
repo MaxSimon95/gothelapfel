@@ -36,6 +36,7 @@ public class DoorKnockHandler : MonoBehaviour
 
         if(knockingActive)
         {
+            
             gameEvents.AddEventToQueue(pImpedingDialog, true);
             
         }
@@ -53,6 +54,7 @@ public class DoorKnockHandler : MonoBehaviour
         // knocking can stop manually (opening the door) or after the timeout has been reached (maxknockingdurations)
         for(int i=0; knockingActive&&(i < MaxKnockingDurationInIterations); i++)
         {
+            //Debug.Log("i=" + i + "; MaxKnockingDurationInIterations=" + MaxKnockingDurationInIterations);
             //sound
             source = GetComponent<AudioSource>();
             source.PlayOneShot(sound, 1f);
@@ -69,9 +71,13 @@ public class DoorKnockHandler : MonoBehaviour
 
             yield return new WaitForSeconds(4);
             
+            //only if the knocking stops because it ran out shall we Put the dialogevent back into the queue. If the knocking stops because the dialog started, then we do not put the event back into the dialogqueue as it's playing out.
+            if(i==(MaxKnockingDurationInIterations-1))
+                gameEvents.AddEventToQueue(impendingDialog, false);
         }
         StopKnocking();
-        gameEvents.AddEventToQueue(impendingDialog, false);
+        
+        
 
     }
 

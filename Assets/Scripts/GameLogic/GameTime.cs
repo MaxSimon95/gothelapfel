@@ -41,6 +41,7 @@ public class GameTime : MonoBehaviour
     public static bool timeIsStopped = false;
 
     public SleepHandler sleepHandler;
+    public GameEvents gameEvents;
 
     public bool jumpToHourOfTheDayCurrentlyActive;
 
@@ -136,7 +137,7 @@ public class GameTime : MonoBehaviour
 
         eventDayChange.Invoke();
 
-
+        gameEvents.DeleteCompletedEvents();
     }
 
     void UpdateYear(int yearAddition)
@@ -208,7 +209,7 @@ public class GameTime : MonoBehaviour
         jumpToHourOfTheDayCurrentlyActive = true;
         while (hourOfTheDay != targetHour)
         {
-            Debug.Log("hourIncrement starting from " + hourOfTheDay);
+            //Debug.Log("hourIncrement starting from " + hourOfTheDay);
             IncrementHourOfTheDay(false);
         }
         jumpToHourOfTheDayCurrentlyActive = false;

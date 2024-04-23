@@ -38,7 +38,7 @@ public class NotebookBaseUI : MonoBehaviour
 
     public void Close()
     {
-        Debug.Log("CLOSE CALL: " + this.gameObject.name);
+        //Debug.Log("CLOSE CALL: " + this.gameObject.name);
 
         CanvasContainerHandler.SetSceneUIVisible(true);
         //Debug.Log("CLOSE");
