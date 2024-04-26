@@ -32,6 +32,10 @@ public class JobHandler : MonoBehaviour
     public string description;
 
     public NPC client;
+    public NPC recipient;
+    public enum UseType { CONSUMPTION, ONSKIN, OTHER};
+    public UseType useType;
+    
 
     public static JobHandler detailJob;
 
@@ -61,10 +65,15 @@ public class JobHandler : MonoBehaviour
         EXACTLY_EQUAL,
     }
 
+    public string eventName_CORRECT;
+    public string eventName_SIDEEFFECTS;
+    public string eventName_WRONG;
 
     // Start is called before the first frame update
     void Awake()
     {
+        if (((useType==UseType.CONSUMPTION) || (useType==UseType.ONSKIN)) && (recipient == null)) 
+            throw new System.Exception("Recipient not set but must be set in job " + name);
 
         for (int i=0; i < requestedEffects.Count; i++) 
         {

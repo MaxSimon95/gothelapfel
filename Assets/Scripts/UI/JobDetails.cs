@@ -27,10 +27,15 @@ public class JobDetails : MonoBehaviour
 
     public JobFinishedScreen jobFinishedScreen;
 
+    //public enum itemState { UPCOMING, ACTIVE, COMPLETED, EXPIRED }
+    public JobHandler.state itemState;
+
+
     // Start is called before the first frame update
     void Start()
     {
         jobsManagement = GameObject.Find("JobManagement").GetComponent<JobsManagement>();
+
     }
 
     // Update is called once per frame
@@ -97,7 +102,7 @@ public class JobDetails : MonoBehaviour
 
         // Item in Slot vernichten
         tempItem.transform.SetParent(GameObject.Find("CanvasDragItem").transform);
-        Debug.Log(tempItem);
+        //Debug.Log(tempItem);
         GameObject.Destroy(tempItem);
 
         UpdateSubmitButton();
@@ -151,9 +156,17 @@ public class JobDetails : MonoBehaviour
 
                     case JobHandler.ItemTypeSuitable.WRONG_EFFECT:
 
+                    if (itemAmountChecked != JobHandler.ItemAmountSuitable.TOO_LITTLE)
+                    {
+                        SubmitButton.GetComponent<Button>().interactable = true;
+                    }
+                    else
+                    {
                         SubmitButton.GetComponent<Button>().interactable = false;
 
-                        break;
+                    }
+
+                    break;
 
                     case JobHandler.ItemTypeSuitable.CORRECT_INVENTORYITEM:
 
@@ -228,18 +241,35 @@ public class JobDetails : MonoBehaviour
                     }
                     else
                     {
-                        ItemSubmissionInfoText.GetComponent<UnityEngine.UI.Text>().text = "This alchemicum meets the desired effects, but it also has side effects which were not requested. You can submit this alchemicum, but doing so may lead to unexpected consequences. ";
+                        ItemSubmissionInfoText.GetComponent<UnityEngine.UI.Text>().text = "This alchemicum meets the desired effects, but it also has side effects which were not requested. You can submit this alchemicum, but doing so will have consequences. ";
                     }
                     break;
 
 
                 case JobHandler.ItemTypeSuitable.WRONG_EFFECT:
 
+                    if (itemAmountChecked == JobHandler.ItemAmountSuitable.TOO_LITTLE)
+                    {
+                        ItemSubmissionInfoText.GetComponent<UnityEngine.UI.Text>().text =
+                            "The amount of the alchemicum is too little. We provide an amount of "
+                            + InventoryItemSlot.GetChild(0).gameObject.GetComponent<InventoryItemHandler>().amountTotal
+                            + ", but an amount of "
+                            + job.requestedAmount
+                            + " was requested. ";
+                    }
+                    else
+                    {
                         if (job.requestedEffects.Count == 1)
-                            ItemSubmissionInfoText.GetComponent<UnityEngine.UI.Text>().text = "This alchemicum does not have the requested effect. ";
+                            ItemSubmissionInfoText.GetComponent<UnityEngine.UI.Text>().text = "This alchemicum does not have the requested effect. You can submit this alchemicum, but doing so will have consequences. ";
 
                         else
-                            ItemSubmissionInfoText.GetComponent<UnityEngine.UI.Text>().text = "This alchemicum does not have all the requested effects. ";
+                            ItemSubmissionInfoText.GetComponent<UnityEngine.UI.Text>().text = "This alchemicum does not have all the requested effects. You can submit this alchemicum, but doing so will have consequences. ";
+                    }
+                    break;
+
+
+
+                   
 
                         break;
 
@@ -271,4 +301,6 @@ public class JobDetails : MonoBehaviour
         }
         
     }
+
+   
 }

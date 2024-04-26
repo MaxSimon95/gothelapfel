@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameEvents : MonoBehaviour
 {
     public GameTime gametime;
+    
 
     public static List<GameEventHandler> eventQueue = new List<GameEventHandler>();
     public int eventConflictHourOffset; // used when 2 events would be at the same time, to move the second event bis this amount of hours back(repeated until a free spot is found)
@@ -19,18 +20,32 @@ public class GameEvents : MonoBehaviour
         foreach (Transform eventTransform in transform)
         {
             if (eventTransform.GetComponent<GameEventHandler>().inEventQueue)
-                AddEventToQueue(eventTransform.GetComponent<GameEventHandler>());
+                AddEventToQueue(eventTransform.GetComponent<GameEventHandler>(),true);
         }
     }
 
     // all other AddEventToQeue overloads will be translated into this one, which works with the GameEventHandler we will ultimately use. Here we do the final adjustments to make sure no Events overlap on the hour.
-    public void AddEventToQueue(GameEventHandler gameEvent)
+    public void AddEventToQueue(GameEventHandler gameEvent, bool timesRelative)
     {
         //Debug.Log("Adde Event To Queue");
         //check if there's already an event at that date+hour, if so, move this one X hours
+
         int tempDate = gameEvent.date;
-        int tempHour = gameEvent.hour; 
-        while(CheckForExecutableEvent(tempDate, tempHour, false)!=null)
+        int tempHour = gameEvent.hour;
+
+        //adjust time and date if relative. this is done to allow follow up events to take place a certain amount of time AFTER their origin events.
+        if (timesRelative)
+        {
+            tempDate = tempDate + GameTime.daysSinceStart;
+            tempHour = tempHour + GameTime.hourOfTheDay;
+            if(tempHour >= 24 )
+            {
+                tempHour = sleepHandler.wakeUpTime + 1;
+                tempDate = tempDate + 1;
+            }
+        }
+
+        while (CheckForExecutableEvent(tempDate, tempHour, false)!=null)
         {
             
             if(tempHour<(24-eventConflictHourOffset))
@@ -85,7 +100,7 @@ public class GameEvents : MonoBehaviour
 
         tempGO.transform.SetParent(transform);
 
-        AddEventToQueue(tempGameEvent);
+        AddEventToQueue(tempGameEvent, true);
     }
 
     public static GameEventHandler CheckForExecutableEvent(int date, int hour, bool executeEvent)

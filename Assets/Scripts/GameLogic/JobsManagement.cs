@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class JobsManagement : MonoBehaviour
 {
 
+    public GameEvents gameEvents;
+
     public Transform panelFeaturedJobsInner;
     public MoneyHandler moneyHandler;
     //public Transform panelFeaturedJobsOuter;
@@ -179,7 +181,55 @@ public class JobsManagement : MonoBehaviour
         //moneyHandler.UpdateMoneyDisplay();
         moneyHandler.AddMoneyChange(job.title, job.payment);
 
+        JobConsequences(job, inventoryItem);
+
         Debug.Log("job completed: " + job.title);
-        Debug.Log(inventoryItem);
+       // Debug.Log(inventoryItem);
+    }
+
+    private void JobConsequences(JobHandler job, InventoryItemHandler inventoryItem)
+    {
+        JobHandler.ItemTypeSuitable itemTypeChecked;
+        itemTypeChecked = job.CheckItemTypeSuitable(inventoryItem);
+
+        switch(itemTypeChecked)
+        {
+            case JobHandler.ItemTypeSuitable.CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS:
+
+                if(job.eventName_CORRECT != "")
+                gameEvents.AddEventToQueue(GameObject.Find(job.eventName_CORRECT).GetComponent<GameEventHandler>(), true);
+
+                break;
+
+            case JobHandler.ItemTypeSuitable.CORRECT_EFFECT_WITH_UNWANTED_HARMFUL_SIDEFFECTS:
+
+                if (job.eventName_SIDEEFFECTS != "")
+                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_SIDEEFFECTS).GetComponent<GameEventHandler>(), true);
+
+                break;
+
+            case JobHandler.ItemTypeSuitable.WRONG_EFFECT:
+
+                if (job.eventName_WRONG != "")
+                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_WRONG).GetComponent<GameEventHandler>(), true);
+
+                break;
+
+            case JobHandler.ItemTypeSuitable.CORRECT_INVENTORYITEM:
+
+                if (job.eventName_CORRECT != "")
+                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_CORRECT).GetComponent<GameEventHandler>(), true);
+
+                break;
+
+            case JobHandler.ItemTypeSuitable.WRONG_INVENTORYITEM:
+
+                if (job.eventName_WRONG != "")
+                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_WRONG).GetComponent<GameEventHandler>(), true);
+
+                break;
+
+
+        }
     }
 }
