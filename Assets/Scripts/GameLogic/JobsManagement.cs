@@ -191,41 +191,73 @@ public class JobsManagement : MonoBehaviour
     {
         JobHandler.ItemTypeSuitable itemTypeChecked;
         itemTypeChecked = job.CheckItemTypeSuitable(inventoryItem);
+        Debug.Log("itemTypeChecked " + itemTypeChecked);
 
-        switch(itemTypeChecked)
+        // Let them eat the cake (if it is a item that is even meant for being consumed/put on skin) 
+        if ((job.useType == JobHandler.UseType.CONSUMPTION)|| (job.useType == JobHandler.UseType.ONSKIN))
+        {
+            if(job.recipient != null)
+            {
+                job.recipient.ConsumeInventoryItem(inventoryItem, job.useType);
+            }
+        }
+
+        switch (itemTypeChecked)
         {
             case JobHandler.ItemTypeSuitable.CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS:
 
-                if(job.eventName_CORRECT != "")
-                gameEvents.AddEventToQueue(GameObject.Find(job.eventName_CORRECT).GetComponent<GameEventHandler>(), true);
+                Debug.Log("Job completed: " + "CORRECT_EFFECT_WITHOUT_UNWANTED_HARMFUL_SIDEFFECTS");
+                if (job.event_CORRECT_WITHOUT_HARMFUL_SIDEFFECTS != null)
+                gameEvents.AddEventToQueue(job.event_CORRECT_WITHOUT_HARMFUL_SIDEFFECTS, true);
 
                 break;
 
             case JobHandler.ItemTypeSuitable.CORRECT_EFFECT_WITH_UNWANTED_HARMFUL_SIDEFFECTS:
 
-                if (job.eventName_SIDEEFFECTS != "")
-                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_SIDEEFFECTS).GetComponent<GameEventHandler>(), true);
+                // daran ob der recipient noch lebt, kann erkannt werden, ob die effects tödlich waren.
+                if (job.recipient.alive)
+                {
+                    Debug.Log("Job completed: " + "CORRECT_WITH_NONLETHAL_HARMFUL_SIDEFFECTS");
+                    if (job.event_CORRECT_WITH_NONLETHAL_HARMFUL_SIDEFFECTS != null)
+                        gameEvents.AddEventToQueue(job.event_CORRECT_WITH_NONLETHAL_HARMFUL_SIDEFFECTS, true);
+                }
+                else
+                {
+                    Debug.Log("Job completed: " + "(correct) but LETHAL_HARMFUL_SIDEFFECTS");
+                    if (job.event_LETHAL_HARMFUL_SIDEFFECTS != null)
+                        gameEvents.AddEventToQueue(job.event_LETHAL_HARMFUL_SIDEFFECTS, true);
+                }
 
                 break;
 
             case JobHandler.ItemTypeSuitable.WRONG_EFFECT:
 
-                if (job.eventName_WRONG != "")
-                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_WRONG).GetComponent<GameEventHandler>(), true);
+                if (job.recipient.alive)
+                {
+                    Debug.Log("Job completed: " + "event_WRONG_NONLETHAL");
+                    if (job.event_WRONG_NONLETHAL != null)
+                        gameEvents.AddEventToQueue(job.event_WRONG_NONLETHAL, true);
+                }
+                else
+                {
+                    Debug.Log("Job completed: " + "(wrong) and LETHAL_SIDEFFECTS");
+                    if (job.event_LETHAL_HARMFUL_SIDEFFECTS != null)
+                        gameEvents.AddEventToQueue(job.event_LETHAL_HARMFUL_SIDEFFECTS, true);
+                }
 
                 break;
 
             case JobHandler.ItemTypeSuitable.CORRECT_INVENTORYITEM:
 
-                if (job.eventName_CORRECT != "")
-                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_CORRECT).GetComponent<GameEventHandler>(), true);
+                if (job.event_CORRECT_WITHOUT_HARMFUL_SIDEFFECTS != null)
+                    gameEvents.AddEventToQueue(job.event_CORRECT_WITHOUT_HARMFUL_SIDEFFECTS, true);
 
                 break;
 
             case JobHandler.ItemTypeSuitable.WRONG_INVENTORYITEM:
 
-                if (job.eventName_WRONG != "")
-                    gameEvents.AddEventToQueue(GameObject.Find(job.eventName_WRONG).GetComponent<GameEventHandler>(), true);
+               // if (job.eventName_WRONG != "")
+                 //   gameEvents.AddEventToQueue(GameObject.Find(job.eventName_WRONG).GetComponent<GameEventHandler>(), true);
 
                 break;
 

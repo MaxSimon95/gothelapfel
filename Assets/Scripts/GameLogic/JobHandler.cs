@@ -65,9 +65,12 @@ public class JobHandler : MonoBehaviour
         EXACTLY_EQUAL,
     }
 
-    public string eventName_CORRECT;
-    public string eventName_SIDEEFFECTS;
-    public string eventName_WRONG;
+    public GameEventHandler event_CORRECT_WITHOUT_HARMFUL_SIDEFFECTS;
+    public GameEventHandler event_CORRECT_WITH_NONLETHAL_HARMFUL_SIDEFFECTS;
+    //public GameEventHandler event_WRONG_WITHOUT_HARMFUL_SIDEFFECTS;
+    public GameEventHandler event_WRONG_NONLETHAL;
+    public GameEventHandler event_LETHAL_HARMFUL_SIDEFFECTS;
+
 
     // Start is called before the first frame update
     void Awake()
